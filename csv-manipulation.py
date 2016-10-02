@@ -17,7 +17,7 @@ def isFloat(value):
 		return False
 ##!!
 dir = os.path.dirname(__file__)
-configPath = os.path.join(dir, "config/config.json")
+configPath = os.path.join(dir, "private/config.json")
 with open(configPath) as data_file:
     configObj = json.load(data_file)
 
