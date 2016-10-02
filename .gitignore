@@ -1,0 +1,10 @@
+bower_components/
+data/
+private/
+node_modules/
+public/
+*.log
+MongoDBDump/
+*~
+*.pyc
+*__pycache__/

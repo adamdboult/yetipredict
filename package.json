@@ -1,0 +1,47 @@
+{
+    "dependencies": {
+	"passport": "~0.3.2",
+	"passport-local": "~1.0.0",
+	
+	"winston": "~2.2.0",
+	"mongoose": "~4.5.0",
+	"bcrypt-nodejs": "~0.0.3",
+
+	"gulp": "~3.9.1",
+	"gulp-jshint": "~2.0.1",
+	"gulp-concat": "~2.6.0",
+	"gulp-strip-debug": "~1.1.0",
+	"gulp-uglify": "~1.5.3",
+	"gulp-autoprefixer": "~3.1.0",
+	"gulp-jade": "~1.1.0",
+	"gulp-sass": "~2.3.0",
+	"gulp-shell": "~0.5.1",
+	
+	"rimraf": "~2.5",
+	"q": "~1.4.1",
+
+	"express": "~4.13.4",
+	"sitemap": "~1.6.0",
+	"mailgun-js": "~0.7.0",
+	"mailcomposer": "~3.9.0",
+	"serve-favicon": "~2.3.0",
+	"forcedomain": "~0.6.0",
+	"connect-flash": "~0.1.1",
+	"cookie-parser": "~1.4.3",
+	"body-parser": "~1.15.1",
+	"cookie-session": "~2.0.0-alpha.1",
+	"jade":"~1.11.0"
+    },
+    "repository": {
+	"type": "git",
+	"url": "git://git@bitbucket.org/adamdboult/econyeti.git"
+    },
+    "description": "Econyeti explores public data",
+    "scripts": {
+	"gulp_debug": "gulp debug",
+	"bower_install": "bower install",
+	"bower_update": "bower update",
+	"metalsmith": "metalsmith",
+	"dataCombiner": "dataCombiner"
+    }
+}
