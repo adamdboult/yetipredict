@@ -1,0 +1,32 @@
+extends loginHeader.jade
+
+block content
+	//style.
+	//	.DocList {
+	//		 text-overflow: clip;
+	//		 overflow: hidden;
+	//		 white-space: nowrap;
+	//		 width: 1000px;
+	//	}
+	.container.fill
+		span.DocList
+			span
+				a(href="/grouplist")
+					span.glyphicon.glyphicon-plus
+					span More groups
+			span
+				a(href="/predict")
+					span.glyphicon.glyphicon-globe
+					span All predictions 
+			each kw, i in ara.array
+				if (i<70)
+					span
+						a(href="/group/"+kw.lName)
+							if (kw.personal===true)
+								span.glyphicon.glyphicon-lock
+							else if (kw.open===true)
+								span.glyphicon.glyphicon-cloud
+							else
+								span.glyphicon.glyphicon-link
+							span=kw.name+" "
+		block predictContent

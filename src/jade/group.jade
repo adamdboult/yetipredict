@@ -1,0 +1,82 @@
+extends templates/predictHeader.jade
+
+block predictContent
+	h1=groupProper
+	//if (adminAccess===true)
+	if (group==='personal')
+		span.glyphicon.glyphicon-lock
+		span Predictions you make here can only be seen by you!
+	else if (open===true)
+		span.glyphicon.glyphicon-cloud
+		span Predictions here are public
+	else
+		span.glyphicon.glyphicon-link
+		span Predictions here are private to members of this group
+	br
+	a(href="/groupabout/"+group) Settings
+	br
+	if (user)
+		a(href='/newpredict/'+group) Create something new to predict.
+	h2 Predictions
+	p Sort by
+		select(onchange="window.location.href=this.value")
+			if (sortURL==="sort=score")
+				option(value="/group/"+group+"?"+completeURL+"&sort=date") New
+				option(value="/group/"+group+"?"+completeURL+"&sort=score" selected="selected") Popular
+			else
+				option(value="/group/"+group+"?"+completeURL+"&sort=date" selected="selected") New
+				option(value="/group/"+group+"?"+completeURL+"&sort=score") Popular
+	p Show	
+		select(onchange="window.location.href=this.value")
+			if (completeURL==="complete=-1")
+				option(value="/group/"+group+"?complete=1&"+sortURL) Completed only
+				option(value="/group/"+group+"?complete=0&"+sortURL) Incomplete only
+				option(value="/group/"+group+"?complete=-1&"+sortURL selected="selected") All
+			else if (completeURL==="complete=0")
+				option(value="/group/"+group+"?complete=1&"+sortURL) Completed only
+				option(value="/group/"+group+"?complete=0&"+sortURL selected="selected") Incomplete only
+				option(value="/group/"+group+"?complete=-1&"+sortURL) All
+			else
+				option(value="/group/"+group+"?complete=1&"+sortURL selected="selected") Completed only
+				option(value="/group/"+group+"?complete=0&"+sortURL) Incomplete only
+				option(value="/group/"+group+"?complete=-1&"+sortURL) All
+	each prediction in predictionsArray
+		a(href="/group/"+prediction.group+"/"+prediction.ldesc)=prediction.desc+"?"
+		br
+	nav
+		ul(class="pagination")
+			if (thisPage>0)
+				li(class="active")
+					a(href="/group/"+group+"?"+completeURL+"&"+sortURL+"&page="+(thisPage-1) aria-label="Previous")
+						span(aria-hidden="true") &laquo;
+			else
+				li(class="disabled")
+					a(href="#" aria-label="Previous")
+						span(aria-hidden="true") &laquo;
+			if (thisPage>1)
+				li(class="active")
+					a(href="/group/"+group+"?"+completeURL+"&"+sortURL+"&page="+(thisPage-2))
+						span(aria-hidden="true")=(thisPage-1)
+			if (thisPage>0)
+				li(class="active")
+					a(href="/group/"+group+"?"+completeURL+"&"+sortURL+"&page="+(thisPage-1))
+						span(aria-hidden="true")=thisPage
+			li(class="disabled")
+				a(href="#")
+					span(aria-hidden="true")=(thisPage+1)
+			if (totalPages-thisPage>1)	
+				li(class="active")
+					a(href="/group/"+group+"?"+completeURL+"&"+sortURL+"&page="+(thisPage+1))
+						span(aria-hidden="true")=(thisPage+2)
+			if (totalPages-thisPage>2)
+				li(class="active")
+					a(href="/group/"+group+"?"+completeURL+"&"+sortURL+"&page="+(thisPage+2))
+						span(aria-hidden="true")=(thisPage+3)
+			if ((thisPage+1)<totalPages)
+				li(class="active")
+					a(href="/group/"+group+"?"+completeURL+"&"+sortURL+"&page="+(thisPage+1) aria-label="Next")
+						span(aria-hidden="true") &raquo;
+			else
+				li(class="disabled")
+					a(href="#" aria-label="Next")
+						span(aria-hidden="true") &raquo;

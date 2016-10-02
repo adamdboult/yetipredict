@@ -1,0 +1,34 @@
+extends templates/loginHeader.jade
+
+block content
+	.container.fill
+		br
+		.jumbotron
+			h1.bs-docs-featurette-title YetiPredict
+			p.lead YetiPredict allows you to analyse data and track your predictions
+		.row
+			.col-sm-4
+				h2 Personal
+				p Track your own predictions, privately, to check you are on track, and are planning accurately.
+				ul 
+					li Will I complete a half marathon by March?
+					li Will I save £5000 in 2016?
+			.col-sm-4
+				h2 Projects
+				p Many corporate plans are prone to optimism bias and poor incentives. Make predictions with your colleagues on outcomes which affect your team.
+				ul
+					li Will project Phoenix be delivered by January 2017?
+					li Will sales reach £100,000 per month by October 2016?
+			.col-sm-4
+				h2 World events
+				p Make or view predictions made by anyone, on any issue you can think of.
+				ul
+					li Will TTIP be agreed by December 2016?
+					li Will UK headline GDP growth by above 2% in December 2016?
+		h2
+			a(href="/predict") Make Predictions
+			span  - 
+			a(href="/data") Analyse Data
+		footer
+			p.version Created by Adam Boult
+			a(href="mailto:adam@yetipredict.com") adam@yetipredict.com

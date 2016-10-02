@@ -1,0 +1,10 @@
+extends templates/predictHeader.jade
+
+block predictContent
+	script(src="/js/users.js")
+	.container.predict
+		h1 User list
+		div(ng-repeat="user in userList")
+			a(ng-href="/users/{{user}}") {{user}}
+			if (adminAccess===true)
+				button.btn.btn-xs.btn-danger(ng-click="deleteUser(user)") Delete User

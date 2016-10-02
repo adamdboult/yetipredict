@@ -1,0 +1,74 @@
+extends templates/predictHeader.jade
+
+block predictContent
+	h1 All predictions
+	if (user)
+		p Getting started? Select personal above to make some predictions only you can see, or select another group to make forecasts with others!
+	else
+		p Sign in to view your private predictions, and to cast more predictions.
+	h2 Predictions
+	p Sort by
+		select(onchange="window.location.href=this.value")
+			if (sortURL==="sort=score")
+				option(value="/predict?"+completeURL+"&sort=date") New
+				option(value="/predict?"+completeURL+"&sort=score" selected="selected") Popular
+			else
+				option(value="/predict?"+completeURL+"&sort=date" selected="selected") New
+				option(value="/predict?"+completeURL+"&sort=score") Popular
+	p Show	
+		select(onchange="window.location.href=this.value")
+			if (completeURL==="complete=-1")
+				option(value="/predict?complete=1&"+sortURL) Completed only
+				option(value="/predict?complete=0&"+sortURL) Incomplete only
+				option(value="/predict?complete=-1&"+sortURL selected="selected") All
+			else if (completeURL==="complete=0")
+				option(value="/predict?complete=1&"+sortURL) Completed only
+				option(value="/predict?complete=0&"+sortURL selected="selected") Incomplete only
+				option(value="/predict?complete=-1&"+sortURL) All
+			else
+				option(value="/predict?complete=1&"+sortURL selected="selected") Completed only
+				option(value="/predict?complete=0&"+sortURL) Incomplete only
+				option(value="/predict?complete=-1&"+sortURL) All
+	each prediction in predictionsArray
+		p
+			a(href="/group/"+prediction.group+"/"+prediction.ldesc)=prediction.desc+"?"
+			span  [
+			a(href="/group/"+prediction.group)=prediction.groupProper
+			span ]
+	nav
+		ul(class="pagination")
+			if (thisPage>0)
+				li(class="active")
+					a(href="/predict?"+completeURL+"&"+sortURL+"&page="+(thisPage-1) aria-label="Previous")
+						span(aria-hidden="true") &laquo;
+			else
+				li(class="disabled")
+					a(href="#" aria-label="Previous")
+						span(aria-hidden="true") &laquo;
+			if (thisPage>1)
+				li(class="active")
+					a(href="/predict?"+completeURL+"&"+sortURL+"&page="+(thisPage-2))
+						span(aria-hidden="true")=(thisPage-1)
+			if (thisPage>0)
+				li(class="active")
+					a(href="/predict?"+completeURL+"&"+sortURL+"&page="+(thisPage-1))
+						span(aria-hidden="true")=thisPage
+			li(class="disabled")
+				a(href="#")
+					span(aria-hidden="true")=(thisPage+1)
+			if (totalPages-thisPage>1)	
+				li(class="active")
+					a(href="/predict?"+completeURL+"&"+sortURL+"&page="+(thisPage+1))
+						span(aria-hidden="true")=(thisPage+2)
+			if (totalPages-thisPage>2)
+				li(class="active")
+					a(href="/predict?"+completeURL+"&"+sortURL+"&page="+(thisPage+2))
+						span(aria-hidden="true")=(thisPage+3)
+			if ((thisPage+1)<totalPages)
+				li(class="active")
+					a(href="/predict?"+completeURL+"&"+sortURL+"&page="+(thisPage+1) aria-label="Next")
+						span(aria-hidden="true") &raquo;
+			else
+				li(class="disabled")
+					a(href="#" aria-label="Next")
+						span(aria-hidden="true") &raquo;

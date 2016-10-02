@@ -1,0 +1,65 @@
+extends templates/predictHeader.jade
+block predictContent
+	script(src="/js/predictionabout.js")
+	script.
+		var localData = !{JSON.stringify(group)};
+	script.
+		var verbose = !{JSON.stringify(verbose)};
+	script.
+		var localArra = !{JSON.stringify(ara.array)};
+	script.
+		var members=!{JSON.stringify(members)};
+	script.
+		var answers=!{JSON.stringify(answers)};
+	script.
+		var predictionAbout=!{JSON.stringify(prediction)};
+	script.
+		var outcomes=!{JSON.stringify(outcomes)};
+	//script.
+	//	var verboseAbout=!{JSON.stringify(verboseAbout)};
+	//script.
+	//	var verboseUpdateAbout=!{JSON.stringify(verboseUpdateAbout)};
+	.container.predict
+		.col-sm-6.mygrid-wrapper-div.col-sm-offset-3
+			h1 
+				a(href="/group/"+group+"/"+prediction)=predictionProper+"?"
+			p=verboseAbout
+			each i, index in verboseUpdateAbout
+				p #[strong Update]: !{i.text}
+			p {{feedback}}
+			p #[strong Group]: 
+				if (group==='Personal')
+					span.glyphicon.glyphicon-lock
+				else if (open===true)
+					span.glyphicon.glyphicon-cloud
+				else
+					span.glyphicon.glyphicon-link
+				a(href="/group/"+group)=groupProper
+			p #[strong Author]: 
+				a(ng-href="/users/{{graphMeta.author}}") {{graphMeta.author}}
+			p #[strong End]: {{graphMeta.end}}
+			p #[strong Source]: {{graphMeta.source}}
+			p #[strong Complete]: !{JSON.stringify(complete)}
+			h2 Outcomes:
+			div(ng-repeat="aboutAnswer in aboutAnswers track by $index")
+				h3 {{aboutAnswer.name}}, currently {{aboutAnswer.value}}
+				if(predictionAccess===true)
+					h4 Change outcome
+					div(ng-hide="declareYesToggle[$index]")
+						button.btn.btn-warning(ng-click="declareAnswer(aboutAnswer,1)" ng-confirm-click="Are you sure the answer is Yes?") Yes
+					div(ng-hide="declareNoToggle[$index]")
+						button.btn.btn-warning(ng-click="declareAnswer(aboutAnswer,0)" ng-confirm-click="Are you sure the answer is No?") No
+					div(ng-hide="declareOpenToggle[$index]")
+						button.btn.btn-warning(ng-click="declareAnswer(aboutAnswer,-1)" ng-confirm-click="Are you sure the answer is Open?") Open
+			p Users:
+			if(predictionAccess===true)
+				form
+					div.form-group
+						label Update
+						textarea.form-control(rows="3" ng-model="commentInput")
+					button.btn.btn-warning.btn-xs(ng-click="sendUpdate()" ng-confirm-click="Are you sure you want to add this update to the description?") Submit update
+				p {{feedback}}
+			div(ng-repeat="user in users")
+				a(ng-href="/users/{{user}}") {{user}}
+			if(predictionAccess===true)
+				button.btn.btn-lg.btn-danger(ng-click="deletePrediction()" ng-confirm-click="Are you sure you want to delete the prediction?") Delete prediction

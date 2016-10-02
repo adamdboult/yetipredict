@@ -1,0 +1,53 @@
+extends templates/predictHeader.jade
+block predictContent
+	script(src="/js/groupabout.js")
+	script.
+		var localData = !{JSON.stringify(group)};
+	//script.
+	//	var verbose = !{JSON.stringify(verbose)};
+	script.
+		var localArra = !{JSON.stringify(ara.array)};
+	script.
+		var members=!{JSON.stringify(members)};
+	script.
+		var admins=!{JSON.stringify(admins)};
+	script.
+		var group=!{JSON.stringify(group)};
+	.container.predict
+		.col-sm-6.mygrid-wrapper-div.col-sm-offset-3
+			h1.text-center=groupProper
+			p {{feedback}}
+			if (group==='Personal')
+				span.glyphicon.glyphicon-lock
+				span Predictions you make here can only be seen by you!
+			else if (open===true)
+				span.glyphicon.glyphicon-cloud
+				span Predictions here are public
+			else
+				span.glyphicon.glyphicon-link
+				span Predictions here are private to members of this group
+				if(adminAccess===true)
+					form
+						div.form-group
+							label Provide a name to add to the members of this group 
+							input.form-control(type="text" name="group" ng-model="memberToAdd")
+						//.form-horizontal
+						//	label.control-label.col-sm-4 Provide a name to add to the members of this group 
+						//	input.form-control(type="text" name="group" ng-model="memberToAdd")
+						button.btn.btn-success.btn-lg(ng-click="updateMembers()") Submit
+						//input(type="submit" ng-click="updateMembers()" value="Submit")
+			br
+			p !{verbose}
+			h4 Admins:
+			each admin in admins
+				a(href="/users/"+admin)=admin
+				br
+			h4 Members:
+			each member in members
+				a(href="/users/"+member)=member
+				if(adminAccess===true)
+					button.btn.btn-xs.btn-danger(ng-click="deleteMember('"+member+"')" ng-confirm-click="Are you sure you want to remove this member?") Remove from group
+				br
+			br
+			if(adminAccess===true)
+				button.btn.btn-danger(type="submit" ng-click="deleteGroup()" ng-confirm-click="Are you sure you want to delete the group?") Delete group

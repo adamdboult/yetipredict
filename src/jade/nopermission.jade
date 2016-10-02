@@ -1,0 +1,10 @@
+extends templates/predictHeader.jade
+block predictContent
+	.container.predict
+		.col-sm-6.mygrid-wrapper-div.col-sm-offset-3
+			h1.text-center=groupProper
+			if(groupProper)
+				h4 This group is private.
+				p Please contact the admin if you want to be invited.
+			else
+				h4 No such group

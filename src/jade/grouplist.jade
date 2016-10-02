@@ -1,0 +1,32 @@
+extends templates/predictHeader.jade
+
+block predictContent
+	//script(src="/js/group.js")
+	script.
+		var localData = !{JSON.stringify(group)};
+	script.
+		var verbose = !{JSON.stringify(verbose)};
+	script.
+		var localArra = !{JSON.stringify(ara.array)};
+	script.
+		var members=!{JSON.stringify(members)};
+	.container.predict
+		h1 All groups
+		br
+		if (user)
+			a(href="/newgroup") Create a new group.
+		else
+			a(href="/signup") Signup to create more groups.
+		br
+		a(href="/users") User list
+		br
+		each kw in ara.array
+			br
+			a(href="/group/"+kw.name)
+				if (kw.personal===true)
+					span.glyphicon.glyphicon-lock
+				else if (kw.open===true)
+					span.glyphicon.glyphicon-cloud
+				else
+					span.glyphicon.glyphicon-link
+				span=kw.name

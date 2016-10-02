@@ -1,0 +1,31 @@
+extends templates/predictHeader.jade
+
+block content
+	//script(src="https://www.google.com/recaptcha/api.js")
+	.container.predict
+		.col-sm-6.mygrid-wrapper-div.col-sm-offset-3
+			h3 Signup
+			p=message
+			form(action="/signup" method="post")
+				div.form-group
+					label Username
+					input.form-control(type="text" name="username")
+				div.form-group
+					label Email
+					input.form-control(type="text" name="email")
+				div.form-group
+					label Password
+					input.form-control(type="password" name="password")
+				div.form-group
+					label Confirm password
+					input.form-control(type="password" name="password2")
+				//div.g-recaptcha(data-sitekey="6LdezwkTAAAAAOGiEbDgrhWAKS4aURZzsDeusQgP")
+				button.btn.btn-warning.btn-lg(type="submit") Signup
+			hr
+			p
+				| Already have an account?
+				| <a href="/login"> Login</a>
+			p
+				| Or go 
+				a(href="/") home
+				| .

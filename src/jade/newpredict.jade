@@ -1,0 +1,30 @@
+extends templates/predictHeader.jade
+
+block predictContent
+	script(src="/js/newpredict.js")
+	script.
+		var localData = !{JSON.stringify(group)};
+	.container.predict
+		.col-sm-6.mygrid-wrapper-div.col-sm-offset-3
+			//.page-header.text-center
+			h1
+				//span New prediction for #[strong {{currentGroup}}].
+				span New prediction for #[strong=groupProper].
+			p {{feedback}}
+			form
+				div.form-group
+					label What question do you want predicted? Eg: "Will any party have a majority of seats following the 2020 UK general election". Do not include question marks.
+					input.form-control(type="text" name="desc" ng-model="desc")
+				div.form-group
+					label What are the potential answers? Separate these with a semi-colon. For yes/no questions simply include "Yes". Eg: "Yes", or "Red;Green;Blue".
+					input.form-control(type="text" name="desc" ng-model="answers")
+				div.form-group
+					label Provide any additional information here. Optional.
+					textarea.form-control(rows="3" ng-model="verbose")
+				div.form-group
+					label What is the deadline for the forecast? Optional.
+					input.form-control(type="text" data-provide="datepicker" ng-model="end" name="end")
+				div.form-group
+					label What source will you use to evaluate the outcome? Optional.
+					input.form-control(type="text" name="source" ng-model="source")
+				button.btn.btn-warning.btn-lg(ng-click="submit()") Create

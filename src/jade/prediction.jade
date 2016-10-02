@@ -1,0 +1,113 @@
+extends templates/predictHeader.jade
+
+block predictContent
+	script.
+		var localData = !{JSON.stringify(group)};
+	script.
+		var verbose = !{JSON.stringify(verbose)};
+	script.
+		var localArra = !{JSON.stringify(ara.array)};
+	script.
+		var members=!{JSON.stringify(members)};
+	script.
+		var admins=!{JSON.stringify(admins)};
+	script.
+		var prediction=!{JSON.stringify(prediction)};
+	script.
+		var predictionProper=!{JSON.stringify(predictionProper)};
+	if (user)
+		script.
+			var myName=!{JSON.stringify(user.local.username)}
+	else
+		script.
+			var myName=false;
+	script(src="/js/prediction.js")
+	#main
+		#canvasHold
+	.container-fluid
+		h2
+			a(href="/group/"+groupLower)=group
+		.row-fluid
+			//.col-md-1
+			//	if (user)
+			//		div(ng-show="upvoteToggle")
+			//			a.glyphicon.glyphicon-arrow-up(href="" ng-click="removevote()" style="color:green; font-size:25px; text-decoration: none")
+			//		div(ng-hide="upvoteToggle")
+			//			a.glyphicon.glyphicon-arrow-up(href="" ng-click="upvote()" style="color:grey; font-size:25px; text-decoration: none")
+			//			p.text-center {{score}}
+			//		div(ng-show="downvoteToggle")
+			//			a.glyphicon.glyphicon-arrow-down(href="" ng-click="removevote()" style="color:red; font-size:25px; text-decoration: none")
+			//		div(ng-hide="downvoteToggle")
+			//			a.glyphicon.glyphicon-arrow-down(href="" ng-click="downvote()" style="color:grey; font-size:25px; text-decoration: none")
+			////	else
+			//		a.glyphicon.glyphicon-arrow-up(href="/signup" style="color:grey; font-size:25px; text-decoration: none")
+			//		p {{score}}
+			//		a.glyphicon.glyphicon-arrow-down(href="/signup" style="color:grey; font-size:25px; text-decoration: none")
+			//.col-md-11
+			h1=predictionProper+"?"
+		p #[strong Description]: {{verbose}}
+		div(ng-repeat="verbUp in verboseUpdate")
+			p #[strong Update]: {{verbUp.text}}
+			p #[strong Date]: {{key.date}}
+		if (group==='Personal')
+			span #[strong Visibility]: 
+			span.glyphicon.glyphicon-lock
+			span Predictions you make here can only be seen by you!
+		else if (open===true)
+			span #[strong Visibility]: 
+			span.glyphicon.glyphicon-cloud
+			span Public
+		else
+			span #[strong Visibility]: 
+			span.glyphicon.glyphicon-link
+			span Private
+		form
+			div.form-horizontal
+				label.control-label Select an answer 
+				select(ng-model="selectedAnswer" ng-options="answer for answer in answers" ng-change="preDraw()")
+			p(ng-show="outcome==''") Chance of this answer being correct: {{headLineShowing}}
+			p(ng-hide="outcome==''") Outcome: {{outcome}}
+		#d3Master(ng-show="showGraph")
+		div(ng-hide="showGraph")
+			p No predictions made yet, be the first!
+		//#d3Master
+		if (user)
+			div(ng-show="allowPreds")
+				//form.form-horizontal(ng-submit="update(localPrediction)" ng-controller="mainController")
+				form.form-horizontal(ng-submit="update(localPrediction)")
+					label.control-label.col-sm-4 How likely is this, between 0 and 1?
+					input(type="number" step="any" name="value" min="0" max="1" ng-model="localPrediction.val")
+					input(type="submit" id="submit" value="Submit")
+					//input(type="submit" ng-click="update(localPrediction)" value="Submit")
+					span(ng-show="valueError") Error
+		else
+			a(href="/signup") Sign up to make predictions.
+			br
+		button.btn.btn-primary.btn-xs(ng-show="showRel" ng-click="toggleMean()")
+			| Toggle Mean
+		button.btn.btn-primary.btn-xs(ng-show="showRel" ng-click="toggleOthers()")
+			| Toggle Others
+		br
+		a(href="/group/"+groupLower+"/"+prediction+"/about") Prediction settings
+		br
+		button.btn.btn-primary(ng-click="JSONToCSVConvertor()")
+			|Download Data
+		button.btn.btn-info(ng-click="saveSVG()")
+			|Download Graph
+		if (user)
+			form
+				div.form-group
+					label Comment
+					textarea.form-control(rows="3" ng-model="commentInput")
+				button.btn.btn-warning.btn-xs(ng-click="sendComment()") Submit comment
+			p {{feedback}}
+		h4 Comments
+		div(ng-repeat="key in comments")
+			p
+				a(ng-href="/users/{{key.name}}") {{key.name}}
+				span : 
+				span {{key.date}}
+			p {{key.text}}
+			if(adminAccess===true)
+				button.btn-warning.btn-xs(ng-click="deleteComment(key._id)") Delete comment
+

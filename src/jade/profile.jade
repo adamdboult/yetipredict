@@ -1,0 +1,45 @@
+extends templates/predictHeader.jade
+
+block predictContent
+	.container.fill
+		.page-header.text-center
+			h1
+				span Profile Page
+		.row
+			.col-sm-6.col-sm-offset-3
+				.well
+					p #[strong User name]: !{user.local.username}
+					p #[strong Email]: !{user.local.email}
+					p #[strong Score]: !{user.score.toFixed(0)}
+					p Groups I'm involved with
+					ul
+						each i, index in user.groups
+							li
+								a(href="/group/"+i.toLowerCase())
+									span=user.groupsProper[index]
+					p Groups I administrate
+					ul
+						each i, index in user.admins
+							li
+								a(href="/group/"+i.toLowerCase())
+									span=user.adminsProper[index]
+					p My predictions
+					ul
+						each i, index in user.predictions
+							li
+								a(href="/group/"+i.toLowerCase().split('&')[0]+"/"+i.toLowerCase().split('&')[1])
+									span=user.predictionsProper[index].slice(user.predictionsProper[index].search("&")+1,user.predictionsProper[index].length)+"?"
+					p Predictions I administrate
+					ul
+						each i, index in user.predictionsAdmin
+							li
+								a(href="/group/"+i.toLowerCase().split('&')[0]+"/"+i.toLowerCase().split('&')[1])
+									span=user.predictionsAdminProper[index].slice(user.predictionsAdminProper[index].search("&")+1,user.predictionsAdminProper[index].length)+"?"
+					//a.button.btn-secondary.btn(href="/changepw") change password
+					//br
+					//br
+					//a.button.btn-secondary.btn(href="/changeemail") change email
+				a.btn.btn-default.btn-sm(href="/logout") Logout
+			//<strong>id</strong>: <%= user._id %><br>
+			//<strong>email</strong>: <%= user.local.email %><br>
+			//<strong>password</strong>: <%= user.local.password %>

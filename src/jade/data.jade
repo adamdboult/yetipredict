@@ -1,0 +1,129 @@
+extends templates/loginHeader.jade
+
+block content
+	.container.fill
+		.col-sm-9.mygrid-wrapper-div.col-sm-push-3
+			script(src="/js/coreData.js")
+			#canvasHold
+			div(ng-show="dataExistError")
+				h3 Series contains no data!
+			#main
+				div(ng-hide="dataExistError")
+					div(ng-repeat="x in seriesUsed" track by $index)
+						h4 {{localSeries[seriesUsed[$index]].label}}
+						button.btn.btn-xs.btn-secondary(ng-click="toggleGraphDetail($index)")
+							| Show details
+						div(ng-show="graphDetailShow[$index]")
+							div(ng-repeat="(key, value) in localSeries[seriesUsed[$index]].filter[0]")
+								| #[strong {{key}}]: {{value}}
+							div(ng-repeat="(key, value) in localSeries[seriesUsed[$index]].note")
+								| #[strong {{key}}]: {{value}}
+					#chartdiv
+			div(ng-repeat="x in graphSeriesCount" track by $index)
+				form.form-horizontal
+					.form-group
+						label Y axis 
+						select.form-control(ng-model="localSelectionY[$index]" ng-options="opts._id as opts.label group by opts.filter[0].Type for opts in localSeries" ng-change="localGraph()")
+				form.form-horizontal
+					.form-group
+						label X axis 
+						select.form-control(ng-model="localSelectionX[$index]" ng-options="opts._id as opts.label group by opts.filter[0].Type for opts in localSeries" ng-change="localGraph()")
+				form.form-horizontal
+					.form-group
+						label Dot size 
+						select.form-control(ng-model="localSelectionSize[$index]" ng-options="opts._id as opts.label group by opts.filter[0].Type for opts in dotChoices" ng-change="localGraph()")
+				button.col-sm-offset-2.btn.btn-danger.btn-xs(ng-if="localSelectionY.length>1" ng-click="removeGraphSeries($index)")
+					| Remove
+				br
+				br
+			button.btn.btn-primary(ng-click="newGraphSeries()")
+				|Add series
+			div(ng-hide="dataExistError")
+				br
+				h4 Line types:
+				select.btn2(ng-model="lineType" ng-options="line for line in lineTypes" ng-change="drawGraph()")
+				div Model: 
+					span(mathjax-bind="modelFormula")
+				br
+				button.btn.btn-primary(ng-click="JSONToCSVConvertor()")
+					|Download Data
+				button.btn.btn-info(ng-click="saveSVG()")
+					|Download Graph
+				h4 Statistical analysis
+				div(ng-repeat="x in statsData track by $index")
+					p <b>{{legendText[$index]}}</b>
+					button.btn.btn-xs.btn-secondary(ng-click="toggleStatsShow($index)")
+						| Show stats
+					div(ng-show="statsShow[$index]")
+						.table-responsive
+							table.table.table-bordered.table-striped
+								thead
+									th Variable
+									th Value
+								tbody
+									tr(ng-repeat="x in statsNames[lineMatch] track by $index")
+										td {{statsNames[lineMatch][$index]}}
+										td(align="right") {{statsData[$parent.$index][lineMatch][$index].toFixed(3)}}
+		.col-sm-3.mygrid-wrapper-div.col-sm-pull-9
+			div(ng-show="leftViewAdd")
+				//h3.text-center Get data
+				h4 1. Select filters
+				div(ng-repeat="value in visibleFilterOptions")
+					button.btn.btn-xs.btn-danger(ng-click="removeFilter(value)")
+						span.glyphicon.glyphicon-trash()
+					span  {{value}}
+					br
+					select.btn2(ng-model="filterChoice[value]" ng-options="option for option in filterOptions[value]")
+					br
+				br
+				p.pull-left Add filter 
+				select.btn2(ng-model="newFilterOption" ng-options="newFilter.name for newFilter in invisibleFilterOptions | filter:newFilter.show=true" ng-change="addFilter(newFilterOption)")
+				br
+				br
+				h4 2. Click refresh:
+				button.btn.btn-success(ng-click="filterChange()")
+					span.glyphicon.glyphicon-refresh()
+				br
+				h4 3. View data
+				div(ng-show="seriesBrowse.length" ng-repeat="x in seriesBrowse track by $index")
+					button.btn.btn-xs.btn-primary.btn-block(ng-click="toggleAddFilter($index)")
+						| {{x.label}}
+					div(ng-show="showAddDetails[$index]")
+						div(ng-show="x.viewToggle")
+							button.btn.btn-xs.btn-success(type="button" ng-click="getData(x._id)")
+								span.glyphicon.glyphicon-stats()  View
+						div(ng-hide="x.viewToggle")
+							button.btn.btn-xs.btn-warning(type="button" ng-click="getData(x._id)")
+								span.glyphicon.glyphicon-cloud-download()  Download
+						div(ng-repeat="(key,filters) in x.filter")
+							| #[strong {{key}}]: {{filters}}
+					//br
+				br
+				div(ng-hide="seriesBrowse.length")
+					p No matches!
+				p.pull-left Page 
+				select.btn2(ng-model="pageSelect" ng-options="page for page in pageCountArray" ng-change="pageChange()")
+			div(ng-show="leftViewLocal")
+				h3.text-center Locally stored data
+				div(ng-repeat="x in localSeries track by $index" ng-if="localSeries[$index].data!=-1")
+					button.btn.btn-xs.btn-block.btn-success(ng-click="toggleLocalFilter($index)")
+						| {{x.label}}
+					div(ng-show="showLocalDetails[$index]")
+						br
+						button.btn.btn-xs.btn-secondary(ng-click="getData(x._id)")
+							span.glyphicon.glyphicon-stats()  View
+						div(ng-if="localSelectionY.indexOf(localIndex[$index])==-1 && localSelectionX.indexOf(localIndex[$index])==-1")
+							button.btn.btn-danger.btn-xs(ng-click="removeSeries(localSeries[$index]._id)" ng-mouseover="mouseOverLocal(localSeries[$index]._id)")
+								span.glyphicon.glyphicon-trash()  Remove
+						div(ng-repeat="(key,filters) in x.filter")
+							| #[strong {{key}}]: {{filters}}
+					br
+					br
+			div(ng-show="leftViewStar")
+				h3.text-center Favourites
+				div(ng-repeat="x in favList")
+					button.btn.btn-xs.btn-block.btn-success(ng-show="x.viewToggle" ng-click="getData(x._id)")
+							| {{x.label}}
+					button.btn.btn-xs.btn-block.btn-primary(ng-hide="x.viewToggle" ng-click="getData(x._id)")
+							| {{x.label}}
+					br

@@ -1,0 +1,36 @@
+extends templates/predictHeader.jade
+
+block predictContent
+	script.
+		var userDescription=!{JSON.stringify(userDescription)};
+	.container.predict
+		//.well
+		.col-sm-6.col-sm-offset-3
+			p #[strong User name]: !{userDescription.name}
+			p #[strong Score]: !{userDescription.score.toFixed(0)}
+			p Groups #[strong !{userDescription.name}] is involved with:
+			//p !{JSON.stringify(userDescription)}
+			ul
+				each i, index in userDescription.groups
+					li
+						a(href="/group/"+i.toLowerCase())
+							span=userDescription.groupsProper[index]
+			p Groups #[strong !{userDescription.name}] administrates:
+			ul
+				each i, index in userDescription.admins
+					li
+						a(href="/group/"+i.toLowerCase())
+							span=userDescription.adminsProper[index]
+			p #[strong !{userDescription.name}]'s predictions:
+			ul
+				each i, index in userDescription.predictions
+					li
+						a(href="/group/"+i.toLowerCase())
+							span=userDescription.predictionsProper[index].slice(userDescription.predictionsProper[index].search("/")+1,userDescription.predictionsProper[index].length)+"?"
+			p Predictions #[strong !{userDescription.name}] administrates:
+			ul
+				each i, index in userDescription.predictionsAdmin
+					li
+						a(href="/group/"+i.toLowerCase())
+							span=userDescription.predictionsAdminProper[index].slice(userDescription.predictionsAdminProper[index].search("/")+1,userDescription.predictionsAdminProper[index].length)+"?"
+			a(href="/users") All users.
