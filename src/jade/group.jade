@@ -41,7 +41,13 @@ block predictContent
 				option(value="/group/"+group+"?complete=0&"+sortURL) Incomplete only
 				option(value="/group/"+group+"?complete=-1&"+sortURL) All
 	each prediction in predictionsArray
-		a(href="/group/"+prediction.group+"/"+prediction.ldesc)=prediction.desc+"?"
+		p prediction
+		if (prediction.outcomes[0].outcome===0)
+			a(href="/group/"+prediction.group+"/"+prediction.ldesc)="[Closed: not "+prediction.outcomes[0].answer+"] "+prediction.desc+"?"
+		else if (prediction.outcomes[0].outcome===1)
+			a(href="/group/"+prediction.group+"/"+prediction.ldesc)="[Closed: "+prediction.outcomes[0].answer +"] "+prediction.desc+"?"
+		else
+			a(href="/group/"+prediction.group+"/"+prediction.ldesc)="[Open: " + prediction.outcomes[0].answer+" at "+ prediction.headline[0]*100+"%] "+prediction.desc+"?"
 		br
 	nav
 		ul(class="pagination")

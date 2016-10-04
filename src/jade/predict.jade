@@ -31,10 +31,21 @@ block predictContent
 				option(value="/predict?complete=-1&"+sortURL) All
 	each prediction in predictionsArray
 		p
-			a(href="/group/"+prediction.group+"/"+prediction.ldesc)=prediction.desc+"?"
-			span  [
-			a(href="/group/"+prediction.group)=prediction.groupProper
-			span ]
+			if (prediction.outcomes[0].outcome===0)
+				a(href="/group/"+prediction.group+"/"+prediction.ldesc)="[Closed: not "+prediction.outcomes[0].answer+"] "+prediction.desc+"?"
+				span  [
+				a(href="/group/"+prediction.group)=prediction.groupProper
+				span ]
+			else if (prediction.outcomes[0].outcome===1)
+				a(href="/group/"+prediction.group+"/"+prediction.ldesc)="[Closed: "+prediction.outcomes[0].answer +"] "+prediction.desc+"?"
+				span  [
+				a(href="/group/"+prediction.group)=prediction.groupProper
+				span ]
+			else
+				a(href="/group/"+prediction.group+"/"+prediction.ldesc)="[Open: " + prediction.outcomes[0].answer+" at "+ prediction.headline[0]*100+"%] "+prediction.desc+"?"
+				span  [
+				a(href="/group/"+prediction.group)=prediction.groupProper
+				span ]
 	nav
 		ul(class="pagination")
 			if (thisPage>0)

@@ -45,6 +45,13 @@ block predictContent
 			//		a.glyphicon.glyphicon-arrow-down(href="/signup" style="color:grey; font-size:25px; text-decoration: none")
 			//.col-md-11
 			h1=predictionProper+"?"
+		form
+			div.form-horizontal
+				label.control-label Select an answer 
+				select(ng-model="selectedAnswer" ng-options="answer for answer in answers" ng-change="preDraw()")
+			h2(ng-show="outcome==''") Chance of {{selectedAnswer}} being correct: {{headLineShowing}}
+			h2(ng-hide="outcome==''") Closed: {{selectedAnswer}} is {{outcome}}
+		br
 		p #[strong Description]: {{verbose}}
 		div(ng-repeat="verbUp in verboseUpdate")
 			p #[strong Update]: {{verbUp.text}}
@@ -61,12 +68,7 @@ block predictContent
 			span #[strong Visibility]: 
 			span.glyphicon.glyphicon-link
 			span Private
-		form
-			div.form-horizontal
-				label.control-label Select an answer 
-				select(ng-model="selectedAnswer" ng-options="answer for answer in answers" ng-change="preDraw()")
-			p(ng-show="outcome==''") Chance of this answer being correct: {{headLineShowing}}
-			p(ng-hide="outcome==''") Outcome: {{outcome}}
+
 		#d3Master(ng-show="showGraph")
 		div(ng-hide="showGraph")
 			p No predictions made yet, be the first!

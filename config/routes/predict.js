@@ -695,7 +695,8 @@ module.exports=function(app,passport,logger){
 	    if (send===1){
 		PredictSerie.count(predictionFind,function(err1,edw1) {
 		    PredictSerie.find(predictionFind)
-			.sort("-"+sortBy)
+			.sort({sortBy:-1, "completed":-1})
+		    	//.sort("-"+sortBy)
 			.skip(pagenum*pagelen)
 			.limit(pagelen)
 			.select('desc score ldesc group groupProper complete outcomes headline')
