@@ -32,7 +32,7 @@ block predictContent
 	each prediction in predictionsArray
 		p
 			if (prediction.outcomes[0].outcome===0)
-				a(href="/group/"+prediction.group+"/"+prediction.ldesc)=prediction.complete+" "+prediction.score+" "+ prediction.date"+[Closed: not "+prediction.outcomes[0].answer+"] "+prediction.desc+"?"
+				a(href="/group/"+prediction.group+"/"+prediction.ldesc)=prediction.complete+" "+prediction.score+" "+ prediction.date+"[Closed: not "+prediction.outcomes[0].answer+"] "+prediction.desc+"?"
 				span  [
 				a(href="/group/"+prediction.group)=prediction.groupProper
 				span ]
