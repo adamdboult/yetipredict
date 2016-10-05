@@ -43,11 +43,11 @@ block predictContent
 	each prediction in predictionsArray
 		p
 			if (prediction.outcomes[0].outcome===0)
-				a(href="/group/"+prediction.group+"/"+prediction.ldesc)="[Closed: not "+prediction.outcomes[0].answer+"] "+prediction.desc+"?"
+				a(href="/group/"+prediction.group+"/"+prediction.ldesc)="[Closed: not "+parseInt(prediction.outcomes[0].answer)+"] "+prediction.desc+"?"
 			else if (prediction.outcomes[0].outcome===1)
-				a(href="/group/"+prediction.group+"/"+prediction.ldesc)="[Closed: "+prediction.outcomes[0].answer +"] "+prediction.desc+"?"
+				a(href="/group/"+prediction.group+"/"+prediction.ldesc)="[Closed: "+parseInt(prediction.outcomes[0].answer) +"] "+prediction.desc+"?"
 			else
-				a(href="/group/"+prediction.group+"/"+prediction.ldesc)="[Open: " + prediction.outcomes[0].answer+" at "+ prediction.headline[0]*100+"%] "+prediction.desc+"?"
+				a(href="/group/"+prediction.group+"/"+prediction.ldesc)="[Open: " + parseInt(prediction.outcomes[0].answer)+" at "+ prediction.headline[0]*100+"%] "+prediction.desc+"?"
 	nav
 		ul(class="pagination")
 			if (thisPage>0)
