@@ -693,6 +693,7 @@ module.exports=function(app,passport,logger){
 		send=2;
 	    }
 	    if (send===1){
+		logger.debug("DAT"+sortBy)
 		PredictSerie.count(predictionFind,function(err1,edw1) {
 		    PredictSerie.find(predictionFind)
 			.sort({"complete":1,"score":-1})
