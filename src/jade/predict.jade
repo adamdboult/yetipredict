@@ -42,7 +42,7 @@ block predictContent
 				a(href="/group/"+prediction.group)=prediction.groupProper
 				span ]
 			else
-				a(href="/group/"+prediction.group+"/"+prediction.ldesc)="[Open: " + prediction.outcomes[0].answer+" at "+ prediction.headline[0]*100+"%] "+prediction.desc+"?"
+				a(href="/group/"+prediction.group+"/"+prediction.ldesc)="[Open: " + prediction.outcomes[0].answer+" at "+ round(prediction.headline[0]*100)+"%] "+prediction.desc+"?"
 				span  [
 				a(href="/group/"+prediction.group)=prediction.groupProper
 				span ]
