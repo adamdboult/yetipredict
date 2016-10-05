@@ -693,14 +693,14 @@ module.exports=function(app,passport,logger){
 		send=2;
 	    }
 	    if (send===1){
-		logger.debug("DAT"+sortBy)
-		console.log("DAT"+sortBy)
-		sortObj = {"complete":1,"date":-1}
+		logger.debug("DAT"+sortBy);
+		console.log("DAT"+sortBy);
+		var sortObj = {"complete":1,"date":-1};
 		if (sortBy ==="score"){
 		    sortObj = {"complete":1,"score":-1};
 		}
-		console.log(sortBy==="score")
-		console.log(sortBy==="date")
+		console.log(sortBy==="score");
+		console.log(sortBy==="date");
 		PredictSerie.count(predictionFind,function(err1,edw1) {
 		    PredictSerie.find(predictionFind)
 			.sort(sortObj)
