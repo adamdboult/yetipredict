@@ -695,11 +695,15 @@ module.exports=function(app,passport,logger){
 	    if (send===1){
 		logger.debug("DAT"+sortBy)
 		console.log("DAT"+sortBy)
+		sortObj = {"complete":1,"date":-1}
+		if (sortBy ==="score"){
+		    sortObj = {"complete":1,"score":-1};
+		}
 		console.log(sortBy==="score")
 		console.log(sortBy==="date")
 		PredictSerie.count(predictionFind,function(err1,edw1) {
 		    PredictSerie.find(predictionFind)
-			.sort({"complete":1,"score":-1})
+			.sort(scoreObj)
 		    	//.sort("-"+sortBy)
 			.skip(pagenum*pagelen)
 			.limit(pagelen)
