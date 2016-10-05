@@ -695,11 +695,11 @@ module.exports=function(app,passport,logger){
 	    if (send===1){
 		PredictSerie.count(predictionFind,function(err1,edw1) {
 		    PredictSerie.find(predictionFind)
-			.sort({"open":-1,sortBy:-1})
+			.sort({"complete":-1,"score":-1})
 		    	//.sort("-"+sortBy)
 			.skip(pagenum*pagelen)
 			.limit(pagelen)
-			.select('desc score ldesc group groupProper complete outcomes headline')
+			.select('desc score ldesc group groupProper open date complete outcomes headline')
 			.exec(function(err,idw){
 			    if (err){
 				res.send(err);
