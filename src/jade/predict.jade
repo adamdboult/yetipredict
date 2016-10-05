@@ -32,17 +32,17 @@ block predictContent
 	each prediction in predictionsArray
 		p
 			if (prediction.outcomes[0].outcome===0)
-				a(href="/group/"+prediction.group+"/"+prediction.ldesc)=prediction.open +" "+prediction.complete+" "+prediction.score+" "+ prediction.date+"[Closed: not "+prediction.outcomes[0].answer+"] "+prediction.desc+"?"
+				a(href="/group/"+prediction.group+"/"+prediction.ldesc)=prediction.open +" "+prediction.complete+" "+prediction.score+" "+ prediction.date+"[Closed: not "+prediction.outcomes[0].answer+"] "+prediction.desc+"?"+prediction
 				span  [
 				a(href="/group/"+prediction.group)=prediction.groupProper
 				span ]
 			else if (prediction.outcomes[0].outcome===1)
-				a(href="/group/"+prediction.group+"/"+prediction.ldesc)=prediction.open +" "+prediction.complete+" "+prediction.score+" "+ prediction.date+"[Closed: "+prediction.outcomes[0].answer +"] "+prediction.desc+"?"
+				a(href="/group/"+prediction.group+"/"+prediction.ldesc)=prediction.open +" "+prediction.complete+" "+prediction.score+" "+ prediction.date+"[Closed: "+prediction.outcomes[0].answer +"] "+prediction.desc+"?"+prediction
 				span  [
 				a(href="/group/"+prediction.group)=prediction.groupProper
 				span ]
 			else
-				a(href="/group/"+prediction.group+"/"+prediction.ldesc)=prediction.open +" "+prediction.complete+" "+prediction.score+" "+ prediction.date+"[Open: " + prediction.outcomes[0].answer+" at "+ prediction.headline[0]*100+"%] "+prediction.desc+"?"
+				a(href="/group/"+prediction.group+"/"+prediction.ldesc)=prediction.open +" "+prediction.complete+" "+prediction.score+" "+ prediction.date+"[Open: " + prediction.outcomes[0].answer+" at "+ prediction.headline[0]*100+"%] "+prediction.desc+"?"+prediction
 				span  [
 				a(href="/group/"+prediction.group)=prediction.groupProper
 				span ]

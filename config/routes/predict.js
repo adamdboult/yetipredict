@@ -703,7 +703,7 @@ module.exports=function(app,passport,logger){
 		console.log(sortBy==="date")
 		PredictSerie.count(predictionFind,function(err1,edw1) {
 		    PredictSerie.find(predictionFind)
-			.sort(scoreObj)
+			.sort(sortObj)
 		    	//.sort("-"+sortBy)
 			.skip(pagenum*pagelen)
 			.limit(pagelen)
