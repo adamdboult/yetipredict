@@ -697,7 +697,7 @@ module.exports=function(app,passport,logger){
 		console.log("DAT"+sortBy)
 		PredictSerie.count(predictionFind,function(err1,edw1) {
 		    PredictSerie.find(predictionFind)
-			.sort({"complete":1,"score":-1})
+			.sort({"complete":1,sortBy:-1})
 		    	//.sort("-"+sortBy)
 			.skip(pagenum*pagelen)
 			.limit(pagelen)
