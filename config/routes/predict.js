@@ -695,7 +695,7 @@ module.exports=function(app,passport,logger){
 	    if (send===1){
 		logger.debug("DAT"+sortBy);
 		console.log("DAT"+sortBy);
-		var sortObj = {"complete":1,"date":-1};
+		var sortObj = {"complete":1,"start":-1};
 		if (sortBy ==="score"){
 		    sortObj = {"complete":1,"score":-1};
 		}
@@ -707,7 +707,7 @@ module.exports=function(app,passport,logger){
 		    	//.sort("-"+sortBy)
 			.skip(pagenum*pagelen)
 			.limit(pagelen)
-			.select('desc score ldesc group groupProper open date complete outcomes headline')
+			.select('desc score ldesc group groupProper open start complete outcomes headline')
 			.exec(function(err,idw){
 			    if (err){
 				res.send(err);
