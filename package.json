@@ -8,6 +8,7 @@
 	"bcrypt-nodejs": "~0.0.3",
 
 	"gulp": "~3.9.1",
+	"jshint": "~2.9.0",
 	"gulp-jshint": "~2.0.1",
 	"gulp-concat": "~2.6.0",
 	"gulp-strip-debug": "~1.1.0",
@@ -43,5 +44,6 @@
 	"bower_update": "bower update",
 	"metalsmith": "metalsmith",
 	"dataCombiner": "dataCombiner"
-    }
+    },
+    "license": "SEE LICENSE IN LICENSE.md"
 }
