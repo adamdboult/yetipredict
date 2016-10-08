@@ -63,8 +63,9 @@ module.exports=function(app,passport,logger,mailgun,MailComposer){
     var rootObject={root:__dirname+'/../../public'};
 
     app.get('/', function(req, res) {
-//	res.sendFile('index.html',rootObject);
-	res.render('index',{user:req.user});
+	//	res.sendFile('index.html',rootObject);
+	res.redirect('/predict');
+	//res.render('index',{user:req.user});
     });
 
     //app.get('/n/:id', function(req,res) {
