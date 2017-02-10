@@ -1,0 +1,295 @@
+{
+  "aggregate": {
+    "timestamp": "2017-02-06T19:08:12.078Z",
+    "scenariosCreated": 600,
+    "scenariosCompleted": 0,
+    "requestsCompleted": 0,
+    "latency": {
+      "min": null,
+      "max": null,
+      "median": null,
+      "p95": null,
+      "p99": null
+    },
+    "rps": {
+      "count": 600,
+      "mean": 9.94
+    },
+    "scenarioDuration": {
+      "min": null,
+      "max": null,
+      "median": null,
+      "p95": null,
+      "p99": null
+    },
+    "scenarioCounts": {
+      "0": 600
+    },
+    "errors": {
+      "ENOTFOUND": 600
+    },
+    "codes": {},
+    "matches": 0,
+    "customStats": {},
+    "phases": [
+      {
+        "duration": 60,
+        "arrivalRate": 10
+      }
+    ]
+  },
+  "intermediate": [
+    {
+      "timestamp": "2017-02-06T19:07:21.150Z",
+      "scenariosCreated": 89,
+      "scenariosCompleted": 0,
+      "requestsCompleted": 0,
+      "latency": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "rps": {
+        "count": 89,
+        "mean": 9.41
+      },
+      "scenarioDuration": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "scenarioCounts": {
+        "0": 89
+      },
+      "errors": {
+        "ENOTFOUND": 88
+      },
+      "codes": {},
+      "matches": 0,
+      "latencies": [],
+      "customStats": {},
+      "concurrency": 2,
+      "pendingRequests": 441
+    },
+    {
+      "timestamp": "2017-02-06T19:07:31.154Z",
+      "scenariosCreated": 100,
+      "scenariosCompleted": 0,
+      "requestsCompleted": 0,
+      "latency": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "rps": {
+        "count": 100,
+        "mean": 9.43
+      },
+      "scenarioDuration": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "scenarioCounts": {
+        "0": 100
+      },
+      "errors": {
+        "ENOTFOUND": 100
+      },
+      "codes": {},
+      "matches": 0,
+      "latencies": [],
+      "customStats": {},
+      "concurrency": 1,
+      "pendingRequests": 1440
+    },
+    {
+      "timestamp": "2017-02-06T19:07:41.155Z",
+      "scenariosCreated": 100,
+      "scenariosCompleted": 0,
+      "requestsCompleted": 0,
+      "latency": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "rps": {
+        "count": 100,
+        "mean": 9.43
+      },
+      "scenarioDuration": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "scenarioCounts": {
+        "0": 100
+      },
+      "errors": {
+        "ENOTFOUND": 100
+      },
+      "codes": {},
+      "matches": 0,
+      "latencies": [],
+      "customStats": {},
+      "concurrency": 2,
+      "pendingRequests": 2440
+    },
+    {
+      "timestamp": "2017-02-06T19:07:51.156Z",
+      "scenariosCreated": 100,
+      "scenariosCompleted": 0,
+      "requestsCompleted": 0,
+      "latency": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "rps": {
+        "count": 100,
+        "mean": 9.43
+      },
+      "scenarioDuration": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "scenarioCounts": {
+        "0": 100
+      },
+      "errors": {
+        "ENOTFOUND": 100
+      },
+      "codes": {},
+      "matches": 0,
+      "latencies": [],
+      "customStats": {},
+      "concurrency": 1,
+      "pendingRequests": 3440
+    },
+    {
+      "timestamp": "2017-02-06T19:08:01.157Z",
+      "scenariosCreated": 100,
+      "scenariosCompleted": 0,
+      "requestsCompleted": 0,
+      "latency": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "rps": {
+        "count": 100,
+        "mean": 9.43
+      },
+      "scenarioDuration": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "scenarioCounts": {
+        "0": 100
+      },
+      "errors": {
+        "ENOTFOUND": 100
+      },
+      "codes": {},
+      "matches": 0,
+      "latencies": [],
+      "customStats": {},
+      "concurrency": 2,
+      "pendingRequests": 4440
+    },
+    {
+      "timestamp": "2017-02-06T19:08:11.158Z",
+      "scenariosCreated": 100,
+      "scenariosCompleted": 0,
+      "requestsCompleted": 0,
+      "latency": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "rps": {
+        "count": 100,
+        "mean": 9.43
+      },
+      "scenarioDuration": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "scenarioCounts": {
+        "0": 100
+      },
+      "errors": {
+        "ENOTFOUND": 100
+      },
+      "codes": {},
+      "matches": 0,
+      "latencies": [],
+      "customStats": {},
+      "concurrency": 2,
+      "pendingRequests": 5440
+    },
+    {
+      "timestamp": "2017-02-06T19:08:12.063Z",
+      "scenariosCreated": 11,
+      "scenariosCompleted": 0,
+      "requestsCompleted": 0,
+      "latency": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "rps": {
+        "count": 11,
+        "mean": 7.28
+      },
+      "scenarioDuration": {
+        "min": null,
+        "max": null,
+        "median": null,
+        "p95": null,
+        "p99": null
+      },
+      "scenarioCounts": {
+        "0": 11
+      },
+      "errors": {
+        "ENOTFOUND": 12
+      },
+      "codes": {},
+      "matches": 0,
+      "latencies": [],
+      "customStats": {},
+      "concurrency": 1,
+      "pendingRequests": 1199
+    }
+  ]
+}

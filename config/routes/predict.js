@@ -9,7 +9,6 @@ var regexObject={
 };
 
 module.exports=function(app,passport,logger){
-
     'use strict';
 
     var PredictSerie=require(__dirname+'/../models/predict');
@@ -106,17 +105,6 @@ module.exports=function(app,passport,logger){
     };
 
 
-    /*function stripIncoming(params,keyArray){
-	var result,entry,keyUsed,parsedParams;
-	result={};
-	parsedParams=JSON.parse(decodeURI(params));
-	for (entry in keyArray) {
-	    keyUsed=keyArray[entry];
-	    result[keyUsed]=parsedParams[keyUsed];
-	}
-	return result;
-    }*/
-
     function voteFunction(req,group,prediction,up){
 	var findObject={};
 	group=makeLower(group);
@@ -180,7 +168,6 @@ module.exports=function(app,passport,logger){
 	});
     }
 
-    //regexObject.username needs to match passport.js
     function stripIncomingObject(params, metaArray){
 	var candidate,re,result,entry,keyUsed,parsedParams,accepted,valCheckObject;
 	result={};
@@ -237,15 +224,8 @@ module.exports=function(app,passport,logger){
 			}
 		    }
 		    else if (valCheckObject.chars==="date"){
-			//re=/^\d*\.?\d*$/;
-			//re=regexObject.num;
-			//if (re.test(candidate)===false){
-			//    logger.debug("Uh oh. "+candidate+" failed on num.");
-			//    accepted=false;
-			//}
 		    }
 		    else if (valCheckObject.chars==="username"){
-			//re = /^[a-z0-9_-]{3,15}$/;//needs to match one on passport
 			re=regexObject.username;
 			if (re.test(candidate)===false){
 			    logger.debug("Uh oh. "+candidate+" failed on num.");
@@ -255,16 +235,11 @@ module.exports=function(app,passport,logger){
 		}
 	    }
 	    result[keyUsed]=candidate;
-	    console.log("result now: "+JSON.stringify(result));
-	    console.log("accepted is currently "+accepted);
 	}
-	console.log("accepted? "+accepted);
 	if (accepted){
-	    console.log("doing GOOD");
 	    return result;
 	}
 	else {
-	    console.log("doing BAD");
 	    return undefined;
 	}
     }
@@ -333,13 +308,7 @@ module.exports=function(app,passport,logger){
 		    });
 		}
 		else{
-		    console.log(7);
-		    console.log("des: "+dest);
-		    console.log("is: "+JSON.stringify(dest));
-		    console.log("render header is: "+renderHeader);
-		    console.log("is: "+JSON.stringify(renderHeader));
 		    res.render(dest,renderHeader);
-		    console.log("rendered");
 		}
 	    });
 	});
@@ -421,7 +390,6 @@ module.exports=function(app,passport,logger){
 	else {
 	    cb(false);
 	}
-
     }
 
     function predictionPermission(req,group,prediction,cb){
@@ -2264,7 +2232,6 @@ function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()){
 	console.log("a");
         return next();
-	console.log("b");
     }
     console.log("c");
     // if they aren't redirect them to the signup page

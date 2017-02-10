@@ -783,8 +783,5 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	document.body.appendChild(link);
 	link.click();
 	document.body.removeChild(link);
-    };
-    
-    console.log("at end of doc");
-
+    };    
 }]);

@@ -117,7 +117,7 @@ with open(folder+csvFileName,'rb') as csvfile:
                                                 val+=part
                                         else:
                                                 val+=row[part]
-				row.append(val)
+                                row.append(val)
 			row.append(target[origin.index(row[4])])
 			for index, cell in enumerate(row):
 				if  headers[index][:jsonStrLen]==jsonStr:
