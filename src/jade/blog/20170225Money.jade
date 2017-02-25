@@ -1,0 +1,169 @@
+extends ../templates/blogHeader.jade
+
+block blogContent
+	h2 Notes on money
+	p 25th February 2017
+	h3 Money
+	h4 Barter and money
+	p Alice fishes and Bob hunts, and they trade meat and fish with each other. This much fish for that much meat. This all works perfectly well until Carol, Dan and Eve come along, who wants to trade berries, wood and furs. Now agreeing how much of this for that becomes more complicated, for every good there’s a ratio relative to every other good.
+	p So they agree a new system, they collect all of the shells on the island and use these to trade with each other. Now they only have to remember a price for each good.
+	h4 Nominal and real prices
+	p If previously one fish trades for two chunks of meat, we would expect the shell price for fish to be twice as high as the shell price for meat. Relative prices between all goods could be maintained for any price for meat. If all prices doubled, one fish would still get you two chunks of meat.
+	p Nominal prices are those that are actually seen in markets, real prices refer to these prices adjusted for the price level. For example all prices doubling would double all nominal prices but affect no real prices. Doubling only the nominal price of fish would increase the real price of fish, and decrease the real price of other goods.
+	h3 Savings and investment
+	h4 Savings
+	p Alice starts cutting back on meat to save shells for the future. This gives Bob a dilemma; he has less income so he can either:
+	ul
+		li Continue spending, drawing down on his shells; or
+		li Spend less (for simplicity, on fish).
+	p In the first case Alice’s savings are equal to Bob’s “borrowing”, and net saving is zero. In the second case, Alice can’t get the extra shells to save, because Bob is not buying her fish. Net savings are also zero.
+	p This is cash saving. In the real world total savings can be above zero because of stockpiling and investment.
+	h4 Stockpiling
+	p Let’s consider what happens if Alice tries to save money by producing more fish. If she uses the additional shells from this to buy more goods, she hasn’t saved. If she doesn’t sell them she hasn’t acquired any additional shells.
+	p While building up stockpiles isn’t giving Alice more money now, the economy is producing more that it is consuming, and so this is an investment in the future.
+	h4 Investment
+	p Alice wants to build a new fishing rod to catch more fish, but doing so will require a lot of resources from others. She has to persuade others to lend her shells, and in return she promises to pay back more shells in future with all extra shells she’ll get from selling more fish.
+	p The other villagers are now saving. They are consuming less, and this surplus is being used by Alice. Note that the villagers are not necessarily holding a different amount of shells as a result of this activity. The value, in shells, of this investment is equal to the value of savings.
+	h3 Banking
+	h4 Full reserve banking
+	p Let’s introduce a banker to those villagers, who sets up First Shell Bank. This bank is simply a location to store shells. This activity doesn’t really change anything. If Alice needs another fishing rod she still as to persuade the same people to lend her the money, although now this will just involve putting the shells in a different box in the bank.
+	p This bank keeps all of its assets as reserves, and so cannot itself lend to Alice.
+	h4 Fractional reserve banking
+	p First Shell Bank decides not to old all of its money as reserves, and to use some of the money stored to invest. As a result villagers do not need to individually examine investment opportunities, and borrowers do not have to convince individuals to allow them to invest. If someone would like to withdraw their shells they can, as the bank keeps some in reserve.
+	p There are 100 shells, but how much money is there now? Initially everyone has 20 shells, and everyone except Alice puts 10 shells into the bank, and the bank lends 30 shells to Alice. Alice has 50 shells, the others have 10 shells and there are 10 shells in the bank. For a total of 100 again. But each of the others also has claims on 10 shells, so the total amount of money is now 140 shells!
+	p If this reserve ratio decreases, if the bank makes a loan for example, the supply of money also rises.
+	h4 Banking profit
+	p Banks get revenue from their lending activities. Their costs include identifying investment opportunities and paying interest to depositors.
+	p Is the bank system more wasteful because it has reserves? Not really – reserves are needed because the bank deposits are on demand. If Alice received funds directly from each one she would keep some in reserve herself, in case someone demanded money back. What the bank does is:
+	ul
+		li Make identifying investment opportunities simpler
+		li Matching short term depositors with long term borrowers
+	h4 Debt and equity finance
+	p If the bank wants to raise money for lending it can:
+	ul
+		li Attract more deposits
+		li Raise equity
+		li Issue debt
+	p Let’s consider the latter two in more detail. Both issuing shares and debt will provide cash for reserves, but they create different risks. Repayments on deposits are made when depositors decide to take money out of the bank, repayments on equity are made when the bank decides to pay dividends, and repayments on debt are made as set out in the debt issue.
+	p These present different risks – using deposits puts you at risk of depositors withdrawing all at the same time, debt means that you may not have income to pay your debts.
+	p Banks use a mix of different methods of raising money, reflecting these risks and the different costs.
+	p Banks can lend to each other on the interbank market, and often do on a short term basis.
+	h4 Shadow banking
+	p Non-banks also undertake lending. If an investment vehicle attracts savers and uses this money to lend to a company, this also increases the money supply, even though the investment vehicle is not a deposit taking bank.
+	h4 Currency
+	p Alice has 10 shells at her bank. If she wants to pay Bob 10 shells for something, she can either take out and give him physical shells or inform the bank of a transfer.
+	p If the bank allowed her to withdraw a claim on 10 shells, she could give this to Bob. This is how cash works.
+	h4 Bank failure
+	p Banks hold reserves to cushion against both an increase in withdrawals from depositors and in case their investments do not pay off. So what happens if reserves aren’t sufficient? This depends on whether the issue is on their liabilities (i.e. a run on the bank, causing a liquidity problem) or their assets (i.e. their investments turn sour, causing a solvency problem).
+	p In the former case, the bank still has healthy assets but they may be unable to demand early repayment from those they have lent money to. One solution to this is for the bank itself to get a loan from another bank, to bridge this gap.
+	p What if the underlying assets are weak and the bank cannot get a private loan? The bank fails. In addition to depositors not being able to access their money, this tends to increase the amount of reserves desired to be held by banks, decreasing the money supply.
+	p The solvency of a bank depends on the quality of its assets, which may be hard for another bank to evaluate. This creates an information asymmetry problem, and leads to more cautious lending from banks.
+	h4 Payment systems
+	p If Alice wants to pay Bob, she can give him shells, or tell the bank to move the shells from her box to his box. In reality there are multiple banks, and these must be able to talk to each other to facilitate payments.
+	p So what happens if one bank needs to pay another? Without the payment system Alice would take the shells out of her bank, give them to Bob who would put them in his bank. A payment system effectively allows banks to send these shells to each other.
+	p There are two types of interbank payment systems – gross and net. A gross payment system means that for each transaction made, the banks transfer money across. Many of these transactions will in effect cancel out – bank A pays bank B and bank B pays bank A. A net payment system looks out the net position at set times and them and transfers the difference.
+	p Net payment system transfer less total money, and allow banks to hold lower reserves. For example if one payment would have caused bank A to run out of reserves, but was followed by a large inflow, then bank A would have been able to make its payments under a net system.
+	h3 Inflation
+	h4 Money supply
+	p The supply of money has increased through the use of fractional reserves at the bank. There are different definitions of the money supply:
+	ul
+		li M0: physical cash outside of banks (90 in our example above)
+		li MB: all cash (100)
+		li M1: M0 and bank deposits (120)
+	p There are also additional measures, with increasing scope.
+	p If Alice puts some of the money lent to her in the bank, this could have been lent out, recursively.
+	p $$Total money supply = \div{Base money}{Reserve ratio}$$
+	p The $$money multiplier$$, the ratio of total money supply to base money is equal to $\div{1}{Reserve ratio}$
+	h4 Supply of money base
+	p If the base of a currency is shells, someone who finds a large supply of shells increases the supply of the money base, and becomes rich. This creates an incentive to engage in wasteful activity. The additional gold isn’t productive, it just sits in a vault.
+	h4 Equation of exchange
+	p As there’s only so much stuff out there, an increase in the amount of money moving around with cause inflation.
+	p This can be shown as:
+	p $$MV=PQ$$
+	p The amount of money (M) multiplied by the velocity at which money moves (V) must be equal to the average price (P) multiplied by the quantity of stuff (Q). This isn’t a theory, it’s an accounting identity.
+	h4 Quantity theory of money
+	p The quantity theory of money states that velocity of money is stable and so increases in the money supply cause proportionate increases in prices.
+	p While the supply of money does impact inflation, the velocity of money has a habit of moving around a fair bit. In addition, what we might think of as an increase in the money supply may not in fact be one. For example quantitative easing undertaken in the aftermath of the financial crisis massively pumped massive amounts of base money into the financial system, but at the same time banks were deleveraging and holding more reserves, shrinking the money multiplier. The net effect was modest for the overall supply of money.
+	h3 Impact of inflation
+	h4 Price adjustment
+	p If there is unexpected change in money supply, prices will eventually need to update. This could happen immediately, with all prices doubling following a discovery of shells, for example. This would not affect any real (relative) prices.
+	p If, however, some prices are slow to adjust, then their relative prices will change. This would result in prices no longer clearing. If the nominal price of fish is sticky and, prior to inflation, the supply of fish equalled demand for fish, then the inflation would cause the relative price to fall. This would mean that more was demanded than supplied, and output fell.
+	p Price and wage rigidity varies across countries.
+	h4 Borrowers and savers
+	p If Alice owes Bob 10 shells, and there is a surprise increase in inflation, then Alice is better off and Bob worse off. Expected inflation, or debts in real terms, does not have this issue.
+	h3 Multiple currencies
+	h4 Different bases
+	p Previously we have discussed all money being in terms of shells. Either shells or claims on shells. Imagine another bank on a nearby island which has reserves in gold rather than shells. If someone at a shell bank wanted to pay someone at a gold bank, the shell bank would have to sell the shells, use this to buy gold, and send the gold to the gold bank. This is similar to how different countries trade with each other today.
+	p Creating a new currency base can be lucrative. If someone collected a large amount of gold before gold was the base of currency, the value of that would increase.
+	p Digital currencies are examples of this. Early mining is relatively cheap and can award a large proportion of the total currency. Digital currencies – today at least – aren’t used the same way as other currencies. If you pay someone in bitcoin, you’re sending base currency, in a way that you’re not for other payments.
+	h4 Different banks
+	p Alternatively, a bank could issue currency not in shells, but in dollars. If these dollars were exchangeable for different amounts of base currency, they would have different values.
+	h4 Fiat currency
+	p Instead of using a physical base, such as gold, a bank can also simply issue dollars without the ability to exchange these notes for anything else. As the value of these depends on their supply, high trust is needed in an issuer of fiat currency.
+	h4 Optimal currency areas
+	p The optimal area to be covered by a currency depends on fluctuations and trade. Having different currencies allows currencies to devalue, and for sticky price effects to be mitigated. At the same time, use of a single currency makes trade easier
+	p The balance therefore depends on whether a region faces similar price stickiness, similar shocks, and large trade inside the area.
+	p When a shock hits a currency area, and there are different levels of price stickiness across it, we would expect to see some areas hit worse than others. Having labour mobility, and fiscal transfers, can help mitigate the effect of such asymmetric shocks.
+	p In a currency area an asymmetric shock and sticky prices will mean that goods in one region will be higher or lower in real terms than in equilibrium. This can cause persistent current account surpluses, as seen in the EU.
+	h3 Central banks
+	h4 Introduction
+	p Central banks are government institutions which manages a state’s currency.
+	p Central banks can create base currency, including by paying interest on reserves held and by purchasing assets using new money.
+	h4 Lender of last resort
+	p While other banks may be able to finance a solvent bank with liquidity problems, a central bank may want to do this even if private banks do not, because of the knock on impact of the collapse of a bank.
+	p This provides incentives for banks to take excessive risk. Central banks attempt to manage this risk elsewhere, for example with reserve requirements.
+	h4 Issuing fiat currency
+	p Central banks issue their own currency for commercial banks to hold as base money. The currency could be claims on gold, but doesn’t have to be, and today broadly isn’t.
+	p Commercial banks then hold central bank currency as reserves, and control the supply of central bank money.
+	h4 Controlling money supply
+	p Central banks can manipulate the supply of money and inflation in many ways.
+	h5 Reserve requirements
+	p Central banks can set reserve requirements for banks. If binding, this affects the money multiplier.
+	h5 Open market operations
+	p In the US banks lend to one another. The US Federal Reserve (the Fed) takes a measure of different lending rates to construct the Federal Funds Effective Rate, and targets a value for this rate. The Fed engages in repos and reverse repos to create or remove money until this is hit.
+	p In a repo the Fed buys a security from a bank with new cash, and with the agreement that the bank will repurchase the security at a specified date with a specified price. This increases the supply of money, and therefore reduces the cost of interbank borrowing. A reverse repo works the opposite way.
+	p Quantitative easing is similar, and involves large scale purchases of assets. Unlike standard OMO quantitative easing target assets with a longer maturity, and so the central bank can simultaneously target the interbank overnight lending rate.
+	p Undertaking such operations gives the central bank a balance sheet of financial assets.
+	h5 Interest on reserves
+	p Central banks can pay interest on the reserves held by commercial banks. This can be different for reserves above the required level.
+	p Paying interest on required reserves increases the money supply and reduces the opportunity cost of depositing at the Fed. This removes the effective tax on reserves.
+	p By paying interest on excess reserves the Fed reduces the incentive to lend elsewhere, and incentivises banks to hold additional reserves, compared to a given interbank lending rate.
+	h5 Discount window
+	p In addition to depositing at the central bank, banks can also borrow from it. This tends to be higher than interbank lending rates, and so is only used significantly in extreme circumstances.
+	p In the UK it is this rate which is the official bank rate, with interbank lending rates (LIBOR) not directly managed.
+	h4 Zero lower bound
+	p If the central bank targets a lending rate of below 0%, a lender can obtain a better rate by holding physical cash instead. The zero lower bound refers to the limit of lending rates to be sustained at volume much below 0%.
+	h3 Exchange rates
+	h4 Interest rate parity
+	p What determines an exchange rate? Consider someone in the US choosing between investing at home or in the UK. Returns in the US are 4% over the next year and otherwise identical investments in the UK offer 3%.
+	p Is the US investment better? Not necessarily - as the UK bond is valued in pounds, the investor will also consider changes to the exchange rate over the period. If the value of the pound is expected to increase sufficiently over the period then the 3% bond would be a better investment.
+	p If the investor can freely choose between the two –there are no capital controls - expected movements in the exchange rate equal current differences in returns. If the value of pounds was above this level then investors would sell pounds and buy US investments until this relationship was restored. This is known as interest rate parity.
+	p $$Return_USD = Return_GBP /div{Exchange rate_{next year}}{Exchange rate_today}$$
+	p Next, let’s break down what the returns include. If inflation is 1%, then a 3% nominal return only gets you (roughly) 2%.
+	p $$Return \approx inflation + real$$
+	p OK, so now we have a link between changes to the exchange rate and differences in inflation and real (inflation adjusted return).
+	h4 Impossible trinity
+	p As inflation rates determine movements in the exchange rate, a central bank cannot at the same time:
+	ul
+		li Control inflation;
+		li Control exchange rates; and
+		li Allow free capital flows.
+	h4 Capital controls
+	p If a government can prevent investors from freely choosing between investing in different countries, then interest parity does not apply.
+	p This means that an investor with assets in the lower return country would benefit from getting around such controls.
+	h4 Internal and external adjustment
+	p We discussed above how nominal prices can be sticky. With trade this becomes more complex, as exchange rates can rapidly move.
+	p A price may be sticky in pounds, but with a flexible exchange rate the price in dollars can rapidly change, and disequilibrium effects can be reduced.
+	h3 Policy goals
+	h4 Targets
+	p Central banks can use monetary policy to achieve goals. Monetary policy directly affects inflation and exchange rates, but also losses in output which result from the stickiness of prices.
+	p Due to the interaction of each of these targets, there are trade-offs in pursuing multiple goals. Reducing output volatility could require volatile inflation, and stabilising the exchange rate could destabilise inflation and output.
+	h4 Export promotion
+	p The theory behind currency manipulation is that by devaluating a currency exports are more competitive and so GDP will rise.
+	p If a currency is devalued by printing large amounts of money, this will make exports cheaper temporarily if they take time to adjust their nominal prices upwards.
+	p If a currency is devalued by imposing capital controls and intervening in capital markets, then the relative price of exports can be maintained below the level it would otherwise be at.
+	h3 Reserve currency
+	p Trade in financial assets is concentrated in relatively few currencies, including the US dollar. This means that investors in other countries need to hold dollars in order to be able to trade key assets.
+	p This does not include non-cash assets such as US treasuries.
+	p What impact does this have on the country with the reserve currency? Holding US dollars means the US made a purchase, and the cash from this purchase has not either been invested in the US, or used to import US goods. As a result, for the duration that the US dollar is used for reserves the US can maintain a larger current account deficit.
+	p If the US no longer is used in such a way the dollars would then be used either to import US goods or to invest in the US.
