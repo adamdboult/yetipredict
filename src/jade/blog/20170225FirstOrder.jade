@@ -1,0 +1,65 @@
+extends ../templates/blogHeader.jade
+
+block blogContent
+	h2 First order logic
+	p 25th February 2017
+	h3 Introduction
+	p First-order logic constructs statements, or formulae, which are either true or false.
+	p "There exists X such that X is Socrates and X is a man" is a statement in first-order logic.
+	p Statements can be evaluated using truth tables and sub-formulae.
+	p These statements can include:
+	ul
+		li Terms
+		li Quantifications of terms
+		li Predicates
+		li Other logical symbols
+
+	h3 Terms
+	p Variables are terms.
+	p $$ x $$
+	p Functions, which take n other terms, are also terms.
+	p $$ f(x, y) $$
+	p All terms can be derived recursively from this.
+	
+	h3 Variable quantification
+	p In first-order logic variables can be quantified either universally or existentially.
+	p There exists x:
+	p $$\exists x$$
+	p For all x:
+	p $$\forall x$$
+		
+	h3 Formulae
+	p Atomic formulas can contain predicates and equality.
+	p A predicate takes n variables and is either true of false. This is a formula.
+	p $$ P(x) $$
+	p Equality between terms can be used to create a formula:
+	p $$x = y$$
+
+	p Broader formulas can also be constructed. Quantification can also be attached to a formula:
+	p $$ \exists x P(x) $$
+	p Negation can be used:
+	p $$¬P(x)$$
+	p Logical connections can be used:
+	p $$\theta \rightarrow \delta$$
+	p $$\theta \leftarrow \delta$$
+	p $$\theta \leftrightarrow \delta$$
+	p $$or: \theta \lor \delta$$
+	p $$and: \theta \land \delta$$
+	p Quantifiers can be added:
+	p $$\forall x \exists y (x = y)$$
+	
+	h3 Evaluating logical connections
+	p A formula is either true of false. The value of a large formula can be calculated by examining the its more simple components and then using truth tables.
+	p Logical connectors return a truth value depending on the truth value of the two components.
+	p As a statement can be true or false, and there are two statements in a logical connection, there are four possible outcomes. TT, TF, FT, FF.
+	p As a logical connector can return true or false on any of these, there are 2^4 = 16 types of logical connectors.
+	
+	h3 Evaluating formulas
+	p To evaluate the rest of a formula we can use deductive systems.
+
+	h3 Metalogical properties
+	p A system is complete if all true statements can be proved.
+	p A system is sound if all provable statements are true.
+	p A system is effective if the set of axioms is finite.
+	p A system is decidable if there is a process to determine whether an arbitrary formula is valid.
+
