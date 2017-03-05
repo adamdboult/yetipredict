@@ -1,0 +1,109 @@
+extends ../templates/blogHeader.jade
+
+block blogContent
+	h2
+		b Models
+	p 3rd March 2017
+	h3
+		b Natural numbers
+	p We’ve sketched out basic logic. Let’s introduce numbers. We want to add axioms which allow us to accurately describe numbers. We add these to the axioms from first order logic. These are the Peano axioms.
+	ul
+		li There is a term called \(0\) which is a natural number. This introduces the concept of a natural number.
+		$$N(0)$$
+		li There is a unary function \(s(n)\) which is a natural number when \(n\) is a natural number. This introduces the concept of successors. Under just this axiom the natural numbers could be infinitely repeating \(0\)s, or loop, or any number of other things.
+		ul
+			$$\forall n (N(n)\rightarrow N(s(n)))$$
+			li Or written instead:
+			$$\forall n \in N (s(n) \in N)$$
+		li Two natural numbers are equal if and only if their successors are equal. This prevents a natural number being the successor of two different numbers, that is, looping back into itself. 
+		$$\forall m n \in N (m=n)\leftrightarrow (s(m)=s(n))$$
+		li The successor function never returns \(0\). This prevents circular loops.
+		$$\forall n \in N (¬(s(n)=0))$$
+	p We need to add another rule. For example, a set which included multiple unconnected lines would satisfy the above axioms. This is the axiom of induction. This states that only \(0\) and successors of \(0\) are included in the natural numbers.
+	p $$(N(0)\land \forall n \in N (N(s(n))))\rightarrow \forall n N(n)$$
+	p This gives us our intuitive sense of natural numbers, going to from \(0\) to \(\infty\). We also have a unary function \(s(n)\) which increases each number by \(1\).
+	p Let’s add another function: addition. Defined by the following axioms:
+	p $$\forall a \in N (a+0=a)$$
+	p $$\forall a b \in N (a+s(b)=s(a+b))$$
+	p That is, adding zero to a number doesn’t change it, and \((a+b)+1=a+(b+1)\).
+	p Let’s use this to solve \(1+2\):
+	p $$1+2=1+s(1)$$
+	p $$1+s(1)=s(1+1)$$
+	p $$s(1+1)=s(1+s(0))$$
+	p $$s(1+s(0))=s(s(1+0))$$
+	p $$s(s(1+0))=s(s(1))$$
+	p $$s(s(1))=s(2)$$
+	p $$s(2)=3$$
+	p $$1+2=3$$
+	p All addition can be done iteratively like this.
+	p Multiplication can be defined by:
+	p $$\forall a \in N (a.0=0)$$
+	p $$\forall a b \in N (a.s(b)=a.b+a)$$
+	p That is, anything multiplied by \(0\) is \(0\), \(a.(b+1)=a.b+a\).
+	p Let’s calculate \(2.2\).
+	p $$2.2=2.s(1)$$
+	p $$2.s(1)=2.1+2$$
+	p $$2.1+2=2.s(0)+2$$
+	p $$2.s(0)+2=2.0+2+2$$
+	p $$2.0+2+2=2+2$$
+	p $$2+2=4$$
+	p Exponents can also be defined:
+	p $$\forall a \in N a^0=1$$
+	p $$\forall a b \in N a^{s(b)}=a^b.a$$
+	p So \(2^2\) can be calculated like:
+	p $$2^2=2^{s(1)}$$
+	p $$2^{s(1)}=2.2^1$$
+	p $$2.2^1=2.2.2^0$$
+	p $$2.2.2^0=2.2.1$$
+	p $$2.2.1=4$$
+	p Additional functions could also be defined, following the same pattern:
+	p $$\forall a \in N (a\oplus _n 0=c)$$
+	p $$\forall a b \in N (a\oplus _{n} s(b)=(a\oplus_{n} b)\oplus_{n-1}a)$$
+	p In addition to these functions we also have inverses. These are subtraction, division and logarithms respectively. For function \(\oplus\), its inverse is \(\oplus '\), as defined below:
+	p $$a\oplus b=c$$
+	p $$b=c\oplus 'a$$
+	p So:
+	p $$a+b=c\rightarrow b=c-a$$
+	p $$a.b=c\rightarrow b=c/a$$
+	p $$a^b=c\rightarrow b=log_a c$$
+	p These will not necessarily have solutions for some sets of numbers. There is no natural number \(b\) that satisfies:
+	p $$3+b=2$$
+	p $$3.b=2$$
+	p $$3^b=2$$
+	p Ordinality
+	p $$\forall ab \in N (\exists c \in N (a+c=b)\rightarrow a\le b)$$
+	h3
+		b Integers
+	p To extend the number line to negative numbers, we define:
+	p $$\forall ab \in N \exists c (a+c=b)$$
+	p For any pair of numbers there exists a terms which can be added to one to get the other.
+	p For \(1+x=3\) this is another natural number, however for \(3+x=1\) there is no such number.
+	p Integers are defined as the solutions for any pair of natural numbers.
+	p Can we add and multiply integers? If we consider an integer to by an ordered pair of natural numbers, such that:
+	p $$(a,b)=a-b$$
+	p Natural numbers can be shown as integers by using:
+	p $$(n,0)$$
+	p Then we can define addition as:
+	p $$(a,b)+(c,d)=(a+c,b+d)$$
+	p Similarly, multiplication can be defined as:
+	p $$(a,b).(c,d)=(ac+bd, ad+bc)$$
+
+	h3
+		b Rational numbers
+	p We previously defined integers in terms of natural numbers. Similarly we can define rational numbers in terms of integers.
+	p $$\forall ab \in I (¬(b=0)\rightarrow \exists c (b.c=a))$$
+	p So that:
+	p $$(a,b)=a/b$$
+	p Integers can be shown as rational numbers using:
+	p $$(i,1)$$
+	p Then we can define addition as:
+	p $$(a,b)+(c,d)=(a.d+b.c,b.d)$$
+	p Similarly, multiplication can be defined as:
+	p $$(a,b).(c,d)=(a.c, b.d)$$
+	h3
+		b Real numbers
+	p Not all numbers can be shown as fractions. \(\sqrt 2\), \(\pi\). No way to have ordered set.
+	h3
+		b Complex numbers
+
+	p No more needed. Complete.

@@ -1,65 +1,154 @@
 extends ../templates/blogHeader.jade
 
 block blogContent
-	h2 First order logic
+	h2
+		b Logic
 	p 25th February 2017
-	h3 Introduction
-	p First-order logic constructs statements, or formulae, which are either true or false.
-	p "There exists X such that X is Socrates and X is a man" is a statement in first-order logic.
-	p Statements can be evaluated using truth tables and sub-formulae.
-	p These statements can include:
+	h3
+		b Formulas
+	p We can construct logical statements, or formulae, which are either true or false.
+	p A statement is true, false or can be either true or false. For example:
 	ul
-		li Terms
-		li Quantifications of terms
-		li Predicates
-		li Other logical symbols
+		li 1=1
+		li I am four meters tall
+		li You are 25 years old
+	p We can denote such statements as symbols, such as:
+	p $$\theta$$
+	p If the statement represented by \(\theta \) is true, then that formula is true.
+	p We can undertake unary operations on such a formula. As an input can be true or false, and the output true or false, there are four such operators.
+	ul
+		li True: the outcome is always true
+		li False: the outcome is always false
+		li Identity: the outcome is the same
+		li Negation: the outcome is the opposite.
+	p Negation can be shown with the following.
+	p $$¬\theta$$
+	p Formulas can also include logical connectors between other formulas, binary operators. The truth value of such a formula will depend on the truth value of the other formulas within. An example of formula with a logical connector is:
+	p $$\theta \rightarrow \gamma$$
+	p The arrow states that if \(\theta\) is true, \(\gamma\) is true. This formula is false if \(\theta\) can be true while \(\gamma\) is false.
+	p For given truth values of \(\theta\) and \(\gamma\), there are four possibilities:
+	ul
+		li Both are true
+		li \(\theta\) is true, \(\gamma\) is false
+		li \(\theta\) is false, \(\gamma\) is true
+		li Both are false
+	p As a connector between two formulas also returns a formula which is true or false, there are 2^4 types of logical connectors, of which \(\rightarrow\) is one.
+	p We do not need separate symbols for each. For example, instead of:
+	p $$\theta \leftarrow \gamma$$
+	p We can have:
+	p $$\gamma \rightarrow \theta$$
+	p Instead of “either or both of \(\theta\) and \(\gamma\) are true”, shown as:
+	p $$\theta \lor \gamma$$
+	p We can use:
+	p $$¬\theta \rightarrow \gamma$$
+	p These can be easily verified, as there are only four outcomes for both \(\theta\) and \(\gamma\).
+	p All 16 logical connectors can be derived from these two, making the set functionally complete. Using symbols as shorthand can be helpful. Common ones include:
+	p \(\theta\) and \(\gamma\) are true:
+	p $$\theta \land \gamma$$
+	p \(\theta\) implies \(\gamma\), and \(\gamma\) implies \(\theta\):
+	p $$\theta \leftrightarrow \gamma$$
+	p Other sets can also be used to derive the complete 16. In particular the 16 can all be derived from combinations of either NAND (false if both sides are true) or NOR (true if both sides are false).
+	p While logical connectors are only between two formulas, they can be extended to cover more. For example if a statement should be true if \(\alpha\) and \(\beta\) are true, or if \(\gamma\) is true, we can use:
+	p $$(\alpha \land \beta )\lor \gamma $$
+	p So now we have the ability to write formulas, let’s look into evaluating them.
+	p There are two ways of evaluating formulas: with truth tables, or with deduction. We discuss truth tables first.
+	p Take the formula:
+	p $$\alpha \rightarrow (\gamma \rightarrow \alpha)$$
+	p That is, if \(\alpha\) is true, then if \(\gamma\) is true, \(\alpha\) is true. This is always true. For any combination of \(\gamma\) and \(\alpha\) the statement is correct. More complex formulas can be evaluated in the same way.
+	p Another way to evaluate a formula is through the use of axioms and inference rules. Axioms are formulas which always evaluate to true. Formulas within can represent any formula, and so we can substitute any formula. An inference rule can be used to generate theorems.
+	p Let’s test some axioms:
+	p $$\theta$$
+	p $$¬\theta$$
+	p Our axioms are that \(\theta\) is true, and not \(\theta\) is true. So is \(\theta\) true? Either axiom can be used to show \(\theta\) is true or false, so the axioms are not consistent. They are unsound.
+	p What about the following:
+	p $$\theta$$
+	p $$\theta$$
+	p So is \(\theta\) correct? Yes, we know this from either axiom, the 2nd axiom adds no additional information and is redundant.
+	p OK, what about just:
+	p $$\theta$$
+	p This says that all formulas evaluate to true. But if \(\theta\) is true, then not \(\theta\) must be false. And as not \(\theta\) is a formula we have a contradiction. This is also unsound.
+	p Ok, so what about:
+	p $$\alpha \rightarrow \alpha$$
+	p This is true, but can we use it to check the formula we checked using a truth table? Take:
+	p $$\alpha \rightarrow (\gamma \rightarrow \alpha)$$
+	p No, we have no way of proving it through using only the axiom we have.
+	p This means this axiom is incomplete. There are true formulas which we cannot prove. We explore better axioms below.
 
-	h3 Terms
-	p Variables are terms.
-	p $$ x $$
-	p Functions, which take n other terms, are also terms.
-	p $$ f(x, y) $$
-	p All terms can be derived recursively from this.
+	h3
+		b Propositional calculus (zeroth-order logic)
+	p Axioms from Jan Lukasiewicz can be used for logic about propositions.
+	p
+		b Axiom 1 – Simplification
+	p If it is cloudy, then if it is a Tuesday it is also cloudy. 
+	p $$\theta \rightarrow (\gamma \rightarrow\theta)$$
+	p
+		b Axiom 2 – Frege
+	p $$(\alpha \rightarrow (\beta \rightarrow \gamma))\rightarrow ((\alpha \rightarrow \beta)\rightarrow (\alpha \rightarrow \gamma))$$
+	p
+		b Axiom 3 – Transposition
+	p If there are no clouds in the sky, it is not raining. If it is raining there are clouds in the sky
+	p $$(¬\theta \rightarrow ¬\gamma) \rightarrow (\gamma \rightarrow \theta)$$
+	p
+		b Inference rule – Modus Ponens
+	p An interference rule is used to generate true statements without using substitution. Modus Ponens says that if A is true, and if A then B is true, then B is true. If it rains on Thursdays, and it is Thursday, it is raining.
+	p $$A$$
+	p $$A\rightarrow B$$
+	p $$--$$
+	p $$B$$ 	
+	p Alternatively
+	p $$(\gamma \land (\gamma \rightarrow \theta)) \rightarrow \theta$$
+	p Each of these axioms and the inference rule can be proven to always to be true with a truth table. They are tautologies. 
+	p Let use these to derive a theorem:
+	p $$\alpha \rightarrow \alpha$$
+	p Start with axiom 2:
+	p $$(\alpha \rightarrow (\beta \rightarrow \gamma)) \rightarrow ((\alpha \rightarrow \beta) \rightarrow (\alpha \rightarrow \gamma))$$
+	p Replace \(\gamma\) with \(\alpha\), and \(\beta\) with \(\alpha\rightarrow \alpha\)
+	p $$(\alpha \rightarrow ((\alpha \rightarrow \alpha)\rightarrow \alpha))\rightarrow ((\alpha \rightarrow (\alpha \rightarrow \alpha))\rightarrow (\alpha \rightarrow \alpha))$$
+	p Separately, take axiom 1:
+	p $$\alpha \rightarrow (\beta \rightarrow \alpha)$$
+	p And replace \(\beta\) with \(\alpha \rightarrow \alpha\)
+	p $$\alpha \rightarrow ((\alpha \rightarrow \alpha) \rightarrow \alpha)$$
+	p This is the left side of the above equation. Through modus ponens, we then know:
+	p $$(\alpha \rightarrow (\alpha \rightarrow \alpha))\rightarrow (\alpha \rightarrow \alpha)$$
+	p We know the left is true through modus ponens, and so
+	p $$\alpha \rightarrow \alpha$$
+	p These axioms are complete: every formula which we know is always true or false through a truth table can be derived from these. They are sound: there are no contradictions. 
+
+	p There are many other sets of axioms which allow all correct theorems to be derived. One set of axioms could be all theorems – that is, all formulas which can be derived from axioms are already axioms. Such a system is called ineffective, and makes checking proofs impractical.
+	p Given a formula, can we find out if can be derived from the axioms? We can follow a process for doing so which would inform us if the formula was or was not a theorem. Alternative, the process could carry on forever.
+	p If the process never carries on forever the system is decidable: there is a finite process to determine whether the formula is in or out. If the process halts for true formulas, but can carry on forever for false formulas, the system is semi-decidable. If the process takes a long time, we do not know if it is looping infinitely, or approaching its halt point.
+	p Intuitively, use of axioms can make an existing formula shorter or longer, so finding all short formulas can require going forwards and backwards an infinite number of times.
+	p So can the language here be used to describe all statements? Take the statement “Socrates is a man”. This could be shown as:
+	p $$\theta$$
+	p But we cannot explore the proposition in more detail. For that we need predicate calculus.
+
+	h3
+		b Predicate calculus (First-order logic)
+	p Predicate calculus adds new types of formulas to propositional calculus.
+	p
+		b Quantifiers and terms
+	p We add the following axioms for formula F.
+	p $$\forall x F(x)$$
+	p $$\exists x F(x)$$
+	p Where lower case is generally used to show a term and upper case is used for a predicate. A predicate is true or false depending on its input terms.
+	p With definitions as follows:
+	p $$\forall x F(x) \rightarrow F(r)$$
+	p $$F(r) \rightarrow \exists x F(x)$$
+	p That is, if for all values of \(x\), \(F\) is true, then \(F\) is true for any input to \(F\).
+	p If \(F\) is true for term \(r\) as input, then there exists an input for \(F\) where \(F\) is true. 
+	p These terms are drawn from a domain of possibilities.
 	
-	h3 Variable quantification
-	p In first-order logic variables can be quantified either universally or existentially.
-	p There exists x:
-	p $$\exists x$$
-	p For all x:
-	p $$\forall x$$
-		
-	h3 Formulae
-	p Atomic formulas can contain predicates and equality.
-	p A predicate takes n variables and is either true of false. This is a formula.
-	p $$ P(x) $$
-	p Equality between terms can be used to create a formula:
-	p $$x = y$$
-
-	p Broader formulas can also be constructed. Quantification can also be attached to a formula:
-	p $$ \exists x P(x) $$
-	p Negation can be used:
-	p $$¬P(x)$$
-	p Logical connections can be used:
-	p $$\theta \rightarrow \delta$$
-	p $$\theta \leftarrow \delta$$
-	p $$\theta \leftrightarrow \delta$$
-	p $$or: \theta \lor \delta$$
-	p $$and: \theta \land \delta$$
-	p Quantifiers can be added:
-	p $$\forall x \exists y (x = y)$$
-	
-	h3 Evaluating logical connections
-	p A formula is either true of false. The value of a large formula can be calculated by examining the its more simple components and then using truth tables.
-	p Logical connectors return a truth value depending on the truth value of the two components.
-	p As a statement can be true or false, and there are two statements in a logical connection, there are four possible outcomes. TT, TF, FT, FF.
-	p As a logical connector can return true or false on any of these, there are 2^4 = 16 types of logical connectors.
-	
-	h3 Evaluating formulas
-	p To evaluate the rest of a formula we can use deductive systems.
-
-	h3 Metalogical properties
-	p A system is complete if all true statements can be proved.
-	p A system is sound if all provable statements are true.
-	p A system is effective if the set of axioms is finite.
-	p A system is decidable if there is a process to determine whether an arbitrary formula is valid.
-
+	p
+		b Equality
+	p We also add the formula:
+	p $$x=r$$
+	p This is defined with the following axioms:
+	p $$\forall x (x=x)$$
+	p $$\forall x \forall y ((x=y)\rightarrow (y=x))$$
+	p $$\forall x \forall y \forall z (((x=y)\land (y=z))\rightarrow (x=z))$$
+	p $$\forall x \forall y (P(x)\rightarrow P(y))$$
+	p
+		b Functions
+	p We also add functions, generally denoted with a lower case letter. Functions take other terms, and are themselves terms.
+	p $$s(n)$$
+	p This logic is more powerful, and is also complete, consistent, effective and semi decidable.
