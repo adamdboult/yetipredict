@@ -1,0 +1,47 @@
+extends ../templates/blogHeader.jade
+
+block blogContent
+	h2
+		b Logic
+	p 25th February 2017
+	h3
+		b Predicate calculus (First-order logic)
+	p Predicate calculus adds new types of formulas to propositional calculus.
+
+	p This logic is more powerful, and is also complete, consistent, effective and semi decidable.
+	p excludes statements like "where are you"
+	p can't check all possibilities for more complex statements. claims about prime numbers
+
+	p Theorems often divided into: theorems (important results), lemmas, used for later theorems, collary, proposition from a theorem
+	p
+		b Quantifiers and terms
+	p We add the following axioms for formula F.
+	p $$\forall x F(x)$$
+	p $$\exists x F(x)$$
+	p Where lower case is generally used to show a term and upper case is used for a predicate. A predicate is true or false depending on its input terms.
+	p With definitions as follows:
+	p $$\forall x F(x) \rightarrow F(r)$$
+	p $$F(r) \rightarrow \exists x F(x)$$
+	p That is, if for all values of \(x\), \(F\) is true, then \(F\) is true for any input to \(F\).
+	p If \(F\) is true for term \(r\) as input, then there exists an input for \(F\) where \(F\) is true. 
+	h3
+		b Domains
+	p These terms are drawn from a domain of possibilities. We could be talking about a term as an integer, or as a type of animal, or an complex number.
+	p We can denote this by expressing what domain we are interested in. If we are saying there exists a natural number where a predicate is true, we can say:
+	$$ \exists n \in \n P(n)$$
+		b Equality
+	p We also add the formula:
+	p $$x=r$$
+	p This is defined with the following axioms:
+	p $$\forall x (x=x)$$
+	p $$\forall x \forall y ((x=y)\rightarrow (y=x))$$
+	p $$\forall x \forall y \forall z (((x=y)\land (y=z))\rightarrow (x=z))$$
+	p $$\forall x \forall y (P(x)\rightarrow P(y))$$
+	p
+		b Functions
+	p We also add functions, generally denoted with a lower case letter. Functions take other terms, and are themselves terms.
+	p $$s(n)$$
+	p Functions can map between domains. For example a function can be defined on a set of inputs, and give different outputs. For example:
+	p $$f:X\rightarrow Y$$
+	p Signifies a function which maps from domain X to domain Y. This could occur, for example, from taking the square root of any integer input, which would map from integers to complex numbers.
+	

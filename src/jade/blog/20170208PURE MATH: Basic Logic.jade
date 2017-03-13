@@ -121,34 +121,3 @@ block blogContent
 	p So can the language here be used to describe all statements? Take the statement “Socrates is a man”. This could be shown as:
 	p $$\theta$$
 	p But we cannot explore the proposition in more detail. For that we need predicate calculus.
-
-	h3
-		b Predicate calculus (First-order logic)
-	p Predicate calculus adds new types of formulas to propositional calculus.
-	p
-		b Quantifiers and terms
-	p We add the following axioms for formula F.
-	p $$\forall x F(x)$$
-	p $$\exists x F(x)$$
-	p Where lower case is generally used to show a term and upper case is used for a predicate. A predicate is true or false depending on its input terms.
-	p With definitions as follows:
-	p $$\forall x F(x) \rightarrow F(r)$$
-	p $$F(r) \rightarrow \exists x F(x)$$
-	p That is, if for all values of \(x\), \(F\) is true, then \(F\) is true for any input to \(F\).
-	p If \(F\) is true for term \(r\) as input, then there exists an input for \(F\) where \(F\) is true. 
-	p These terms are drawn from a domain of possibilities.
-	
-	p
-		b Equality
-	p We also add the formula:
-	p $$x=r$$
-	p This is defined with the following axioms:
-	p $$\forall x (x=x)$$
-	p $$\forall x \forall y ((x=y)\rightarrow (y=x))$$
-	p $$\forall x \forall y \forall z (((x=y)\land (y=z))\rightarrow (x=z))$$
-	p $$\forall x \forall y (P(x)\rightarrow P(y))$$
-	p
-		b Functions
-	p We also add functions, generally denoted with a lower case letter. Functions take other terms, and are themselves terms.
-	p $$s(n)$$
-	p This logic is more powerful, and is also complete, consistent, effective and semi decidable.

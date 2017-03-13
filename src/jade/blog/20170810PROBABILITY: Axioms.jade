@@ -1,0 +1,42 @@
+extends ../templates/blogHeader.jade
+
+block blogContent
+	h2
+		b Probability axioms
+	p 10th March 2017
+	p We have threee probability axioms.
+	li
+		ul The probability of an event is a non-negative real number
+		$$ \(P(E)\in \R, P(E)>=0 \forall E \in F\)$$
+		ul The probability that at least one of the elementary events will occur is 1
+		$$ \(P(\omega)=1\)$$
+		ul The count ability of disjoint sets of mutuality exclusive events satisfies
+		$$ \(P(\bigcup_{i=1}^\inf )=\sum P(E_i )\)$$
+	p An event can have multiple possible outcomes. Each possible outcome is assigned a distinct possibility. For a coin flip there are two outcomes {H,T}, and P(H)+P(T)=1.
+	p Probability of getting 2 heads? Well the exhaustive list of possibilities is now sigma algebra of P.
+	p $$P(H)+P(T)=1$$
+	p $$P(HH)+P(HT)+P(TH)+P(TT)=1$$
+	p So what’s the value of P(HH)? This mean P(R_1=H)\land P(R_2=H).
+	p $$P(A)+P(B)=1$$
+	p $$P(X)+P(Y)=1$$
+	p $$P(AX)+P(AY)+P(BX)+P(BY)=1$$
+
+	$$ P(A|B)=P(AandB)/P(B)$$
+
+	p One option is that P(AB)=P(A)*P(B). Indeed if we expand this out:
+	$$ P(HH)+P(HT)+P(TH)+P(TT)=1$$
+	$$ P(HH)+P(HT)+P(TH)+P(TT)=P(H)P(H)+P(H)P(T)+P(T)P(H)+P(T)P(T)$$
+	$$ P(HH)+P(HT)+P(TH)+P(TT)=P(H)P(H)+2P(H)P(T)+P(T)P(T)$$
+	$$ P(HH)+P(HT)+P(TH)+P(TT)=[P(H)+P(T)]^2$$
+	$$ P(HH)+P(HT)+P(TH)+P(TT)=[1]^2$$
+	$$ P(HH)+P(HT)+P(TH)+P(TT)=[1]$$
+	p We see that this preserves the axioms.
+	p However this may not be the case. If instead we flip a coin once and look at it twice P(HT)=P(TH)=0. So we add another term to allow for generalisation.
+	p $$P(HH)+P(HT)+P(TH)+P(TT)=P(H)P(H)Cov(HH)+P(H)P(T)Cov(HT)+P(T)P(H)Cov(TH)+P(T)P(T)Cov(TT)$$
+
+	p While these are mutually exclusive their components may not be. For example if you flip two coins there are four possible outcomes:
+	ul
+		li HH
+		li HT
+		li TH
+		li TT
