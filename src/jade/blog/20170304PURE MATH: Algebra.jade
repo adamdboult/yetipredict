@@ -2,33 +2,59 @@ extends ../templates/blogHeader.jade
 
 block blogContent
 	h2
-		b Algebraic structures
+		b Algebraic
 	p 3rd March 2017
-	p Previously we explored how we can use terms and functions to define types of numbers. Let’s consider this more abstractly.
-	p We can define structures by elements and operations. A structure is a set of elements, and operations on the elements where the outcomes are also elements.
-	p Natural numbers and the successor function form a structure - all successor numbers are also natural numbers. Natural numbers with addition and multiplication (and so on) is another structures.
-	p Other types of elements and functions can be used. For example, multiplication and complex numbers of magnitude 1.
-	p $$e^{i\pi \theta}$$
+	p This is a collection of things we know
+	h3
+		b Partial fraction decomposition
+	p We have:
+	$$\frac{1}{A.B}$$
+	p We want this in the form of:
+	$$\frac{a}{A}+\frac{b}{B}$$
+	p First, lets define \(M\) as the mean of these two numbers, and define \(\delta=M-B\). Then:
+	$$\frac{1}{AB}=\frac{1}{(M+\delta)(M-\delta)}=\frac{a}{M+\delta}+\frac{b}{M-\delta}$$
+	p We can rearrange the latter two to find:
+	$$1=a(M-\delta)+b(M+\delta)$$
+	p Now we need to find values of \(a\) and \(b\) to choose.
+	p Let's examine \(a\).
+	$$a=\frac{1-b(M+\delta)}{M-\delta}$$
+	$$a=-\frac{bM+b\delta -1}{M-\delta}$$
+	$$a=-\frac{bM+b\delta -1}{M-\delta}$$
 
-	p Some key examples are:
+	p For this to divide neatly we need both the numerator to be a constant multiplier of the denominator. This means the ratio the multiplier for the left hand side of the denominator is equal to the right:
+	$$\frac{bM}{M}=\frac{b\delta -1}{-\delta}$$
+	$$b=\frac{b\delta -1}{-\delta}$$
+	$$b=\frac{1}{2\delta}$$
+	p We can do the same for \(a\).
+	$$a=-\frac{1}{2\delta}$$
+	p We can plug these back into our original formula:
+	$$\frac{1}{(M+\delta)(M-\delta)}=\frac{-\frac{1}{2\delta}}{M+\delta}+\frac{\frac{1}{2\delta}}{M-\delta}$$
+	$$\frac{1}{(M+\delta)(M-\delta)}=\frac{1}{2\delta}[\frac{1}{M-\delta}-\frac{1}{M+\delta}]$$
+	h3
+		b Differences of two squares
+	$$(a+b)(a-b)=a^2-ab+ab-b^2=a^2-b^2$$
+	$$(a+b)(a-b)=a^2+b^2$$
+	h3
+		b Binomial expansion
+	p How can we expand
+	$$(a+b)^n, n\in \mathbb{N}$$
+	p We know that:
+	$$(a+b)^n=(a+b)(a+b)^{n-1}$$
+	$$(a+b)^n=a(a+b)^{n-1}+b(a+b)^{n-1}$$
+	p Each time this is done, the terms split, and each terms is multiplied by either \(a\) or \(b\). That means at the end there are \(n\) total multiplications.
+	p This can be shown as:
+	$$(a+b)^n=\sum_{i=1}^n a^i b^{n-i} c_i$$
+	p So we want to identify \(c_i\).
+	p Each term can be shown as a series of \(n\) \(a\)s and \(b\)s. For example:
 	ul
-		li Structures without binary operations
-		ul
-			li A set: elements but no operations (eg natural numbers)
-			li A unary system, elements and an operation on the elements (natural numbers and the successor function)
-		li Group-like structures, with one binary operation
-		ul
-			li Magma or groupoid: elements and one binary operation (natural numbers and addition)
-			li Semigroup: an associative magma, (aXb)Xc=aX(bXc)
-			li Monoid: semigroup with an identify element, aXI=a
-			li Group: Monoid with an unary inverse function aX’a=I. Integers with addition and inverse function
-			li Abelian group: a commutative group, aXb=bXa. Integers with addition also satisfy this.
-			li Ring-like structures, two binary operations
-	p Operations can have properties:
-	ul
-		li Associateive \((a.b).c=a.(b.c)\)
-		li Commutative \(a.b=b.a\)
-		li Distributive \(a.(b+c)=a.b+a.c\)
-	p Operations can either be unary or binary.
-	p An operation can have an identify element, such that \(a.I=a\)
+		li \(aaba\)
+		li \(baaa\)
+	p For any of these, there are \(n!\) ways or arranging the sequence, but this includes duplicates. If we were given \(n\) unique terms to multiply there would indeed by \(n!\) different ways this could have arisen, but we can swap \(a\)s and \(b\)s, as they were only generated once. So let's count duplicates.
+	p There are duplicates in the \(a\)s. If there are  \(i\) \(a\)s, then there are \(i!\) ways of rearranging this. Similarly, if there are \(n-i\) \(b\)s, then there are \((n-i)!\) ways or arranging this.
+	p As a result the number of actual observed instances, \(c_i\), is:
+	$$c_i=\frac{n!}{i!(n-i)!}$$
+	p And so:
+	$$(a+b)^n=\sum^n_i=0 a^i b^{n-i} \frac{n!}{i!(n-i)}$$
+	p We can also write this last term as:
+	$$\begin{pmatrix}n\\i\end{pmatrix}$$
 	

@@ -1,0 +1,34 @@
+extends ../templates/blogHeader.jade
+
+block blogContent
+	h2
+		b Algebraic structures
+	p 3rd March 2017
+	p Previously we explored how we can use terms and functions to define types of numbers. Let’s consider this more abstractly.
+	p We can define structures by elements and operations. A structure is a set of elements, and operations on the elements where the outcomes are also elements.
+	p Natural numbers and the successor function form a structure - all successor numbers are also natural numbers. Natural numbers with addition and multiplication (and so on) is another structures.
+	p Other types of elements and functions can be used. For example, multiplication and complex numbers of magnitude 1.
+	p $$e^{i\pi \theta}$$
+
+	p Some key examples are:
+	ul
+		li Structures without binary operations
+		ul
+			li A set: elements but no operations (eg natural numbers)
+			li A unary system, elements and an operation on the elements (natural numbers and the successor function)
+		li Group-like structures, with one binary operation
+		ul
+			li Magma or groupoid: elements and one binary operation (natural numbers and addition)
+			li Semigroup: an associative magma, (aXb)Xc=aX(bXc)
+			li Monoid: semigroup with an identify element, aXI=a
+			li Group: Monoid with an unary inverse function aX’a=I. Integers with addition and inverse function
+			li Abelian group: a commutative group, aXb=bXa. Integers with addition also satisfy this.
+			li Ring-like structures, two binary operations
+	p Operations can have properties:
+	ul
+		li Associateive \((a.b).c=a.(b.c)\)
+		li Commutative \(a.b=b.a\)
+		li Distributive \(a.(b+c)=a.b+a.c\)
+	p Operations can either be unary or binary.
+	p An operation can have an identify element, such that \(a.I=a\)
+	
