@@ -4,5 +4,71 @@ block blogContent
 	h2
 		b Ordinary Least Squares
 	p 10th March 2017
-	p $$\(y_i =\sum m_j x_{ij} +c+\epsilon_i\)$$
-	p $$\(P(y_i=\sum m_j x {ij} +c)=p(\epsilon_i =)\)$$
+
+	h3
+		b Simple OLS
+	p We have an independent variable, \(x\), and a dependent variable, \(y\). We want to draw a straight line through a plot of this data to find the best fit. We define the best fit as the line which minimises the sum of the squares of the difference between actual values of \(y\) and the position of our line for that point.
+	p $$y_i=\ m.x_i +c+\epsilon_i$$
+	p We want to minimise the sum of \(\epsilon^2\) so let’s rearrange.
+	p $$\epsilon_i=y_i- m x_i –c$$
+	p $$\epsilon_i^2=y_i^2 +c^2 +m^2 x_i^2 +2cmx_i -2cy_i -2mx_i y_i$$
+	p $$\sum \epsilon_i^2=\sum y_i^2 +nc^2 +m^2\sum x_i^2+2cm\sum x_i -2c\sum y_i -2m \sum x_i y_i $$
+
+	p We need to find the values of \(m\) and \(c\) which minimise this value. Let’s find the stationary point for \(\m\).
+
+	p $$\frac{\delta \sum \epsilon_i^2}{\delta m}= 2m\sum x_i^2+2c\sum x_i-2 \sum x_i y_i=0$$
+	p $$m\sum x_i^2=\sum x_i y_i -c\sum x_i $$
+	p And the stationary point for \(c\).
+	p $$\frac{\delta \sum \epsilon_i^2}{\delta c}= 2cn+2m\sum x_i -2\sum y_i=0$$
+	p $$cn+m\sum x_i -\sum y_i=0$$
+	p So we have:
+	p $$m\sum x_i^2=\sum x_i y_i -c\sum x_i $$
+	p $$cn+m\sum x_i -\sum y_i=0$$
+
+	p We can rearrange these to:
+	p $$c =\frac{\sum x_i y_i - m\sum x_i^2}{\sum x_i}$$
+	p $$c=\frac{\sum y_i-m\sum x_i}{n}$$
+	p We can then combine these to solve for \(m\):
+	p $$frac{\sum x_i y_i - m\sum x_i^2}{\sum x_i}=\frac{\sum y_i-m\sum x_i}{n}$$
+	p $$n\sum x_i y_i - mn\sum x_i^2=\sum x_i \sum y_i-m\sum x_i \sum x_i$$
+	p $$m(\sum x_i \sum x_i - n\sum x_i^2)= \sum x_i \sum y_i - n\sum x_i y_i $$
+	p $$m=\frac{\sum x_i \sum y_i - n\sum x_i y_i}{\sum x_i \sum x_i - n\sum x_i^2}$$
+	p $$m=\frac{n\sum x_i y_i-\sum x_i \sum y_i}{n\sum x_i^2-\sum x_i \sum x_i}$$
+	p $$m=\frac{\bar xy -\bar x \bar y}{\bar x^2-{\bar x}^2}$$
+	p We can then substitute for \(c\):
+	p $$c=\frac{\sum y_i-m\sum x_i}{n}$$
+	p $$c=\bar y -m\bar x$$
+	p $$c=\bar y -\frac{\bar xy -\bar x \bar y}{\bar x^2-{\bar x}^2}\bar x$$
+	h3
+		b OLS
+	p We can add an array of explanatory variables, rather than just 1. In addition instead of treating c separately, we add an \(x\) value of one to the dataset, to the same effect.
+	p The model is now:
+	p $$y_i=\sum m_j x_ij +\epsilon_i$$
+	p We can work out the value of the error term squared:
+	p $$\epsilon_i=y_i-\sum m_j x_ij$$
+	p $$\epsilon_i^2=(y_i-\sum m_j x_ij)^2$$
+	p $$\epsilon_i^2=y_i^2 + (\sum m_j x_ij)^2 -2y_i \sum m_j x_ij$$
+	p And the sum of the errors squared:
+	p $$\sum_i \epsilon_i^2=\sum_i y_i^2 + \sum_i (\sum_j m_j x_ij)^2 -2\sum_i y_i \sum_j m_j x_ij$$
+	p Let’s now take the derivative of this with respect to m_J:
+	p $$\frac{\delta \sum_i \epsilon_i^2}{\delta m_J}=2\sum_i x_iJ(\sum_j m_j x_ij) -2\sum_i y_i x_iJ=0$$
+	p $$\sum_i x_iJ(\sum_j m_j x_ij)=\sum_i y_i x_iJ$$
+	p These give us simultaneous equations to solve. First we examine one of these equations, and then we solve with linear algebra.
+	p $$\sum_i x_iJ(m_J x_iJ + \sum_{j\ne J} m_j x_ij)=\sum_i y_i x_iJ$$
+	p $$\sum_i x^2_iJ m_J + \sum_i x_iJ\sum_{j\ne J} m_j x_ij)=\sum_i y_i x_iJ$$
+	p $$ m_J =\frac{\sum_i y_i x_iJ- \sum_i x_iJ \sum_{j\ne J} m_j x_ij)}{sum_i x^2_iJ}$$
+	p $$ m_J =\frac{\sum_i y_i x_iJ}{ sum_i x^2_iJ} –\sum_{j\ne J}\frac{\sum_i x_iJ m_j x_ij}{sum_i x^2_iJ}$$
+	p We can interpret this as saying: we do not need to much as much weight on data series which are already correlated with others.
+	p Take the case of the intercept, where \(x_{ic}=1\) for all \(i\).
+	p $$ m_c =\frac{\sum_i y_i x_ic}{ sum_i x^2_ic} –\sum_{j\ne c}\frac{\sum_i  x_ic m_j x_ij}{sum_i x^2_ic}$$
+	p $$ m_c =\frac{\sum_i y_i .1}{n} –\sum_{j\ne c}\frac{\sum_i .1. m_j x_ij}{n}$$
+	p $$ m_c =\bar y –\sum_{j\ne c} m_j \bar x_j $$
+	p We can see this is a generalisation of the simple OLS.
+	p We can solve all values of \(m_j\) using linear algebra.
+	p $$\sum_i x_iJ(\sum_j m_j x_ij)=\sum_i y_i x_iJ$$
+	p We can write this as matrix multiplication.
+	p $$x_J^TXM=x_J^T y$$
+	p As this holds for all \(j\) we can generalise to the following.
+	p $$X^{T}XM=X^T y$$
+	p $$M=(X^{T}X)^{-1}X^T y$$
+	p Note that this only has a solution if \(X^TX\) is invertible. Intuitively it isn’t if there are more variables than samples, or if variables are linearly dependent. Examples of linearly dependent variables include “distance in miles” and “distances in kilometres”.

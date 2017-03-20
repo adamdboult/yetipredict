@@ -1,0 +1,33 @@
+extends ../templates/blogHeader.jade
+
+block blogContent
+	h2
+		b Calculus
+	p 3rd March 2017
+	p $$y=ax^2+bx+c=0$$
+	p Stationary point is where:
+	p $$\frac{\delta y}{\delta x}=0$$
+	p And:
+	p $$\frac{\delta y}{\delta x}=2ax+b=0$$
+	p So the stationary point is where:
+	p $$x_S=\frac{-b}{2a}$$
+	p At either side of this point, derivatives are equal:
+	p $$\frac{\delta y}{\delta x}=2a(\frac{-b}{2a}+\epsilon )+b$$
+	p $$\frac{\delta y}{\delta x}=-b +2a\epsilon +b$$
+	p $$\frac{\delta y}{\delta x}=2a\epsilon $$
+	p So the solutions are:
+	p $$y=ax^2+bx+c=a(x-x_S-\epsilon )(x-x_S+\epsilon )$$
+	p $$y=ax^2+bx+c=a(x^2+x^2_S-\epsilon ^2 -2xx_S)$$
+	p $$y=ax^2+bx+c=ax^2 +\frac{b^2}{4a} -a\epsilon ^2 +2ax\frac{b}{2a}$$
+	p $$y=ax^2+bx+c=ax^2 +\frac{b^2}{4a} -a\epsilon ^2 +xb$$
+	p So:
+	p $$c=\frac{b^2}{4a} -a\epsilon ^2$$
+	p $$a\epsilon ^2=\frac{b^2}{4a} -c$$
+	p $$\epsilon ^2=\frac{b^2-4ac}{4a^2}$$
+	p $$\epsilon =+/- \sqrt [\frac{b^2-4ac}{4a^2}]$$
+	p $$\epsilon =+/- \frac{\sqrt (b^2-4ac)}{2a}$$
+	p We know that:
+	p $$x=x_S+/- \epsilon $$
+	p So
+	p $$x=\frac{-b}{2a}+/- \frac{\sqrt (b^2-4ac)}{2a}$$
+	p $$x=\frac{-b+/- \sqrt (b^2-4ac)}{2a}$$
