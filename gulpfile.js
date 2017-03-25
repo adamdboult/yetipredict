@@ -91,11 +91,16 @@ var jsFallBack=[bowerDir+'/jquery/dist/jquery.min.js'];
 var mathjaxprefix=bowerDir+'/MathJax';
 var mathjaxFolder=[mathjaxprefix+'/MathJax.js',
 		   mathjaxprefix+'/config/**/*',
-		   mathjaxprefix+'/images/**/*',
-		   mathjaxprefix+'/jax/**/*',
-		   mathjaxprefix+'/fonts/HTML-CSS/TeX/woff/**/*',
+		   mathjaxprefix+'/fonts/HTML-CSS/**/*',
 		   mathjaxprefix+'/extensions/**/*'
 		  ];
+//var mathjaxFolder=[mathjaxprefix+'/MathJax.js',
+//		   mathjaxprefix+'/config/**/*',
+//		   mathjaxprefix+'/images/**/*',
+//		   mathjaxprefix+'/jax/**/*',
+//		   mathjaxprefix+'/fonts/HTML-CSS/TeX/woff/**/*',
+//		   mathjaxprefix+'/extensions/**/*'
+//		  ];
 
 var datepickerFolder=[bowerDir+'/bootstrap-datepicker/js/**/*'];
 
