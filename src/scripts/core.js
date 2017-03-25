@@ -5,16 +5,16 @@
 /*global d3:false */
 /*global MathJax:false */
 
-/*MathJax.Hub.Config({
-  skipStartupTypeset: true,
-  messageStyle: "none",
-  "HTML-CSS": {
-  showMathMenu: false
-  }
-  });*/
+///*MathJax.Hub.Config({
+//  skipStartupTypeset: true,
+//  messageStyle: "none",
+//  "HTML-CSS": {
+//  showMathMenu: false
+//  }
+//  });*/
 
-MathJax.Hub.Config({skipStartupTypeset: true});
-MathJax.Hub.Configured();
+//MathJax.Hub.Config({skipStartupTypeset: true});
+//MathJax.Hub.Configured();
 
 var myApp = angular.module('myApp', []);
 
