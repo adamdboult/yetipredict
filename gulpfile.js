@@ -91,7 +91,7 @@ var jsFallBack=[bowerDir+'/jquery/dist/jquery.min.js'];
 var mathjaxprefix=bowerDir+'/MathJax';
 var mathjaxFolder=[mathjaxprefix+'/MathJax.js',
 		   mathjaxprefix+'/config/**/*',
-		   mathjaxprefix+'/fonts/HTML-CSS/**/*',
+		   mathjaxprefix+'/fonts/HTML-CSS/Tex/woff/**/*',
 		   mathjaxprefix+'/jax/**/*',
 		   mathjaxprefix+'/extensions/**/*'
 		  ];
