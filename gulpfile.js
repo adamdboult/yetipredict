@@ -92,6 +92,7 @@ var mathjaxprefix=bowerDir+'/MathJax';
 var mathjaxFolder=[mathjaxprefix+'/MathJax.js',
 		   mathjaxprefix+'/config/**/*',
 		   mathjaxprefix+'/fonts/HTML-CSS/**/*',
+		   mathjaxprefix+'/jax/**/*',
 		   mathjaxprefix+'/extensions/**/*'
 		  ];
 //var mathjaxFolder=[mathjaxprefix+'/MathJax.js',
