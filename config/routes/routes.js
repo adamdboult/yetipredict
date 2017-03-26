@@ -68,10 +68,19 @@ module.exports=function(app,passport,logger,mailgun,MailComposer){
 	res.render('blog',{posts:blogArray});
     });
 
+    app.get('/theory', function(req,res){
+	res.render('theory');
+    });
+    app.get('/theory/:area', function(req,res){
+	res.render('theory/'+req.params.area);
+    });
+    app.get('/theory/:area/:subject', function(req,res){
+	res.render('theory/'+req.params.area+'/'+req.params.subject);
+    });
+
     app.get('/models', function(req,res){
 	res.render('models',{models:modelArray});
     });
-
 
     app.get('/news/:post', function(req,res){
 	res.render('blog/'+req.params.post);

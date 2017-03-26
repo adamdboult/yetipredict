@@ -1,0 +1,59 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Probability axioms
+	p 10th March 2017
+	p We have a set of possible outcomes and we have a function on the set to give the probability of each outcome.
+	p Normally capital letters refers to predicates. Here \(P(x)\) refers to a function on \(x\).
+
+	h3
+		b Axioms
+	
+	p
+		b Axiom 1 – events have probabilities
+	p We define a set of events, where each event has an associated probability.
+	p $$\forall x_i \in x, P(x_i)=c, (c\in \mathbb{R}\land 0\le c\le 1)$$
+	p
+		b Axiom 2 – outcomes of events are mutually exclusive
+	p The sum of all of these probabilities is 1.
+	p $$\sum_i P(x_i)=1$$
+	p 
+		b Axiom 3 – joint probabilities of events divide each event
+	p We can assign a number to groups of outcomes, including from different probability spaces. The sum of these across one event space is equal to the probability of the remaining events.
+	p $$\sum_j P(x_i \land y_j)=P(x_i)$$
+	p This also applies to more than two events.
+	p $$\sum_k P(x_i \land y_j \land z_k)=P(x_i \land y_j)$$
+	p
+		b Axiom 4 – joint probabilities of the same outcome are the probability of the outcome
+	p The joint probability of the same event occurring is equal to the probability of the event occurring.
+	p $$P(x_i \land x_i)=P(x_i)$$
+	p
+		b Axiom 5 - Events are mutually exclusive.
+	p The probability of two outcomes in the same event occurring is \(0\).
+	p $$P(x_i \land x_j)=0$$
+
+	h3
+		b Extra definitions
+	p
+		b OR
+	p $$P(x_i \lor y_j):=P(x_i)+P(y_j)-P(x_i \land y_j)$$
+	p
+		b Conditional probability
+	p $$P(x_i|y_j):=\frac{P(x_i \land y_j)}{P(y_j)}$$
+
+
+	h3
+		b Distributions
+	p
+		b Independent and identically distributed (IID): Independence
+	p \(x\) is independent of \(y\) if:
+	p $$\forall x_i \in x,\forall y_j \in y (P(x_i|y_j)=P(x_i)$$
+	p If \(P(x_i|y_j)=P(x_i)\) then:
+	p $$P(x_i\land y_j)=P(x_i).P(y_j)$$
+	p This logic extends beyond just two events. If the events are independent then:
+	p $$P(x_i\land y_j \land z_j)=P(x_i).P(y_j \land z_k)=P(x_i).P(y_j).P(z_k)$$
+	p
+		b Independent and identically distributed (IID): Identically distributed
+	p \(x\) is identically distributed to \(y\) if:
+	p $$\forall i (\exists x_i \rightarrow P(x_i)=P(y_i))$$

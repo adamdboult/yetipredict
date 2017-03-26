@@ -1,0 +1,13 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Bayes theorem
+	p We know:
+	p $$P(x_i|y_j):=\frac{P(x_i \land y_j)}{P(y_j)}$$
+	p $$P(y_j|x_i):=\frac{P(x_i \land y_j)}{P(x_i)}$$
+	p So:
+	p $$P(x_i|y_j)P(y_j)=P(y_j|x_i) P(x_i)$$
+	p $$P(x_i|y_j)=\frac{P(y_j|x_i) P(x_i)}{P(y_j)}$$
+	p
+		b Bayesian updating

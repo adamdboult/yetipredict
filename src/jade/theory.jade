@@ -1,0 +1,20 @@
+extends templates/loginHeader.jade
+
+block content
+	.container.fill
+		.col-sm-6.col-sm-offset-3
+			h1 Theory
+
+			p
+				a(href="/theory/maths") Maths
+						
+			p
+				a(href="/theory/statistics") Statistics
+			
+			p
+				a(href="/theory/economics") Economics
+			//each theory, index in theories
+			//	p
+			//		a(href="/theory/"+theory.noType)=theory.title
+			//	br
+			//br
