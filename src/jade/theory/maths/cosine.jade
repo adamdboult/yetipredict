@@ -1,0 +1,34 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Cosine and sine
+	p Previously we showed that:
+	$$e^x=\sum_{i=0}^\inf \frac{x^i}{i!}$$
+	p Consider:
+	$$e^{i\theta }=$$
+	$$e^{i\theta }=\sum_{j=0}^\inf \frac{(i\theta )^j}{j!}$$
+	$$e^{i\theta }=[\sum_{j=0}^\inf \frac{(/theta )^{4j}}{(4j)!}-\sum_{j=0}^\inf \frac{(\theta )^{4j+2}}{(4j+2)!}]+i[\sum_{j=0}^\inf \frac{(\theta )^{4j+1}}{(4j+1)!}-\sum_{j=0}^\inf \frac{(\theta )^{4j+3}}{(4j+3)!}]$$
+	p We then use this to define \(sin\) and \(cos\) functions.
+	$$cos(\theta ):=\sum_{j=0}^\inf \frac{(/theta )^{4j}}{(4j)!}-\sum_{j=0}^\inf \frac{(\theta )^{4j+2}}{(4j+2)!}$$
+	$$sin(\theta ):=\sum_{j=0}^\inf \frac{(/theta )^{4j+1}}{(4j+1)!}-\sum_{j=0}^\inf \frac{(\theta )^{4j+3}}{(4j+3)!}$$
+	p So:
+	$$e^{i\theta }=cos(\theta )+isin(\theta )$$
+	p Note that these functions are linked in their derivatives.
+	p $$\frac{\delta }{\delta \theta }cos(\theta )=\sum_{j=0}^\inf \frac{(/theta )^{(4j+3)}}{(4j+3)!}-\sum_{j=0}^\inf \frac{(\theta )^{4j+1}}{(4j+1)!}$$
+	p $$\frac{\delta }{\delta \theta }cos(\theta )=-sin(\theta )$$
+	p Similarly:
+	p $$\frac{\delta }{\delta \theta }sin(\theta )=cos(\theta )$$
+	p And:
+	p $$\frac{\delta^2 }{\delta \theta^2}sin(\theta )=-sin(\theta )$$
+	p $$\frac{\delta^2 }{\delta \theta^2}cos(\theta )=-cos(\theta )$$
+
+	p Note that with imaginary numbers we can reverse all \(i\)s. So:
+	p $$e^{i\theta }=cos(\theta )+isin(\theta )$$
+	p $$e^{-i\theta }=cos(\theta )-isin(\theta )$$
+	p $$e^{i\theta }e^{-i\theta }=(cos(\theta )+isin(\theta ))(cos(\theta )-isin(\theta ))$$
+	p $$e^{i\theta }e^{-i\theta }=cos(\theta )^2+sin(\theta )^2$$
+	p $$e^{i\theta }e^{-i\theta }=e^{i\theta -i\theta }=e^0=1$$
+	p So:
+	p $$cos(\theta )^2+sin(\theta )^2=1$$
+	
