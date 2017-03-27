@@ -1,0 +1,52 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Models
+	p 3rd March 2017
+	p Let’s add another function: addition. Defined by the following axioms:
+	p $$\forall a \in \mathbb{N} (a+0=a)$$
+	p $$\forall a b \in \mathbb{N} (a+s(b)=s(a+b))$$
+	p That is, adding zero to a number doesn’t change it, and \((a+b)+1=a+(b+1)\).
+	p Let’s use this to solve \(1+2\):
+	p $$1+2=1+s(1)$$
+	p $$1+s(1)=s(1+1)$$
+	p $$s(1+1)=s(1+s(0))$$
+	p $$s(1+s(0))=s(s(1+0))$$
+	p $$s(s(1+0))=s(s(1))$$
+	p $$s(s(1))=s(2)$$
+	p $$s(2)=3$$
+	p $$1+2=3$$
+	p All addition can be done iteratively like this.
+	p Multiplication can be defined by:
+	p $$\forall a \in \mathbb{N} (a.0=0)$$
+	p $$\forall a b \in \mathbb{N} (a.s(b)=a.b+a)$$
+	p That is, anything multiplied by \(0\) is \(0\), \(a.(b+1)=a.b+a\).
+	p Let’s calculate \(2.2\).
+	p $$2.2=2.s(1)$$
+	p $$2.s(1)=2.1+2$$
+	p $$2.1+2=2.s(0)+2$$
+	p $$2.s(0)+2=2.0+2+2$$
+	p $$2.0+2+2=2+2$$
+	p $$2+2=4$$
+	p Exponents can also be defined:
+	p $$\forall a \in \mathbb{N} a^0=1$$
+	p $$\forall a b \in \mathbb{N} a^{s(b)}=a^b.a$$
+	p So \(2^2\) can be calculated like:
+	p $$2^2=2^{s(1)}$$
+	p $$2^{s(1)}=2.2^1$$
+	p $$2.2^1=2.2.2^0$$
+	p $$2.2.2^0=2.2.1$$
+	p $$2.2.1=4$$
+	p Additional functions could also be defined, following the same pattern:
+	p $$\forall a \in \mathbb{N} (a\oplus _n 0=c)$$
+	p $$\forall a b \in \mathbb{N} (a\oplus _{n} s(b)=(a\oplus_{n} b)\oplus_{n-1}a)$$
+
+
+
+	p Arithmetic
+	p $$a(a,b):=a+b=c$$
+	p $$m(a,b):=a.b=c$$
+	p $$e(a,b):=b^a=c$$
+	p $$p(a,b):=a^b=c$$
+	p $$f(a):=a!=c
