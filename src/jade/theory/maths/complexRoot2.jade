@@ -1,0 +1,20 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Logic
+	p 25th February 2017
+	h3
+		b Proof by contradiction
+	p If we have a formula which is true and we undertake allowed actions on it by applying axioms and derived formulas, then the new formulas are also true.
+	p As a result, if we can take a statement and use this to derive something we know not to be true, we know the original statement must have been wrong.
+	p For example, we can prove that the square root of \(2\) is irrational.
+	p $$\sqrt 2=\frac{x}{y}$$
+	p $$2=\frac{x^2}{y^2}$$
+	p $$2y^2=x^2$$
+	p So we know that \(x^2\) is even, and can be shown as \(x=2n\).
+	p $$2y^2=(2n)^2$$
+	p $$y^2=2n^2$$
+	p So \(y\) is even. But if both \(x\) and \(y\) are even, then the fraction was not reduced.
+	p This presents a contraction so the original statement must have been false.
+	
