@@ -53,7 +53,6 @@ block theoryContent
 	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}g(x+\epsilon )\frac{f(x+\epsilon )-f(x)}{\epsilon }+\lim_{\epsilon \rightarrow 0^+}f(x)\frac{g(x+\epsilon )-g(x)}{\epsilon }$$
 	$$\frac{\delta y}{\delta x}=g(x)\frac{\delta f}{\delta x }+f(x)\frac{\delta g}{\delta x}$$
 
-
 	p
 		b L'Hopital
 	p If there are two functions which are both tend to \(0\) at a limit, calculating the limit of their divisor is hard. We can use L'Hopital's rule.
@@ -69,98 +68,5 @@ block theoryContent
 
 
 	h3
-		b E
-	p Let's derive \(e\).
-	p There is a function such that:
-	p $$f(x)=f'(x)$$
-	p Let's set the start value:
-	p $$f(0)=a$$
-	p Let's look at small increases:
-	p $$\lim_{\delta \rightarrow 0}=f(\delta )=a+a\delta $$
-	p We know \(f(x)=f'(x)\) so:
-	p $$f'(\delta )=a+a\delta $$
-	p Let's continue:
-	p $$f(2\delta )=(a+a\delta) + (a\delta + a\delta^2)=a+2a\delta +a\delta^2$$
-	p $$f(3\delta )=(a+2a\delta + a\delta^2)+(a\delta + 2a\delta^2+a\delta^3)=a+3a\delta +3a\delta^2 +a\delta ^3$$
-	p This is the binomial series, so:
-	p $$f(n\delta )=a\sum_{i=0}^n\delta^i\frac{n!}{i!(n-i)!}$$
-	p As \(x=n\delta \):
-	p $$f(x)=a\sum_{i=0}^n(\frac{x}{n})^i\frac{n!}{i!(n-i)!}$$
-	p Note that because we know that the binomial expansion is:
-	p $$(1+k)^n=\sum_{i=0}^nk^i\frac{n!}{i!(n-i)!}$$
-	p
-		b Result 1:
-	p $$f(x)=a(1+\frac{x}{n})^n$$
-	p Back to our previous formula:
-	p $$f(x)=a\sum_{i=0}^n(\frac{x}{n})^i\frac{n!}{i!(n-i)!}$$
-	p $$f(x)=a\sum_{i=0}^n(\frac{x^i}{n^i})\frac{n!}{i!(n-i)!}$$
-	p $$f(x)=a\sum_{i=0}^n(\frac{x^i}{i!})\frac{n!}{n^i(n-i)!}$$
-	p As the intervals get smaller, \(n\rightarrow \inf \).
-	p $$\lim_{n\rightarrow \inf}\frac{n!}{n^i(n-i)!}=1$$
-	p
-		b Result 2:
-	p $$f(x)=a\sum_{i=0}^{\inf }(\frac{x^i}{i!})$$
-
-	p We know that:
-	p $$f(0)=\lim_{n\rightarrow \inf}a(1+\frac{1}{n})^n$$
-	p $$f(0)^x=\lim_{n\rightarrow \inf}a(1+\frac{1}{n})^nx$$
-	p $$f(0)^x=\lim_{n\rightarrow \inf}a\sum_{i=0}^{nx}\frac{1}{n^i}\frac{(nx)!}{i!(nx-i)!}$$
-	p $$f(0)^x=\lim_{n\rightarrow \inf}a\sum_{i=0}^{nx}\frac{x^i}{i!}\frac{(nx)!}{x^in^i(nx-i)!}$$
-	p $$f(0)^x=\lim_{n\rightarrow \inf}a\sum_{i=0}^{nx}\frac{x^i}{i!}$$
-	p $$f(0)^x=\lim_{n\rightarrow \inf}a\sum_{i=0}^{n}\frac{x^i}{i!}$$
-	p
-		b Result 3:
-	p $$f(0)^x=f(x)$$
-	p Let's define:
-	p $$e=f(0)$$
-	p $$a=1$$
-	p So:
-	$$f(x)=e^x$$
-	$$e^x=\frac{\delta e^x}{\delta x}$$
-
-
-	h3
-		b Logarithms
-	$$y=ln(x)$$
-	$$e^y=x$$
-	$$\frac{\delta }{\delta x}e^y=1$$
-	$$\frac{\delta y}{\delta x}e^y=1$$
-	$$\frac{\delta y}{\delta x}x=1$$
-	$$\frac{\delta y}{\delta x}=\frac{1}{x}$$
-
-	p
-		b Powers
-	p $$y=x^n$$
-	p $$lny=nlnx$$
-	p $$\frac{1}{y}\frac{\delta y}{\delta y}=\frac{n}{x}$$
-	p $$\frac{delta y}{\delta x}=nx^{n-1}$$
-	p
-		b Exponents
-	$$y=a^x$$
-	$$lny=xlna$$
-	$$\frac{1}{y}\frac{\delta y}{\delta x}=lna$$
-	$$\frac{\delta y}{\delta x}=a^xlna$$
-
-
-	h3
-		b Differentiating on imaginary line
-	$$y=f(x)=f(a+bi)$$
-	$$y=f(x)=f(g(b))$$
-	$$\frac{\delta f(x)}{\delta b}=\frac{\delta (a+bi)}{\delta b}\frac{\delta f(a+bi)}{\delta (a+bi))}$$
-	$$\frac{\delta f(x)}{\delta b}=if'(x)$$
-	
-
-	h3 Partial derivative
+		b Partial derivative
 	p Upside down triangle symbolises vector of partial derivatives
-	p Total derivative
-	p $$f(g(x),h(x))$$
-	p $$\frac{\delta f}{\delta x}= \frac{f(g(x+\delta ),h(x+\delta ))-f(g(x),h(x)}{\delta }$$
-	p $$\frac{\delta f}{\delta x}= \frac{f(g(x+\delta ),h(x+\delta ))-f(g(x+\delta ),h(x))+f(g(x+\delta ),h(x)) -f(g(x),h(x)}{\delta }$$
-
-	p $$\frac{\delta f}{\delta x}= \frac{f(g(x+\delta ),h(x+\delta ))-f(g(x+\delta ),h(x))}{\delta }+\frac{f(g(x+\delta ),h(x)) -f(g(x),h(x)}{\delta }$$
-
-	p $$\frac{\delta f}{\delta x}= \frac{f(g(x+\delta ),h(x+\delta ))-f(g(x+\delta ),h(x))}{\delta }frac{h(x+\delta )-h(x)}{ h(x+\delta )-h(x)}+\frac{f(g(x+\delta ),h(x)) -f(g(x),h(x)}{\delta }\frac{g(x+\delta )-f(x)}{ g(x+\delta )-f(x)}$$
-	p $$\frac{\delta f}{\delta x}=\frac{f(g(x+\delta ),h(x+\delta ))-f(g(x+\delta ),h(x))}{h(x+\delta )-h(x)}frac{h(x+\delta )-h(x)}{\delta  }+\frac{f(g(x+\delta ),h(x)) -f(g(x),h(x)}{ g(x+\delta )-g(x)}\frac{g(x+\delta )-g(x)}{\delta }$$
-	p $$\frac{\delta f}{\delta x}=\frac{\delta f}{\delta h}\frac{\delta h}{\delta x}+\frac{\delta f}{\delta g}\frac{\delta g}{\delta x}$$
-	p If \(g(x)=x\), then:
-	p $$\frac{\delta f}{\delta x}=\frac{\delta f}{\delta h}\frac{\delta h}{\delta x}+\frac{\delta f}{\delta g}$$

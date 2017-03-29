@@ -1,0 +1,56 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Calculus
+	p 3rd March 2017
+	h3
+		b E
+	p Let's derive \(e\).
+	p There is a function such that:
+	p $$f(x)=f'(x)$$
+	p Let's set the start value:
+	p $$f(0)=a$$
+	p Let's look at small increases:
+	p $$\lim_{\delta \rightarrow 0}=f(\delta )=a+a\delta $$
+	p We know \(f(x)=f'(x)\) so:
+	p $$f'(\delta )=a+a\delta $$
+	p Let's continue:
+	p $$f(2\delta )=(a+a\delta) + (a\delta + a\delta^2)=a+2a\delta +a\delta^2$$
+	p $$f(3\delta )=(a+2a\delta + a\delta^2)+(a\delta + 2a\delta^2+a\delta^3)=a+3a\delta +3a\delta^2 +a\delta ^3$$
+	p This is the binomial series, so:
+	p $$f(n\delta )=a\sum_{i=0}^n\delta^i\frac{n!}{i!(n-i)!}$$
+	p As \(x=n\delta \):
+	p $$f(x)=a\sum_{i=0}^n(\frac{x}{n})^i\frac{n!}{i!(n-i)!}$$
+	p Note that because we know that the binomial expansion is:
+	p $$(1+k)^n=\sum_{i=0}^nk^i\frac{n!}{i!(n-i)!}$$
+	p
+		b Result 1:
+	p $$f(x)=a(1+\frac{x}{n})^n$$
+	p Back to our previous formula:
+	p $$f(x)=a\sum_{i=0}^n(\frac{x}{n})^i\frac{n!}{i!(n-i)!}$$
+	p $$f(x)=a\sum_{i=0}^n(\frac{x^i}{n^i})\frac{n!}{i!(n-i)!}$$
+	p $$f(x)=a\sum_{i=0}^n(\frac{x^i}{i!})\frac{n!}{n^i(n-i)!}$$
+	p As the intervals get smaller, \(n\rightarrow \inf \).
+	p $$\lim_{n\rightarrow \inf}\frac{n!}{n^i(n-i)!}=1$$
+	p
+		b Result 2:
+	p $$f(x)=a\sum_{i=0}^{\inf }(\frac{x^i}{i!})$$
+
+	p We know that:
+	p $$f(0)=\lim_{n\rightarrow \inf}a(1+\frac{1}{n})^n$$
+	p $$f(0)^x=\lim_{n\rightarrow \inf}a(1+\frac{1}{n})^nx$$
+	p $$f(0)^x=\lim_{n\rightarrow \inf}a\sum_{i=0}^{nx}\frac{1}{n^i}\frac{(nx)!}{i!(nx-i)!}$$
+	p $$f(0)^x=\lim_{n\rightarrow \inf}a\sum_{i=0}^{nx}\frac{x^i}{i!}\frac{(nx)!}{x^in^i(nx-i)!}$$
+	p $$f(0)^x=\lim_{n\rightarrow \inf}a\sum_{i=0}^{nx}\frac{x^i}{i!}$$
+	p $$f(0)^x=\lim_{n\rightarrow \inf}a\sum_{i=0}^{n}\frac{x^i}{i!}$$
+	p
+		b Result 3:
+	p $$f(0)^x=f(x)$$
+	p Let's define:
+	p $$e=f(0)$$
+	p $$a=1$$
+	p So:
+	$$f(x)=e^x$$
+	$$e^x=\frac{\delta e^x}{\delta x}$$
+
