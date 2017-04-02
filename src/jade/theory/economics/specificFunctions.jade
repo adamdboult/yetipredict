@@ -1,0 +1,36 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Specific function results
+		
+
+	h3
+		b Examples of utility functions
+
+	p $$\frac{MU_x}{MU_y}=\frac{p_x}{p_y}$$
+	p These commonly refer to prices, but don’t need do. For example if \(x\) represented leisure and \(y\) apples, then \(p_x\) and \(p_y\) could refer to the time taken by resting and gathering apples. We avoid talking about prices further in this section.
+	h3
+		b Cobb Douglas
+	p $$U=f(x,y)$$
+	p $$U=x^\alpha y^\beta $$
+	p $$MU_x=\alpha x^{\alpha -1}y^\beta $$
+	p $$MU_x=\alpha \frac{y^\beta }{x^{1- \alpha }}$$
+	p $$MU_y=\beta \frac{x^\alpha}{y^{1- \beta }}$$
+	p So:
+	p $$\frac{MU_x}{MU_y}=\frac{\alpha \frac{y^\beta }{x^{1- \alpha }} }{\beta \frac{x^\alpha}{y^{1- \beta }}}$$
+	p $$\frac{MU_x}{MU_y}=\frac{\alpha }{\beta }\frac{y}{x}$$
+	p And we know:
+	p $$\frac{MU_x}{MU_y}=\frac{p_x}{p_y}$$
+	p So:
+	$$\frac{\alpha }{\beta }\frac{y}{x}=\frac{p_x}{p_y}$$
+	
+	h3
+		b Constant elasticity of substitution
+	p $$U=f(x,y)$$
+	p $$U=(ax^b+(1-a)y^b)^{\frac{1}{b}}$$
+	p $$MU_x=\frac{1}{b}abx^{b-1}(ax^b+(1-a)y^b)^{\frac{1}{b}-1}$$
+	p $$MU_y=\frac{1}{b}(1-a)by^{b-1}(ax^b+(1-a)y^b)^{\frac{1}{b}-1}$$
+	p So:
+	p $$\frac{MU_x}{MU_y}=\frac{\frac{1}{b}abx^{b-1}(ax^b+(1-a)y^b)^{\frac{1}{b}-1}}{\frac{1}{b}(1-a)by^{b-1}(ax^b+(1-a)y^b)^{\frac{1}{b}-1}}$$
+	p $$\frac{MU_x}{MU_y}=\frac{ax^{b-1}}{ (1-a)y^{b-1}}$$

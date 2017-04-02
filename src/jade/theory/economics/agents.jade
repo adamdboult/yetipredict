@@ -3,35 +3,25 @@ extends ../../templates/theoryHeader.jade
 block theoryContent
 	h2
 		b Economics axioms
-	p 3rd March 2017
-	h3
-		b Economic agents
-	p Economic agents choose options from some set. This could be consumption choices, numbers of hours to work, or how much capital to invest in at a factory.
-	p As the outcome of the function is one of the options available to the agent, we can model it by putting a value number on each choice. We can do this by applying a function to each object in the	model. This holds only if the agent is rational, that is, if they prefer A to B, they do not switch to B if C is offered.
-	p A simple example would be choosing the number of apples to consume.
-	p If the agent always prefers more apples, we can have a function which is always increasing when the number of apples increases.
-	p This could be modelled by:
-	p $$f=x$$
-	p $$f=x^2$$
-	p $$f=ln(x)$$
-	p These are all monotonically increasing.
-	p If the set of choices is more complex, say there are now apples and bananas, we have to be more careful with a representative function.
-	p The agent still prefers more apples and more bananas, but the following imply different choices:
-	p f=x^2.y^2
-	p f=ln(x)+ln(y)
-	p In the first example, the agent would always swap an apple for a banana, if they had more apples, whereas the opposite is true in the second case. Functional form is important with multiple goods.
-	p Trade
-	p Barter, trade. From money section.
-	p Money
-
-	p $$Px+py+pz=0$$
-
-	p Budget constraints
-	p Langrangian
-	p Price taking
-	p Value of lambda, binding
-
-	p Income effect
-	p Substitution effect
-	p Slutsky equation
-	
+	p Economic agents include consumers, workers, firms, politicians and any entity which makes decisions. Economics explores how agents interact. To do this, we need some definitions. 
+	p
+		b Axiom 1: There is a choice set
+	p Economic agents face options from some set. This could be consumption choices, numbers of hours to work, or how much capital to invest in at a factory.
+	p
+		b Axiom 2: An economic agent has preferences across all pairs of elements of the choice set
+	p Where an agent prefers one option to another, we say this choice is preferred to the other. We can show this formulaically. If \(a\) is preferred to \(b\) then:
+	p $$a\succ b$$
+	p Alternatively \(b\) may be preferred to \(a\).
+	p $$a\prec b$$
+	p Finally an agent may be indifferent to the choices.
+	p $$a\sim b$$
+	p We use can additional symbols to denote an agent prefers or is indifferent between options:
+	p $$a\succeq b$$
+	p $$a\preceq b$$
+	p Note that if:
+	p $$a\succeq b$$
+	p And:
+	p $$a\preceq b$$
+	p Then:
+	p $$a\sim b$$
+	p For a set of choice, we want the agent to have preferences defined across possible subsets – the power set.

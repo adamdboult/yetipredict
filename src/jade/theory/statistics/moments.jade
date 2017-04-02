@@ -90,36 +90,6 @@ block theoryContent
 	p $$E(x)^2+Var(x)=E(x^2)$$
 
 	h3
-		b Examples of distributions
-	p We know:
-	p $$\sum_i P(x_i)=1$$
-	p This can be satisfied in many ways:
-	ul
-		li Only one possible outcome, with certainty
-		li Six outcomes, equally likely
-		li Two sides of a coin, but biased
-		li The normal distribution
-	p
-		b Cumulative distributions
-	p
-		b Examples of joint distributions
-	p These could include:
-	ul
-		li Rolling a die then flipping a coin
-		li Flipping a coin, and then reading it again
-		li Flipping a coin and then reading the other side
-	p In the first example, these are independent, so we can model:
-	p $$P(x_i \land y_j)=P(x_i).P(y_j)$$
-	p In the second these are the same measurement so:
-	p $$P(x_i \land y_j)=P(x_i \land x_i)=P(x_i)$$
-	p The third example is mutually exclusive so:
-	p $$P(x_i \land y_j)=P(x_i \land x_{¬j})$$
-	p Which is either \(0\) or \(P(x_i)\) depending on \(j\).
-	p We can try more complicated examples, for example flipping the same coin multiple times.
-	p $$P(x_i \land y_j \land z_k …)=P(x_i \land x_j \land x_k …)=P(x_i).P(x_j).P(x_z)…$$
-
-
-	h3
 		b Some theorems
 	p
 		b Markov’s inequality

@@ -1,0 +1,22 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Transitivity
+	p
+		b Axiom 3: Transitivity
+	p If \(a\preceq b\), and \(b\preceq c\), then \(a\preceq c\).
+	p This is not always observed. For example if a firm offers two products, a cheap \(c\) option and an expensive \(e\) option, then a preference may be:
+	p $$c\prec e$$
+	p The firm may add another product \(s\) slightly less expensive than \(e\), with fewer features, such if there were only two of the goods on sale:
+	p $$c\prec e$$
+	p $$c\prec s$$
+	p $$e\prec s$$
+	p In particular, the last two imply the first, through the axiom of transitivity.
+	p However with all three, the marketing effectively makes the consumer choose \(e\), by making it look like a better deal, so we observe:
+	p $$e\prec s$$
+	p $$e\prec c$$
+	p $$c\prec s$$
+	p Even though the elements have not changed.
+	p Axioms of revealed preference
+	p Add weak axiom of revealed preference
