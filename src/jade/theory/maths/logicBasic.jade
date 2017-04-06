@@ -9,20 +9,29 @@ block theoryContent
 	p We can construct logical statements, or formulae, which are either true or false.
 	p A statement is true, false or can be either true or false. For example:
 	ul
-		li 1=1
-		li I am four meters tall
-		li You are 25 years old
+		li \(1=1\)
+		li I am \(4\) meters tall
+		li You are \(25\) years old
 	p We can denote such statements as symbols, such as:
-	p $$\theta$$
+	p $$\theta $$
 	p If the statement represented by \(\theta \) is true, then that formula is true.
+	h3
+		b Unary operator
 	p We can undertake unary operations on such a formula. As an input can be true or false, and the output true or false, there are four such operators.
 	ul
 		li True: the outcome is always true
 		li False: the outcome is always false
 		li Identity: the outcome is the same
 		li Negation: the outcome is the opposite.
+	p Discuss restrictions on what a formula can be "this statement is false".
+
+	p Given a formula, we can apply a unary operator to it to get another value.
+	p As the input can either be true or false, and the output can be true or false, there are four total unary operators.
+	p In practice negation is the most useful.
 	p Negation can be shown with the following.
 	p $$¬\theta$$
+	h3
+		b Binary operator
 	p Formulas can also include logical connectors between other formulas, binary operators. The truth value of such a formula will depend on the truth value of the other formulas within. An example of formula with a logical connector is:
 	p $$\theta \rightarrow \gamma$$
 	p The arrow states that if \(\theta\) is true, \(\gamma\) is true. This formula is false if \(\theta\) can be true while \(\gamma\) is false.
@@ -32,7 +41,9 @@ block theoryContent
 		li \(\theta\) is true, \(\gamma\) is false
 		li \(\theta\) is false, \(\gamma\) is true
 		li Both are false
-	p As a connector between two formulas also returns a formula which is true or false, there are 2^4 types of logical connectors, of which \(\rightarrow\) is one.
+	p As a connector between two formulas also returns a formula which is true or false, there are \(2^4=16\) types of logical connectors, of which \(\rightarrow\) is one.
+	h3
+		b Longer formulae
 	p We do not need separate symbols for each. For example, instead of:
 	p $$\theta \leftarrow \gamma$$
 	p We can have:
@@ -42,7 +53,7 @@ block theoryContent
 	p We can use:
 	p $$¬\theta \rightarrow \gamma$$
 	p These can be easily verified, as there are only four outcomes for both \(\theta\) and \(\gamma\).
-	p All 16 logical connectors can be derived from these two, making the set functionally complete. Using symbols as shorthand can be helpful. Common ones include:
+	p All \(16\) logical connectors can be derived from these two, making the set functionally complete. Using symbols as shorthand can be helpful. Common ones include:
 	p \(\theta\) and \(\gamma\) are true:
 	p $$\theta \land \gamma$$
 	p \(\theta\) implies \(\gamma\), and \(\gamma\) implies \(\theta\):
@@ -50,11 +61,15 @@ block theoryContent
 	p Other sets can also be used to derive the complete 16. In particular the 16 can all be derived from combinations of either NAND (false if both sides are true) or NOR (true if both sides are false).
 	p While logical connectors are only between two formulas, they can be extended to cover more. For example if a statement should be true if \(\alpha\) and \(\beta\) are true, or if \(\gamma\) is true, we can use:
 	p $$(\alpha \land \beta )\lor \gamma $$
+	h3
+		b Truth tables
 	p So now we have the ability to write formulas, let’s look into evaluating them.
 	p There are two ways of evaluating formulas: with truth tables, or with deduction. We discuss truth tables first.
 	p Take the formula:
 	p $$\alpha \rightarrow (\gamma \rightarrow \alpha)$$
 	p That is, if \(\alpha\) is true, then if \(\gamma\) is true, \(\alpha\) is true. This is always true. For any combination of \(\gamma\) and \(\alpha\) the statement is correct. More complex formulas can be evaluated in the same way.
+	h3
+		b Axioms
 	p Another way to evaluate a formula is through the use of axioms and inference rules. Axioms are formulas which always evaluate to true. Formulas within can represent any formula, and so we can substitute any formula. An inference rule can be used to generate theorems.
 	p Let’s test some axioms:
 	p $$\theta$$
@@ -74,50 +89,3 @@ block theoryContent
 	p No, we have no way of proving it through using only the axiom we have.
 	p This means this axiom is incomplete. There are true formulas which we cannot prove. We explore better axioms below.
 
-	h3
-		b Propositional calculus (zeroth-order logic)
-	p Axioms from Jan Lukasiewicz can be used for logic about propositions.
-	p
-		b Axiom 1 – Simplification
-	p If it is cloudy, then if it is a Tuesday it is also cloudy. 
-	p $$\theta \rightarrow (\gamma \rightarrow\theta)$$
-	p
-		b Axiom 2 – Frege
-	p $$(\alpha \rightarrow (\beta \rightarrow \gamma))\rightarrow ((\alpha \rightarrow \beta)\rightarrow (\alpha \rightarrow \gamma))$$
-	p
-		b Axiom 3 – Transposition
-	p If there are no clouds in the sky, it is not raining. If it is raining there are clouds in the sky
-	p $$(¬\theta \rightarrow ¬\gamma) \rightarrow (\gamma \rightarrow \theta)$$
-	p
-		b Inference rule – Modus Ponens
-	p An interference rule is used to generate true statements without using substitution. Modus Ponens says that if A is true, and if A then B is true, then B is true. If it rains on Thursdays, and it is Thursday, it is raining.
-	p $$A$$
-	p $$A\rightarrow B$$
-	p $$--$$
-	p $$B$$ 	
-	p Alternatively
-	p $$(\gamma \land (\gamma \rightarrow \theta)) \rightarrow \theta$$
-	p Each of these axioms and the inference rule can be proven to always to be true with a truth table. They are tautologies. 
-	p Let use these to derive a theorem:
-	p $$\alpha \rightarrow \alpha$$
-	p Start with axiom 2:
-	p $$(\alpha \rightarrow (\beta \rightarrow \gamma)) \rightarrow ((\alpha \rightarrow \beta) \rightarrow (\alpha \rightarrow \gamma))$$
-	p Replace \(\gamma\) with \(\alpha\), and \(\beta\) with \(\alpha\rightarrow \alpha\)
-	p $$(\alpha \rightarrow ((\alpha \rightarrow \alpha)\rightarrow \alpha))\rightarrow ((\alpha \rightarrow (\alpha \rightarrow \alpha))\rightarrow (\alpha \rightarrow \alpha))$$
-	p Separately, take axiom 1:
-	p $$\alpha \rightarrow (\beta \rightarrow \alpha)$$
-	p And replace \(\beta\) with \(\alpha \rightarrow \alpha\)
-	p $$\alpha \rightarrow ((\alpha \rightarrow \alpha) \rightarrow \alpha)$$
-	p This is the left side of the above equation. Through modus ponens, we then know:
-	p $$(\alpha \rightarrow (\alpha \rightarrow \alpha))\rightarrow (\alpha \rightarrow \alpha)$$
-	p We know the left is true through modus ponens, and so
-	p $$\alpha \rightarrow \alpha$$
-	p These axioms are complete: every formula which we know is always true or false through a truth table can be derived from these. They are sound: there are no contradictions. 
-
-	p There are many other sets of axioms which allow all correct theorems to be derived. One set of axioms could be all theorems – that is, all formulas which can be derived from axioms are already axioms. Such a system is called ineffective, and makes checking proofs impractical.
-	p Given a formula, can we find out if can be derived from the axioms? We can follow a process for doing so which would inform us if the formula was or was not a theorem. Alternative, the process could carry on forever.
-	p If the process never carries on forever the system is decidable: there is a finite process to determine whether the formula is in or out. If the process halts for true formulas, but can carry on forever for false formulas, the system is semi-decidable. If the process takes a long time, we do not know if it is looping infinitely, or approaching its halt point.
-	p Intuitively, use of axioms can make an existing formula shorter or longer, so finding all short formulas can require going forwards and backwards an infinite number of times.
-	p So can the language here be used to describe all statements? Take the statement “Socrates is a man”. This could be shown as:
-	p $$\theta$$
-	p But we cannot explore the proposition in more detail. For that we need predicate calculus.

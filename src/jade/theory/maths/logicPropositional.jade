@@ -1,0 +1,55 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Logic
+	p 25th February 2017
+	h3
+		b Formulas
+	h3
+		b Propositional calculus (zeroth-order logic)
+	p Axioms from Jan Lukasiewicz can be used for logic about propositions.
+	p
+		b Axiom 1 – Simplification
+	p If it is cloudy, then if it is a Tuesday it is also cloudy. 
+	p $$\theta \rightarrow (\gamma \rightarrow\theta)$$
+	p
+		b Axiom 2 – Frege
+	p $$(\alpha \rightarrow (\beta \rightarrow \gamma))\rightarrow ((\alpha \rightarrow \beta)\rightarrow (\alpha \rightarrow \gamma))$$
+	p
+		b Axiom 3 – Transposition
+	p If there are no clouds in the sky, it is not raining. If it is raining there are clouds in the sky
+	p $$(¬\theta \rightarrow ¬\gamma) \rightarrow (\gamma \rightarrow \theta)$$
+	p
+		b Inference rule – Modus Ponens
+	p An interference rule is used to generate true statements without using substitution. Modus Ponens says that if A is true, and if A then B is true, then B is true. If it rains on Thursdays, and it is Thursday, it is raining.
+	p $$A$$
+	p $$A\rightarrow B$$
+	p $$--$$
+	p $$B$$ 	
+	p Alternatively
+	p $$(\gamma \land (\gamma \rightarrow \theta)) \rightarrow \theta$$
+	p Each of these axioms and the inference rule can be proven to always to be true with a truth table. They are tautologies. 
+	p Let use these to derive a theorem:
+	p $$\alpha \rightarrow \alpha$$
+	p Start with axiom 2:
+	p $$(\alpha \rightarrow (\beta \rightarrow \gamma)) \rightarrow ((\alpha \rightarrow \beta) \rightarrow (\alpha \rightarrow \gamma))$$
+	p Replace \(\gamma\) with \(\alpha\), and \(\beta\) with \(\alpha\rightarrow \alpha\)
+	p $$(\alpha \rightarrow ((\alpha \rightarrow \alpha)\rightarrow \alpha))\rightarrow ((\alpha \rightarrow (\alpha \rightarrow \alpha))\rightarrow (\alpha \rightarrow \alpha))$$
+	p Separately, take axiom 1:
+	p $$\alpha \rightarrow (\beta \rightarrow \alpha)$$
+	p And replace \(\beta\) with \(\alpha \rightarrow \alpha\)
+	p $$\alpha \rightarrow ((\alpha \rightarrow \alpha) \rightarrow \alpha)$$
+	p This is the left side of the above equation. Through modus ponens, we then know:
+	p $$(\alpha \rightarrow (\alpha \rightarrow \alpha))\rightarrow (\alpha \rightarrow \alpha)$$
+	p We know the left is true through modus ponens, and so
+	p $$\alpha \rightarrow \alpha$$
+	p These axioms are complete: every formula which we know is always true or false through a truth table can be derived from these. They are sound: there are no contradictions. 
+
+	p There are many other sets of axioms which allow all correct theorems to be derived. One set of axioms could be all theorems – that is, all formulas which can be derived from axioms are already axioms. Such a system is called ineffective, and makes checking proofs impractical.
+	p Given a formula, can we find out if can be derived from the axioms? We can follow a process for doing so which would inform us if the formula was or was not a theorem. Alternative, the process could carry on forever.
+	p If the process never carries on forever the system is decidable: there is a finite process to determine whether the formula is in or out. If the process halts for true formulas, but can carry on forever for false formulas, the system is semi-decidable. If the process takes a long time, we do not know if it is looping infinitely, or approaching its halt point.
+	p Intuitively, use of axioms can make an existing formula shorter or longer, so finding all short formulas can require going forwards and backwards an infinite number of times.
+	p So can the language here be used to describe all statements? Take the statement “Socrates is a man”. This could be shown as:
+	p $$\theta$$
+	p But we cannot explore the proposition in more detail. For that we need predicate calculus.
