@@ -1,0 +1,29 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Variance
+
+	p More stats
+	p Variance
+	p $$Var(x)=E((x-E(x))^2)$$
+	p $$Var(x)=E(x^2+E(x)^2-2xE(x))$$
+	p $$Var(x)=E(x^2)+E(E(x)^2)-E(2xE(x))$$
+	p $$Var(x)=E(x^2)+E(x)^2-2E(x)^2$$
+	p $$Var(x)=E(x^2)-E(x)^2$$
+
+	p $$Var(c)=E(c^2)-E(c)^2$$
+	p $$Var(c)= c^2-c^2$$
+	p $$Var(c)=0$$
+
+	p $$Var(cx)=E((cx)^2)-E(cx)^2$$
+	p $$Var(cx)=E(c^2x^2)-[\sum_i cx P(x_i)]^2$$
+	p $$Var(cx)=c^2E(x^2)-c^2[\sum_i x P(x_i)]^2$$
+	p $$Var(cx)=c^2[E(x^2)- E(x)^2]$$
+	p $$Var(cx)=c^2Var(x)$$
+
+	p $$E(x)^2+Var(x)=E(x)^2+E((x-E(x))^2)$$
+	p $$E(x)^2+Var(x)=E(x)^2+E(x^2+E(x)^2-2xE(x))$$
+	p $$E(x)^2+Var(x)=E(x)^2+E(x^2)+E(E(x)^2)-E(2xE(x))$$
+	p $$E(x)^2+Var(x)=E(x)^2+E(x^2)+E(x)^2-2E(x)E(x))$$
+	p $$E(x)^2+Var(x)=E(x^2)$$

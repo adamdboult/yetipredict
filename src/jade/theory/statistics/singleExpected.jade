@@ -1,0 +1,34 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Moments
+	h3
+		b Moments and expected values
+	p
+		b Expected value
+	p For a random variable (or vector of random variables), \(x\), we define the expected value of \(f(x)\) as :
+	p $$E[f(x)]:=\sum f(x_i) P(x_i)$$
+	p The expected value of random variable \(x\) is therefore this where \(f(x)=x\).
+	p $$E(x)=\sum_i x_i P(x_i)$$
+	p We can also take moments of multiple random variables. For this we see \(f(x)\) as a function on a vector \(x\), and \(P(x_i)\) as the probability of a specific vector appearing:
+	p $$E[f(x,y)]=\sum_i \sum_j f(x_i,y_j) P(x_i \land y_j)$$
+	p
+		b Properties of expected values
+	p We can show that \(E(x+y)=E(x)+E(y)\):
+	p $$E[x+y]=\sum_i \sum_j (x_i+y_j) P(x_i \land y_j)$$
+	p $$E[x+y]=\sum_i \sum_j x_i [P(x_i \land y_j)]+\sum_i \sum_j [y_j P(x_i \land y_j)]$$
+	p $$E[x+y]=\sum_i x_i \sum_j [P(x_i \land y_j)]+\sum_j y_j \sum_i [P(x_i \land y_j)]$$
+	p $$E[x+y]=\sum_i x_i P(x_i)+\sum_j y_j P(y_j) $$
+	p $$E[x+y]=E[x]+E[y]$$
+
+	p More stats
+	p Expectations
+	p $$E(cx)=\sum_i cx P(x_i)$$
+	p $$E(cx)=c\sum_i x P(x_i)$$
+	p $$E(cx)=cE(x)$$
+
+	p $$E(c)=\sum_i c_i P(c_i)$$
+	p $$E(c)= c P(c)$$
+	p $$E(c)= c$$
+

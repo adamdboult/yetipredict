@@ -3,52 +3,60 @@ extends ../templates/theoryHeader.jade
 block theoryContent
 	h1 Statistics
 	h2
-		b Foundations
+		b Probability of an event
 	p
-		a(href="/theory/statistics/axioms") Axioms
+		a(href="/theory/statistics/singleAxioms") Axioms
 	p
-		a(href="/theory/statistics/keyDistributions") Important distributions
+		a(href="/theory/statistics/singleExpected") Expected value
 	p
-		a(href="/theory/statistics/iid") Identally Independently Distributed variables (IID)
+		a(href="/theory/statistics/singleVariance") Variance
 	p
-		a(href="/theory/statistics/chebyshevMarkov") Chebyshev and Markov's inequalities
+		a(href="/theory/statistics/singleMoments") Moments
+	p
+		a(href="/theory/statistics/singleTransformations") Transformations
 	h2
-		b Analysing probability distributions
+		b Probabilities of joint events
 	p
-		a(href="/theory/statistics/moments") Cumulative probability
+		a(href="/theory/statistics/multipleAxioms") Additional axioms
 	p
-		a(href="/theory/statistics/samples") Characteristic function
+		a(href="/theory/statistics/multipleMoments") Moments for multiple events
 	p
-		a(href="/theory/statistics/moments") Expected value
-	p
-		a(href="/theory/statistics/moments") Variance
-	p
-		a(href="/theory/statistics/moments") Moments
+		a(href="/theory/statistics/multipleIID") Identally Independently Distributed variables (IID)
 	h2
-		b Statistics
+		b Sampling
 	p
-		a(href="/theory/statistics/statistic") A statistic
+		a(href="/theory/statistics/sampleSamples") Samples
 	p
-		a(href="/theory/statistics/samples") Weak law of large numbers
+		a(href="/theory/statistics/sampleMethods") Sample methods
 	p
-		a(href="/theory/statistics/samples") Strong law of large numbers
+		a(href="/theory/statistics/sampleStatistic") Sample statistics
 	p
-		a(href="/theory/statistics/samples") Central limit theorem
+		a(href="/theory/statistics/sampleEstimators") Estimators
 	h2
-		b Estimation		
+		b Estimation for an event
 	p
-		a(href="/theory/statistics/samples") Samples
+		a(href="/theory/statistics/estimationSingleChebMark") Chebyshev and Markov's inequalities
 	p
-		a(href="/theory/statistics/estimators") Estimators
+		a(href="/theory/statistics/estimationSingleLLN") Weak law of large numbers
 	p
-		a(href="/theory/statistics/estimators") Moment estimators
+		a(href="/theory/statistics/estimationSingleCLT") Central limit theorem
 	p
-		a(href="/theory/statistics/estimators") Parameter estimators
+		a(href="/theory/statistics/estimationSingleMoM") Method of moments
 	p
-		a(href="/theory/statistics/maximumLikelihood") Maximum Likelihood Estimation
+		a(href="/theory/statistics/estimationSingleKnown") Estimators for known distributions
 	p
-		a(href="/theory/statistics/OLS") Ordinary Least Squares
+		a(href="/theory/statistics/estimationSingleMLE") Maximum Likelihood Estimation
 	h2
-		b Bayes theorem
+		b Estimation for joint events
 	p
-		a(href="/theory/statistics/bayes") Bayes
+		a(href="/theory/statistics/estimationJointMLE") Normal distribution and MLE
+	p
+		a(href="/theory/statistics/estimationJointGM") Gauss Markov
+	p
+		a(href="/theory/statistics/estimationJointOLS") Ordinary Least Squares
+	h2
+		b Other
+	p
+		a(href="/theory/statistics/otherKeyDistributions") Important distributions
+	p
+		a(href="/theory/statistics/otherBayes") Bayes

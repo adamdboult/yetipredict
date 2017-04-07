@@ -1,0 +1,31 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Probability axioms
+
+	h3
+		b Axioms
+	
+	p
+		b Axiom 1 – events have probabilities
+	p We define a set of events, where each event has an associated probability.
+	p $$\forall x_i \in x, P(x_i)=c, (c\in \mathbb{R}\land 0\le c\le 1)$$
+	p
+		b Axiom 2 – outcomes of events are mutually exclusive
+	p The sum of all of these probabilities is 1.
+	p $$\sum_i P(x_i)=1$$
+	p
+		b Axiom 4 – joint probabilities of the same outcome are the probability of the outcome
+	p The joint probability of the same event occurring is equal to the probability of the event occurring.
+	p $$P(x_i \land x_i)=P(x_i)$$
+	p
+		b Axiom 5 - Events are mutually exclusive.
+	p The probability of two outcomes in the same event occurring is \(0\).
+	p $$P(x_i \land x_j)=0$$
+
+	h3
+		b Extra definitions
+	p
+		b OR
+	p $$P(x_i \lor y_j):=P(x_i)+P(y_j)-P(x_i \land y_j)$$
