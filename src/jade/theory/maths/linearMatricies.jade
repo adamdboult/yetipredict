@@ -1,0 +1,35 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Matricies
+	p A matrix is a collection of numbers. For example:
+	p $$A=\begin{bmatrix}a_{11} & a_{12}&...&a_{1n}\\a_{21} & a_{22}&...&a_{2n}\\...&...&...&...\\a_{m1}&a_{m2}&...&a_{mn}\end{bmatrix}$$
+	p Matricies can include elements from domains such as complex numbers and real numbers.
+
+	p
+		b Vector
+	p A vector is a matrix where one of the dimensions is equal to \(1\). For example
+	p $$V=\begin{bmatrix}a_{11} & a_{12}&...&a_{1n}\end{bmatrix}$$
+	p Or
+	p $$V=\begin{bmatrix}a_{11}\\a_{21}\\...\\a_{m1}\end{bmatrix}$$
+
+	p
+		b Square matrix
+	p A matrix where the dimensions are equal.
+	p $$m=n$$
+	p
+		b Empty matrix
+	p A matrix where every element is \(0\). There is one for each dimension of matrix.
+	p $$A=\begin{bmatrix}0& 0&...&0\\0 & 0&...&0\\...&...&...&...\\0&0&...&0\end{bmatrix}$$
+	p
+		b Identity matrix
+	p A square matrix where every element is \(0\) except where \(i=j\). There is one for each square matrix.
+	p $$I=\begin{bmatrix}1& 0&...&0\\0 & 1&...&0\\...&...&...&...\\0&0&...&1\end{bmatrix}$$
+	p
+		b Scalar
+	p A scalar is a non-matrix number, such as a real or complex number.
+	p A matrix may have the has dimensions of a scalar, \(M^{11}\), but this is not a scalar and obeys different rules.
+	p For example:
+	p $$c=a$$
+	p $$c\ne \begin{bmatrix}a_{11}\end{bmatrix}$$
