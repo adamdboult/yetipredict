@@ -7,8 +7,82 @@ block theoryContent
 	p How can we identify if a matrix is invertible? We want to create a scalar from the matrix which tells us if this possible.
 	p For a matrix \(A\) we label this scalar, the determiannt, \(|A|\). We proposed \(|A|=0\) when the matrix is not invertible.
 	p So how can we identify the function we need to undertake on the matrix?
+	p We call this function the determinant. We show this through:
+	p $$D(A)$$
+	p
+		b Matrices as columns
+	p A matrix can be shown in terms of its columns.
+	p $$A=[a_1,a_2,...,a_n]$$
+	p
+		b Columns as sums of elements
+	p An element vector \(E^k\) is empty except for \(1\) in row \(k\). It is the \(i\)th column of the identity matrix.
+	p Column \(a_i\) can be shown as;
+	p $$a_i=\sum_{j=1}^na_{ji}E^j$$
+	p
+		b Linear dependence
+	p If a column is a linear combination of other columns, then the matrix cannot be inverted.
+	p If:
+	p $$A=[a_1,a_2,...,\sum_{j\ne i}^{n}c_ja_j,...,a_n]$$
+	p $$D(A)=0$$
+
+	p $$D(A)=D([a_1,a_2,...,\sum_{j\ne i}^{n}c_ja_j,...,a_n])=0$$
+
 	p
 		b Rule 1
-	p First, we know that a matrix cannot be inverted if \(2\) columns are equal. So
-	p \(|A|=0\) if \(2\) columns are equal.
-	
+	p $$M=[a_1,a_2,...,\sum_{i=1}^{m}c_ib_i,...,a_n]$$
+	p $$D(M)=D([a_1,a_2,...,\sum_{i=1}^{m}c_ib_i,...,a_n])$$
+	p The following is the rule
+	p $$D(M)=\sum_{i=1}^{m}c_iD([a_1,a_2,...,b_i,...,a_n])$$
+
+	p
+		b Result 1: Zero column
+	p Linear dependence implies that if a matrix has a column of \(0\)s then the determinant is \(0\).
+
+	p
+		b Result 2: Inverse sign
+	p Reversing the sign of a column reverses the sign of the determinant.
+	p $$M_1=[a_1,a_2,...,a_i,...,a_n]$$
+	p $$M_2=[a_1,a_2,...,-a_i,...,a_n]$$
+	p $$D(M_2)=D([a_1,a_2,...,-a_i,...,a_n])$$
+	p $$D(M_2)=-D([a_1,a_2,...,a_i,...,a_n])$$
+	p $$D(M_2)=-D(M_1)$$
+
+	p
+		b Result 3: Swap columns
+	p 
+	p $$A=[a_1,...,a_i+a_j,...,a_i+a_j,...,a_n]$$
+	p We know.
+	p $$D(A)=0$$
+	p $$D(A)=D([a_1,...,a_i,...,a_i,...,a_n])+D([a_1,...,a_i,...,a_j,...,a_n])+D([a_1,...,a_j,...,a_i,...,a_n])+D([a_1,...,a_j,...,a_j,...,a_n])=0$$
+	p As \(2\) of these have equal columns these are equal to \(0\).
+	p $$D([a_1,...,a_i,...,a_j,...,a_n])+D([a_1,...,a_j,...,a_i,...,a_n])=0$$
+	p $$D([a_1,...,a_i,...,a_j,...,a_n])=-D([a_1,...,a_j,...,a_i,...,a_n])$$
+
+
+	p
+		b Rule 2: Normalisation
+	p We set \(D(I)=1\).
+	p
+		b Calculating
+	p We have
+	p $$A=[a_1,...,a_i,...,a_n]$$
+	p Let's show this in element form.
+	p $$A=[\sum_{j=1}^na_{j1}E^j,...,\sum_{j=1}^na_{ji}E^j,...,\sum_{j=1}^na_{jn}E^j]$$
+	p The determinant of this is:
+	p $$D(A)=D([\sum_{j=1}^na_{j1}E^j,...,\sum_{j=1}^na_{ji}E^j,...,\sum_{j=1}^na_{jn}E^j])$$
+	p As this is a sum we can expand it out. As each addition creates \(2\) splits, we are summing across each element. That is there are \(n^2\) additions and \(n\) summation functions.
+
+
+	p $$D(A)=\sum_{k=1}^nD([a_{k1}E^k,...,\sum_{j=1}^na_{ji}E^j,...,\sum_{j=1}^na_{jn}E^j])$$
+
+
+	p $$D(A)=\sum_{k_1=1}^n...\sum_{k_n=1}^nD([a_{k_11}E^{k_1},...,a_{k_ii}E^{k_i},...,a_{k_kk}E^{k_n}])$$
+	p $$D(A)=\sum_{k_1=1}^n...\sum_{k_n=1}^n(\prod_{l=1}^{n}a_{k_ll})D([E^{k_1},...,E^{k_i},...,E^{k_n}])$$
+	p So what is the value of the determinant here?
+	p We know that the determinant of the identity matrix is \(1\).
+	p We know that the determinant of a matrix with identical columns is \(0\).
+	p We know that swapping columns multiplies the determinant by \(-1\).
+	p Therefore the determinants where the values of \(k\) are not all unique are \(0\).
+	p The determinants of the others are either \(-1\) or \(1\) depending on how many swaps are required to restore to the identity matrix.
+	p This is also shown as the Leibni formula.
+	p $$\sum_{\sigma \in S_n}sgn (\sigma )\prod_{i=1}^na_{i,\sigma_i}$$
