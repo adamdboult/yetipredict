@@ -1,0 +1,37 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Linear decomposition
+
+	p It is often useful to show a matrix as a product of other matrices.
+	p
+		b LU decomposition
+	p This a matrix
+	p $$A=LU$$
+	p Where \(L\) is a lower triangular matrix, and \(U\) is an upper triangular matrix.
+	p
+		b Cholesky decomposition
+	p This a matrix
+	p $$A=LL*$$
+	p Where \(L\) is a lower triangular matrix.
+	p
+		b LDL decomposition
+	p $$A=LDL*$$
+	p Where \(L\) is a lower triangular matrix and \(D\) is a diagonal matrix
+	p
+		b Eigen decomposition
+	p If \(A\) is full rank:
+	p $$A=Q\Lambda Q^{-1}$$
+	p Where \(Q\) is the eigenvectors as columns, and \(\Lambda \) is a diagonal matrix with the corresponding eigenvalues.
+	p From the definition of eigenvectors,
+	p $$Av=\lambda v$$
+	p $$Av=v\lambda $$
+	p So we can generalise for all vectors
+	p $$AQ=Q\Lambda $$
+	p $$A=Q\Lambda Q^{-1}$$
+	p This can be used to invert \(A\).
+	p We know that:
+	p $$A^{-1}=(Q\Lambda Q^{-1})^{-1}$$
+	p $$A^{-1}=Q^{-1}\Lambda^{-1}Q$$
+	p We know \(\Lambda \) can be easily inverted by taking the reciprocal of each diagonal element. We already know both \(Q\) and its inverse from the decomposition.

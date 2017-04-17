@@ -2,13 +2,15 @@ extends ../../templates/theoryHeader.jade
 
 block theoryContent
 	h2
-		b Determinants
+		b Deter	minants
 	p A matrix can only be inverted if it can be created from a combination of elementary row operations.
 	p How can we identify if a matrix is invertible? We want to create a scalar from the matrix which tells us if this possible.
 	p For a matrix \(A\) we label this scalar, the determiannt, \(|A|\). We proposed \(|A|=0\) when the matrix is not invertible.
 	p So how can we identify the function we need to undertake on the matrix?
 	p We call this function the determinant. We show this through:
 	p $$D(A)$$
+	h3
+		b Terminology
 	p
 		b Matrices as columns
 	p A matrix can be shown in terms of its columns.
@@ -18,6 +20,8 @@ block theoryContent
 	p An element vector \(E^k\) is empty except for \(1\) in row \(k\). It is the \(i\)th column of the identity matrix.
 	p Column \(a_i\) can be shown as;
 	p $$a_i=\sum_{j=1}^na_{ji}E^j$$
+	h3
+		b Desired properties
 	p
 		b Linear dependence
 	p If a column is a linear combination of other columns, then the matrix cannot be inverted.
@@ -27,19 +31,19 @@ block theoryContent
 
 	p $$D(A)=D([a_1,a_2,...,\sum_{j\ne i}^{n}c_ja_j,...,a_n])=0$$
 
-	p
-		b Rule 1
+	h3
+		b Rule 1: Multicolinearity
 	p $$M=[a_1,a_2,...,\sum_{i=1}^{m}c_ib_i,...,a_n]$$
 	p $$D(M)=D([a_1,a_2,...,\sum_{i=1}^{m}c_ib_i,...,a_n])$$
 	p The following is the rule
 	p $$D(M)=\sum_{i=1}^{m}c_iD([a_1,a_2,...,b_i,...,a_n])$$
 
 	p
-		b Result 1: Zero column
+		b Result 1: A matrix with a column of \(0\)s has a determinant of \(0\)
 	p Linear dependence implies that if a matrix has a column of \(0\)s then the determinant is \(0\).
 
 	p
-		b Result 2: Inverse sign
+		b Result 2: Multiplying a column by \(-1\) multiplies the determinant by \(-1\)
 	p Reversing the sign of a column reverses the sign of the determinant.
 	p $$M_1=[a_1,a_2,...,a_i,...,a_n]$$
 	p $$M_2=[a_1,a_2,...,-a_i,...,a_n]$$
@@ -48,7 +52,7 @@ block theoryContent
 	p $$D(M_2)=-D(M_1)$$
 
 	p
-		b Result 3: Swap columns
+		b Result 3: Swapping columns multiplies the determinant by \(-1\)
 	p 
 	p $$A=[a_1,...,a_i+a_j,...,a_i+a_j,...,a_n]$$
 	p We know.
@@ -58,12 +62,13 @@ block theoryContent
 	p $$D([a_1,...,a_i,...,a_j,...,a_n])+D([a_1,...,a_j,...,a_i,...,a_n])=0$$
 	p $$D([a_1,...,a_i,...,a_j,...,a_n])=-D([a_1,...,a_j,...,a_i,...,a_n])$$
 
-
-	p
+	h3
 		b Rule 2: Normalisation
 	p We set \(D(I)=1\).
+	h3
+		b Calculating the determinant
 	p
-		b Calculating
+		b Matrix to element form
 	p We have
 	p $$A=[a_1,...,a_i,...,a_n]$$
 	p Let's show this in element form.
