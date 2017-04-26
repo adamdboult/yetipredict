@@ -1,0 +1,53 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Operators
+
+	h3
+		b Unary operator
+	p We can undertake unary operations on such a formula. As an input can be true or false, and the output true or false, there are four such operators.
+	ul
+		li True: the outcome is always true
+		li False: the outcome is always false
+		li Identity: the outcome is the same
+		li Negation: the outcome is the opposite.
+	p Discuss restrictions on what a formula can be "this statement is false".
+
+	p Given a formula, we can apply a unary operator to it to get another value.
+	p As the input can either be true or false, and the output can be true or false, there are four total unary operators.
+	p In practice negation is the most useful.
+	p Negation can be shown with the following.
+	p $$¬\theta$$
+	h3
+		b Binary operator
+	p Formulas can also include logical connectors between other formulas, binary operators. The truth value of such a formula will depend on the truth value of the other formulas within. An example of formula with a logical connector is:
+	p $$\theta \rightarrow \gamma$$
+	p The arrow states that if \(\theta\) is true, \(\gamma\) is true. This formula is false if \(\theta\) can be true while \(\gamma\) is false.
+	p For given truth values of \(\theta\) and \(\gamma\), there are four possibilities:
+	ul
+		li Both are true
+		li \(\theta\) is true, \(\gamma\) is false
+		li \(\theta\) is false, \(\gamma\) is true
+		li Both are false
+	p As a connector between two formulas also returns a formula which is true or false, there are \(2^4=16\) types of logical connectors, of which \(\rightarrow\) is one.
+
+
+
+	p Unary, binary and n-ary
+	p map of inputs to outputs
+	p For each combination of outputs, one for each different output
+	p so: number = range^inputs*range^inputs
+	p range=2 so:
+	p number = 2^{2inputs}
+	p unary: 2^2=4
+	p + True
+	p + False
+	p + Negation
+	p  1234
+	p TTTFF
+	p FTFTF
+	p nT=¬F
+	p only ¬ useful
+	p binary: 2^4=16
+	p n-ary

@@ -1,0 +1,18 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Gallileo transformations apply
+	p The Galileo transformation allows us to calculate this as:
+	p $$x_b=x_a-s_x-v_xt$$
+	p $$y_b=y_a-s_y-v_yt$$
+	p $$z_b=z_a-s_z-v_zt$$
+	p $$t_b=t_a$$
+	p In matrix form
+	p $$a=\begin{bmatrix}x_a\\y_a\\z_a\\t_a\end{bmatrix}$$
+	p $$b=\begin{bmatrix}x_b\\y_b\\z_b\\t_b\end{bmatrix}$$
+	p $$v=\begin{bmatrix}v_x\\v_y\\v_z\\0\end{bmatrix}$$
+	p $$s=\begin{bmatrix}s_x\\s_y\\s_z\\0\end{bmatrix}$$
+	p $$M=\begin{bmatrix}1&0&0&-v_x\\0&1&0&-v_y\\0&0&1&-v_z\\0&0&0&1\end{bmatrix}$$
+	p So:
+	p $$b=Ma-s$$

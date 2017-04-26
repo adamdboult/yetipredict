@@ -1,0 +1,34 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Proof by induction, axioms, theories, deduction, substitution and theorems
+
+	p Theorems often divided into: theorems (important results), lemmas, used for later theorems, collary, proposition from a theorem
+
+
+	h3
+		b Axioms
+	p Another way to evaluate a formula is through the use of axioms and inference rules. Axioms are formulas which always evaluate to true. Formulas within can represent any formula, and so we can substitute any formula. An inference rule can be used to generate theorems.
+	p Let’s test some axioms:
+	p $$\theta$$
+	p $$¬\theta$$
+	p Our axioms are that \(\theta\) is true, and not \(\theta\) is true. So is \(\theta\) true? Either axiom can be used to show \(\theta\) is true or false, so the axioms are not consistent. They are unsound.
+	p What about the following:
+	p $$\theta$$
+	p $$\theta$$
+	p So is \(\theta\) correct? Yes, we know this from either axiom, the 2nd axiom adds no additional information and is redundant.
+	p OK, what about just:
+	p $$\theta$$
+	p This says that all formulas evaluate to true. But if \(\theta\) is true, then not \(\theta\) must be false. And as not \(\theta\) is a formula we have a contradiction. This is also unsound.
+	p Ok, so what about:
+	p $$\alpha \rightarrow \alpha$$
+	p This is true, but can we use it to check the formula we checked using a truth table? Take:
+	p $$\alpha \rightarrow (\gamma \rightarrow \alpha)$$
+	p No, we have no way of proving it through using only the axiom we have.
+	p This means this axiom is incomplete. There are true formulas which we cannot prove. We explore better axioms below.
+
+
+
+	p Theory is set of axioms
+	p Theorems derived

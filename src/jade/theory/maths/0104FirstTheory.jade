@@ -2,11 +2,20 @@ extends ../../templates/theoryHeader.jade
 
 block theoryContent
 	h2
-		b Logic
-	p 25th February 2017
+		b Propositional theory and first-order theory
 	h3
-		b Formulas
-	h3
+		b Quantifiers and terms
+	p We add the following axioms for formula F.
+	p $$\forall x F(x)$$
+	p $$\exists x F(x)$$
+	p Where lower case is generally used to show a term and upper case is used for a predicate. A predicate is true or false depending on its input terms.
+	p With definitions as follows:
+	p $$\forall x F(x) \rightarrow F(r)$$
+	p $$F(r) \rightarrow \exists x F(x)$$
+	p That is, if for all values of \(x\), \(F\) is true, then \(F\) is true for any input to \(F\).
+	p If \(F\) is true for term \(r\) as input, then there exists an input for \(F\) where \(F\) is true. 
+
+
 		b Propositional calculus (zeroth-order logic)
 	p Axioms from Jan Lukasiewicz can be used for logic about propositions.
 	p

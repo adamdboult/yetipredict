@@ -3,131 +3,181 @@ extends ../templates/theoryHeader.jade
 block theoryContent
 	h1 Math
 	h2
-		b Predicate logic
+		b Zeroth order logic
 	p
-		a(href="/theory/maths/logicBasic") Logical formulae
+		a(href="/theory/maths/0000ZeroPropositions") True, false and propositional variables
 	p
-		a(href="/theory/maths/logicTruth") Proof through truth tables
+		a(href="/theory/maths/0001ZeroPredicates") Predicates, constants, functions and terms
 	p
-		a(href="/theory/maths/logicPropositional") Proof through axioms and induction - propositional calculus
+		a(href="/theory/maths/0002ZeroDomain") Domain of discourse
 	p
-		a(href="/theory/maths/logicContradiction") Proof by contradiction
+		a(href="/theory/maths/0003ZeroRelations") Relations and axioms of equality
+	p
+		a(href="/theory/maths/0004ZeroOperators") Operators
+	p
+		a(href="/theory/maths/0005ZeroEquivalence") Equivalence and why only unary and binary operators, relations and functions are needed
+	p
+		a(href="/theory/maths/0006ZeroSignatures") Signatures and language
+	p
+		a(href="/theory/maths/0007ZeroInterpretations") Interpretations and satisability
+	p
+		a(href="/theory/maths/0008ZeroTautologies") Truth tables and tautologies
+	p
+		a(href="/theory/maths/0009ZeroStructures") Structures
 	h2
 		b First order logic
 	p
-		a(href="/theory/maths/integersSets") Sets
+		a(href="/theory/maths/0100FirstQuantifiers") Quantifiers and free, bound and ground variables
 	p
-		a(href="/theory/maths/logicSetAlgebra") Set algebra
+		a(href="/theory/maths/0101FirstTTLimit") Limitations of truth tables
 	p
-		a(href="/theory/maths/logicFunctions") Functions
+		a(href="/theory/maths/0102FirstInduction") Proof by induction, axioms, theories, deduction, substitution and theorems
 	p
-		a(href="/theory/maths/integersSets") Equality
+		a(href="/theory/maths/0103FirstCompleteSound") Completeness and soundness of theories
 	p
-		a(href="/theory/maths/integersSets") Predicates, quantifiers and domains
+		a(href="/theory/maths/0104FirstTheory") Propositional theory and first-order theory
 	p
-		a(href="/theory/maths/logicFirst") First Order Logic
+		a(href="/theory/maths/0105FirstMoreProofs") Other proofs: contradiction, counterexample, exhaustion, de Morgan
 	p
-		a(href="/theory/maths/logicExhaustion") Proof by exhaustion
+		a(href="/theory/maths/0106FirstSets") Null set, singletons and larger sets
 	p
-		a(href="/theory/maths/logicCounterexample") Disproof by counterexample
+		a(href="/theory/maths/0107FirstCardinality") Cardinality
+	p
+		a(href="/theory/maths/0108FirstOrdered") Ordered pairs, tuples and sequences
+	p
+		a(href="/theory/maths/0109FirstCompactness") Compactness theorem
+	p
+		a(href="/theory/maths/0110FirstGodelCompleteness") Gödel’s completeness theorem
+	p
+		a(href="/theory/maths/0111FirstLowenheim") Löwenheim–Skolem theorem
 	h2
-		b Second order logic
+		b Second, and higher, order logic
+	p
+		a(href="/theory/maths/firstCounterexample") Diagonal lemma
+	p
+		a(href="/theory/maths/firstCounterexample") Gödel's first incompleteness theorems
+	p
+		a(href="/theory/maths/firstCounterexample") Gödel's second incompleteness theorems
+	p
+		a(href="/theory/maths/firstCounterexample") Tarski's undefinability theorem
+	h2
+		b Zermelo–Fraenkel set theory (note independent of choice of first or second order)
+	p
+		a(href="/theory/maths/firstCounterexample") Axioms of Zermelo-Fraenkel set theory
+	p
+		a(href="/theory/maths/firstCounterexample") Axiom of choice
+	p
+		a(href="/theory/maths/0102FirstSets") Set builder notation
+	p
+		a(href="/theory/maths/firstCounterexample") Continuum hypothesis
+	p
+		a(href="/theory/maths/0103FirstSetAlgebra") Set algebra
 	h2
 		b Elementary number theory
 	p
-		a(href="/theory/maths/integersNaturalNumbers") Natural numbers (Peano)
+		a(href="/theory/maths/integersNaturalNumbers") Natural numbers
 	p
-		a(href="/theory/maths/integersNaturalNumbers") Natural numbers (ZFC)
+		a(href="/theory/maths/integersNaturalFunctions") Addition and multiplication
 	p
-		a(href="/theory/maths/integersNaturalOrdinal") Natural ordinality
+		a(href="/theory/maths/integersNaturalInverse") Subtraction and division
 	p
-		a(href="/theory/maths/integersNaturalFunctions") Functions on natural numbers
-	p
-		a(href="/theory/maths/integersSumProduct") Summation and products
-	p
-		a(href="/theory/maths/integersNaturalInverse") Inverse functions on natural numbers
+		a(href="/theory/maths/integersSumProduct") Summation, products and factorials
 	p
 		a(href="/theory/maths/integersIntegers") Integers
-	p
-		a(href="/theory/maths/integersIntegersOrdinality") Ordinality of integers
-	p
-		a(href="/theory/maths/integersIntegersFunctions") Functions on integers
 	p
 		a(href="/theory/maths/integersGCDLCM") Greatest Common Divisors, Lowest Common Multiples
 	p
 		a(href="/theory/maths/integersArithmatic") Fundamental Theorem of Arithmetic
 	p
 		a(href="/theory/maths/integersPrimes") Infinite number of primes
-
+	p
+		a(href="/theory/maths/integersPrimes") Prime number theorem
 	h2
-		b Rational, Real and Complex numbers
+		b Rational and real numbers
 	p
 		a(href="/theory/maths/complexRationalNumbers") Rational numbers
 	p
-		a(href="/theory/maths/complexRationalFunctions") Rational functions
-	p
-		a(href="/theory/maths/complexRationalOrdinality") Rational ordinality
-	p
 		a(href="/theory/maths/complexIntervals") Intervals
+	p
+		a(href="/theory/maths/complexIntervals") Powers, exponents and logarithms
+	p
+		a(href="/theory/maths/complexComplexNumbers") Gamma function
 	p
 		a(href="/theory/maths/complexRoot2") Square root of 2
 	p
-		a(href="/theory/maths/complexSequences") Sequences
+		a(href="/theory/maths/complexSequences") Cauchy sequences
+	p
+		a(href="/theory/maths/complexRealNumbers") Dedekind cuts
 	p
 		a(href="/theory/maths/complexRealNumbers") Real numbers
 	p
-		a(href="/theory/maths/complexRealOrdinality") Real ordinality
-	p
-		a(href="/theory/maths/complexRealFunctions") Real functions
+		a(href="/theory/maths/complexRealNumbers") Transcendal numbers
+	h2
+		b Complex numbers
 	p
 		a(href="/theory/maths/complexComplexNumbers") Complex numbers
-
+	p
+		a(href="/theory/maths/complexComplexNumbers") Algebraic closure
 	h2
-		b Algebraic identities
+		b Additional types of numbers
 	p
-		a(href="/theory/maths/identitiesPowers") Identities: Powers
+		a(href="/theory/maths/analysisOptimisation") Quaternions
 	p
-		a(href="/theory/maths/identitiesLogarithms") Identities: Logarithms
+		a(href="/theory/maths/analysisOptimisation") Octonions
+	p
+		a(href="/theory/maths/analysisOptimisation") Hyperreals and surreals
+	h2
+		b Algebra
 	p
 		a(href="/theory/maths/identitiesBinomialExpansion") Binomial expansion
 	p
 		a(href="/theory/maths/identitiesPFD") Partial fraction decomposition
 	p
 		a(href="/theory/maths/identitiesOther") Other
-	h2
-		b Solving equations
 	p
 		a(href="/theory/maths/solvingFTA") Fundamental theorem of algebra
 	p
 		a(href="/theory/maths/solvingQuadratic") Quadratic solver
-	p 
+	p 	
 		a(href="/theory/maths/solvingCubic") Cubic solver
 	p 
 		a(href="/theory/maths/solvingSimultaneous") Simultaneous equations
-
+	p
+		a(href="/theory/maths/algebraicStructures") Algebraic structures
 	h2
 		b Analysis
 	p
-		a(href="/theory/maths/analysisProperties") Properties of functions
+		a(href="/theory/maths/analysisProperties") Continuity and limits
 	p
-		a(href="/theory/maths/analysisLimits") Limits
+		a(href="/theory/maths/analysisProperties") Big O and little o notation, and the extended real line
 	p
-		a(href="/theory/maths/analysisDerivatives") Derivatives
+		a(href="/theory/maths/analysisProperties") Concavity and convexity
 	p
-		a(href="/theory/maths/analysisE") e
+		a(href="/theory/maths/analysisProperties") Even and odd functions
 	p
-		a(href="/theory/maths/analysisTotal") Total derivative
+		a(href="/theory/maths/analysisDerivatives") Derivatives and smoothness
 	p
-		a(href="/theory/maths/analysisIntegration") Integration
+		a(href="/theory/maths/analysisTaylor") Taylor's theorem (root test, direct comparison test, rate of convergence, radius of convergence)
 	p
-		a(href="/theory/maths/analysisTaylor") Taylor series
+		a(href="/theory/maths/analysisE") \(e\)
 	p
-		a(href="/theory/maths/analysisOptimisation") Optimisation
-
-	h2
-		b Abstract algebra
+		a(href="/theory/maths/analysisTotal") Partial and total derivatives
 	p
-		a(href="/theory/maths/algebraicStructures") Algebraic structures
+		a(href="/theory/maths/analysisIntegration") Reimann and Lebesgue integrals
+	p
+		a(href="/theory/maths/analysisIntegration") Fundamental theorem of calculus
+	p
+		a(href="/theory/maths/analysisIntegration") Integration by parts and by substitution
+	p
+		a(href="/theory/maths/analysisIntegration") Closed integrals, and Line, arc, surface and volume integrals
+	p
+		a(href="/theory/maths/analysisIntegration") Vector calclus
+	p
+		a(href="/theory/maths/analysisIntegration") Stokes' theorem
+	p
+		a(href="/theory/maths/analysisIntegration") Green's theorem
+	p
+		a(href="/theory/maths/analysisOptimisation") Optimisation (add envelope theorem)
 	h2
 		b Trigonometry
 	p
@@ -139,9 +189,9 @@ block theoryContent
 	p
 		a(href="/theory/maths/trigOther") Other trigonometric functions
 	p
-		a(href="/theory/maths/trigIdentities") Trigonometric identiteis
+		a(href="/theory/maths/trigIdentities") Trigonometric identities
 	p
-		a(href="/theory/maths/trigIntegrals") Functions as integrals
+		a(href="/theory/maths/trigIntegrals") Trigonometric functions as integrals
 	p
 		a(href="/theory/maths/trigTau") Tau
 	p
@@ -166,16 +216,26 @@ block theoryContent
 		a(href="/theory/maths/linearDeterminants") Determinants
 	p
 		a(href="/theory/maths/linearEigen") Eigenvalues and eigenvectors
-
-
 	h2
 		b Space
 	p
-		a(href="/theory/maths/spaceMetric") Space
+		a(href="/theory/maths/spaceMetric") Affine space
 	p
 		a(href="/theory/maths/spaceMetric") Metric space
 	p
 		a(href="/theory/maths/spaceMeasure") Measure space
+	p
+		a(href="/theory/maths/spaceMeasure") Manifold
+	p
+		a(href="/theory/maths/spaceMeasure") Connected space
+	p
+		a(href="/theory/maths/spaceMeasure") Tangent and cotangent space
+	p
+		a(href="/theory/maths/spaceMeasure") General covariance
+	p
+		a(href="/theory/maths/spaceMeasure") Tensors
+	p
+		a(href="/theory/maths/spaceMeasure") Multivector 
 	h2
 		b Other
 	p

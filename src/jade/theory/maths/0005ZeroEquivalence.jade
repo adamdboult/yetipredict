@@ -1,0 +1,31 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Equivalence and why only unary and binary operators, relations and functions are needed
+	h3
+		b Longer formulae
+	p We do not need separate symbols for each. For example, instead of:
+	p $$\theta \leftarrow \gamma$$
+	p We can have:
+	p $$\gamma \rightarrow \theta$$
+	p Instead of “either or both of \(\theta\) and \(\gamma\) are true”, shown as:
+	p $$\theta \lor \gamma$$
+	p We can use:
+	p $$¬\theta \rightarrow \gamma$$
+	p These can be easily verified, as there are only four outcomes for both \(\theta\) and \(\gamma\).
+	p All \(16\) logical connectors can be derived from these two, making the set functionally complete. Using symbols as shorthand can be helpful. Common ones include:
+	p \(\theta\) and \(\gamma\) are true:
+	p $$\theta \land \gamma$$
+	p \(\theta\) implies \(\gamma\), and \(\gamma\) implies \(\theta\):
+	p $$\theta \leftrightarrow \gamma$$
+	p Other sets can also be used to derive the complete 16. In particular the 16 can all be derived from combinations of either NAND (false if both sides are true) or NOR (true if both sides are false).
+	p While logical connectors are only between two formulas, they can be extended to cover more. For example if a statement should be true if \(\alpha\) and \(\beta\) are true, or if \(\gamma\) is true, we can use:
+	p $$(\alpha \land \beta )\lor \gamma $$
+
+
+	p + brackets
+	p + show can derive by combining binary
+
+	p Conjunctive Normal Form CNF
+	p Disjunctive Normal Form DNF
