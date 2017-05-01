@@ -1,0 +1,54 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Algebraic
+	p 3rd March 2017
+	p This is a collection of things we know
+	h3
+		b Differences of two squares
+	$$(a+b)(a-b)=a^2-ab+ab-b^2=a^2-b^2$$
+	$$(a+b)(a-b)=a^2+b^2$$
+
+	p Manipulating terms keeping equality
+	p Simplifying rational numbers
+	p Surds
+	p Use of commutative, distributive, associative properties.
+	p $$a^ba^c=a^{b+c}$$
+	p $$(a^b)^c=a^{bc}$$
+	p $$(a.b)^c=a^c.b^c$$
+	p $$a-b=a+(-b)$$
+	p $$\frac{a+b}{c}=\frac{a}{c}+\frac{b}{c}$$
+
+
+	p Surds
+
+
+	h3
+		b Logarithms
+
+	p If:
+	p $$c=a^b$$
+	p Then
+	p $$log_ac=b$$
+	p
+		b Product rule:
+	p $$a=c^\{log_ca}$$
+	p $$b=c^\{log_cb}$$
+	p So:
+	p $$ab=c^\{log_cab}$$
+	p But also:
+	$$ab=c^{log_ca}c^{log_cb}$$
+	$$ab=c^{log_ca+log_cb}$$
+	p So:
+	$$log_ca+log_cb=log_cab$$
+	p
+		b Power rule:
+	p $$a=b^{log_ba}$$
+	p So:
+	p $$a^c=b^{log_ba^c}$$
+	p And separately:
+	p $$a^c=(b^{log_ba})^c$$
+	p $$a^c=(b^{clog_ba})$$
+	p So:
+	p $$clog_ba=log_ba^c$$

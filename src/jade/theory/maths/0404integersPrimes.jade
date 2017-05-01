@@ -1,0 +1,45 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Prime numbers
+	h3
+		b Euclidian division
+	p For \(\forall a \forall b \in \mathbb{N}\), where \(b>0\), \(\forall q \exists r \in \mathbb{N}\) such that:
+	p $$a=bq+r$$
+	p $$0\le r < b$$
+	p That is, every natural number \(a\) is a multiple \(q\) of any other natural number \(b\), plus another natural number \(r\) less than the other natural number \(b\).
+	p For example:
+	$$17=2.8+1$$
+	$$9=3.3+0$$
+	p These are unique. For each jump in \(q\), \(r\) falls by \(b\). As the range of \(r\) is \(b\) there is only one solution.
+
+	p A natural number can be divided by another natural number, but this is not always defined.
+	h3
+		b Divisors
+	p For any number \(n \in \mathbb{N}\):
+	p $$\frac{n}{n}=1$$
+	p $$\frac{n}{1}=n$$
+	p Both \(1\) and \(n\) are divisors.
+	p If there is another number \(p\ne n\in \mathbb{N} \) such that:
+	p $$\frac{n}{p}=q$$
+	p Where \(p\in \mathbb{N}\), then \(p\) is another divisor of \(n\). There can be many such values of \(p\).
+	p
+		b Divisors must be smaller than the number
+	p As a result it is easy to identify early prime numbers, as we can try to divide by all preceding numbers.
+	h3
+		b Prime numbers
+	p If there are no other such divisors then \(n\) is a prime number. It's only divisors are \(1\) and itself, \(n\).
+	p By convention we do not refer to \(0\) or \(1\) as prime numbers.
+	h3
+		b Infinite number of primes
+	p Take all primes we currently know, multiply them together, and add \(1\) to form our new number, \(a\).
+	p $$a=\prod^n p_i +1$$
+	p From the fundamental theorem of arithmetic we know all numbers are primes or the products of primes.
+	p If \(a\) is not a prime then it can be divided by one of the existing primes to form number \(n\):
+	p $$\frac{\prod^n p_i +1}{p_j}=n$$
+	p $$\frac{p_j \prod^n_{i\ne j} p_i +1}{p_j}=n$$
+	p $$\prod^n_{i\ne j} p_i +\frac{1}{p_j}=n$$
+	p As this is not a whole number, \(n\) must prime.
+	p We can do this process for any finite number of primes, so there are an infinite number.
+

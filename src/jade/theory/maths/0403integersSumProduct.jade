@@ -1,0 +1,79 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Summation and products
+	h3
+		b Summation
+	p A summation is a repeated addition across a series.
+	p That is, given a series:
+	p $$x=[x_0,x_1,x_2,...,x_n]$$
+	
+	p $$\sum_{i=0}^nx_i=x_0+x_1+x_2+...+x_n$$
+	p
+		b Changing the start point
+	p $$\sum_{i=0}^nx_i=x_0+\sum_{i=1}^nx_i$$
+	p
+		b Summation of constants
+	p The value of the elements of \(x\) can be defined in many ways. For example if they are all \(0\) then:
+	p $$\sum_{i=1}^nx_i=0+0+0+...+0$$
+	p $$\sum_{i=1}^nx_i=0$$
+	p If the values are all \(1\) then:
+	p $$\sum_{i=1}^nx_i=1+1+1+...+1$$
+	p $$\sum_{i=1}^nx_i=n$$
+	p If they are an arbitrary constant, \(c\):
+	p $$\sum^n_{i=1} c=c+c+c+...+c$$
+	p $$\sum^n_{i=1} c=nc$$
+	p
+		b Multiplication of constants
+	p We can take constants out of the series:
+	p $$\sum^n_{i=0} cx_i=cx_0+cx_1+cx_2+...+cx_n$$
+	p $$\sum^n_{i=0} cx_i=c(x_0+x_1+x_2+...+x_n)$$
+	p $$\sum^n_{i=0} cx_i=c\sum^n_{i=0} x$$
+	p
+		b Elements with addition
+	p $$\sum^n_{i=0} (x_i+y_i)=(\sum^n_{i=0} x_i)+(\sum^n_{i=0} y_i)$$
+	p $$\sum^n_{i=0} (x_i+c)=nc+\sum^n_{i=0} x_i$$
+	p
+		b Multiple summations
+	p $$\sum^n_{i=0} \sum^m_{j=0} x_i=n\sum^m_{j=0} x_i$$
+	p $$\sum^n_{i=0} \sum^m_{j=0} x_i y_j=\sum^n_{i=0}x_i\sum^m_{j=0}y_i$$
+	p
+		b Summation of natural numbers
+	p We used the inference rules Modus Ponens, which says that if \(X\) is true, and \(X\rightarrow Y\) is true, then \(Y\) is true.
+	p Let's prove that:
+	p $$\sum_{i=0}^n i= \frac{n(n+1)}{2}$$
+	p We know this is true for \(n=0\):
+	p $$0=\frac{0(0+1)}{2}$$
+	p $$0=0$$
+	p We can also prove that if it true for \(n\), it is true for \(n+1\).
+	p $$\sum_{i=0}^{n+1} i= \frac{(n+1)(n+2)}{2}$$
+	p $$(n+1)+\sum_{i=0}^{n} i= \frac{n^2 +3n +2}{2}$$
+	p If it is true for \(n\), then:
+	p $$(n+1)+\frac{n(n+1)}{2}= \frac{n^2 +3n +2}{2}$$
+	p $$\frac{n^2+3n+2}{2}= \frac{n^2 +3n +2}{2}$$
+	p $$1=1$$
+	p So we know that it is true for \(n=0\), and if it is true for \(n\), then it is true for \(n+1\). As a result it is true for all natural numbers.
+
+	h3
+		b Products
+	p A product is a repeated multiplication across a series.
+	p That is, given a series:
+	p $$x=[x_0,x_1,x_2,...,x_n]$$
+	
+	p $$\prod^n_{i=0}x_i=x_0x_1x_2...x_n$$
+	
+	b
+		b Factorials
+	p A factorial is a a product across natural numbers. That is:
+	p $$n!:=\prod^n_{i=0}i$$
+
+	p
+		b Products of constants
+	p $$\prod^n_{i=1}c=ccc...c$$
+	p $$\prod^n_{i=1}c=c^n$$
+	p
+		b Multiplication of elements by constants
+	p $$\prod^n_{i=0}cx_i=cx_0cx_1cx_2...cx_n$$
+	p $$\prod^n_{i=0}cx_i=c^nx_0x_1x_2...x_n$$
+	p $$\prod^n_{i=0}cx_i=c^n\prod^n_{i=0}x_i$$

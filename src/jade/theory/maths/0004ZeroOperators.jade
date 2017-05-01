@@ -4,50 +4,39 @@ block theoryContent
 	h2
 		b Operators
 
-	h3
-		b Unary operator
-	p We can undertake unary operations on such a formula. As an input can be true or false, and the output true or false, there are four such operators.
+	p Operators take as inputs true or false formulae and return true or false. There are different types of operators, for different numbers of inputs.
+	p How many unique operators are there? The number of possible permutations of inputs is:
+	p $$t^i$$
+	p Where \(t\) represents the number of possible truth values. This is \(2\), so the number of possible inputs is:
+	p $$2^i$$
+	p But this is not the number of possible operators. This is:
+	p $$t^{t^i}$$
+	p Or:
+	p $$2^{2^i}$$
+	p Consider the operator with \(0\) inputs. We need \(2\) different operators to cover all outputs. For \(1\) input we need \(4\) and for \(2\) inputs we need \(16\).
+	p Operators can be shown together, with brackets. For example:
+	p $$(\alpha \lor \beta )\land \gamma $$
+	p Is not the same as:
+	p $$\alpha \lor (\beta \land \gamma )$$
+	p
+		b 0-ary operators
+	p We can consider true as false to be the operators with \(0\) inputs.
+	p
+		b Unary operators
+	p For the operators with \(1\) input we have:
 	ul
-		li True: the outcome is always true
-		li False: the outcome is always false
-		li Identity: the outcome is the same
-		li Negation: the outcome is the opposite.
-	p Discuss restrictions on what a formula can be "this statement is false".
-
-	p Given a formula, we can apply a unary operator to it to get another value.
-	p As the input can either be true or false, and the output can be true or false, there are four total unary operators.
-	p In practice negation is the most useful.
-	p Negation can be shown with the following.
-	p $$¬\theta$$
-	h3
-		b Binary operator
-	p Formulas can also include logical connectors between other formulas, binary operators. The truth value of such a formula will depend on the truth value of the other formulas within. An example of formula with a logical connector is:
+		li one which always returns true
+		li one which always returns false
+		li one which always returns the same as the input
+		li one which returns the opposite of the input
+	p It is this last one, negation, shown as \(¬\) which is of most interest.
+	p That is, the following statement is true:
+	p $$¬F$$
+	p
+		b Binary operators
+	p An example of a binary operator is:
 	p $$\theta \rightarrow \gamma$$
-	p The arrow states that if \(\theta\) is true, \(\gamma\) is true. This formula is false if \(\theta\) can be true while \(\gamma\) is false.
-	p For given truth values of \(\theta\) and \(\gamma\), there are four possibilities:
-	ul
-		li Both are true
-		li \(\theta\) is true, \(\gamma\) is false
-		li \(\theta\) is false, \(\gamma\) is true
-		li Both are false
-	p As a connector between two formulas also returns a formula which is true or false, there are \(2^4=16\) types of logical connectors, of which \(\rightarrow\) is one.
-
-
-
-	p Unary, binary and n-ary
-	p map of inputs to outputs
-	p For each combination of outputs, one for each different output
-	p so: number = range^inputs*range^inputs
-	p range=2 so:
-	p number = 2^{2inputs}
-	p unary: 2^2=4
-	p + True
-	p + False
-	p + Negation
-	p  1234
-	p TTTFF
-	p FTFTF
-	p nT=¬F
-	p only ¬ useful
-	p binary: 2^4=16
-	p n-ary
+	p The arrow states that if \(\theta \) is true, \(\gamma \) is true. This formula is false if \(\theta \) can be true while \(\gamma \) is false.
+	p
+		b N-ary operator
+	p N-ary operators contain \(3\) or more inputs.

@@ -2,13 +2,31 @@ extends ../../templates/theoryHeader.jade
 
 block theoryContent
 	h2
-		b Signatures and language
-	p Signatures and language
-	p Includes:
-	p + functions
-	p + relations
-	p + operator
-	p Language: set of all possible WFFs from signature
-	p Atomic and well-formed formulae
-	p Well-formed: Any sentence established within rules
-	p What are rules?
+		b Signatures, language and structures
+
+
+	p A logical signature includes the:
+	ul
+		li Functions;
+		li Relations; and 
+		li Operators
+	p This is the language, previous discussed. This includes symbols for functions, relations and operators. These can be used to construct logic sentences.
+	p The language of a signature is all possible sentences, or formulae which can be constructed from this signature.
+	p For zero-order logic, we include an infinite number of functions, relations and all operators.
+	p
+		b Atomic formulae
+	p Atomic formulae are formulae which do not have binary, or n-ary operators
+	p
+		b Well-formed formulae
+	p A well-formed formula is one which is constructed within the rules of the logic. For example the following is not well-formed:
+	p $$\theta \land t$$
+	p As \(t\) is a term.
+	p
+		b Structures
+	p A logical structure consists of:
+	ul
+		li domain;
+		li signature; and
+		li interpretation.
+	p The domain is the set of variables in the structure.
+	p The signature and interpretation are discussed previously.

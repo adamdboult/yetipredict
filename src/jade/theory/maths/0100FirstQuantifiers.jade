@@ -2,5 +2,33 @@ extends ../../templates/theoryHeader.jade
 
 block theoryContent
 	h2
-		b Quantifiers and free, bound and ground variables
+		b Quantifiers, domains and free, bound and ground variables
 
+
+	p
+		b Existential quantifier
+	p We introduce a shorthand for “at least one term satisfies a predicate”, that is:
+	p $$P(x_0)\lor P(x_1)\lor P(x_2)\lor P(x_2)\lor P(x_3)…$$
+	p The short hand is:
+	p $$\exists x P(x)$$
+	p
+		b Universal quantifier
+	p We introduce another shorthand, this time for:
+	p $$P(x_0)\land P(x_1)\land P(x_2)\land P(x_2)\land P(x_3)…$$
+	p The shorthand is
+	p $$\forall x P(x)$$
+	p
+		b Implications of quantifiers
+	p These iterate across a set. Increasing the number of terms \(x\) can take requires updating the formula for zero-order logic, but not here. As a result we call this first-order logic.
+	p
+		b Free and bound variables
+	p A bound variable is one which is quantified in the formula. A free variable is one which is not.
+	p
+		b Ground terms
+	p A ground term does not contain any free variables. A ground formulae is one which only includes ground terms.
+	p
+		b Domains
+	p Functions can map between domains. For example a function can be defined on a set of inputs, and give different outputs. For example:
+	p $$f:X\rightarrow Y$$
+	p Signifies a function which maps from domain \(X\) to domain \(Y\). This could occur, for example, from taking the square root of any integer input, which would map from integers to complex numbers.
+	p $$f:N\rightarrow N=s(n)$$

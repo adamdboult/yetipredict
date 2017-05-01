@@ -4,28 +4,63 @@ block theoryContent
 	h2
 		b Equivalence and why only unary and binary operators, relations and functions are needed
 	h3
-		b Longer formulae
-	p We do not need separate symbols for each. For example, instead of:
+		b Need for only a subset of binary operators
+	p While there are \(16\) possible binary operators, we do not need to use all of these. We will use as standard:
+	ul
+		li and, \(\land \)
+		li or, \(\lor \)
+		li if/then \(\rightarrow \)
+		li negation \(¬\)
+	p
+		b Reduction to \(8\)
+	p First, consider the use of negation. We can cut the number from \(16\) to \(8\) by using the negation symbol. That is if we want one to return true iff both inputs are false.
+	p \(\theta \) NAND \(\gamma \)
+	p This is logically the same as:
+	p $$¬(\theta \land \gamma )$$
+	p
+		b Removal on unconditionals
+	p Additionally we can get rid of the \(1\)which returns true regardless of inputs (originally there was one for false but we cut it down to one).
+	p Additionally we also have \(2\) which only depends on one input, which we can use a unary operator for instead.
+	p This leaves us with \(5\).
+	p
+		b A few more
+	p Now consider:
 	p $$\theta \leftarrow \gamma$$
-	p We can have:
+	p That is, if \(\gamma \) is true, \(\theta \) is true. We can get the same outputs using:
 	p $$\gamma \rightarrow \theta$$
-	p Instead of “either or both of \(\theta\) and \(\gamma\) are true”, shown as:
-	p $$\theta \lor \gamma$$
-	p We can use:
-	p $$¬\theta \rightarrow \gamma$$
-	p These can be easily verified, as there are only four outcomes for both \(\theta\) and \(\gamma\).
-	p All \(16\) logical connectors can be derived from these two, making the set functionally complete. Using symbols as shorthand can be helpful. Common ones include:
-	p \(\theta\) and \(\gamma\) are true:
-	p $$\theta \land \gamma$$
-	p \(\theta\) implies \(\gamma\), and \(\gamma\) implies \(\theta\):
-	p $$\theta \leftrightarrow \gamma$$
-	p Other sets can also be used to derive the complete 16. In particular the 16 can all be derived from combinations of either NAND (false if both sides are true) or NOR (true if both sides are false).
-	p While logical connectors are only between two formulas, they can be extended to cover more. For example if a statement should be true if \(\alpha\) and \(\beta\) are true, or if \(\gamma\) is true, we can use:
-	p $$(\alpha \land \beta )\lor \gamma $$
-
-
-	p + brackets
-	p + show can derive by combining binary
-
-	p Conjunctive Normal Form CNF
-	p Disjunctive Normal Form DNF
+	p So now we have \(4\).
+	p One of these returns true only if the inputs are identical. This is XNOR.
+	p We can write this as:
+	p $$(\theta \rightarrow \gamma)\land (\gamma \rightarrow \theta )$$
+	p This leaves us with our original \(3\).
+	p Other sets can also be used to derive the complete \(16\). In particular the \(16\) can all be derived from combinations of either NAND (false if both sides are true) or NOR (true if both sides are false).
+	h3
+		b Lack of need for n-ary operators
+	p Similarly, n-ary operators can be defined in terms of binary operators.
+	p As an example if we want an operator to return positive if all inputs are true, we can use:
+	p $$(\theta \land \gamma )\land \beta $$
+	p Note that here we have added brackets. These indicate that the operation inside the brackets should be undertaken before interacting with the outside.
+	h3
+		b Conjunctive  and Disjunctive Normal Forms (CNF and DNF)
+	p We can go further and reduce the \(3\)  and negation to just:
+	ul
+		li and, \(\land \)
+		li or, \(\lor \)
+		li The unary negation \(¬\)
+	p We do this by eliminating the \(\rightarrow \) operator. Note the following are the same.
+	p $$\theta \rightarrow \gamma$$
+	p $$¬\theta \lor (\theta \land \gamma )$$
+	p The conjunctive normal form (CNF) is where a formula is converted to this form, and then is shown is the form of:
+	p $$a \land b \land c \land d$$
+	p These letters can represent complex sub-formulae.
+	p The disjunctive normal form (DNF) is similar for \(\lor \).
+	p $$a \lor b \lor c \lor d$$
+	h3
+		b Extending the logic to functions
+	p The logic extends to functions. Crudely, this is why we can use:
+	p $$1+2+3$$
+	p We do not need a separate function:
+	p $$a(1,2,3)$$
+	h3
+		b Extending the logic to relations
+	p Similarly, for relations we can show statements like “\(x\) is equal to \(y\) but not to \(z\) in terms of other binary relations.

@@ -1,0 +1,14 @@
+extends ../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Ordinary differential equations
+	p An ordinary differential equation is one with only one independent variable. For example:
+	p $$\frac{dy}{dx}=f(x)$$
+	p The order of a differential equation is the number of differentials of \(y\) included. For example one with the second derivative of \(y\) is of order \(2\).
+
+	p Ordinary equations can can either implicit or explicit. An explicit function shows the highest order derivative as a function of other terms.
+	p An implicit function is one which is not explicit.
+
+	p A linear ODE is an explicit ODE where the derivative terms of \(y\) do not multiply together, that is, in the form:
+	p $$y^{(n)}=\sum_ia_i(x)y^{(i)}+r(x)$$
