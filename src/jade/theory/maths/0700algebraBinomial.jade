@@ -2,8 +2,7 @@ extends ../../templates/theoryHeader.jade
 
 block theoryContent
 	h2
-		b Algebraic
-	p 3rd March 2017
+		b Binomial expansion
 	p How can we expand
 	$$(a+b)^n, n\in \mathbb{N}$$
 	p We know that:
@@ -22,6 +21,6 @@ block theoryContent
 	p As a result the number of actual observed instances, \(c_i\), is:
 	$$c_i=\frac{n!}{i!(n-i)!}$$
 	p And so:
-	$$(a+b)^n=\sum^n_i=0 a^i b^{n-i} \frac{n!}{i!(n-i)}$$
+	$$(a+b)^n=\sum^n_{i=0} a^i b^{n-i} \frac{n!}{i!(n-i)!}$$
 	p We can also write this last term as:
 	$$\begin{pmatrix}n\\i\end{pmatrix}$$

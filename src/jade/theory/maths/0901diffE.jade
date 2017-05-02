@@ -2,55 +2,75 @@ extends ../../templates/theoryHeader.jade
 
 block theoryContent
 	h2
-		b Calculus
-	p 3rd March 2017
-	h3
-		b E
+		b \(e\)
 	p Let's derive \(e\).
+	h3
+		b Criteria
 	p There is a function such that:
 	p $$f(x)=f'(x)$$
+	h3
+		b Behaviour around \(0\)
 	p Let's set the start value:
 	p $$f(0)=a$$
-	p Let's look at small increases:
-	p $$\lim_{\delta \rightarrow 0}=f(\delta )=a+a\delta $$
 	p We know \(f(x)=f'(x)\) so:
-	p $$f'(\delta )=a+a\delta $$
-	p Let's continue:
-	p $$f(2\delta )=(a+a\delta) + (a\delta + a\delta^2)=a+2a\delta +a\delta^2$$
-	p $$f(3\delta )=(a+2a\delta + a\delta^2)+(a\delta + 2a\delta^2+a\delta^3)=a+3a\delta +3a\delta^2 +a\delta ^3$$
-	p This is the binomial series, so:
-	p $$f(n\delta )=a\sum_{i=0}^n\delta^i\frac{n!}{i!(n-i)!}$$
-	p As \(x=n\delta \):
-	p $$f(x)=a\sum_{i=0}^n(\frac{x}{n})^i\frac{n!}{i!(n-i)!}$$
-	p Note that because we know that the binomial expansion is:
-	p $$(1+k)^n=\sum_{i=0}^nk^i\frac{n!}{i!(n-i)!}$$
-	p
-		b Result 1:
-	p $$f(x)=a(1+\frac{x}{n})^n$$
-	p Back to our previous formula:
-	p $$f(x)=a\sum_{i=0}^n(\frac{x}{n})^i\frac{n!}{i!(n-i)!}$$
-	p $$f(x)=a\sum_{i=0}^n(\frac{x^i}{n^i})\frac{n!}{i!(n-i)!}$$
-	p $$f(x)=a\sum_{i=0}^n(\frac{x^i}{i!})\frac{n!}{n^i(n-i)!}$$
-	p As the intervals get smaller, \(n\rightarrow \inf \).
-	p $$\lim_{n\rightarrow \inf}\frac{n!}{n^i(n-i)!}=1$$
-	p
-		b Result 2:
-	p $$f(x)=a\sum_{i=0}^{\inf }(\frac{x^i}{i!})$$
-
+	p $$f'(0)=a$$
+	h3
+		b Taylor series
+	p $$f(x)=\sum_{i=0}^{\infty }(x-c)^i\frac{f^i(c)}{i!}$$
+	p We do this around \(c=0\) so:
+	p $$f(x)=\sum_{i=0}^{\infty }x^i\frac{f^i(0)}{i!}$$
+	p Additionally we know that all derivatives are equal to \(f(x)\) and that \(f(0)=a\), so:
+	p $$f(x)=\sum_{i=0}^{\infty }x^i\frac{a}{i!}$$
+	p $$f(x)=a\sum_{i=0}^{\infty }\frac{x^i}{i!}$$
+	h3
+		b Convergence
+	h3
+		b Lemma
+	p $$f=\frac{n!}{n^i(n-i)!}$$
+	p $$f=\frac{(n-i)!\prod_{j=n-i+1}^nj}{n^i(n-i)!}$$
+	p $$f=\frac{\prod_{j=n-i+1}^nj}{n^i}$$
+	p $$f=\frac{\prod_{j=1}^i(j+n-i)}{n^i}$$
+	p $$f=\prod_{j=1}^i\frac{j+n-i}{n}$$
+	p $$f=\prod_{j=1}^i(\frac{n}{n}+\frac{j-1}{n})$$
+	p $$f=\prod_{j=1}^i(1+\frac{j-1}{n})$$
+	p $$\lim_{n\rightarrow \infty }f=\lim_{n\rightarrow \infty }\prod_{j=1}^i(1+\frac{j-1}{n})$$
+	p $$\lim_{n\rightarrow \infty }f=\prod_{j=1}^i1$$
+	p $$\lim_{n\rightarrow \infty }f=1$$
+	h3
+		b Binomial form
 	p We know that:
-	p $$f(0)=\lim_{n\rightarrow \inf}a(1+\frac{1}{n})^n$$
-	p $$f(0)^x=\lim_{n\rightarrow \inf}a(1+\frac{1}{n})^nx$$
-	p $$f(0)^x=\lim_{n\rightarrow \inf}a\sum_{i=0}^{nx}\frac{1}{n^i}\frac{(nx)!}{i!(nx-i)!}$$
-	p $$f(0)^x=\lim_{n\rightarrow \inf}a\sum_{i=0}^{nx}\frac{x^i}{i!}\frac{(nx)!}{x^in^i(nx-i)!}$$
-	p $$f(0)^x=\lim_{n\rightarrow \inf}a\sum_{i=0}^{nx}\frac{x^i}{i!}$$
-	p $$f(0)^x=\lim_{n\rightarrow \inf}a\sum_{i=0}^{n}\frac{x^i}{i!}$$
-	p
-		b Result 3:
-	p $$f(0)^x=f(x)$$
-	p Let's define:
-	p $$e=f(0)$$
+	p $$(a+b)^n=\sum^n_{i=0} a^i b^{n-i} \frac{n!}{i!(n-i)!}$$
+	p Let's set \(b=1\)
+	p $$(a+1)^n=\sum^n_{i=0} a^i \frac{n!}{i!(n-i)!}$$
+	p Let's set \(a=\frac{1}{n}\)
+	p $$(1+\frac{1}{n})^{n}=\sum^{n}_{i=0} \frac{1}{n^i} \frac{n!}{i!(n-i)!}$$
+	p $$(1+\frac{1}{n})^{n}=\sum^{n}_{i=0} \frac{1}{i!} \frac{n!}{n^i(n-i)!}$$
+	p $$\lim_{n\rightarrow \infty }(1+\frac{1}{n})^{n}=\lim_{n\rightarrow \infty }\sum^{n}_{i=0} \frac{1}{i!} \frac{n!}{n^i(n-i)!}$$
+	p From the lemma above:
+	p $$\lim_{n\rightarrow \infty }(1+\frac{1}{n})^{n}=\sum^{\infty }_{i=0} \frac{1}{i!}$$
+	p Note that:
+	p $$f(x)=a\sum_{i=0}^{\infty }\frac{x^i}{i!}$$
+	p $$f(1)=a\sum_{i=0}^{\infty }\frac{1}{i!}$$
+	p So:
+	p $$f(1)=a\lim_{n\rightarrow \infty}(1+\frac{1}{n})^n$$
+	h3
+		b Exponent behaviour
+	p $$f(1)=a\lim_{n\rightarrow \infty}(1+\frac{1}{n})^n$$
+	p $$f(1)^x=(a\lim_{n\rightarrow \infty}(1+\frac{1}{n})^n)^x$$
+	p $$f(1)^x=a^x\lim_{n\rightarrow \infty}(1+\frac{1}{n})^{nx}$$
+	p $$f(1)^x=a^x\lim_{n\rightarrow \infty}\sum^{nx}_{i=0} \frac{1}{n^i} \frac{(nx)!}{i!(nx-i)!}$$
+	p $$f(1)^x=a^x\lim_{n\rightarrow \infty}\sum^{nx}_{i=0} \frac{x^i}{i!} \frac{(nx)!}{(nx)^i(nx-i)!}$$
+	p From the lemma above:
+	p $$f(1)^x=a^x\sum^{\infty }_{i=0} \frac{x^i}{i!}$$
+	p $$f(1)^x=a^xf(x)$$
+	h3
+		b \(e\)
+	p Let's set:
 	p $$a=1$$
+	p So;
+	p $$f(1)^x=f(x)$$
+	p Let's define:
+	p $$e=f(1)$$
 	p So:
 	$$f(x)=e^x$$
 	$$e^x=\frac{\delta e^x}{\delta x}$$
-
