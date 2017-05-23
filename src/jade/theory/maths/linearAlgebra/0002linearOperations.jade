@@ -1,0 +1,48 @@
+extends ../../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Matrix operations
+	p
+		b Addition
+	p \(2\) matricies of the same size, that is with idental dimensions, can be added together.
+	p If we have \(2\) matricies \(A^{mn}\) and \(B^{mn}\)
+	p $$C=A+B$$
+	p $$c_{ij}=a_{ij}+b_{ij}$$
+	p An empty matrix with \(0\)s of the same size as the other matrix is the indentity matrix for multiplication.
+	p
+		b Scalar multiplication
+	p A matrix can be multiplied by a scalar. Every element in the matrix is multiplied by this.
+	p $$B=cA$$
+	p $$b_{ij}=ca_{ij}$$
+	p The scalar \(1\) is the identity scalar.
+	p
+		b Transposition
+	p A matrix of dimensions \(m*n\) can be transformed into a matrix \(n*m\) by transposition.
+	p $$B=A^T$$
+	p $$b_{ij}=a{ji}$$
+	p Transposing twice results in the original matrix. Transposing also allows vectors to be transformed from horizontal to vertical.
+
+	p
+		b Conjugate transposition
+	p Like transposition, but with conjucate.
+	p $$B=A*$$
+	p $$b_{ij}=\bar{a_{ji}}$$
+	p
+		b Matrix multiplication
+	p $$A=A^{mn}$$
+	p $$B=B^{no}$$
+	p $$C=C^{mo}=A.B$$
+	p $$c_{ij}=\sum_{r=1}^na_{ir}b_{rj}$$
+
+	p Matrix multiplication depends on the order. Unlike for real numbers, $$AB\ne BA$$
+	p Matrix multiplication is not defined unless the condition above on dimensions is met.
+	p A matrix multiplied by the identity matrix returns the original matrix.
+	p For matrix \(M=M^{mn}\)
+	p $$M=MI^m=I^nM$$
+	p
+		b Matrix inversion
+	p We discussed matrix multiplication previously. The left inverse of a matrix is one where:
+	p $$M^{-1}M=I$$
+	p The riht inverse of a matrix is the one where:
+	p $$MM^{-1}=I$$

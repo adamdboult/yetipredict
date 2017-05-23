@@ -1,0 +1,26 @@
+extends ../../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Zermano-Fraenkel set theory 1 (specification, replacement, regularity)
+		
+
+	h3
+		b Axiom schema of specification
+	p $$\forall w_1,…,w_n \forall A\exists B\forall x[(x\in B)\leftrightarrow (x\in A \land \rho(x,w_1,…,w_n, A))]$$
+
+	p Not member relation
+	p We know:
+	p $$\forall x \forall y [(x\in y)\lor ¬(x\in y)]$$
+	p We define:
+	p $$\forall x \forall y[¬(x\in y)\rightarrow (x\nin y)$$
+	p Subset relation
+	p $$\forall x \forall y [(\forall z \in x)(z\in y)\rightarrow (x\subseteq y)]$$
+
+	h3
+		b Axiom schema of replacement
+
+	h3
+		b Axiom of regularity (or foundation)
+	Sets can’t contain themselves
+

@@ -1,0 +1,31 @@
+extends ../../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Predicates, functions, constants and terms
+	p
+		b Terms
+	p We previously discussed the propositional variable:
+	ul
+		li You are \(25\) years old
+	p We can consider "you" and \(25\) to be terms.
+	p
+		b Predicates
+	p Previously we could show the above statement as a propositional variable:
+	p $$\theta $$
+	p With predicate calculus we can write this as follows:
+	p $$P(25)$$
+	p We could also expand the predicate to include additional terms, such as:
+	p $$P(you,25)$$
+	p A propositional variable can be considered a special case of a predicate variable, where the number of inputs is \(0\).
+	p
+		b Functions
+	p Functions take other terms, and are themselves terms. For example if we wanted to know the age because of a law in a country, we could use:
+	p $$P(you,age(UK))$$
+	p A function may not be able to produce an output for all inputs. For examples \(age(green)\) has no interpretation.
+	p
+		b Constants
+	p Like predicates, functions can also take different numbers of inputs. Constants, such as “you” and “britain” could be considered functions with \(0\) inputs. As a result we could instead use:
+	p $$P(you(),age(UK()))$$
+	p We generally denote functions with a lower case letter, so would instead write:
+	p $$P(y(),a(b()))$$

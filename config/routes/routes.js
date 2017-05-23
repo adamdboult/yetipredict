@@ -77,6 +77,9 @@ module.exports=function(app,passport,logger,mailgun,MailComposer){
     app.get('/theory/:area/:subject', function(req,res){
 	res.render('theory/'+req.params.area+'/'+req.params.subject);
     });
+    app.get('/theory/:area/:subject/:subsubject', function(req,res){
+	res.render('theory/'+req.params.area+'/'+req.params.subject+'/'+req.params.subsubject);
+    });
 
     app.get('/models', function(req,res){
 	res.render('models',{models:modelArray});

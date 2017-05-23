@@ -1,0 +1,72 @@
+extends ../../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Addition and multiplication
+	h3
+		b Addition
+	p Let’s add another function: addition. Defined by the following axioms:
+	p
+		b Axioms
+	p $$\forall a \in \mathbb{N} (a+0=a)$$
+	p $$\forall a b \in \mathbb{N} (a+s(b)=s(a+b))$$
+	p That is, adding zero to a number doesn’t change it, and \((a+b)+1=a+(b+1)\).
+	p
+		b Example
+	p Let’s use this to solve \(1+2\):
+	p $$1+2=1+s(1)$$
+	p $$1+s(1)=s(1+1)$$
+	p $$s(1+1)=s(1+s(0))$$
+	p $$s(1+s(0))=s(s(1+0))$$
+	p $$s(s(1+0))=s(s(1))$$
+	p $$s(s(1))=s(2)$$
+	p $$s(2)=3$$
+	p $$1+2=3$$
+	p All addition can be done iteratively like this.
+	h3
+		b Mutliplication
+	p Multiplication can be defined by:
+	p
+		b Axioms
+	p $$\forall a \in \mathbb{N} (a.0=0)$$
+	p $$\forall a b \in \mathbb{N} (a.s(b)=a.b+a)$$
+	p That is, anything multiplied by \(0\) is \(0\), \(a.(b+1)=a.b+a\).
+	p
+		b Example
+	p Let’s calculate \(2.2\).
+	p $$2.2=2.s(1)$$
+	p $$2.s(1)=2.1+2$$
+	p $$2.1+2=2.s(0)+2$$
+	p $$2.s(0)+2=2.0+2+2$$
+	p $$2.0+2+2=2+2$$
+	p $$2+2=4$$
+
+
+	h3
+		b Features of binary functions
+	p
+		b Commutative
+	p $$x+y=y+x$$
+	p $$xy=yx$$
+	p $$f(x,y)=f(y,x)$$
+	p Both addition and multiplication are commutative.
+	p
+		b Associative
+	p $$x+(y+z)=(x+y)+z$$
+	p $$x(yz)=(xy)z$$
+	p $$f(x,f(y,z))=f(f(x,y),z)$$
+	p Addition and multiplication are associative.
+	p
+		b Distributive
+	p Function \(.\), or \(m\), is left distributive over \(+\), or \(a\), if:
+	p $$x.(y+z)=x.y+x.z$$
+	p $$m(x,a(y,z))=m(a(x,y),a(x,y))$$
+	p Function \(.\), or \(m\), is right distributive over \(+\), or \(a\), if:
+	p $$(x+y).z=x.z+y.z$$
+	p $$m(a(x,y),z)=m(a(x,z),a(y,z))$$
+	p Function \(.\), or \(m\), is right distributive over \(+\), or \(a\), if it is both left and right distributive.
+	p . is distributive over + if
+	p 	Left and right distributive
+
+	h3
+		b Modulus functions

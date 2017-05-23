@@ -1,0 +1,56 @@
+extends ../../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Integers
+	p To extend the number line to negative numbers, we define:
+	p $$\forall ab \in \mathbb{N} \exists c (a+c=b)$$
+	p For any pair of numbers there exists a terms which can be added to one to get the other.
+	p For \(1+x=3\) this is another natural number, however for \(3+x=1\) there is no such number.
+	p Integers are defined as the solutions for any pair of natural numbers.
+	p Can we add and multiply integers? If we consider an integer to by an ordered pair of natural numbers, such that:
+	p $$(a,b)=a-b$$
+	p Natural numbers can be shown as integers by using:
+	p $$(n,0)$$
+	p Then we can define addition as:
+	p $$(a,b)+(c,d)=(a+c,b+d)$$
+	p Similarly, multiplication can be defined as:
+	p $$(a,b).(c,d)=(ac+bd, ad+bc)$$
+
+	p Integers can be defined as an ordered pair of natural numbers, where the integer is valued at: \(a-b\).
+	p For example \(-1\) could be shown as:
+	p $$-1=/{/{0/},/{0,1/}/}$$
+	p $$-1=/{/{5/},/{5,6/}/}$$
+	p Natural numbers can be converted to integers:
+	p $$\{\{a\},\{a,0\}\}$$
+	p
+		b Integer addition
+	p Integer addition can then be defined:
+	p $$a+b=/{/{a_1/},/{a_1,a_2/}/}+/{/{b_1/},/{b_1,b_2/}/}$$
+	p $$a+b=/{/{a_1+b_1/},/{a_1+b_1,a_2+b_2/}/}$$
+	p Or:
+	p $$a+b=c$$
+	p $$c_1=a_1+b_1$$
+	p $$c_2=a_2+b_2$$
+	p
+		b Integer subtraction
+	p $$a-b=c$$
+	p $$c_1=a_1+b_2$$
+	p $$c_2=a_2+b_1$$
+	p
+		b Integer multiplication
+	p $$ab=c$$
+	p $$c_1=a_1b_1+a_2b_2$$
+	p $$c_2=a_2b_1+a_1b_2$$
+	p
+		b Integer division
+	p $$a/b=c$$
+	p Note that:
+	p $$c=\frac{a_1-a_2}{b_1-b_2}$$
+	p $$c=\frac{(a_1-a_2)(b_1-b_2)}{(b_1-b_2)(b_1-b_2)}$$
+	p $$c=\frac{(a_1b_1+a_2b_2)-(a_2b_1+a_1b_2) }{b_1b_1+b_2b_2-2b_1b_2}$$
+	p So:
+	p $$c_1=\frac{a_1b_1+a_2b_2}{b_1b_1+b_2b_2-2b_1b_2}$$
+	p $$c_1=\frac{a_1b_2+a_2b_1}{b_1b_1+b_2b_2-2b_1b_2}$$
+	p The denominator here is always a natural number as it is \((a-b)^2\), which can’t be below \(0\).
+	p Note that like natural division, real division is not always defined.

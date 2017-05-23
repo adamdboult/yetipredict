@@ -1,0 +1,31 @@
+extends ../../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Greatest Common Divisors, Lowest Common Multiples
+	p Note that there are tricks for calculating these more simply. These methods require the fundamental theorem of arithmetic.
+	h3
+		b Divisors of numbers
+	p For any natural number we can generate a list of divisors. For example for \(18\) we have:
+	p $$[1,2,3,6,9,19]$$
+	p For \(24\), the divisors are:
+	p $$[1,2,3,4,6,8,12,24]$$
+
+	h3
+		b Multiples of numbers
+	p The multiple of a number is it added to itself iteratively. The multiples of \(18\) for example are:
+	p $$[18,36,54,72,90,...]$$
+	p And for \(24\):
+	p $$[24,48,72,96,120,...]$$
+	h3
+		b Greatest common divisor
+	p The greatest common divisor of \(2\) numbers is as the name suggests.
+	p So \(GCD(18,24)=6\)
+	p
+	h3
+		b Lowest common multiple
+	p The lowest common multiple of \(2\) numbers is again as the name suggests.
+	p So \(LCM(18,24)=72\).
+
+
+	

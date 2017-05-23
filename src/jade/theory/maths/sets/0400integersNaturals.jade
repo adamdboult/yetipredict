@@ -1,0 +1,32 @@
+extends ../../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Natural numbers
+	p We’ve sketched out basic logic. Let’s introduce numbers. We want to add axioms which allow us to accurately describe numbers. We add these to the axioms from first order logic. These are the Peano axioms.
+	ul
+		li There is a term called \(0\) which is a natural number. This introduces the concept of a natural number.
+		$$N(0)$$
+		li There is a unary function \(s(n)\) which is a natural number when \(n\) is a natural number. This introduces the concept of successors. Under just this axiom the natural numbers could be infinitely repeating \(0\)s, or loop, or any number of other things.
+		ul
+			$$\forall n (N(n)\rightarrow N(s(n)))$$
+			li Or written instead:
+			$$\forall n \in \mathbb{N} (s(n) \in \mathbb{N})$$
+		li Two natural numbers are equal if and only if their successors are equal. This prevents a natural number being the successor of two different numbers, that is, looping back into itself. 
+		$$\forall m n \in \mathbb{N} (m=n)\leftrightarrow (s(m)=s(n))$$
+		li The successor function never returns \(0\). This prevents circular loops.
+		$$\forall n \in \mathbb{N} (¬(s(n)=0))$$
+	p We need to add another rule. For example, a set which included multiple unconnected lines would satisfy the above axioms. This is the axiom of induction. This states that only \(0\) and successors of \(0\) are included in the natural numbers.
+	p $$(N(0)\land \forall n \in \mathbb{N} (N(s(n))))\rightarrow \forall n N(n)$$
+	p This gives us our intuitive sense of natural numbers, going to from \(0\) to \(\infty\). We also have a unary function \(s(n)\) which increases each number by \(1\).
+
+
+	p We can define natural numbers by starting with \(0\).
+	p We define \(0\) as the empty set. That is:
+	p $$0:=\{\}$$
+	p We then define all sequential numbers as the set of all preceding numbers. So:
+	p $$1:=\{0\}=\{\{\}\}$$
+	p $$2:=\{0,1\}=\{\{\},\{\{\}\}\}$$
+	p $$3:=\{0,1,2\}=\{\{\},\{\{\}\},\{\{\},\{\{\}\}\}\}$$
+	p And so on, so:
+	p $$s(n)=\{n,\{n\}\}$$

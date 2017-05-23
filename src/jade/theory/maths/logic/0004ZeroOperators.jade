@@ -1,0 +1,56 @@
+extends ../../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Operators
+	p Operators take as inputs true or false formulae and return true or false. There are different types of operators, for different numbers of inputs.
+	p These are comparable to predicates, but for formulae rather than terms.
+	p For example we could write a binary operator as:
+	p $$B(\theta , \gamma )$$
+	p Though this is not standard practice.
+	p As formula can only be true or false, there are a limited number of possible operators, unlike predicates.
+	h3
+		b Types of operators
+	p
+		b Unary operators
+	p For the operators with \(1\) input we have:
+	ul
+		li one which always returns \(T\)
+		li one which always returns \(F\)
+		li one which always returns the same as the input
+		li one which returns the opposite of the input
+	p It is this last one, negation, shown as \(¬\) and is of most interest.
+	p That is, the following statement is \(T\):
+	p $$¬F$$
+	p
+		b 0-ary operators
+	p We can consider \(T\) and \(F\) to be the operators with \(0\) inputs.
+	p
+		b Binary operators
+	p An example of a binary operator is:
+	p $$\theta \rightarrow \gamma$$
+	p The arrow states that if \(\theta \) is true, \(\gamma \) is true. This formula is false if \(\theta \) can be true while \(\gamma \) is false.
+	p Operators can be shown together, with brackets. For example:
+	p $$(\alpha \lor \beta )\land \gamma $$
+	p Is not the same as:
+	p $$\alpha \lor (\beta \land \gamma )$$
+	p
+		b N-ary operators
+	p N-ary operators contain \(3\) or more inputs.
+	h3
+		b Number of operators
+	p
+		b Number of permutations
+	p How many unique operators are there? The number of possible permutations of inputs is:
+	p $$t^i$$
+	p Where \(t\) represents the number of possible truth values. This is \(2\), so the number of possible inputs is:
+	p $$2^i$$
+	p
+		b Number of operators
+	p But this is not the number of possible operators. This is:
+	p $$t^a$$
+	p Where \(a\) is the number of possible permutations. This is therefore:
+	p $$t^{t^i}$$
+	p Or:
+	p $$2^{2^i}$$
+	p Consider the operator with \(0\) inputs. We need \(2\) different operators to cover all outputs. For \(1\) input we need \(4\) and for \(2\) inputs we need \(16\).

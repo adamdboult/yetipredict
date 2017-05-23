@@ -1,0 +1,37 @@
+extends ../../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Exponents and logarithms.
+	p Previously we defined addition and multiplication in terms of successive use of the sucessor function. That is, the definition of addition was:
+	p $$\forall a \in \mathbb{N} (a+0=a)$$
+	p $$\forall a b \in \mathbb{N} (a+s(b)=s(a+b))$$
+	p And similarly for multiplication:
+	p $$\forall a \in \mathbb{N} (a.0=0)$$
+	p $$\forall a b \in \mathbb{N} (a.s(b)=a.b+a)$$
+	p Additional functions could also be defined, following the same pattern:
+	p $$\forall a \in \mathbb{N} (a\oplus _n 0=c)$$
+	p $$\forall a b \in \mathbb{N} (a\oplus _{n} s(b)=(a\oplus_{n} b)\oplus_{n-1}a)$$
+
+	h3
+		b Powers
+	p Exponents can also be defined:
+	p
+		b Axioms
+	p $$\forall a \in \mathbb{N} a^0=1$$
+	p $$\forall a b \in \mathbb{N} a^{s(b)}=a^b.a$$
+	p
+		b Example
+	p So \(2^2\) can be calculated like:
+	p $$2^2=2^{s(1)}$$
+	p $$2^{s(1)}=2.2^1$$
+	p $$2.2^1=2.2.2^0$$
+	p $$2.2.2^0=2.2.1$$
+	p $$2.2.1=4$$
+
+	p Unlike addition and multiplication, exponention is not commutative. That is
+	p $$a^b\ne b^a$$
+	
+	h3
+		b Logarithms
+

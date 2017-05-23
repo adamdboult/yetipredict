@@ -1,0 +1,47 @@
+extends ../../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Sequences
+
+
+	p A sequence is an ordered list of terms.
+	p These are commonly maps from natural numbers to real (or complex) numbers.
+	p If a sequence is defined on \(n\in \mathbb{N}\) and \(n\ne 0\) then the sequence must be defined on \(n-1\).
+	p
+		b Defining a sequence
+	p These can be shown as \(a_n=f(n)\). If this is defined on all \(n\in \mathbb{N}\) then the sequence is infinite. Otherwise it is finite.
+	p A sequence can also be defined by relationships between entries.
+	p For example the Fibonacci sequence is defined as:
+	p $$a_0=1, a_1=1, a_n=a_{n-1}+a_{n-1}$$
+	p
+		b Monotone sequence
+	p A monotone sequence is one where each element is succeeded ordinally by the next entry.
+	p For example:
+	p \(<1,2,3,6,7>\) is monotone
+	p \(<1,2,3,3,4>\) is not monotone
+	p An increasing sequence is one where:
+	p $$\forall m \in \mathbb{N} \forall n\in \mathbb{N} [m > n \leftrightarrow a_m \ge a_n]$$
+	p A strictly increasing sequence is one where:
+	p $$\forall m \in \mathbb{N} \forall n\in \mathbb{N} [m > n \leftrightarrow a_m > a_n]$$
+	p A decreasing sequence is one where:
+	p $$\forall m \in \mathbb{N} \forall n\in \mathbb{N} [m > n \leftrightarrow a_m \le a_n]$$
+	p A strictly decreasing sequence is one where:
+	p $$\forall m \in \mathbb{N} \forall n\in \mathbb{N} [m > n \leftrightarrow a_m < a_n]$$
+	p All strictly decreasing sequences are decreasing, and all strictly increasing sequences are increasing.
+	p A monotone sequence is one which is either increasing or decreasing.
+	p
+		b Bounded sequence
+	p A function \(f(x)\) on set \(X\) is bounded if:
+	p $$\exists M\in \mathbb{R} [\forall x\in X f(x)\le M]$$
+	p A bounded sequence is a special case of a bounded function where:
+	p $$X=\mathhbb{N}$$
+	p That is, a sequence is bounded by \(M\) iff:
+	p $$\forall n\in \mathbb{R} |f(a_n)|<le M$$
+
+
+	p
+		b Subsequences
+	p A subsequence of a sequence is the original sequence with some elements of the original removed, not changing the order.
+	p For example:
+	p \(<1,3,5>\) is a subsequence of \(<2,1,3,4,7,5>\)

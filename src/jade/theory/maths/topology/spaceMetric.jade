@@ -1,0 +1,85 @@
+extends ../../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Metric space
+	h3
+		b Normed vector space
+	p
+		b Motivation
+	p
+		b Overview
+	p We can use norms to denote the "length" of a single vector.
+	p Such a norm can be defined in many ways.
+	p A normed vector space is a metric space where the distance between two vectors is the norm of the the difference between the two vectors.
+	p That is, we denote the distance between two vectors as:
+	p $$||x-y||=||x||-||y||$$
+	p Where \(||x||\) is the norm of a vector.
+	p This can be shown through:
+	p $$N:VxV\rightarrow F$$
+	p Where two vectors produce a scalar.
+	h3
+		b Types of norms
+	p
+		b Euclidian norm
+	p This is the standard norm which results in Pythagoras.
+	p $$||x||=\sqrt{\sum_{i=1}^{n}x^2_i}$$
+	p
+		b \(L^P\) norm
+	p This generalises the Euclidian norm.
+	p $$||x||_p=(\sum_{i=1}^{n}|x|^p_i)^{1/p}$$
+	p This can defined for different values of \(p\). Note that the absolute value of each element in the vector is used.
+	p Note also that:
+	p $$||x||_2
+	p Is the Euclidian norm.
+	p
+		b Taxicab norm
+	p This is the \(L^1\) norm. That is:
+	p $$||x||_1=\sum_{i=1}^{n}|x|_i$$
+	h3
+		b Inner product space
+	p
+		b Motivation
+	p
+		b Overview
+	p Like the normed vector space, this is also defined between two vectors.
+	p The inner product between two vectors is shown as:
+	p $$<x,y>$$
+	p There are many different types of inner product.
+	p
+		b Feature 1: Conjugate symmetry:
+	p $$<x,y>=\bar{<y,x>}$$
+	p
+		b Feature 2: Linearity in the first argument
+	p Linearity in the first argument:
+	p $$<ax,y>=a<x,y>$$
+	p $$<x+y,z>=<x,>+<y+z>$$
+	p Note that linearity in the second argument is not implied.
+	p $$<x,ay+bz>=\bar{<ay+bz,x>}$$
+	p $$<x,ay>=\bar{a<y,x>+b<z,x>}$$
+	p
+		b Feature 3: Positive definite
+	p $$<x,x>\ge 0$$
+	p $$<x,x>= 0\leftrightarrow x=0$$
+	h3
+		b Examples of inner products
+	p
+		b Dot product
+	p A common inner product is the dot product.
+	p This is defined as:
+	p $$<x,y>=x^Ty$$
+	h3
+		b Inner products as norms
+	p Given a vector, we can calculate a scalar by performing:
+	p $$<x,x>$$
+	p We can use this to define a norm:
+	p $$||x||=\sqrt{<x,x>}$$
+	p For the dot product inner product, this results in the Euclidian norm.
+	p As a result all inner product spaces are normed vector spaces, but not all normed vector spaces are inner product spaces.
+
+	h3
+		b Banach space
+	p A complete normed vector space
+	h3
+		b Hilbert space
+	p A A complete space with an inner product. That is, a Banach space where the norm is derived from an inner product.

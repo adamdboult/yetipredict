@@ -1,0 +1,50 @@
+extends ../../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Calculus
+	p 3rd March 2017
+
+	h3
+		b Real functions
+	p Consider a function
+	$$y=f(x)$$
+	p Where
+	$$x,y \in \mathbb{R}$$
+	h3
+		b Continuous functions
+	p A function is continuous if:
+	$$\lim_{x\rightarrow c} f(x)=f(c)$$
+	p For example a function \(\frac{1}{x}\) is not continuous as the limit towards \(0\) is negative infinity. A function like \(y=x\) is continous.
+	p More strictly, for any \(\epsilon >0\) there exists
+	$$\delta >0 $$
+	$$c-\delta < x< c +\delta $$
+	p Such that
+	$$f(c)-\epsilon < f(x) < f(c)+\epsilon $$
+	p This means that our function is continuous at our limit \(c\), if for any tiny range around \(f(c)\), that is \(f(c)-\epsilon\) and \(f(c)+\epsilon\), there is a range around \(c\), that is \(c-\delta \) and \(c+ \delta \) such that all the value of \(f(x)\) at all of these points is within the other range.
+	h3
+		Limits
+
+
+
+	p why can't we use rationals for analysis?
+	p if discontinous at not rational number, it can still be continous for all rationals.
+	p eg f(x)=-1 unless x^2>2, where f(x)=1
+	p continous for all rationals, because rationals dense in reals
+	p but can't be differentiated
+
+
+	p
+		b Boundedness theorem
+	p If \(f(x)\) is closed and continuous in \([a,b]\) then \(f(x)\) is bounded by \(m\) and \(M\). That is:
+	p $$\exists m \in \mathbb{R} \exists M\in \mathbb{R}\forall x\in [a,b](m<f(x)<M$$
+	p
+		b Extreme value function
+	p We can expand the boundedness theorem such that \(m\) and \(M\) are functions of \(f(x)\) in the bound \([a,b]\). That is:
+	p $$\exists m \in \mathbb{R} \exists M\in \mathbb{R}\forall x\in [a,b](m<f(x)<M)$$
+	p
+		b Intermediate value theorem
+	p Take a real function \(f(x)\) on closed interval \([a,b]\), continuous on \([a,b,]\).
+	p IVT says that for all numbers \(u\) between \(f(a)\) and \(f(b)\), there is a corresponding value \(c\) in \([a,b]\) such that \(f(c)=u\).
+	p That is:
+	p $$\forall u \in [min(f(a),f(b)),max(f(a),f(b))] \exists c \in [a,b] (f(c)=u)$$
