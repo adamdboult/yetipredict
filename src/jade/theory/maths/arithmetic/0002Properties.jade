@@ -1,0 +1,76 @@
+extends ../../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Properties of functions
+	h3
+		b Types of properties
+	p
+		b Commutative
+	p A function is commutative if:
+	p $$f(x,y)=f(y,x)$$
+	p Or:
+	p $$x\dotcircle y = y\dotcircle x$$
+	p
+		b Associative
+	p A function is associative if:
+	p $$f(f(x,y),z)=f(x,f(y,z))$$
+	p $$(x\dotcircle y)\dotcircle z = x\dotcircle (y\dotcircle z)$$
+	p
+		b Distributive
+	p A function \(f(x,y)\) is left distributive over \(g(a,b)\) if:
+	p $$f(x,g(y,z))=g(f(x,y),f(x,z))$$
+	p Alternatively, function \(\dotcircle \) is left distributive over \(\dotcross \) if:
+	p $$x\dotcirle(y\dotcross z)=(x\dotcircle y) \dotcross (x\dotcircle z)$$
+	br
+	p Similarly a function \(f(x,y)\) is right distributive over \(g(a,b)\) if:
+	p $$f(g(x,y),z))=g(f(x,z),f(y,z))$$
+	p Alternatively, function \(\dotcircle \) is right distributive over \(\dotcross \) if:
+	p $$(x\dotcross y)\dotcircle z=(x\dotcircle z) \dotcross (y\dotcircle z)$$
+	br
+	p A function is distributive over another function if it both left and right distributive over it.
+	h3
+		b Properties of addition and multiplication
+	p
+		b Commutative
+	p Addition is commutative:
+	p $$x+y=y+x$$
+	br
+	p Multiplication is commutative:
+	p $$xy=yx$$
+	p
+		b Associative
+	p Addition is associative:
+	p $$x+(y+z)=(x+y)+z$$
+	br
+	p Multiplication is associative:
+	p $$x(yz)=(xy)z$$
+	p
+		b Distributive
+	p Multiplication is distributive over addition:
+	p $$a(b+c)=ab+ac$$
+	p $$(a+b)c=ac+bc$$
+	h3
+		b Properties of subtraction and division
+	p
+		b Commutative
+	p Subtraction is not commutative:
+	p $$x-y\ne y-x$$
+	br
+	p Division is not commutative:
+	p $$\frac{x}{y}\ne \frac{y}{x}$$
+	p
+		b Associative
+	p Subtraction is not associative:
+	p $$x-(y-z)\ne (x-y)-z$$
+	br
+	p Division is not associative:
+	p $$\frac{x}{\frac{y}{z}}\ne \frac{\frac{x}{y}}{z}$$
+	p
+		b Distributive
+	p Division is not left distributive over subtraction:
+	p $$\frac{a}{b-c} \ne \frac{a}{b} -\frac{a}{c}$$
+	br
+	p Division is right distributive over subtraction:
+	p $$\frac{a-b}{c} =\frac{a}{b} -\frac{b}{c}$$
+	

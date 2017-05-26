@@ -1,0 +1,46 @@
+extends ../../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Equality
+	h3
+		b Axiom of extensionality
+	p If two sets contain the same elements, they are equal.
+	p $$\forall x \forall y[\forall z(z\in x \leftrightarrow z\in y)\rightarrow x=y]$$
+	p This introduces the equality relationship.
+	p NOTE: WHY DOESN'T EQUALITY IMPLY SAME MEMBERSHIP? UNIDIRECTIONAL.
+	h3
+		b Properties of equality
+	p
+		b Reflexivity
+	p The reflexive property is:
+	p $$\forall x(x=x)$$
+	p We can replace the quantifiers with just \(x\).
+	p $$\forall x [\forall z(z\in x \leftrightarrow z\in x)\rightarrow x=x]$$
+	p We can show that the following is true:
+	p $$\forall z(z\in x \leftrightarrow z\in x)$$
+	p Therefore \(x=x\)
+	p
+		b Symmetry
+	p The symmetry property is:
+	p $$\forall x \forall y[(x=y)\leftrightarrow (y=x)]$$
+	p We know that the following are true:
+	p $$\forall x \forall y[\forall z(z\in x \leftrightarrow z\in y)\rightarrow x=y]$$
+	p $$\forall y \forall x[\forall z(z\in y \leftrightarrow z\in x)\rightarrow y=x]$$
+	p The second can be reformed to:
+	p $$\forall x \forall y[\forall z(z\in x \leftrightarrow z\in y)\rightarrow y=x]$$
+	p So:
+	p $$\forall x \forall y[\forall z(z\in x \leftrightarrow z\in y)\rightarrow (x=y\land y=x)]$$
+	p
+		b Transitivity
+	p The transitive property is:
+	p $$\forall x \forall y \forall z[(x=y \land y=z) \rightarrow x=z]$$
+	p
+		b Substitution for functions
+	p The substitutive property for functions is:
+	p $$\forall x \forall y[(x=y)\rightarrow (f(x)=f(y))]$$
+	p
+		b Substitution for formulae
+	p The substitutive property for formulae is:
+	p $$\forall x \forall y[((x=y)\land P(x))\rightarrow P(y)]$$
+	p Doesn’t this require iterating over predicates? Is this possible in first order logic??

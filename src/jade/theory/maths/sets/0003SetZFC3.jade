@@ -29,3 +29,13 @@ block theoryContent
 		b Sequential numbers
 	p $$\forall n s(n)=n\lor \{n\}$$
 	p $$\forall n N(n)\rightarrow N(s(n))$$
+
+	p We can define natural numbers by starting with \(0\).
+	p We define \(0\) as the empty set. That is:
+	p $$0:=\{\}$$
+	p We then define all sequential numbers as the set of all preceding numbers. So:
+	p $$1:=\{0\}=\{\{\}\}$$
+	p $$2:=\{0,1\}=\{\{\},\{\{\}\}\}$$
+	p $$3:=\{0,1,2\}=\{\{\},\{\{\}\},\{\{\},\{\{\}\}\}\}$$
+	p And so on, so:
+	p $$s(n)=\{n,\{n\}\}$$

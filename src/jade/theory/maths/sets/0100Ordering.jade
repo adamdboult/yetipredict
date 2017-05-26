@@ -49,7 +49,13 @@ block theoryContent
 	p A well-ordering on a set is a total order on the set where the set contains a minimum number. For example the relation \(\le \) on the natural numbers is a well-ordering because \(0\) is the minimum.
 	p The relation \(\le \) on the integers however is not a well-ordering, as there is no minimum number in the set.
 	h3
-		b Ordering of rational numbers
+		b Intervals
+	p For a totally ordered set we can define a subset as being all elements with a relationship to a number. For example:
+	p $$[a,b]=\{x:a\le x \land x\le b\}$$
+	p This denotes a closed interval. Using the definition above we can also define an open interval:
+	p $$(a,b)=\{x:a< x \land x< b\}$$
+
+
 	p
 		b Ordering of the natural numbers
 	p For natural numbers we can say that number \(n\) preceeds number \(s(n)\). That is:
@@ -74,63 +80,3 @@ block theoryContent
 	p As this is is then defined on any pair, the order on natural numbers is total.
 	p As there is a minimum, \(0\), the relation is also well-ordered.
 	p However if this does not hold then the following instead holds:
-	p
-		b Ordering of the integers
-	p Integers are an ordered pair of naturals.
-	p $$\{\{x\},\{x,y\}\}$$
-	p For example \(-4\) can be:
-	p $$\{\{4\},\{4,8\}\}$$
-	p $$\{\{0\},\{0,8\}\}$$
-	p We extend the ordering to say:
-	p $$\{\{x\},\{x,y\}\}\le \{\{s(x)\},\{s(x),y\}\}$$
-	p $$\{\{x\},\{x,s(y)\}\}\le \{\{x\},\{x,y\}\}$$
-	p So can we define this on an arbitrary pair:
-	p $$\{\{a\},\{a,b\}\}\le \{\{c\},\{c,d\}\}$$
-	p We know that:
-	p $$\{\{a\},\{a,b\}\}=\{\{s(a)\},\{s(a),s(b)\}\}$$
-	p And either of:
-	p $$\{\{a\},\{a,b\}\}=\{\{0\},\{0,A\}\}$$
-	p $$\{\{a\},\{a,b\}\}=\{\{B\},\{B,0\}\}$$
-	p $$\{\{a\},\{a,b\}\}=\{\{0\},\{0,0\}\}$$
-	p As the latter is a case of either of the other \(2\), we consider only the first \(2\).
-	p So we can define:
-	p $$\{\{a\},\{a,b\}\}\le \{\{c\},\{c,d\}\}$$
-	p As any of:
-	p $$1: \{\{0\},\{0,A\}\}\le \{\{0\},\{0,C\}\}$$
-	p $$2: \{\{0\},\{0,A\}\}\le \{\{D\},\{D,0\}\}$$
-	p $$3: \{\{B\},\{B,0\}\}\le \{\{0\},\{0,C\}\}$$
-	p $$4: \{\{B\},\{B,0\}\}\le \{\{D\},\{D,0\}\}$$
-	p Case 1:
-	p $$\{\{0\},\{0,A\}\}\le \{\{0\},\{0,C\}\}$$
-	p Trivial, depends on relative size of \(A\) and \(C\).
-	p
-
-	p Case 2:
-	p $$\{\{0\},\{0,A\}\}\le \{\{D\},\{D,0\}\}$$
-	p We can see that:
-	p $$\{\{D\},\{D,A\}\}\le \{\{D\},\{D,0\}\}$$
-	p And therefore this holds.
-	p
-
-	p Case 3:
-	p $$\{\{B\},\{B,0\}\}\le \{\{0\},\{0,C\}\}$$
-	p We can see that:
-	p $$\{\{B\},\{B,0\}\}\le \{\{B\},\{B,C\}\}$$
-	p And therefore this does not hold.
-	p
-	p Case 4:
-	p $$\{\{B\},\{B,0\}\}\le \{\{D\},\{D,0\}\}$$
-	p Trivial, like case 1.
-	p
-	
-	p
-		b Ordering of the rational numbers
-	p A rational is an ordered pair of integers.
-	p $$\{\{a\},\{a,b\}\}$$
-
-	h3
-		b Intervals
-	p For a totally ordered set we can define a subset as being all elements with a relationship to a number. For example:
-	p $$[a,b]=\{x:a\le x \land x\le b\}$$
-	p This denotes a closed interval. Using the definition above we can also define an open interval:
-	p $$(a,b)=\{x:a< x \land x< b\}$$
