@@ -3,29 +3,31 @@ extends ../../../templates/theoryHeader.jade
 block theoryContent
 	h2
 		b Sets
-
 	h3
 		b Terminology
-	p We can have preterites which returns true for some elements but not others. We want to describe this collection of elements.
 	p
 		b Set
-	p A set is a collection of elements in the domain. It is generally shown with an upper case letter, like \(A\).
+	p A set is a collection of elements.
 	p
 		b Membership relation
 	p To do this this we introduce a new relation: membership. If element \(x\) is in set \(A\) then the following relation is true, otherwise it is false:
-	p $$x\in A$$
+	p $$x\in B$$
 	h3
-		b Axiom for defining sets
+		b Relation to preterites
+	p These elements can be defined in relation to preterites.
+	p Preterites returns true for some elements but not others. For example for an arbitrary preterite the will be some elements which satisfy the preterite and others which do not.
 	p
 		b Unrestricted comprehension
+	p We can refer to the collection of elements which satisfy the following preterite as \(B\).
+	p $$P(x)$$
 	p We add the following axiom for every preterite:
-	p $$\forall x \exists B[\rho(x)\leftrightarrow (x\in B)]$$
+	p $$\forall x \exists B[P(x)\leftrightarrow (x\in B)]$$
 	p That is, for every predicate whose truth value is dependent on \(1\) input, there is a set containing all elements which make this positive.
 	p As this is an axiom for each preterite, rather than an single axiom, this an an axiom schema.
 	p
 		b Problems with unrestricted comprehension
 	p The latter term applies for all predicates.
-	p $$\rho(x)$$
+	p $$P(x)$$
 	p An example of this is the predicate:
 	p $$¬(x\in x)$$
 	p This returns true if \(x\) is not a member of itself. This implies the following is true:
