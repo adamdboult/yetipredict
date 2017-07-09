@@ -59,7 +59,8 @@ module.exports=function(app,passport,logger,mailgun,MailComposer){
     'use strict';
     //var DataSerie=require(__dirname+'/../models/data.js');
     //var rootObject={root:__dirname+'/../../public'};
-
+    
+    // STATIC
     app.get('/', function(req, res) {
 	res.redirect('/predict');
     });
@@ -71,26 +72,10 @@ module.exports=function(app,passport,logger,mailgun,MailComposer){
     app.get('/theory', function(req,res){
 	res.render('theory');
     });
-    app.get('/theory/:area', function(req,res){
-	res.render('theory/'+req.params.area);
-    });
-    app.get('/theory/:area/:subject', function(req,res){
-	res.render('theory/'+req.params.area+'/'+req.params.subject);
-    });
-    app.get('/theory/:area/:subject/:subsubject', function(req,res){
-	res.render('theory/'+req.params.area+'/'+req.params.subject+'/'+req.params.subsubject);
-    });
+
 
     app.get('/models', function(req,res){
 	res.render('models',{models:modelArray});
-    });
-
-    app.get('/news/:post', function(req,res){
-	res.render('blog/'+req.params.post);
-    });
-
-    app.get('/models/:post', function(req,res){
-	res.render('models/'+req.params.post);
     });
 
     app.get('/rss', function(req,res){
@@ -104,6 +89,57 @@ module.exports=function(app,passport,logger,mailgun,MailComposer){
 
     app.get('/about', function(req,res){
 	res.render('about',{user:req.user});
+    });
+
+    // DYNAMIC
+    app.get('/theory/:area', function(req,res){
+	res.render('theory/'+req.params.area, {}, function(err, html) {
+	    if(err) {
+		res.render('404', { url: req.url });
+	    } else {
+		res.send(html);
+	    }
+	});
+    });
+    
+    app.get('/theory/:area/:subject', function(req,res){
+	res.render('theory/'+req.params.area+'/'+req.params.subject, {}, function(err, html) {
+	    if(err) {
+		res.render('404', { url: req.url });
+	    } else {
+		res.send(html);
+	    }
+	});
+    });
+    
+    app.get('/theory/:area/:subject/:subsubject', function(req,res){
+	res.render('theory/'+req.params.area+'/'+req.params.subject+'/'+req.params.subsubject, {}, function(err, html) {
+	    if(err) {
+		res.render('404', { url: req.url });
+	    } else {
+		res.send(html);
+	    }
+	});
+    });
+
+    app.get('/news/:post', function(req,res){
+	res.render('blog/'+req.params.post, {}, function(err, html) {
+	    if(err) {
+		res.render('404', { url: req.url });
+	    } else {
+		res.send(html);
+	    }
+	});
+    });
+
+    app.get('/models/:post', function(req,res){
+	res.render('models/'+req.params.post, {}, function(err, html) {
+	    if(err) {
+		res.render('404', { url: req.url });
+	    } else {
+		res.send(html);
+	    }
+	});
     });
 };
 
