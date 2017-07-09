@@ -3,40 +3,15 @@ extends ../../../templates/theoryHeader.jade
 block theoryContent
 	h2
 		b Operators
+	h3
+		b Operators
 	p Operators take as inputs true or false formulae and return true or false. There are different types of operators, for different numbers of inputs.
 	p These are comparable to predicates, but for formulae rather than terms.
 	p For example we could write a binary operator as:
 	p $$B(\theta , \gamma )$$
 	p Though this is not standard practice.
 	p As formula can only be true or false, there are a limited number of possible operators, unlike predicates.
-	h3
-		b Types of operators
-	p
-		b Unary operators
-	p For the operators with \(1\) input we have:
-	ul
-		li one which always returns \(T\)
-		li one which always returns \(F\)
-		li one which always returns the same as the input
-		li one which returns the opposite of the input
-	p It is this last one, negation, shown as \(¬\) and is of most interest.
-	p That is, the following statement is \(T\):
-	p $$¬F$$
-	p
-		b 0-ary operators
-	p We can consider \(T\) and \(F\) to be the operators with \(0\) inputs.
-	p
-		b Binary operators
-	p An example of a binary operator is:
-	p $$\theta \rightarrow \gamma$$
-	p The arrow states that if \(\theta \) is true, \(\gamma \) is true. This formula is false if \(\theta \) can be true while \(\gamma \) is false.
-	p Operators can be shown together, with brackets. For example:
-	p $$(\alpha \lor \beta )\land \gamma $$
-	p Is not the same as:
-	p $$\alpha \lor (\beta \land \gamma )$$
-	p
-		b N-ary operators
-	p N-ary operators contain \(3\) or more inputs.
+	p An atomic formulae is one where there are no operators.
 	h3
 		b Number of operators
 	p
@@ -54,3 +29,215 @@ block theoryContent
 	p Or:
 	p $$2^{2^i}$$
 	p Consider the operator with \(0\) inputs. We need \(2\) different operators to cover all outputs. For \(1\) input we need \(4\) and for \(2\) inputs we need \(16\).
+	h3
+		b \(0\)-ary operators
+	p There are two unique \(0\)-ary operators
+	p We can consider \(T\) and \(F\) to be the operators with \(0\) inputs.
+
+	table.table
+		thead
+			tr
+				th #
+				th \(T\)
+				th \(F\)
+		tbody
+			tr
+				th null
+				td \(T\)
+				td \(F\)
+
+
+	h3
+		b Unary operators
+	p For the operators with \(1\) input we have:
+	ul
+		li one which always returns \(T\)
+		li one which always returns \(F\)
+		li one which always returns the same as the input
+		li one which returns the opposite of the input
+	p It is this last one, negation, shown as \(¬\) and is of most interest.
+	p That is, the following statement is \(T\):
+	p $$¬F$$
+
+	table.table
+		thead
+			tr
+				th #
+				th \(T\)
+				th \(F\)
+				th \(I\)
+				th \(¬\)
+		tbody
+			tr
+				th \(T\)
+				td \(T\)
+				td \(F\)
+				td \(T\)
+				td \(F\)
+			tr
+				th \(F\)
+				td \(T\)
+				td \(F\)
+				td \(F\)
+				td \(T\)
+	p
+		b Need for only the negation operator
+	p Consider the other cases.
+	ul
+		li The first and second  can already be shown as \(T\) and \(F\) without the need for an operator.
+		li The third can simply be shown as the original formula.
+
+	h3
+		b Binary operators
+	p An example of a binary operator is:
+	p $$\theta \rightarrow \gamma$$
+	p The arrow states that if \(\theta \) is true, \(\gamma \) is true. This formula is false if \(\theta \) can be true while \(\gamma \) is false.
+	table.table
+		thead
+			tr
+				th 
+				th 
+				th True
+				th False
+				th \(-\)
+				th Projection 1
+				th Projection 2
+				th Inverse projection 1
+				th Inverse projection 2
+				th \(-\)
+				th AND
+				th OR
+				th If then
+				th Then if 
+				th XNOR (iff)
+				th \(-\)
+				th NAND
+				th  NOR
+				th Material non-implication
+				th Converse non-implication
+				th XOR
+			tr
+				th L
+				th R
+				th \(T\)
+				th \(F\)
+				th \(-\)
+				th \(p\)
+				th \(q\)
+				th \(¬p\)
+				th \(¬q\)
+				th \(-\)
+				th \(\land \)
+				th \(\lor \)
+				th \(\rightarrow \)
+				th \(\leftarrow \)
+				th \(\leftrightarrow \)
+				th \(-\)
+				th \(\uparrow \)
+				th \(\downarrow \)
+				th \(\nrightarrow \)
+				th \(\nleftarrow \)
+				th \(\oplus \)
+		tbody
+			tr
+				th \(T\)
+				th \(T\)
+				td \(T\)
+				td \(F\)
+				td \(-\)
+				td \(T\)
+				td \(T\)
+				td \(F\)
+				td \(F\)
+				td \(-\)
+				td \(T\)
+				td \(T\)
+				td \(T\)
+				td \(T\)
+				td \(T\)
+				td \(-\)
+				td \(F\)
+				td \(F\)
+				td \(F\)
+				td \(F\)
+				td \(F\)
+			tr
+				th \(T\)
+				th \(F\)
+				td \(T\)
+				td \(F\)
+				td \(-\)
+				td \(T\)
+				td \(F\)
+				td \(F\)
+				td \(T\)
+				td \(-\)
+				td \(F\)
+				td \(T\)
+				td \(F\)
+				td \(T\)
+				td \(F\)
+				td \(-\)
+				td \(T\)
+				td \(F\)
+				td \(T\)
+				td \(F\)
+				td \(T\)
+			tr
+				th \(F\)
+				th \(T\)
+				td \(T\)
+				td \(F\)
+				td \(-\)
+				td \(F\)
+				td \(T\)
+				td \(T\)
+				td \(F\)
+				td \(T\)
+				td \(-\)
+				td \(F\)
+				td \(T\)
+				td \(T\)
+				td \(F\)
+				td \(-\)
+				td \(F\)
+				td \(T\)
+				td \(F\)
+				td \(F\)
+				td \(T\)
+			tr
+				th \(F\)
+				th \(F\)
+				td \(T\)
+				td \(F\)
+				td \(-\)
+				td \(F\)
+				td \(F\)
+				td \(T\)
+				td \(T\)
+				td \(-\)
+				td \(F\)
+				td \(F\)
+				td \(T\)
+				td \(T\)
+				td \(F\)
+				td \(-\)
+				td \(T\)
+				td \(T\)
+				td \(T\)
+				td \(F\)
+				td \(F\)
+	p
+		b Brackets
+	p Operators can be shown together, with brackets. For example:
+	p $$(\alpha \lor \beta )\land \gamma $$
+	p Is not the same as:
+	p $$\alpha \lor (\beta \land \gamma )$$
+	p
+		b Need for only a subset of binary operators
+
+	h3
+		b N-ary operators
+	p N-ary operators contain \(3\) or more inputs.
+	p
+		b No need for n-ary operators
