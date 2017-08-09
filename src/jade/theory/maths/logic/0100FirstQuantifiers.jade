@@ -34,3 +34,19 @@ block theoryContent
 		b Limitations of truth tables
 	p As we noted in zero-order logic, evaluating truth table becomes more difficult as more variables are added. The addition of quantifiers presents an additional problem.
 	p The truth table must now iterate over the quantified variables, which can be arbitrarily large. Instead we need a new approach.
+	h3
+		b Instantation axioms
+	p
+		b Existential instantiation
+	p Given a formulae:
+	p $$\exists x P(x)$$
+	p We can infer that the following is also true:
+	p $$P(c)$$
+	p Where \(c\) is a new term.
+	p
+		b Universal instantiation
+	p Given a formulae:
+	p $$\forall x P(x)$$
+	p We can infer:
+	p $$P(a/x)$$
+	p Where \(a / x\) represents substituting \(a\) for \(x\) within \(P\).
