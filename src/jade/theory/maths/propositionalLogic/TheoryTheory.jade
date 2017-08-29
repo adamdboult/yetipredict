@@ -1,0 +1,33 @@
+extends ../../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Proof by inference
+
+	h3
+		b Consequences
+
+
+	p Implies. Sytactic consequence
+	p This means there exists a proof of \(\theta \) from theory \(T\), under a deduction rule. 
+	p |-
+	p \(T\vdash \theta \) shows that \(\theta \) is a theorem of the theory.
+
+	p Semantic consequence
+	p |=
+	p For all interpreations of \(T\), if T is true, so is theta
+	p \(T\vDash \theta \)
+
+	p Modus ponens shows that:
+	p We can get A|- B from |-A\rightarrow B
+
+	h3
+		b Theory
+	p Results derived from substitution or induction are called theorems. Theorems often divided into:
+	ul
+		li Theorems - important results
+		li Lemmas - results used for later theorems
+		li Corollaries - readily deduced from a theorem
+
+
+	p We take a set of axioms, as true, and a deduction rule which enables us to derive additional formulae, or theorems. The collection of axioms and theorems is known as the theory.

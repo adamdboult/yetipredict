@@ -1,0 +1,40 @@
+extends ../../../templates/theoryHeader.jade
+
+block theoryContent
+	h2
+		b Rules of inference
+	h3
+		b Deduction rule
+	p
+		b Modus Ponens
+	p If \(A\) implies \(B\), and \(A\) is true, then \(B\) is also true.
+	p $$((\theta \rightarrow \gamma )\land (\theta ))\rightarrow \gamma $$
+	p That is, if we can show that the following are true:
+	p
+	p $$\theta \rightarrow \gamma $$
+	p $$\theta $$
+	p We can infer that the following is also true:
+	p $$\gamma $$
+	h3
+		b Induction
+	p Using substitution we could take a tautology and generate additional tautologies. Induction allows us to generate new tautologies from \(2\) other tautologies.
+	p Crucially, it also allows us to create tautologies without ever expanding the size of tautologies  in question, as substitution does.
+	p
+		b Example of inference
+	p Let use these to derive a theorem:
+	p $$\alpha \rightarrow \alpha $$
+	p Start with axiom 2:
+	p $$(\alpha \rightarrow (\beta \rightarrow \gamma ))\rightarrow ((\alpha \rightarrow \beta )\rightarrow(\alpha \rightarrow \gamma ))$$
+	p Replace \(\gamma \) with \(\alpha \).
+	p $$(\alpha \rightarrow (\beta \rightarrow \alpha ))\rightarrow ((\alpha \rightarrow \beta )\rightarrow(\alpha \rightarrow \alpha ))$$
+	p Replace \(\beta \) with \((\alpha \rightarrow \alpha )\).
+	p $$(\alpha \rightarrow ((\alpha \rightarrow \alpha ) \rightarrow \alpha ))\rightarrow ((\alpha \rightarrow (\alpha \rightarrow \alpha ))\rightarrow(\alpha \rightarrow \alpha ))$$
+	p Separately, take axiom 1:
+	p $$\alpha \rightarrow (\beta \rightarrow \alpha)$$
+	p And replace \(\beta \) with \((\alpha \rightarrow \alpha )\)
+	p $$\alpha \rightarrow ((\alpha \rightarrow \alpha )\rightarrow \alpha)$$
+	p This is the left side of the above equation. Through modus ponens, we then know:
+	p $$(\alpha \rightarrow (\alpha \rightarrow \alpha)) \rightarrow (\alpha \rightarrow \alpha)$$
+	p We know the left is true through modus ponens, and so
+	p $$\alpha \rightarrow \alpha $$
+
