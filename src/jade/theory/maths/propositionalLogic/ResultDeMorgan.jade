@@ -1,6 +1,6 @@
-extends ../../../templates/theoryHeader.jade
+extends ./subSubTemplate.jade
 
-block theoryContent
+block subSubContent
 	h2
 		b De Morgan's Laws
 
@@ -72,29 +72,3 @@ block theoryContent
 				td \(T\)
 				td \(T\)
 				td \(T\)
-
-	p $$A\rightarrow B$$
-	table.table
-		thead
-			tr
-				th \(A\)
-				th \(B\)
-				th \(A\rightarrow B\)
-		tbody
-			tr
-				th \(T\)
-				th \(T\)
-				td \(T\)
-			tr
-				th \(T\)
-				th \(F\)
-				td \(F\)
-			tr
-				th \(F\)
-				th \(T\)
-				td \(T\)
-			tr
-				th \(F\)
-				th \(F\)
-				td \(T\)
-

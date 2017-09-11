@@ -1,0 +1,17 @@
+extends ./subSubTemplate.jade
+
+block subSubContent
+	h2
+		b Game theory: motivation
+	p Previously we modelled utility as a function of variables in control of the agent, or constants. We now add another type of term: variables controlled by other agents.
+	p Consider a simple pair of agents:
+	p $$u_a=f_a(x_a,y_a)$$
+	p $${actions_a}=\{x_a,y_a\}$$
+	p $$u_b=f_b(x_b,y_b)$$
+	p $${actions_b}=\{x_b,y_b\}$$
+	p Each agent’s decision does not affect the other agent. Consider now a utility function:
+	p $$u_a=f_a(x_a,y_a)$$
+	p $${actions_a}=\{{x offer}; {y offer}\}$$
+	p $$u_b=f_b(x_b,y_b)$$
+	p $${actions_b}=\{accept; reject\}$$
+	p Where \(a\) offers a trade to \(b\) and \(b\) accepts or rejects. This is an example of a sequential game. There are many types of game, with differing implications.

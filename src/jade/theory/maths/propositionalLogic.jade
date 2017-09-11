@@ -1,40 +1,24 @@
-extends ../../templates/theoryHeader.jade
-
-block theoryContent
-	h1 Math
-	h2
-		b Propositional logic
+extends ./propositionalLogic/subSubTemplate.jade
+block subSubContent
 	p
-		b Writing statements
+		b Writing
 	p
-		a(href="/theory/maths/propositionalLogic/WritePropositions") Propositional variables
+		a(href="/theory/maths/propositionalLogic/WritePropositions") Writing formulae with propositional logic
 	p
-		a(href="/theory/maths/propositionalLogic/WriteOperators") Operators
+		b Truth tables
 	p
-		b Evaluating statements
+		a(href="/theory/maths/propositionalLogic/EvalTruth") Evaluating formulae with truth tables
 	p
-		a(href="/theory/maths/propositionalLogic/EvalTruth") Truth tables
+		a(href="/theory/maths/propositionalLogic/ResultDeMorgan") Semantic consequence
 	p
-		a(href="/theory/maths/propositionalLogic/EvalSubstitution") Substitution
-	p
-		a(href="/theory/maths/propositionalLogic/EvalInference") Rules of inference
-	p
-		b Theory
-	p
-		a(href="/theory/maths/propositionalLogic/ResultEquivilence") Equivilence and semantic consequence
-	p
-		a(href="/theory/maths/propositionalLogic/TheoryTheory") Theories and consequences
-	p
-		a(href="/theory/maths/propositionalLogic/TheoryAxioms") Effective axioms for propositional logic
-	p
-		a(href="/theory/maths/propositionalLogic/TheorySoundness") Soundness and consistency of propositional logic
-	p
-		a(href="/theory/maths/propositionalLogic/TheoryIndependence") Independence of axioms
-	p
-		a(href="/theory/maths/propositionalLogic/TheoryCompleteness") Completeness of propositional logic
-	p
-		b Key results
-	p
-		a(href="/theory/maths/propositionalLogic/ResultDeMorgan") De Morgan
+		a(href="/theory/maths/propositionalLogic/WriteOperators") We don't need more operators
 	p
 		a(href="/theory/maths/propositionalLogic/ResultNormal") Normal forms
+	p
+		b Inference
+	p
+		a(href="/theory/maths/propositionalLogic/EvalSubstitution") Syntactic consequence
+	p
+		a(href="/theory/maths/propositionalLogic/TheoryAxioms") Axioms for propositional logic
+	p
+		a(href="/theory/maths/propositionalLogic/TheoryCompleteness") Completeness of propositional logic

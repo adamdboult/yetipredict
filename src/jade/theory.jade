@@ -1,58 +1,15 @@
-extends templates/loginHeader.jade
+extends templates/theoryTemplate.jade
 
-block content
-	.container.fill
-		.col-sm-6.col-sm-offset-3
-			h1 Theory
-			p UNDER CONSTRUCTION
-			P
-				b Maths
-			p
-				a(href="/theory/maths/propositionalLogic") Propositional logic
-			p
-				a(href="/theory/maths/logic") Preterite logic
-			p
-				a(href="/theory/maths/sets") Set theory
-			p
-				a(href="/theory/maths/arithmetic") Arithmetic
-			p
-				a(href="/theory/maths/numbers") Numbers
-			p
-				a(href="/theory/maths/algebra") Algebra
-			p
-				a(href="/theory/maths/realAnalysis") Real analysis
-			p
-				a(href="/theory/maths/complexAnalysis") Complex analysis
-			p
-				a(href="/theory/maths/linearAlgebra") Linear algebra
-			p
-				a(href="/theory/maths/optimisation") Optimisation
-			p
-				a(href="/theory/maths/differentialEquations") Differential equations
-			p
-				a(href="/theory/maths/topology") Topology
-			br
-			p
-				b Probability and statistics
-			p
-				a(href="/theory/statistics/probability") Probabiliy
-			p
-				a(href="/theory/statistics/sampling") Sampling
-			p
-				a(href="/theory/statistics/estimators") Estimators
-			p
-				a(href="/theory/statistics/anova") ANOVA
-			p
-				a(href="/theory/statistics/ols") OLS
-			p
-				a(href="/theory/statistics/time") Time series
-			p
-				a(href="/theory/statistics/machine") Machine learning
-			br
-			p
-				b Economics
-			p
-				a(href="/theory/economics") Economics
-			br
-			p
-				b Physics
+block theoryContent
+	br
+	p
+		a(href="/theory/maths") Maths
+	br
+	p
+		a(href="/theory/statistics") Statistics
+	br
+	p
+		a(href="/theory/physics") Physics
+	br
+	p
+		a(href="/theory/economics") Economics

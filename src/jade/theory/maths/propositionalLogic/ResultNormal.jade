@@ -1,26 +1,22 @@
-extends ../../../templates/theoryHeader.jade
+extends ./subSubTemplate.jade
 
-block theoryContent
-	h2
+block subSubContent
+	h1
 		b Normal forms
-
 	h3
-		b Conjunctive and Disjunctive Normal Forms (CNF and DNF)
-	p We can go further and reduce the \(3\)  and negation to just:
+		b Normal form
+	p This is where a formula is shown using only:	
 	ul
-		li and, \(\land \)
-		li or, \(\lor \)
-		li The unary negation \(¬\)
-	p We do this by eliminating the \(\rightarrow \) operator. Note the following are the same.
-	p $$\theta \rightarrow \gamma$$
-	p $$¬\theta \lor (\theta \land \gamma )$$
-	p
+		li And - \(\land \)
+		li Or - \(\lor \)
+		li Negation - \(¬\)
+	h3
 		b Conjunective normal form
-	p The conjunctive normal form (CNF) is where a formula is converted to this form, and then is shown is the form of:
+	p The conjunctive normal form (CNF) is where a formula is converted to a normal form with the following layout:
 	p $$a \land b \land c \land d$$
-	p These letters can represent complex sub-formulae.
+	p These letters can represent complex sub-formulae, in normal form.
 	p Statements in this form are easier to evaluate, as each subformula can be evaluated separately. The statement is true only if all formulaes within are also true.
-	p
+	h3
 		b Disjunctive normal form
 	p The disjunctive normal form (DNF) is similar for \(\lor \).
 	p $$a \lor b \lor c \lor d$$

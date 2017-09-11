@@ -1,31 +1,47 @@
-extends ../../../templates/theoryHeader.jade
+extends ./subSubTemplate.jade
 
-block theoryContent
-	h2
-		b Propositional variables
-	p Logic allows to write and assess statements.
+block subSubContent
+	h1
+		b Writing propositional logic
 	h3
 		b Truth
-	p We start off with two statements: true and false, \(T\) and \(F\).
+	p We start off with two statements:
+	ul
+		li True - \(T\)
+		li False - \(F\)
 	h3
 		b Propositional variables
-	p We can extend our statements to include propositional variables, which can either be true or false. These can be shown with symbols such as:
+	p We can represent \(T\) or \(F\) using a symbol:
 	p $$\theta $$
-	p Such a symbol can stand for a statement which is either true or false, such as:
+	h3
+		b Unary operators
+	p A unary operator takes one input and returns another.
+	p Only negation, \(¬\) is of interest.
+	p The following statements are equivalent:
+	h3
+		b Atomic formulae
+	p Atomic formulae are those containing only one propositional variable.
 	ul
-		li \(1=1\)
-		li I am \(4\) meters tall
-		li You are \(25\) years old
-	p
-		b Limitations of propositional variables 1: paradoxes
-	p Not all English language statements can be shown this way. For example:
+		li \(T\)
+		li \(¬F\)
+	h3
+		b Binary operators
+	p A binary operators takes two inputs.
+	p The commonly used binary operators are:
 	ul
-		li "this statement is false"
-	p Does not take on either value. As we create building blocks for logic, such low level statements must be either true or false.
-	p
-		b Limitations of propositional variables 2: fixed values
-	p Consider the propositional variables:
-	ul
-		li You are \(25\) years old
-		li Bob is \(55\) years old
-	p There have in common a logical structure, comparing the age of a thing to the name of a thing, however this cannot be effectively described in propositional logic.
+		li If then - \(\theta \rightarrow \gamma \)
+		li Then if - \(\theta \leftarrow \gamma \)
+		li Iff - \(\theta \leftrightarrow \gamma \)
+		li And - \(\theta \land \gamma \)
+		li Or - \(\theta \lor \gamma \)
+	h3
+		b Brackets
+	p Operators can be shown together, with brackets. For example:
+	p $$(\alpha \lor \beta )\land \gamma $$
+	p Is not the same as:
+	p $$\alpha \lor (\beta \land \gamma )$$
+	h3
+		b Well-formed formulae
+	p A well-formed formula is one which can be given a truth value.
+	p The following is not a well-formed formula:
+	p $$\theta \land $$

@@ -1,48 +1,6 @@
-extends ../templates/theoryHeader.jade
-
-block theoryContent
-	h1 Physics
-	h2 Basics
+extends ./physics/subTemplate.jade
+block subContent
 	p
-		b Objects
+		a(href="/theory/physics/states") States
 	p
-		a(href="/theory/physics/basicObjectExistance") Objects exist
-	p
-		a(href="/theory/physics/basicObjectProperties") Objects have properties
-	
-	p
-		b Spacetime
-	p
-		a(href="/theory/physics/basicSpacetimeObserve") Objects observe other objects
-	p
-		a(href="/theory/physics/basicSpacetimeTime") Objects exist for all time periods
-	p
-		a(href="/theory/physics/basicSpacetimeTransformation") Transformations of reference frames
-	p
-		b Time evolution
-	p
-		a(href="/theory/physics/basicEvolutionContinuity") Continuity
-	p
-		a(href="/theory/physics/basicEvolutionVelocityAcceleration") Velocity and acceleration
-	h2
-		b Classical mechanics
-	p
-		b Assumptions
-	p
-		a(href="/theory/physics/classicalAssumptionObject1") Objects 1: Objects have mass and charge
-	p
-		a(href="/theory/physics/classicalAssumptionSpacetime1") Spacetime 1: Space has \(3\) cartesian dimensions
-	p
-		a(href="/theory/physics/classicalAssumptionSpacetime2") Spacetime 2: Each object observes the location of all other objects at all times
-	p
-		a(href="/theory/physics/classicalAssumptionSpacetime3") Spacetime 3: The distance between two objects is the \(L_2\) norm
-	p
-		a(href="/theory/physics/classicalAssumptionSpacetime4") Spacetime 4: Gallileo transformations apply
-	p
-		a(href="/theory/physics/classicalAssumptionEvolution1") Time evolution 1: Principle of least action
-	p
-		a(href="/theory/physics/classicalAssumptionEvolution2") Time evolution 2: Mass causes acceleration (gravity)
-	p
-		a(href="/theory/physics/classicalAssumptionEvolution3") Time evolution 3: Charge causes acceleration (Maxwell)
-	p
-		b Results
+		a(href="/theory/physics/classical") Classical physics
