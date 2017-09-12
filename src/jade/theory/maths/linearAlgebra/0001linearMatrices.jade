@@ -1,14 +1,16 @@
 extends ./subSubTemplate.jade
 
-block subSubContent
-	h2
+block subSubTitle
+	h1
 		b Matrices
+
+block subSubContent
 	p A matrix is a collection of numbers. For example:
 	p $$A=\begin{bmatrix}a_{11} & a_{12}&...&a_{1n}\\a_{21} & a_{22}&...&a_{2n}\\...&...&...&...\\a_{m1}&a_{m2}&...&a_{mn}\end{bmatrix}$$
 	p Matricies can include elements from domains such as complex numbers and real numbers.
 
 
-	o $$M=\{1,…,m\}$$
+	p $$M=\{1,…,m\}$$
 	p $$N=\{1,…,n\}$$
 	p $$f:MxN\rightarrow F$$
 
@@ -31,21 +33,21 @@ block subSubContent
 	h3
 		b Types of matrix
 	p There are more types than these. These are ones which can be identified simply by observation, rather than through their properties.
-	p
+	h3
 		b Empty matrix
 	p A matrix where every element is \(0\). There is one for each dimension of matrix.
 	p $$A=\begin{bmatrix}0& 0&...&0\\0 & 0&...&0\\...&...&...&...\\0&0&...&0\end{bmatrix}$$
 	h3
 		b Square matrices
-	p
+	h3
 		b Square matrix
 	p A matrix where the dimensions are equal.
 	p $$m=n$$
-	p
+	h3
 		b Identity matrix
 	p A square matrix where every element is \(0\) except where \(i=j\). There is one for each square matrix.
 	p $$I=\begin{bmatrix}1& 0&...&0\\0 & 1&...&0\\...&...&...&...\\0&0&...&1\end{bmatrix}$$
-	p
+	h3
 		b Triangular matrix
 	p A matrix where \(a_{ij}=0\) where \(i < j\) is upper triangular.
 	p A matrix where \(a_{ij}=0\) where \(i > j\) is lower triangular.
@@ -55,17 +57,17 @@ block subSubContent
 		b Symmetric matrices
 	p All symmetric matrices are square.
 	p The identity matrix is an example.
-	p
+	h3
 		b Symmetric matrices
 	p A matrix where \(a_{ij}=a_{ji}\) is symmetric.
 	
-	p
+	h3
 		b Hermitian matrix
 	p A matrix where \(a_{ij}=\bar a_{ji}\) is Hermitian.
 	p Where \(\bar a_{ji}\) is the complex conjugate of \(a_{ji}\).
 	p All Hermitian matrices are symmetric.
 	p The identity matrix is an example.
-	p
+	h3
 		b Diagonal matrix
 	p A matrix where \(a_ij=0\) where \(i\ne j\) is diagonal.
 	p All diagonal matrices are symmetric.

@@ -1,0 +1,30 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Partial fraction decomposition
+
+block subSubContent
+	p We have:
+	$$\frac{1}{A.B}$$
+	p We want this in the form of:
+	$$\frac{a}{A}+\frac{b}{B}$$
+	p First, lets define \(M\) as the mean of these two numbers, and define \(\delta=M-B\). Then:
+	$$\frac{1}{AB}=\frac{1}{(M+\delta)(M-\delta)}=\frac{a}{M+\delta}+\frac{b}{M-\delta}$$
+	p We can rearrange the latter two to find:
+	$$1=a(M-\delta)+b(M+\delta)$$
+	p Now we need to find values of \(a\) and \(b\) to choose.
+	p Let's examine \(a\).
+	$$a=\frac{1-b(M+\delta)}{M-\delta}$$
+	$$a=-\frac{bM+b\delta -1}{M-\delta}$$
+	$$a=-\frac{bM+b\delta -1}{M-\delta}$$
+
+	p For this to divide neatly we need both the numerator to be a constant multiplier of the denominator. This means the ratio the multiplier for the left hand side of the denominator is equal to the right:
+	$$\frac{bM}{M}=\frac{b\delta -1}{-\delta}$$
+	$$b=\frac{b\delta -1}{-\delta}$$
+	$$b=\frac{1}{2\delta}$$
+	p We can do the same for \(a\).
+	$$a=-\frac{1}{2\delta}$$
+	p We can plug these back into our original formula:
+	$$\frac{1}{(M+\delta)(M-\delta)}=\frac{-\frac{1}{2\delta}}{M+\delta}+\frac{\frac{1}{2\delta}}{M-\delta}$$
+	$$\frac{1}{(M+\delta)(M-\delta)}=\frac{1}{2\delta}[\frac{1}{M-\delta}-\frac{1}{M+\delta}]$$

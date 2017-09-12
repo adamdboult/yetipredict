@@ -1,8 +1,10 @@
 extends ./subSubTemplate.jade
 
+block subSubTitle
+	h1
+		b Taylor series
+
 block subSubContent
-	h2
-		b Taylor Series
 	p \(f(x)\) can be estimated at point \(c\) by identifying its repeated differentials at point \(c\).
 	p The coefficients of an infinate number of polynomials at point \(c\) allow this.
 	p $$f(x)=\sum_{i=0}^{\inf }a_i(x-c)^i$$

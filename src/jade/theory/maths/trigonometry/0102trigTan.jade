@@ -1,0 +1,33 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Tan
+
+block subSubContent
+	p The \(\tan(\theta )\) function is defined as:
+	p $$\tan(\theta ):=\frac{\sin(\theta )}{\cos(\theta )}$$
+	p
+		b Behaviour around \(0\)
+	p $$\sin(0)=0$$
+	p $$\cos(0)=1$$
+	p $$\tan(0):=\frac{\sin(0)}{\cos(0)}$$
+	p $$\tan(0)=\frac{0}{1}$$
+	p $$\tan(0)=0$$
+	p
+		b Behaviour around \(\cos(\theta )=0\)
+	p $$\tan(\theta )=\frac{\sin(\theta )}{\cos(\theta )}$$
+	p So \(\tan (\theta )\) is undefined where \(\cos(\theta )=0\).
+	p This happens where:
+	p $$\theta=\frac{\tau }{4}+\frac{1}{2}n\tau$$
+	p $$\theta=\frac{1}{4}\tau (1+2n)$$
+	p Where \(n\in \mathbb{Z}\).
+	p
+		b Derivatives
+	p $$\tan(\theta )=\frac{\sin(\theta )}{\cos(\theta )}$$
+	p $$\frac{\delta }{\delta \theta } \tan(\theta )=\frac{\delta }{\delta \theta }\frac{\sin(\theta )}{\cos(\theta )}$$
+	p $$\frac{\delta }{\delta \theta } \tan(\theta )=\frac{\cos(\theta )}{\cos(\theta )}+ \frac{\sin^2(\theta )}{\cos^n(\theta )}$$
+	p $$\frac{\delta }{\delta \theta } \tan(\theta )=1+\tan^2(\theta ) $$
+	p Note this is always positive. This means:
+	p $$\lim_{\cos(\theta )\rightarrow 0^+}=-\infty$$
+	p $$\lim_{\cos(\theta )\rightarrow 0^-}=\infty$$

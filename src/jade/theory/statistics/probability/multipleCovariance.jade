@@ -1,9 +1,8 @@
 extends ./subSubTemplate.jade
-
-block subSubContent
-	h2
+block subSubTitle
+	h1
 		b Covariance matrix
-
+block subSubContent
 	p With multiple events, covariance can be defined between each pair of events, including the event with itself.
 	p The covariance between \(2\) variables is:
 	p $$Cov(x_i,x_j):=E(x_ix_j)-E(x_i)E(x_j)$$

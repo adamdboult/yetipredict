@@ -1,0 +1,25 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Normal forms
+
+block subSubContent
+	h3
+		b Normal form
+	p This is where a formula is shown using only:	
+	ul
+		li And - \(\land \)
+		li Or - \(\lor \)
+		li Negation - \(¬\)
+	h3
+		b Conjunective normal form
+	p The conjunctive normal form (CNF) is where a formula is converted to a normal form with the following layout:
+	p $$a \land b \land c \land d$$
+	p These letters can represent complex sub-formulae, in normal form.
+	p Statements in this form are easier to evaluate, as each subformula can be evaluated separately. The statement is true only if all formulaes within are also true.
+	h3
+		b Disjunctive normal form
+	p The disjunctive normal form (DNF) is similar for \(\lor \).
+	p $$a \lor b \lor c \lor d$$
+	

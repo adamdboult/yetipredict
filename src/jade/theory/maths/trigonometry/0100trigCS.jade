@@ -1,0 +1,121 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Cosine and sine
+
+block subSubContent
+	h3
+		b From \(e\) to \(\cos \) and \(\sin \)
+	p Previously we showed that:
+	$$e^x=\sum_{i=0}^\inf \frac{x^i}{i!}$$
+	p Consider:
+	$$e^{i\theta }$$
+	$$e^{i\theta }=\sum_{j=0}^\inf \frac{(i\theta )^j}{j!}$$
+	$$e^{i\theta }=[\sum_{j=0}^\inf \frac{(\theta )^{4j}}{(4j)!}-\sum_{j=0}^\inf \frac{(\theta )^{4j+2}}{(4j+2)!}]+i[\sum_{j=0}^\inf \frac{(\theta )^{4j+1}}{(4j+1)!}-\sum_{j=0}^\inf \frac{(\theta )^{4j+3}}{(4j+3)!}]$$
+	p We then use this to define \(\sin \) and \(\cos \) functions.
+	$$\cos (\theta ):=\sum_{j=0}^\inf \frac{(\theta )^{4j}}{(4j)!}-\sum_{j=0}^\inf \frac{(\theta )^{4j+2}}{(4j+2)!}$$
+	$$\sin (\theta ):=\sum_{j=0}^\inf \frac{(\theta )^{4j+1}}{(4j+1)!}-\sum_{j=0}^\inf \frac{(\theta )^{4j+3}}{(4j+3)!}$$
+	p So:
+	$$e^{i\theta }=\cos (\theta )+i\sin (\theta )$$
+	p
+		b Euler's formula
+	h3
+		b Derivatives
+	p Note that these functions are linked in their derivatives.
+	p $$\frac{\delta }{\delta \theta }\cos (\theta )=\sum_{j=0}^\inf \frac{(\theta )^{(4j+3)}}{(4j+3)!}-\sum_{j=0}^\inf \frac{(\theta )^{4j+1}}{(4j+1)!}$$
+	p $$\frac{\delta }{\delta \theta }\cos (\theta )=-\sin (\theta )$$
+	p Similarly:
+	p $$\frac{\delta }{\delta \theta }\sin (\theta )=cos(\theta )$$
+	p And:
+	p $$\frac{\delta^2 }{\delta \theta^2}\sin (\theta )=-\sin (\theta )$$
+	p $$\frac{\delta^2 }{\delta \theta^2}\cos (\theta )=-\cos (\theta )$$
+
+	p So for either of:
+	p $$y=\cos (\theta )$$
+	p $$y=\sin (\theta )$$
+	p We know that
+	p $$\frac{\delta^2 }{\delta \theta^2}y(\theta )=-y(\theta )$$
+	h3
+		b Reverse identity
+	p Note that with imaginary numbers we can reverse all \(i\)s. So:
+	p $$e^{i\theta }=\cos (\theta )+i\sin (\theta )$$
+	p $$e^{-i\theta }=\cos (\theta )-i\sin (\theta )$$
+	p $$e^{i\theta }e^{-i\theta }=(\cos (\theta )+i\sin (\theta ))(\cos (\theta )-i\sin (\theta ))$$
+	p $$e^{i\theta }e^{-i\theta }=\cos (\theta )^2+\sin (\theta )^2$$
+	p $$e^{i\theta }e^{-i\theta }=e^{i\theta -i\theta }=e^0=1$$
+	p So:
+	p $$\cos (\theta )^2+\sin (\theta )^2=1$$
+
+	p Note that if \(\cos (\theta )^2=0\), then \(\sin (\theta )^2=\pm 1\)
+	p That is, if the real part of \(e^{i\theta }\) is \(0\), the imaginary part is \(\pm 1\). And visa versa.
+	p Similarly if the derivative of the real part of \(e^{i\theta }\) is \(0\), the imaginary part is \(\pm 1\). And visa versa.
+
+	h3
+		b Nature of \(\cos \) and \(\sin \) functions
+	p $$e^{i\theta }=\cos (\theta )+i\sin (\theta )$$
+
+	p
+		b De moive's theorem
+	p
+		b Position and derivative at \(\theta =0\)
+	p Consider \(\theta =0\).
+	p $$e^{i.0}=1$$
+	p $$\sin (0)=0$$
+	p $$\cos (0)=1$$
+	p Similarly we know that the derivative
+	p $$-\sin (\theta )+i\cos (\theta )$$
+	p Which evaluates at \(\theta =0\) to:
+	p $$-\sin (0)+i\cos (0)$$
+	p $$0+i$$
+	p That is, \(\sin (\theta \) is increasing at \(\theta =0\) which \(\cos (0)\) is static.
+	p
+		b Repeating function
+	p As \(\cos (0)\) is static at \(\theta =0\), and is positive, it will fall until \(\cos (\theta )=0\).
+	p While this is happening, \(\sin (\theta )\) is increasing. As:
+	p $$\cos (\theta )^2+\sin (\theta )^2=1$$
+	p \(\sin (\theta )\) will equal \(1\) where \(\cos (\theta )=0\).
+	p Due to symmetry this will repeat \(4\) times.
+	p Let's call the length of this period \(\tau \).
+	p Where \(\theta =\tau *0\)
+	ul
+		li \(\cos (\theta )=1\)
+		li \(\sin (\theta )=0\)
+	p Where \(\theta =\tau *\frac{1}{4}\)
+	ul
+		li \(\cos (\theta )=0\)
+		li \(\sin (\theta )=1\)
+	p Where \(\theta =\tau *\frac{2}{4}\)
+	ul
+		li \(\cos (\theta )=-1\)
+		li \(\sin (\theta )=0\)
+	p Where \(\theta =\tau *\frac{3}{4}\)
+	ul
+		li \(\cos (\theta )=0\)
+		li \(\sin (\theta )=-1\)
+
+	p
+		b Relationship between\( \cos (\theta )\) and \(\sin(\theta )\).
+	p Note that \(\sin(\theta + \frac{\tau }{4})=\cos(\theta )\)
+	p Note that \(\sin (\theta )=\cos (\theta )\) at
+	ul
+		li $$\tau *\frac{1}{8}$$
+		li $$\tau *\frac{5}{8}$$
+	p And that all these answers loop. That is, add any integer multiple of \(\tau \) to \(\theta \) and the results hold.
+	p $$e^{i\theta } = e^{i\theta +n\tau }$$
+	p $$n \in \mathbb{N}$$
+	p $$e^{i\theta } = \cos(\theta )+i\sin(\theta )$$
+	p $$e^{i\theta } = \cos(\theta +n\tau )+i\sin(\theta +n\tau ) $$
+	p $$e^{i\theta } = e^{i(\theta +n\tau )}$$
+	
+
+
+	h3
+		b Calculus of trig
+	p Relationship between cos and sine
+	p $$\sin(x+\frac{\pi }{2})=\cos(x)$$
+	p $$\cos(x+\frac{\pi }{2})=-\sin(x)$$
+	p $$\sin(x+\pi )=-\sin(x)$$
+	p $$\cos(x+\pi )=-\cos(x)$$
+	p $$\sin(x+\tau )=\sin(x)$$
+	p $$\cos(x+\tau )=\cos(x)$$

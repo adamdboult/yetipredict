@@ -1,0 +1,34 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Complex closure
+
+block subSubContent
+	p Define as an ordered pair of reals
+
+	p We have a complete set of real numbers. Do we need any more?
+	p For the real numbers, we showed there were functions on the rational numbers which did not have rational solutions. We can similarly show that there are functions on real numbers which do not have real solutions.
+	p Consider:
+	$$f(x)=\sqrt x$$
+	p This has no real solution for \(x<0\).
+	p We define:
+	$$i:=\sqrt {-1}$$
+	p \(i\) and \(-i\) can be used interchangeably.
+	$$(-i)^2=(-1)^2i^2=i^2=-1$$
+	p Complex numbers can be shown more generally as:
+	$$a+bi$$
+	p We define the complex conjugate of
+	$$x=a+bi$$
+	p As
+	$$\bar x=a-bi$$
+	p Note that
+	$$x\bar x=(a+bi)(a-bi)=a^2-b^2$$
+	p We can take exponents of imaginary numbers
+	$$c^{i\theta}=a+bi$$
+	p We know the opposite is true.
+	$$c^{-i\theta}=a-bi$$
+	p So
+	$$c^{i\theta}c^{-i\theta}=(a+bi)(a-bi)$$
+	$$1=a^2-b^2$$
+	p The case where \(c=e\) is of particular note. We explore this later.

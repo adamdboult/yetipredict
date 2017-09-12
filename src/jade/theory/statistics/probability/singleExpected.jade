@@ -1,12 +1,8 @@
 extends ./subSubTemplate.jade
-
-block subSubContent
-	h2
-		b Moments
-	h3
-		b Moments and expected values
-	p
+block subSubTitle
+	h1
 		b Expected value
+block subSubContent
 	p For a random variable (or vector of random variables), \(x\), we define the expected value of \(f(x)\) as :
 	p $$E[f(x)]:=\sum f(x_i) P(x_i)$$
 	p The expected value of random variable \(x\) is therefore this where \(f(x)=x\).
