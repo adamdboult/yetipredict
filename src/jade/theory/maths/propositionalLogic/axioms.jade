@@ -6,32 +6,29 @@ block subSubTitle
 
 block subSubContent
 	h3
+		b Motivation
+	p We discussed in the previous section the ability to derive new tautologies from others using substitution and Modus Ponens.
+	p We now aim to identify a group of axioms from which all tautologies can be derived.
+	h3
 		b The axioms
-	p
-		b 1 – Simplification
-	p If it is cloudy, then if it is a Tuesday it is also cloudy.
+	p The first is known as "Simplification". In words, this is "if it is cloudy, then if it is a Tuesday it is also cloudy."
 	p $$\theta \rightarrow (\gamma \rightarrow \theta )$$
-	p
-		b 2 – Frege
+	p The second is called "Frege".
 	p $$(\alpha \rightarrow (\beta \rightarrow \gamma ))\rightarrow ((\alpha \rightarrow \beta )\rightarrow(\alpha \rightarrow \gamma ))$$
-	p
-		b 3 – Transposition
-	p If there are no clouds in the sky, it is not raining. If it is raining there are clouds in the sky
+	p The third is transposition. Consider the statement "If there are no clouds in the sky, it is not raining." If this is true then it is also true that "If it is raining there are clouds in the sky."
 	p $$(¬\theta \rightarrow ¬\gamma )\rightarrow (\gamma \rightarrow \theta )$$
 
 	h3
 		b Independence of axioms
-	p These axioms are also effective
-	p One set of axioms could be all theorems – that is, all formulas which can be derived from axioms are already axioms. Such a system is called ineffective, and makes checking proofs impractical.
-
+	p These axioms are independent. That is, if you take one away, you cannot derive it from the others.
+	p These axioms are also effective. One could define all true formulae as axioms, however this is not effective.
 	h3
 		b Soundness of axioms
-	p $$T\vdash A =>T\vDash A $$
-	p We know axioms are tautologies
-	p We know inference rule is valid
-	p So all theories are valid
-	p Discuss consistency
+	p Soundness implies that all theories are true.
+	p $$T\vdash A \Rightarrow T\vDash A $$
+	p These axioms and the deduction rule are sound. We know that the axioms are tautologies, and we know that the inference rule is valid.
+	p As the axioms are sound, the theories are consistent. That is, it is not possible for both \(theta \) and \(¬\theta \) to be theories.
 	h3
 		b Completeness of axioms
-	p $$T\vDash A =>T\vdash A $$
-	p Complete if semantic implies syntactic (ie all tautologies are provable)
+	p Completeness implies that all true formulae are theories.
+	p $$T\vDash A \Rightarrow T\vdash A$$

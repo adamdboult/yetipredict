@@ -5,6 +5,42 @@ block subSubTitle
 
 block subSubContent
 	h3
-		b De Morgan's Laws
-	p $$¬(A\lor B)\leftrightarrow (¬A\land ¬B)$$
-	p $$¬(A\land B)\leftrightarrow (¬A\lor ¬B)$$
+		b Interpretations
+	p An interpretation assigns meaning to propositional variables in a formula.
+	p For example the interpretations of the formula \(\theta \lor \gamma \) assign values to each of \(\theta \) and \(\gamma \).
+	h3
+		b Satifisable
+	p A formula is satisfisable if there is some interpretation where it is true.
+	p For example \(\theta \) is satisfisable but \(\theta \land ¬\theta \) is not.
+	h3
+		b Tautology
+	p A formula is a tautology if it is true in all interpretations.
+	p Examples of tautologies include:
+	ul
+		li $$\theta \lor ¬\theta $$
+	h3
+		b Semantic consequence
+	p A formula, \(A\), semantically implies another, \(B\), if for every interpretation of \(A\), \(B\) is true.
+	p We show this with:
+	p $$A\vDash B$$
+	p Formula \(B\) is satisfisable if there is some \(A\) where this is true.
+	p Formula \(B\) is a tautology if this is true for any \(A\). We can also write this as \(\vDash B\).
+	h3
+		b Logical equivalence
+	p If \(A\vDash B\) and \(B\vDash A\) we say that \(A\) and \(B\) are logically equivalent.
+	p This is shown as \(A \Leftrightarrow B\).
+	p Examples of logical equivalences are:
+	ul
+		li Identity laws
+		ul
+			li $$A\land T \Leftrightarrow A$$
+			li $$A\lor F \Leftrightarrow A$$
+		li Domination laws
+		ul
+			li $$A\lor T \Leftrightarrow T$$
+			li $$A\land F \Leftrightarrow F$$
+		li De Morgan's Laws
+		ul
+			li $$¬(A\lor B)\Leftrightarrow (¬A\land ¬B)$$
+			li $$¬(A\land B)\Leftrightarrow (¬A\lor ¬B)$$
+
