@@ -1,0 +1,39 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Axiom of union
+
+block subSubContent
+	h3
+		b Union function
+	p We define a function on two sets, \(a\lor b\), such that the result contains all elements from either sets.
+	p $$\forall a \forall x \forall y [a\in (x\lor y) \leftrightarrow (a\in x \lor a\in y)]$$
+	p This is commutative: \(a\lor b = b\lor a\)
+	p This is associative: \((a\lor b)\lor c = a\lor (b\lor c)\)
+	h3
+		b Axiom of union
+	p The axiom of union says that this union exists as a term in the domain.
+	p We replace \(x\lor y\) in the above with a new term \(z\):
+	p $$\forall a \forall x \forall y \exists z[a\in z \leftrightarrow (a\in x \lor a\in y)]$$
+	h3
+		b Intersection function
+	p We define a function, \(a\land b\), on two sets, such that the result contains all elements which are in both.
+	p $$\forall a \forall x \forall y [a\in (x\land y) \leftrightarrow (a\in x \land a\in y)]$$
+	p This is commutative: \(a\land b = b\land a\)
+	p This is associative: \((a\land b)\land c = a\lor (b\land c)\)
+	h3
+		b Existance of the intersection
+	p We do not need an axiom to ensure the existence of \(a\land b\). We can derive this using the axiom schema of specification.
+	h3
+		b Distribution
+	p Union is distributive over intersection: \(a\lor (b\land c)=(a\lor b)\land (a\lor c)\)
+	p Intersection is distributive over union: \(a\land (b\lor c)=(a\land b)\lor (a\land c)\)
+	h3
+		b Complement function
+	p \(x^C\) is the completement. It is defined such that:
+	p $$\forall x [x\land x^C=\{\}]$$
+	p We do not say the completement exists as a term in the domain.
+	h3
+		b Duality
+	p We can swap union and interection, and null and universal, and the statements are still true.

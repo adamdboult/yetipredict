@@ -1,0 +1,30 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Writing first-order logic
+block subSubContent
+	h3
+		b Existential quantifier
+	p We introduce a shorthand for “at least one term satisfies a predicate”, that is:
+	p $$P(x_0)\lor P(x_1)\lor P(x_2)\lor P(x_2)\lor P(x_3)…$$
+	p The short hand is:
+	p $$\exists x P(x)$$
+	h3
+		b Universal quantifier
+	p We introduce another shorthand, this time for:
+	p $$P(x_0)\land P(x_1)\land P(x_2)\land P(x_2)\land P(x_3)…$$
+	p The shorthand is
+	p $$\forall x P(x)$$
+	h3
+		b Free and bound variables
+	p A bound variable is one which is quantified in the formula. A free variable is one which is not. Consider:
+	p $$\forall x P(x,y)$$
+	p In this, \(x\) is bound while \(y\) is free.
+	p Free variables can be interpreted differently, while bound variables cannot.
+	p We can also bind a specific variable to a value. For example \(0\) can be defined to be bound.
+	h3
+		b Ground terms
+	p A ground term does not contain any free variables. A ground formula is one which only includes ground terms.
+	p \(\forall x\ x\) is a ground term.
+	p \(\forall x P(x)\) is a ground formula.

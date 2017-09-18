@@ -1,0 +1,24 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Inference rules  for first-order logic
+block subSubContent
+	h3
+		b Existential instantiation
+	p If \(P\) is true for a specific input, then there exists an input for \(P\) where \(P\) is true.
+	p $$P(r)\Rightarrow \exists xP(x)$$
+
+	h3
+		b Existential generalisation
+	p $$\exists xP(x)\Rightarrow P(r)$$
+	p Where \(r\) is a new symbol.
+	h3
+		b Universal instantiation
+	p If \(P\) is true for all values of \(x\), then \(P\) is true for any input to \(P\).
+	p $$\forall xP(x)\Rightarrow P(a/x)$$
+	p Where \(a / x\) represents substituting \(a\) for \(x\) within \(P\).
+	h3
+		b Universal generalisation
+	p If there is a derivation for \(P(x)\), then there is a derivation for \(\forall x P(x)\).
+	p $$\vdash P(x)\Rightarrow \vdash \forall x P(x)$$

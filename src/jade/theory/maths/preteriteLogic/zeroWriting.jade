@@ -1,0 +1,31 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Writing zero-order logic
+block subSubContent
+	h3
+		b Predicates
+	p Zero-order logic adds predicates. Like propositional variables, these have truth values. Unlike propositional variable, predicates take terms as inputs.
+	p For example using propositional logic we can write the statement "you are 25" as \(\theta \).
+	p With preterites we can write this as \(P(you, 25)\).
+	p A propositional variable can be considered a special case of a predicate variable, where the number of inputs is \(0\).
+	h3
+		b Relations
+	p A special type of predicates are relations. These take two terms and can be written differently:
+	p $$P(x,y)\Leftrightarrow x\oplus y$$
+	p Key examples of relations which we will introduce later are:
+	ul
+		li Equality \((a=b)\)
+		li Membership \((a\in b)\)
+		li Ordinality \((a < b)\)
+	p Each relation has a corresponding inverse relation. That is, for \(a\oplus b\), there exists \(a\otimes b\) such that \(a\oplus b \lor a\otimes b\) is true.
+	h3
+		b Functions
+	p Functions take other terms, and are themselves terms. For example if we wanted to know if someone can legally drive in a specific country, we could use:
+	p $$P(you,age(UK))$$
+	p A function may not be able to produce an output for all inputs. For examples \(age(green)\) has no interpretation.
+	p Functions can also take different numbers of inputs. Constants, such as “you” and “UK” can be shown as functions with \(0\) inputs. As a result we could instead write:
+	p $$P(you(),age(UK()))$$
+	p We generally denote functions with a lower case letter, so would instead write:
+	p $$P(y(),a(b()))$$

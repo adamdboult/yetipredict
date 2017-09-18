@@ -2,7 +2,7 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Equality
+		b Axiom of extensionality
 
 block subSubContent
 	h3
@@ -10,38 +10,35 @@ block subSubContent
 	p If two sets contain the same elements, they are equal.
 	p $$\forall x \forall y[\forall z(z\in x \leftrightarrow z\in y)\rightarrow x=y]$$
 	p This introduces the equality relationship.
-	p NOTE: WHY DOESN'T EQUALITY IMPLY SAME MEMBERSHIP? UNIDIRECTIONAL.
 	h3
-		b Properties of equality
-	p
-		b Reflexivity
+		b Reflexivity of equality
 	p The reflexive property is:
 	p $$\forall x(x=x)$$
-	p We can replace the quantifiers with just \(x\).
+	p We can replace the intance of \(y\)  with \(x\):
 	p $$\forall x [\forall z(z\in x \leftrightarrow z\in x)\rightarrow x=x]$$
 	p We can show that the following is true:
 	p $$\forall z(z\in x \leftrightarrow z\in x)$$
-	p Therefore \(x=x\)
-	p
-		b Symmetry
+	p Therefore:
+	p $$\forall x [T \rightarrow x=x]$$
+	p \(x=x\)
+	h3
+		b Symmetry of equality
 	p The symmetry property is:
 	p $$\forall x \forall y[(x=y)\leftrightarrow (y=x)]$$
 	p We know that the following are true:
 	p $$\forall x \forall y[\forall z(z\in x \leftrightarrow z\in y)\rightarrow x=y]$$
-	p $$\forall y \forall x[\forall z(z\in y \leftrightarrow z\in x)\rightarrow y=x]$$
-	p The second can be reformed to:
 	p $$\forall x \forall y[\forall z(z\in x \leftrightarrow z\in y)\rightarrow y=x]$$
 	p So:
 	p $$\forall x \forall y[\forall z(z\in x \leftrightarrow z\in y)\rightarrow (x=y\land y=x)]$$
-	p
-		b Transitivity
+	h3
+		b Transitivity of equality
 	p The transitive property is:
 	p $$\forall x \forall y \forall z[(x=y \land y=z) \rightarrow x=z]$$
-	p
+	h3
 		b Substitution for functions
 	p The substitutive property for functions is:
 	p $$\forall x \forall y[(x=y)\rightarrow (f(x)=f(y))]$$
-	p
+	h3
 		b Substitution for formulae
 	p The substitutive property for formulae is:
 	p $$\forall x \forall y[((x=y)\land P(x))\rightarrow P(y)]$$

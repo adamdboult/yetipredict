@@ -2,18 +2,16 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Addition and multiplication
+		b Addition
 
 block subSubContent
 	h3
-		b Addition
-	p Let’s add another function: addition. Defined by the following axioms:
-	p
-		b Axioms
+		b Definition
+	p Let’s add another function: addition. Defined by:
 	p $$\forall a \in \mathbb{N} (a+0=a)$$
 	p $$\forall a b \in \mathbb{N} (a+s(b)=s(a+b))$$
 	p That is, adding zero to a number doesn’t change it, and \((a+b)+1=a+(b+1)\).
-	p
+	h3
 		b Example
 	p Let’s use this to solve \(1+2\):
 	p $$1+2=1+s(1)$$
@@ -27,12 +25,12 @@ block subSubContent
 	p All addition can be done iteratively like this.
 
 
-	p
-		b Commutative
+	h3
+		b Commutative property of addition
 	p Addition is commutative:
 	p $$x+y=y+x$$
-	p
-		b Associative
+	h3
+		b Associative property of addition
 	p Addition is associative:
 	p $$x+(y+z)=(x+y)+z$$
 

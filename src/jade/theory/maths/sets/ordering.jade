@@ -3,52 +3,30 @@ extends ./subSubTemplate.jade
 block subSubTitle
 	h1
 		b Ordering
-
+		
 block subSubContent
-	h2
-		b Intervals
 	h3
-		b Orderings
-	p For a set, certain pairs of elements have a binary relation such that one preceeds the other.
-	p
-		b Antisymmetry
-	p Ordered as antisymmetric. That is, the only case where the relation is satisfied in both directions is if the elements are equal.
+		b Definition
+	p Orderings define relations between elements in a set, where one element can preceed the other. 
+	p Orderings are antisymmetric. That is, the only case where the relation is satisfied in both directions is if the elements are equal.
 	p $$(a\le b)\land (b\le a)\rightarrow (a=b)$$
-	p Similarly:
-	p This latter part is a definition.
-	p
-		b Transitivity
+	p Orderings are transitive. That is: 
 	p $$(a\le b)\land (b\le c)\rightarrow (a\le c)$$
-	p Usual transitive property.
-	p
-		b Strict and non-strict partial order.
+	h3
+		b Strict and non-strict order
 	p The relation \(\le \) is refered to as non-strict.
 	p There is a similar strict relation relation, \(<\):
 	p $$(a\le b)\land ¬(b\le a)\rightarrow (a < b)$$
 
 	h3
-		b Types of orders
-	p There can be many types of orderings. Some examples are included below.
-	p
-		b Totally ordered sets
-	p A totally ordered set is one where the relation is:
-	p $$(a\le b)\lor (b\le a)$$
-	p The relationship is defined on all pairs.
+		b Totally- and partially-ordered sets
+	p A totally ordered set is one where the relation is defined on all pairs:
+	p $$\forall a \forall b	(a\le b)\lor (b\le a)$$
 	p Note that totality implies reflexivity.
-	ul
-		li Antisymmetric
-		li Transitive
-		li Total
-	p
-		b Partially ordered set
-	p A partially ordered set, or poset, is one where the relation is;
-	p $$a\le a$$
+	p A partially ordered set, or poset, is one where the relation is defined between each element and itself.
+	p $$\forall a (a\le a)$$
 	p That is, every element is related to itself.
-	ul
-		li Antisymmetric
-		li Transitive
-		li Reflexive
-	p
+	h3
 		b Well-ordering
 	p A well-ordering on a set is a total order on the set where the set contains a minimum number. For example the relation \(\le \) on the natural numbers is a well-ordering because \(0\) is the minimum.
 	p The relation \(\le \) on the integers however is not a well-ordering, as there is no minimum number in the set.
@@ -60,7 +38,7 @@ block subSubContent
 	p $$(a,b)=\{x:a< x \land x< b\}$$
 
 
-	p
+	h3
 		b Ordering of the natural numbers
 	p For natural numbers we can say that number \(n\) preceeds number \(s(n)\). That is:
 	p $$n\le s(n)$$
