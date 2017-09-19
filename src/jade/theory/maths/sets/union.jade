@@ -25,6 +25,11 @@ block subSubContent
 	h3
 		b Existance of the intersection
 	p We do not need an axiom to ensure the existence of \(a\land b\). We can derive this using the axiom schema of specification.
+	p We know from the axiom schema of specification that:
+	p $$\forall x \forall a \exists s [(P(x)\land x\in a)\leftrightarrow (x\in s)]$$
+	p We use the predicate \(x\in b\):
+	p $$\forall x \forall a \forall b \exists s [(x\in b \land x\in a)\leftrightarrow (x\in s)]$$
+
 	h3
 		b Distribution
 	p Union is distributive over intersection: \(a\lor (b\land c)=(a\lor b)\land (a\lor c)\)

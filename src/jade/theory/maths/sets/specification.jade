@@ -9,11 +9,11 @@ block subSubContent
 		b Sets
 	p Say we have a preterite \(P(x)\) which is true for some value of \(x\). Sets allow us to refer to these inputs collectively.
 	p For every preterite therefore, we can describe a corresponding set. For our preterite \(P(x)\) we have a set \(s\).
-	p To do this this we introduce a new relation: membership. If element \(x\) is in set \(A\) then the following relation is true, otherwise it is false:
+	p To do this this we introduce a new relation: membership. If element \(x\) is in set \(s\) then the following relation is true, otherwise it is false:
 	p $$x\in s$$
 	p Sets are also terms. In first-order logic they will be included in quantifiers. Indeed, in set theory, we aim to treat everything as sets.
 	h3
-		b The axiom of unrestricted comprehension does not work
+		b The axiom schema of unrestricted comprehension does not work
 	p We want to formalise the relationship between the preterite and the set. An obvious way of doing this is to add an axiom for each preterite in our structure that:
 	p $$\forall x \exists s[P(x)\leftrightarrow (x\in s)]$$
 	p This is known as "unrestricted comprehension" and there are problems with this approach.
@@ -31,13 +31,12 @@ block subSubContent
 	p That is, for every set \(a\), we can define a subset \(s\) for each predicate.
 	p This resolves Russel's Paradox. Let's take the same steps on the above formula as in unrestricted comprehension;
 	p $$\forall x \forall a \exists s[(¬(x\in x)\land x\in a )\leftrightarrow (x\in s)]$$
-	p $$\forall a \exists s[(¬(s\in s)\land s\in a )\leftrightarrow (s\in s)]$$
 	p $$\exists s[(¬(s\in s)\land s\in s )\leftrightarrow (s\in s)]$$
 	p So long as the subsets \(s\) are not members of themselves, this holds.
 	h3
 		b Non-member definition
 	p If a term is not a member of another term, we can write this using the non-member relation as follows:
-	p $$\forall x \forall s [¬(x\in s)\leftrightarrow x\nin s]$$
+	p $$\forall x \forall s [¬(x\in s)\leftrightarrow x\not\in s]$$
 	h3
 		b Subset definition
 	p If all terms which are members of term \(x\) are also members of term \(y\), then \(x\) is a subset of \(y\). This is formally defined as:
