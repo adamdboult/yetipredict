@@ -19,41 +19,6 @@ block subSubContent
 	p We define the differential of a function as:
 	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(x+\epsilon )-f(x)}{\epsilon }$$
 	p If this is defined, then we say the function is differentiable at that point.
-	h3
-		b Some differentials
-	p
-		b Constants
-	$$f(x)=c$$
-	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(x+\epsilon )-f(x)}{\epsilon }$$
-	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{c-c}{\epsilon }=0$$
-	p
-		b X
-	$$f(x)=x$$
-	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(x+\epsilon )-f(x)}{\epsilon }$$
-	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{x+\epsilon -x}{\epsilon }=1$$
-	p
-		b Addition
-	$$f(x)=g(x)+h(g)$$
-	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{g(x+\epsilon )+h(x+\epsilon )-g(x)-h(x)}{\epsilon }$$
-	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{g(x+\epsilon )-g(x)}{\epsilon }+\lim_{\epsilon \rightarrow 0^+}\frac{h(x+\epsilon )-h(x)}{\epsilon }$$
-	$$\frac{\delta y}{\delta x}=\frac{\delta g}{\delta x}+\frac{\delta h}{\delta x}$$
-	p
-		b Chain rule
-	$$f(x)=f(g(x))$$
-	$$\frac{\delta f}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(g(x+\epsilon) )-f(g(x))}{\epsilon }$$
-	$$\frac{\delta f}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{g(x+\epsilon )-g(x)}{g(x+\epsilon )-g(x)}\frac{f(g(x+\epsilon) )-f(g(x))}{\epsilon }$$
-	$$\frac{\delta f}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{g(x+\epsilon )-g(x)}{\epsilon }\frac{f(g(x+\epsilon) )-f(g(x))}{g(x+\epsilon )-g(x)}$$
-	$$\frac{\delta f}{\delta x}=\lim_{\epsilon \rightarrow 0^+}[\frac{g(x+\epsilon )-g(x)}{\epsilon }]\lim_{\epsilon \rightarrow 0^+}[\frac{f(g(x+\epsilon) )-f(g(x))}{g(x+\epsilon )-g(x)}]$$
-	$$\frac{\delta f}{\delta x}=\frac{\delta g}{\delta x}\frac{\delta f}{\delta g}$$
-	p
-		b Product rule
-	$$y=f(x)g(x)$$
-	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(x+\epsilon )g(x+\epsilon )-f(x)g(x)}{\epsilon }$$
-	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(x+\epsilon )g(x+\epsilon )-f(x)g(x+\epsilon )+f(x)g(x+\epsilon )-f(x)g(x)}{\epsilon }$$
-	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(x+\epsilon )g(x+\epsilon )-f(x)g(x+\epsilon )}{\epsilon }+\lim_{\epsilon \rightarrow 0^+}\frac{f(x)g(x+\epsilon )-f(x)g(x)}{\epsilon }$$
-	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}g(x+\epsilon )\frac{f(x+\epsilon )-f(x)}{\epsilon }+\lim_{\epsilon \rightarrow 0^+}f(x)\frac{g(x+\epsilon )-g(x)}{\epsilon }$$
-	$$\frac{\delta y}{\delta x}=g(x)\frac{\delta f}{\delta x }+f(x)\frac{\delta g}{\delta x}$$
-
 	p
 		b L'Hopital
 	p If there are two functions which are both tend to \(0\) at a limit, calculating the limit of their divisor is hard. We can use L'Hopital's rule.
@@ -66,8 +31,3 @@ block subSubContent
 	p Then
 	p $$\lim_{x\rightarrow c}\frac{f(x)}{g(x)}=\lim_{x\rightarrow c}\frac{\frac{f(x)-f(c)}{\delta}}{\frac{g(x)-f(c)}{\delta}}$$
 	p $$\lim_{x\rightarrow c}\frac{f(x)}{g(x)}=\frac{f'(x)}{g'(x)}$$
-
-
-	h3
-		b Partial derivative
-	p Upside down triangle symbolises vector of partial derivatives

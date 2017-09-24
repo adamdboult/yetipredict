@@ -2,28 +2,39 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b More
+		b Basic examples of derivatives
 
 block subSubContent
+
 	h3
-		b Logarithms
-	p $$y=ln(x)$$
-	p $$e^y=x$$
-	p $$\frac{\delta }{\delta x}e^y=1$$
-	p $$\frac{\delta y}{\delta x}e^y=1$$
-	p $$\frac{\delta y}{\delta x}x=1$$
-	p $$\frac{\delta y}{\delta x}=\frac{1}{x}$$
-
-	p
-		b Powers
-	p $$y=x^n$$
-	p $$lny=nlnx$$
-	p $$\frac{1}{y}\frac{\delta y}{\delta y}=\frac{n}{x}$$
-	p $$\frac{delta y}{\delta x}=nx^{n-1}$$
-
-	p
-		b Exponents
-	p $$y=a^x$$
-	p $$lny=xlna$$
-	p $$\frac{1}{y}\frac{\delta y}{\delta x}=lna$$
-	p $$\frac{\delta y}{\delta x}=a^xlna$$
+		b Constants
+	$$f(x)=c$$
+	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(x+\epsilon )-f(x)}{\epsilon }$$
+	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{c-c}{\epsilon }=0$$
+	h3
+		b X
+	$$f(x)=x$$
+	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(x+\epsilon )-f(x)}{\epsilon }$$
+	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{x+\epsilon -x}{\epsilon }=1$$
+	h3
+		b Addition
+	$$f(x)=g(x)+h(g)$$
+	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{g(x+\epsilon )+h(x+\epsilon )-g(x)-h(x)}{\epsilon }$$
+	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{g(x+\epsilon )-g(x)}{\epsilon }+\lim_{\epsilon \rightarrow 0^+}\frac{h(x+\epsilon )-h(x)}{\epsilon }$$
+	$$\frac{\delta y}{\delta x}=\frac{\delta g}{\delta x}+\frac{\delta h}{\delta x}$$
+	h3
+		b Chain rule
+	$$f(x)=f(g(x))$$
+	$$\frac{\delta f}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(g(x+\epsilon) )-f(g(x))}{\epsilon }$$
+	$$\frac{\delta f}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{g(x+\epsilon )-g(x)}{g(x+\epsilon )-g(x)}\frac{f(g(x+\epsilon) )-f(g(x))}{\epsilon }$$
+	$$\frac{\delta f}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{g(x+\epsilon )-g(x)}{\epsilon }\frac{f(g(x+\epsilon) )-f(g(x))}{g(x+\epsilon )-g(x)}$$
+	$$\frac{\delta f}{\delta x}=\lim_{\epsilon \rightarrow 0^+}[\frac{g(x+\epsilon )-g(x)}{\epsilon }]\lim_{\epsilon \rightarrow 0^+}[\frac{f(g(x+\epsilon) )-f(g(x))}{g(x+\epsilon )-g(x)}]$$
+	$$\frac{\delta f}{\delta x}=\frac{\delta g}{\delta x}\frac{\delta f}{\delta g}$$
+	h3
+		b Product rule
+	$$y=f(x)g(x)$$
+	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(x+\epsilon )g(x+\epsilon )-f(x)g(x)}{\epsilon }$$
+	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(x+\epsilon )g(x+\epsilon )-f(x)g(x+\epsilon )+f(x)g(x+\epsilon )-f(x)g(x)}{\epsilon }$$
+	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(x+\epsilon )g(x+\epsilon )-f(x)g(x+\epsilon )}{\epsilon }+\lim_{\epsilon \rightarrow 0^+}\frac{f(x)g(x+\epsilon )-f(x)g(x)}{\epsilon }$$
+	$$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}g(x+\epsilon )\frac{f(x+\epsilon )-f(x)}{\epsilon }+\lim_{\epsilon \rightarrow 0^+}f(x)\frac{g(x+\epsilon )-g(x)}{\epsilon }$$
+	$$\frac{\delta y}{\delta x}=g(x)\frac{\delta f}{\delta x }+f(x)\frac{\delta g}{\delta x}$$

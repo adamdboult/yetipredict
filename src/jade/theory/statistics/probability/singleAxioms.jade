@@ -3,51 +3,27 @@ block subSubTitle
 	h1
 		b Kolmogorov axioms
 block subSubContent
-	p Existence of measure space
+	h3
+		b Existence of measure space
+	p We have a sample space, \(\Omega \) consisting of elementary events.
+	p We have a \(\sigma\)-algebra over \(\Omega \) called \(F\). A \(\sigma\)-algebra takes a set a provides another set containing subsets closed under complement. The power set is an example.
+	p For all events \(E\) in \(F\), the probability function \(P\) is defined.
+	p This gives us the following measure space:
 	p $$(\Omega, F, P)$$
-	p
-		b First axiom:
+	h3
+		b Mutually exclusive events
+	p Events which do not contain common members are called mutually exclusive events.
+	h3
+		b First axiom
+	p The probability of all events is a non-negative real number.
 	p $$\forall E \in F [(P(E)\ge 0)\land (P(E)\in \mathbb{R})]$$
-	p
-		b Second axiom:
+	h3
+		b Second axiom
+	p The probability of one of the elementary events occuring is \(1\).
+	p The probability of the outcome set is \(1\).
 	p $$P(\Omega )=1$$
-	p
-		b Third axiom:
-	p $$P(\)$$
-
-
 	h3
-		b Axioms
-	
-	p
-		b Axiom 1 – events have probabilities
-	p We define a set of events, where each event has an associated probability.
-	p $$\forall x_i \in x, P(x_i)=c, (c\in \mathbb{R}\land 0\le c\le 1)$$
-	p The following are used interchangeably:
-	p $$P(X=x)$$
-	p $$P(X)$$
-	p $$f(x)$$
+		b Third axiom
+	p The probability of union for mutually exclusive events is:
+	p $$P(\cup^\infty_{i=1}E_i)=\sum_{i=1}^\infty P(E_i)$$
 
-	p
-		b Axiom 2 – outcomes of events are mutually exclusive
-	p The sum of all of these probabilities is 1.
-	p $$\sum_i P(x_i)=1$$
-	p
-		b Axiom 4 – joint probabilities of the same outcome are the probability of the outcome
-	p The joint probability of the same event occurring is equal to the probability of the event occurring.
-	p $$P(x_i \land x_i)=P(x_i)$$
-	p
-		b Axiom 5 - Events are mutually exclusive.
-	p The probability of two outcomes in the same event occurring is \(0\).
-	p $$P(x_i \land x_j)=0$$
-
-	h3
-		b Extra definitions
-	p
-		b OR
-	p $$P(x_i \lor y_j):=P(x_i)+P(y_j)-P(x_i \land y_j)$$
-
-	p Note that:
-	p $$P(x_i\lor x_j)=P(x_i)+P(x_j)-P(x_i\land x_j)$$
-
-	p $$P(x_i\lor x_j)=P(x_i)+P(x_j)$$

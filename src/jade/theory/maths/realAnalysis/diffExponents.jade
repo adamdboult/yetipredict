@@ -1,0 +1,31 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Differentiation of exponents
+
+block subSubContent
+	h3
+		b Logarithms
+	p $$y=ln(x)$$
+	p $$e^y=x$$
+	p $$\frac{\delta }{\delta x}e^y=1$$
+	p $$\frac{\delta y}{\delta x}e^y=1$$
+	p $$\frac{\delta y}{\delta x}x=1$$
+	p $$\frac{\delta y}{\delta x}=\frac{1}{x}$$
+
+	h3
+		b Powers
+	p $$y=x^n$$
+	p $$lny=nlnx$$
+	p $$\frac{1}{y}\frac{\delta y}{\delta y}=\frac{n}{x}$$
+	p $$\frac{delta y}{\delta x}=nx^{n-1}$$
+
+	h3
+		b Exponents
+	p $$y=a^x$$
+	p $$lny=xlna$$
+	p $$\frac{1}{y}\frac{\delta y}{\delta x}=lna$$
+	p $$\frac{\delta y}{\delta x}=a^xlna$$
+
+
