@@ -1,0 +1,17 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Boolean algebra
+
+block subSubContent
+	h3
+		b Sets satisfy the definitions of a boolean algebra
+	p We set out the definition of a boolean algebra in Propositional Logic. These were:
+	ul
+		li Both binary operators are commutitive - \(A\land B=B\land A\) and \(A\lor B=B\lor A\)
+		li Both binary operators are associative - \((A\land B)\land C=A\land (B\land C)\) and \((A\lor B)\lor C=A\lor (B\lor C)\)
+		li Completements - \(A\land ¬A=\emptyset \) and \(A\lor ¬A=U\)
+		li Absorption - \(A\land (A\lor B)=A\) and \(A\lor (A\land B)=A\)
+		li Identity - \(A\land U=A\) and \(A\lor \emptyset =A\)
+	p These hold for sets, and so boolean algebra, and therefore duality, holds for sets.
