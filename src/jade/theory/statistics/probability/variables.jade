@@ -1,0 +1,28 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Random variables
+block subSubContent
+	h3
+		b Defining variables
+	p We have a sample space, \(\Omega \). A random variable \(X\) is a mapping from the sample space to the real numbers:
+	p $$X: \Omega \rightarrow \mathbb{R}$$
+	p We can then define the set of elements in \(\Omega \). As an example, take a coin toss and a die roll. The sample space is:
+	p $$\{H1,H2,H3,H4,H5,H6,T1,T2,T3,T4,T5,T6\}$$
+	p A random variable could give us just the die value, such that:
+	p $$X(H1)=X(T1)=1$$ 
+	p We can define this more precisely using set-builder notation, by saying the following is defined for all	 \(c\in \mathbb{R}\):
+	p $$\{\omega |X(\omega )\le c\}$$
+	p That is, for any number random variable map \(X\), there is a corresponding subset of \(\Omega \) containing the \(\omega \)s in \(\Omega \) which map to less than \(c\).
+	h3
+		b Multiple variables
+	p Multiple variables can be defined on the sample space. If we rolled a die we could define variables for
+	ul
+		li Whether it was odd/even
+		li Number on the die
+		li Whether it was less than 3
+	p With more die we could add even more variables
+	h3
+		b Derivative variables
+	p If we define a variable \(X\), we can also define another variable \(Y=X^2\).
+

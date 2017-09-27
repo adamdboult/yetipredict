@@ -1,0 +1,23 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Fraction rules
+
+block subSubContent
+	h3
+		b Addition
+	p $$\frac{A}{B}+\frac{C}{D}=\frac{AD+BC}{BD}$$
+	h3
+		b Multiplication
+	p $$\frac{A}{B}\frac{C}{D}=\frac{AC}{BD}$$
+	h3
+		b Scaler addition
+	p $$C+\frac{A}{B}=\frac{BC+A}{B}$$
+	h3
+		b Scaler multiplication
+	p $$C\frac{A}{B}=\frac{AC}{B}$$
+	h3
+		b Other
+	p $$\frac{A+B}{C}=\frac{A}{C}+\frac{B}{C}$$
+	p $$\frac{A}{B}=\frac{AC}{BC}$$
