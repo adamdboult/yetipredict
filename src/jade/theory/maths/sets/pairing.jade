@@ -7,8 +7,21 @@ block subSubTitle
 block subSubContent
 	h3
 		b Axiom of pairing
-	p For any pair of sets, there is another set containing both as elements.
-	p $$\forall x \forall y \exists z [x\in z \land y\in z]$$
+	p For any pair of sets, \(x\) and \(y\) there is another set \(z\) which containing only \(x\) and \(y\).
+	p $$\forall x \forall y \exists z \forall a[a\in z \leftrightarrow a=x \lor a=y]$$
+	h3
+		b For each set, there exists a set containing only that set
+	p Take the axiom, but replace all instance of \(y\) with \(x\).
+	p $$\forall x \exists z \forall a[a\in z \leftrightarrow a=x \lor a=x]$$
+	p $$\forall x \exists z \forall a[a\in z \leftrightarrow a=x]$$
+	h3
+		b Existence of \(1\) and \(2\)
+	p Previously we showed that \(0\) exists, and that the natural numbers we defined as:
+	p $$1:=\{0\}=\{\{\}\}$$
+	p $$2:=\{0,1\}=\{\{\},\{\{\}\}\}$$
+	p $$3:=\{0,1,2\}=\{\{\},\{\{\}\},\{\{\},\{\{\}\}\}\}$$
+	p We can \(1\) and \(2\) exist with the axiom of pairing. We cannot, however prove three exists.
+	p 
 	h3
 		b Ordered pairs
 	

@@ -11,10 +11,24 @@ block subSubContent
 	p $$\exists \mathbb{N} (\varnothing \in \mathbb{N} \land \forall x \in \mathbb{N}((x\lor \{x\})\in \mathbb{N}))$$
 	p There exists a set, called the infinite set: \(\exists \mathbb{N} \).
 	h3
+		b Sequential function
+	p Let's define the sequential function:
+	p $$s(n):=\{n\lor \{n\}\}$$
+	p We can now rewrite the axiom of infinity as:
+	p $$\exists \mathbb{N} (\varnothing \in \mathbb{N} \land \forall x \in \mathbb{N}(s(x)\in \mathbb{N}))$$
+	h3
 		b Zero
 	p This set contains the null set: \(\varnothing \in \mathbb{N} \).
 	p Zero is defined as the empty set.
 	p $$0:=\{\}$$
+	p Does \(0\) exist? We know the infinite set exists, and we also know the axiom schema of specification:
+	p $$\forall x \forall a \exists s[(P(x)\land x\in a )\leftrightarrow (x\in s)]$$
+	p Let's take \(a\) to be the infinite set
+	p $$\forall x \exists s[(P(x)\land x\in \mathbb{N} )\leftrightarrow (x\in s)]$$
+	p Consider the preterite \(x\ne x\):
+	p $$\forall x \exists s[x\ne x\land x\in \mathbb{N} )\leftrightarrow (x\in s)]$$
+	p $$\forall x \exists s[¬(x\in s)]$$
+	p So there exists a set with no members.
 	h3
 		b Natural numbers
 	p For all elements in the infinite set, there also exists another element in the infinite set: \(\forall x \in \mathbb{N}((x\lor \{x\})\in \mathbb{N}) \).
@@ -22,9 +36,4 @@ block subSubContent
 	p $$1:=\{0\}=\{\{\}\}$$
 	p $$2:=\{0,1\}=\{\{\},\{\{\}\}\}$$
 	p $$3:=\{0,1,2\}=\{\{\},\{\{\}\},\{\{\},\{\{\}\}\}\}$$
-	h3
-		b Sequential function
-	p Let's define the sequential function:
-	p $$s(n):=\{n\lor \{n\}\}$$
-	p We can now rewrite the axiom of infinity as:
-	p $$\exists \mathbb{N} (\varnothing \in \mathbb{N} \land \forall x \in \mathbb{N}(s(x)\in \mathbb{N}))$$
+	p We can't prove these exist currently. For that we need the axiom of pairing and the axiom of union.

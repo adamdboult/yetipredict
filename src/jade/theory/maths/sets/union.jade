@@ -11,17 +11,23 @@ block subSubContent
 	p The axiom of union enables us to ensure all sets from unions and intersections exist.
 	h3
 		b Axiom of union
-	p The axiom of union says that this union exists as a term in the domain.
-	p We replace \(x\lor y\) in the above with a new term \(z\):
-	p $$\forall a \forall x \forall y \exists z[a\in z \leftrightarrow (a\in x \lor a\in y)]$$
+
 	h3
 		b Existence of the intersection
-	p We do not need an axiom to ensure the existence of \(a\land b\). We can derive this using the axiom schema of specification.
-	p We know from the axiom schema of specification that:
-	p $$\forall x \forall a \exists s [(P(x)\land x\in a)\leftrightarrow (x\in s)]$$
-	p We use the predicate \(x\in b\):
-	p $$\forall x \forall a \forall b \exists s [(x\in b \land x\in a)\leftrightarrow (x\in s)]$$
 
 	h3
 		b Existence of the complement
 	p 
+
+	h3
+		b Existence of all natural numbers
+	p Previously we showed that \(0\) exists, and later that \(1\) and \(2\) exist. This is from the definition of the natural numbers  as:
+	p $$1:=\{0\}=\{\{\}\}$$
+	p $$2:=\{0,1\}=\{\{\},\{\{\}\}\}$$
+	p $$3:=\{0,1,2\}=\{\{\},\{\{\}\},\{\{\},\{\{\}\}\}\}$$
+	p We can now prove \(3\), and all following natural numbers exist
+	p For each natural number, \(n\), \(s(n):=\{n\lor \{n\}\}\). We know \(n\) exists, and we know \(\{n\}\) exists from the axiom of pairing.
+	p We know also know that the union exists, and therefore \(s(n)\) exists. Therefore all natural numbers exist.
+	h3
+		b Existence of the successor function
+
