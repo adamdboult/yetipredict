@@ -1,0 +1,16 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b \(\sigma \)-algebra
+block subSubContent
+
+
+	h3
+		b \(\sigma \)-algebra
+	p A \(\sigma \)-algebra is an algebra with an additional condition:
+	p All countable unions of sets in \(A\) are also in \(A\).
+	p This adds a constraint. Consider the real numbers with an algebra of all finite sets.
+	p This contains all finite subsets, and their complements. It does not contain \(\mathbb_{N}\).
+	p However a \(\sigma \)-algebra requires all countable unions to be including, and the natural numbers are a countable union.
+	p The power set is a \(\sigma \)-algebra. All other \(\sigma \)-algebras are subsets of the power set.

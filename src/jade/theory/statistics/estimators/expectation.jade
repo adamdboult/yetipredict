@@ -1,0 +1,29 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Models for expectation
+block subSubContent
+	h3
+		b Defining
+	p We have a sample from variables. We want to explain one using the others. We call the dependent variable \(Y\) and the \(p\) independent variables \(X\).
+	p We want a model for \(E(Y|X)\).
+	p For any given sample, we have \(E(Y_i|X_i)\) and \(Y_i\). That is, the difference between the expected and the outcome. Let’s call this:
+	p $$Y_i=E(Y_i|X_i)+e_i$$
+	p We want to identify the function \(E(Y|X)\). Let’s add a possible function, \(f(X)\), so that \(E(Y|X =f(X)+e(x)\). Now we have:
+	p $$Y_i=f(X_i)+e(X_i)+e_i$$
+	p We call \(f(X_i)\) our estimate for \(Y_i\), and therefore \(\hat{Y_i}\).
+	p $$Y_i=\hat{Y_i}+e(X_i)+e_i$$
+	p If \(f(X)\) is the correct model, \(e(X)=0\).
+	h3
+		b Errors
+	p If we had the perfect model, the error would be \(e_i\). With an imperfect model it is \(e(X_i)+e_i\).
+	p Total variance
+	p $$Var(y)=\sum_{i=1}^n\frac{1}{n}(y_i-\bar{y})$$
+	p $$SS_{tot}=\sum_{i=1}^n(y_i-\bar{y})$$
+	p Explained variance
+	p $$SS_{reg}=\sum_{i=1}^n(f_i-\bar{y})$$
+	p Coefficient of determination
+	p $$R^2=\frac{SS_{reg}}{SS_{tot}}$$
+	h3
+		b Overfitting
+
