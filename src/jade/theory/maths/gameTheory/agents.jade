@@ -1,0 +1,68 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Rational agents
+block subSubContent
+	h3
+
+
+	p function from environment to action
+	p \(f:P\rightarrow A\)
+
+	p search agents: multiple time periods. consider impact of action on future state. evaluate the state to see if it matches (or similar) a goal
+	p action set is a path
+
+	p how to find right path? search. depth first, breadth first, greedy search
+
+	p environment evolves over time. agent outputs are part of environment. agent gets inputs from environemtns through sensors
+	p Rational Agents have PEAS
+	p Performance (safety of car, accuracy of designation)
+	p Environment (roads, positions of cars)
+	p Accentuators (brakes, wheels)
+	p Sensors (cameras etc)
+
+	p types of environment:
+	p + fully or partially observable
+	p + deterministic or stochastic
+	p + episodic or sequential (agent decision only depends on each time period in episodic)
+	p + static v dynamic (if static, agent can take lots of time to think)
+	p + disctete v continuous
+	p + single agent v multi agents
+	p + known (what is initial knowledge of environment)
+
+
+	p types of agents:
+	p + simple reflex agents
+	p + model-based reflex agents
+	p + goal-based agents
+	p + utlity-based agents
+
+
+	p Simple reflex
+	p rule for sensor->action
+	p two room roomba. rule is suck if dirty, or move to other room
+	p but what if unknown? ie we don't know if we're in room a or b. can instead use randomised movement. if clean, randomly move left or right
+
+	p model-based reflex agents
+	p keep history of observables and actions for futrue reflexes
+
+	p goal-based agents
+	p reflex needs lookup table. goal based when that would be too large. 
+
+	p utlity based agents
+	p if we don't know which one will get goal, we use utility. rank different outcome, maximise expected utility
+
+
+	p All part of learning agents. they need
+	p + learning element - make improvements to agent
+	p + performance element - select action
+	p + critic - evaluate against goal
+	p + problem generator - allow agent to explore
+
+
+	p modelling states
+	p + atomic (eg, what room are we in)
+	p + factors (gps location, fuel)
+
+	p agent = architechure + environment
+

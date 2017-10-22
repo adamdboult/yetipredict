@@ -11,13 +11,28 @@ block subSubContent
 	p The axiom of union enables us to ensure all sets from unions and intersections exist.
 	h3
 		b Axiom of union
-
+	p $$\forall a\exists b \forall c [c\in b\leftrightarrow \exists d(c\in d\land d\in a)]$$
+	p That is, for every set \(a\), there exists a set \(b\) where all the elements in \(b\) are the elements of the elements in \(a\).
+	p Here, \(b\) is the union of the sets in \(a\).
+	h3
+		b Existence of the union
+	p For two sets \(a\) and \(b\) we can write \(a\lor b\). Does this union exist? Yes, this is a result of the axiom.
 	h3
 		b Existence of the intersection
-
+	p For two sets \(a\) and \(b\) we can write \(a\land b\). Doe this intersection exist?
+	p Consider the axiom of specification:
+	p $$\forall x \forall a \exists s[(P(x)\land x\in a )\leftrightarrow (x\in s)]$$
+	p We can also write:
+	p $$\forall x \forall a \forall b \exists s[(x\in b\land x\in a )\leftrightarrow (x\in s)]$$
+	p Which provide the intersection, \(s\).
 	h3
 		b Existence of the complement
-	p 
+	p For two sets \(a\) and \(b\) we can write \((a \setminus b)\). This is the set of elements of \(a\) which are not in \(b\).
+	p Consider the axiom of specification:
+	p $$\forall x \forall a \exists s[(P(x)\land x\in a )\leftrightarrow (x\in s)]$$
+	p We can also write
+	p $$\forall x \forall a \forall b\exists s[(x\not\in b\land x\in a )\leftrightarrow (x\in s)]$$
+	p Which provides the complement, \(s\).
 
 	h3
 		b Existence of all natural numbers
@@ -30,4 +45,4 @@ block subSubContent
 	p We know also know that the union exists, and therefore \(s(n)\) exists. Therefore all natural numbers exist.
 	h3
 		b Existence of the successor function
-
+	

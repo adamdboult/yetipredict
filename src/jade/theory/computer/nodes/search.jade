@@ -1,0 +1,115 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Search algorithms
+block subSubContent
+	h3
+		b Introduction
+	p A search algorithm takes a grid and identifies a path from a start point to an end point. Each node in the grid has connections to other nodes, with costs of moving between nodes.
+	p In each search algorithm there are three types of nodes: unexplored nodes, explored nodes and frontier nodes. At the start of the algorithm the start node is explored, each node connected to the start node is a frontier node, and all other nodes are unexplored nodes.
+	p When an algorithm explores a frontier node, it is added to the explored nodes, and all new nodes are added to the frontier nodes.
+	p There are many types of algorithms for search, which determine how the algorithm selects a frontier node to explore. Search algorithms can be divided into two broad categories: uninformed search and informed search
+	p In uninformed search the algorithm selects a frontier node based on the number of steps and total path costs. In informed search, this is enhanced by a heuristic, which can produce a better search algorithm.
+
+
+	p search tree. models sequences of actions
+	p + initial state
+	p + branches (actions)
+	p + nodes (result from actions)
+	p   * parent
+	p   * children
+	p   * depth
+	p   * path cost
+	p   * asociated state
+	p search tree has expand function. given node, generate other notes. linked to transition model
+	p seach space divided into:
+	p + explored
+	p + frontier 
+	p + unexplored
+	p as tree progresses, move from 3 to 2 to 1
+
+	p formulating a problem
+	p + state space
+	p + initial state
+	p + action space (actions(s) returns the actions it is possible to do at state s)
+	p + transition model - what each action does (results(s, a))
+	p + goal test - is a state the goal state?
+	p + path cost - assign cost to path
+	p 	+ search space
+
+
+
+	p how to pick nodes to look at? node expansion.
+	p + completeness (does it always find a solution if one exists)
+	p + time complexity (nubmer of nodes generated and expanded)
+	p + space complexity (maximum number of nodes in memory)
+	p + optimality (does it find a least-cost solution)
+	p complexity of this measured by:
+	p + depth of solution (d)
+	p + maximum depth of state space (m or D)
+	p + maximum branching factor, ie how many paths from each node. binary tree is 2 (b)
+	p two types. informed and uniformed.
+
+
+
+	h3
+		b Breadth-first search
+	p A breadth-first search operates First-in First-out (FiFo). That is, it selects the oldest frontier node. This results in a broad, rather than a deep search. Once all branches have been explored, the algorithm will move deeper. Path cost is not considered in this algorithm.
+	p Informed: No
+	p Time: \(O(b^d)\)
+	p Space: \(O(b^d)\)
+	p Complete: Yes
+	p Optimal: Picks the shallowest solution. Optimal of path costs are identical.
+	h3
+		b Depth-first search
+	p A depth-first search operates Last-in First-out (LiFo). That is, it selects the newest frontier node. This results in a deep, rather than a broad search. Once the maximum depth has been reached, the algorithm will move towards breadth. Path cost is not considered in this algorithm.
+	p May not find optimal solution, but is linear in space
+	p Informed: No
+	p Time: \(O(b^m)\)
+	p Space: \(O(bm)\)
+	p Complete: Yes
+	p Optimal: No
+	h3
+		b Depth-limited search
+	p Depth-first search with a limit. This is useful if we know the solution is shallower than limit \(l\).
+	p Informed: No
+	p Time:
+	p Space:
+	p Complete:
+	p Optimal:
+	h3
+		b Iterated depth-limited search
+	p Does a depth-limited search to a layer \(L\), increases the layer and starts again. The repeats are a waste, but earlier layers are much cheaper.
+	p Informed: No
+	p Time:
+	p Space:
+	p Complete:
+	p Optimal:
+	h3
+		b Uniform cost search
+	p Modify BFS to prioritise cost not depth. expand node with lowest path cost. could be "deep".
+	p This is the same as dijkstra’s algorithm.
+	p can do this in algo by using heaps
+	p Informed: No
+	p Time: \(O(b^{?})\)
+	p Space: \(O(b^{?})\)
+	p Complete: Yes
+	p Optimal: Yes
+	h3
+		b Greedy search
+	p find absolute distance from goal for each node. choose node with shortest distance.
+	p Cost of each is \(f(n)=h(n)\), where \(h(n)\) is the heuristic cost of node \(n\).
+	h3
+		b A*
+	p If the heuristic is admissible, then a* is optimal. Intuitively because the the heuristic steers away from any suboptimal solutions.
+	p Admissible? For all nodes n , h(n)<=h*(n). where h* is true cost
+	p \(f(n)=g(n)+h(n)\)
+	p \(g(n\) is the cost to reach \(n\) from the current position.
+	p Informed: Yes
+	p Time: Exponential
+	p Space: Big, all nodes kept in memory
+	p Complete: Yes
+	p Optimal: Yes, if the heuristic is admissible
+	h3
+		b Iterative deepening A* 
+

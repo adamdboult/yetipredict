@@ -7,13 +7,13 @@ block subSubTitle
 block subSubContent
 	h3
 		b Standard algebra
-	p An algebra on set \(s\) is a set of subsets of \(A\) such all algebraic relations on members are also defined.
-	p That is, if \(a\) and \(b\) are in \(A\), then \(\bar{a\}\), \(a\land b\), and \(a\lor b\) must also be in \(A\).
-	p More specifically:
+	p An algebra, \(\Sigma \), on set \(s\) is a set of subsets of \(s\) such that:
 	ul
-		li Closed under complement: If \(a\) is in \(\A\) then \(s \\ a\) must also be in \(\Sigma \)
-		li Closed under intersection: If \(a\) and \(b\) are in \(A\) then \(a\land b\) must also be in \(A\)
-		li Closed under union: If \(a\) and \(b\) are in \(A\) then \(a\lor b\) must also be in \(A\).
-	p Note that we only need one of the last two conditions, as each implies the other.
-	p We also require that the null set (and therefore the original set) is part of the algebra.
+		li Closed under intersection: If \(a\) and \(b\) are in \(\Sigma \) then \(a\land b\) must also be in \(\Sigma \)
+		li Closed under union: If \(a\) and \(b\) are in \(\Sigma \) then \(a\lor b\) must also be in \(\Sigma \).
 
+	p If both of these are true, then the following is also true:
+	ul
+		li Closed under complement: If \(a\) is in \(\Sigma \) then \(s \\ a\) must also be in \(\Sigma \)	
+	p We also require that the null set (and therefore the original set) is part of the algebra.
+	

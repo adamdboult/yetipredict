@@ -21,14 +21,6 @@ block subSubContent
 	p This set contains the null set: \(\varnothing \in \mathbb{N} \).
 	p Zero is defined as the empty set.
 	p $$0:=\{\}$$
-	p Does \(0\) exist? We know the infinite set exists, and we also know the axiom schema of specification:
-	p $$\forall x \forall a \exists s[(P(x)\land x\in a )\leftrightarrow (x\in s)]$$
-	p Let's take \(a\) to be the infinite set
-	p $$\forall x \exists s[(P(x)\land x\in \mathbb{N} )\leftrightarrow (x\in s)]$$
-	p Consider the preterite \(x\ne x\):
-	p $$\forall x \exists s[x\ne x\land x\in \mathbb{N} )\leftrightarrow (x\in s)]$$
-	p $$\forall x \exists s[¬(x\in s)]$$
-	p So there exists a set with no members.
 	h3
 		b Natural numbers
 	p For all elements in the infinite set, there also exists another element in the infinite set: \(\forall x \in \mathbb{N}((x\lor \{x\})\in \mathbb{N}) \).
@@ -36,4 +28,10 @@ block subSubContent
 	p $$1:=\{0\}=\{\{\}\}$$
 	p $$2:=\{0,1\}=\{\{\},\{\{\}\}\}$$
 	p $$3:=\{0,1,2\}=\{\{\},\{\{\}\},\{\{\},\{\{\}\}\}\}$$
-	p We can't prove these exist currently. For that we need the axiom of pairing and the axiom of union.
+	h3
+		b Existence of natural numbers
+	p Does each natural number exist? We know the infinite set exists, and we also know the axiom schema of specification:
+	p Point is: For each set, all finite subsets exist. PROVE ELSEWHERE
+	h3
+		b From infinite set to natural set
+	p We don’t know I is limited to natural numbers. Could contain urelements etc.

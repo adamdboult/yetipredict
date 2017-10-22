@@ -6,6 +6,9 @@ block subSubTitle
 
 block subSubContent
 	h3
+		b Introduction
+	p We discuss functions. Just because we can write a function of sets which exist, does not mean the results of the functions exist. For that we need axioms discussed later.
+	h3
 		b Union function
 	p We define a function on two sets, \(a\lor b\), such that the result contains all elements from either sets.
 	p $$\forall a \forall x \forall y [a\in (x\lor y) \leftrightarrow (a\in x \lor a\in y)]$$
@@ -18,16 +21,13 @@ block subSubContent
 	p This is commutative: \(a\land b = b\land a\)
 	p This is associative: \((a\land b)\land c = a\lor (b\land c)\)
 	h3
-		b Distribution
+		b Distribution of union and intersection
 	p Union is distributive over intersection: \(a\lor (b\land c)=(a\lor b)\land (a\lor c)\)
 	p Intersection is distributive over union: \(a\land (b\lor c)=(a\land b)\lor (a\land c)\)
 	h3
 		b Complement function
 	p \(x^C\) is the completement. It is defined such that:
-	p $$\forall x [x\land x^C=\{\}]$$
-	p We do not say the completement exists as a term in the domain.
-
-
+	p $$\forall x [x\land x^C=\varnothing ]$$
 	h3
 		b Disjoint sets
 	p Sets are disjoint is there is no overlap in their elements. Two sets are \(s_i\) and \(s_j\) are mutually exclusive if:
@@ -35,8 +35,24 @@ block subSubContent
 	p A collection of events \(s\) are all mutually exclusive if all pairs are mutually exclusive. That is:
 	p \(\forall s_i \in s\forall s_j\in s[s_i\land s_j\ne \emptyset \rightarrow s_i=s_j]\)
 
-
 	h3
-		b Complements
-	p Definition of \(a \\ b\)
-
+		b Complement function
+	p For a set \(b\), the complement with respect to \(a\) is all elements in \(a\) which are not in \(b\).
+	p \(\forall x \in a \forall y \in b [x \in (a \setminus b) \land y\in (a \setminus b)]\)
+	p \(b\land (a \setminus b)= \varnothing \)
+	p That is, \(b\) and \(a \setminus b\) are disjoint.
+	h3
+		b Tuples
+	p We can get a list of sets in an order. A 2-tuple is an ordered pair:
+	p \((a, b)\)
+	p We can write an ordered pair of \(a\) and \(b\) as:
+	p $$\{\{a\},\{a,b\}\}$$
+	h3
+		b Cartesian product
+	p The cartesian product takes two sets, and creates a set containing all ordered pairs of \(a\) and \(b\).
+	p \(a\times b\)
+	h3
+		b Powerset
+	p The power set of \(s\), \(P(s)\), contains all subsets of \(s\).
+	p $$\forall x x\subseteq s \leftrightarrow x\in P(x)$$
+	p Do all subsets exist?? show elsewhere. 

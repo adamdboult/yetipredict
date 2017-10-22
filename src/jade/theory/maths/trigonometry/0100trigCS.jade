@@ -6,38 +6,27 @@ block subSubTitle
 
 block subSubContent
 	h3
-		b From \(e\) to \(\cos \) and \(\sin \)
+		b Euler's formula
 	p Previously we showed that:
-	$$e^x=\sum_{i=0}^\inf \frac{x^i}{i!}$$
+	$$e^x=\sum_{i=0}^\infty \frac{x^i}{i!}$$
 	p Consider:
 	$$e^{i\theta }$$
-	$$e^{i\theta }=\sum_{j=0}^\inf \frac{(i\theta )^j}{j!}$$
-	$$e^{i\theta }=[\sum_{j=0}^\inf \frac{(\theta )^{4j}}{(4j)!}-\sum_{j=0}^\inf \frac{(\theta )^{4j+2}}{(4j+2)!}]+i[\sum_{j=0}^\inf \frac{(\theta )^{4j+1}}{(4j+1)!}-\sum_{j=0}^\inf \frac{(\theta )^{4j+3}}{(4j+3)!}]$$
+	$$e^{i\theta }=\sum_{j=0}^\infty \frac{(i\theta )^j}{j!}$$
+	$$e^{i\theta }=[\sum_{j=0}^\infty \frac{(\theta )^{4j}}{(4j)!}-\sum_{j=0}^\infty \frac{(\theta )^{4j+2}}{(4j+2)!}]+i[\sum_{j=0}^\infty \frac{(\theta )^{4j+1}}{(4j+1)!}-\sum_{j=0}^\infty \frac{(\theta )^{4j+3}}{(4j+3)!}]$$
 	p We then use this to define \(\sin \) and \(\cos \) functions.
-	$$\cos (\theta ):=\sum_{j=0}^\inf \frac{(\theta )^{4j}}{(4j)!}-\sum_{j=0}^\inf \frac{(\theta )^{4j+2}}{(4j+2)!}$$
-	$$\sin (\theta ):=\sum_{j=0}^\inf \frac{(\theta )^{4j+1}}{(4j+1)!}-\sum_{j=0}^\inf \frac{(\theta )^{4j+3}}{(4j+3)!}$$
+	$$\cos (\theta ):=\sum_{j=0}^\infty \frac{(\theta )^{4j}}{(4j)!}-\sum_{j=0}^\infty \frac{(\theta )^{4j+2}}{(4j+2)!}$$
+	$$\sin (\theta ):=\sum_{j=0}^\infty \frac{(\theta )^{4j+1}}{(4j+1)!}-\sum_{j=0}^\infty \frac{(\theta )^{4j+3}}{(4j+3)!}$$
 	p So:
 	$$e^{i\theta }=\cos (\theta )+i\sin (\theta )$$
-	p
-		b Euler's formula
 	h3
-		b Derivatives
-	p Note that these functions are linked in their derivatives.
-	p $$\frac{\delta }{\delta \theta }\cos (\theta )=\sum_{j=0}^\inf \frac{(\theta )^{(4j+3)}}{(4j+3)!}-\sum_{j=0}^\inf \frac{(\theta )^{4j+1}}{(4j+1)!}$$
-	p $$\frac{\delta }{\delta \theta }\cos (\theta )=-\sin (\theta )$$
-	p Similarly:
-	p $$\frac{\delta }{\delta \theta }\sin (\theta )=cos(\theta )$$
-	p And:
-	p $$\frac{\delta^2 }{\delta \theta^2}\sin (\theta )=-\sin (\theta )$$
-	p $$\frac{\delta^2 }{\delta \theta^2}\cos (\theta )=-\cos (\theta )$$
-
-	p So for either of:
-	p $$y=\cos (\theta )$$
-	p $$y=\sin (\theta )$$
-	p We know that
-	p $$\frac{\delta^2 }{\delta \theta^2}y(\theta )=-y(\theta )$$
+		b De Moive's formula
+	p $$e^{i\theta }=\cos (\theta )+i\sin (\theta )$$
+	p Let \(\theta = nx\):
+	p $$e^{inx }=\cos (nx )+i\sin (nx )$$
+	p $$(e^{ix})^n=\cos (nx )+i\sin (nx )$$
+	p $$(\cos (x)+i\sin (x))^n=\cos (nx )+i\sin (nx )$$
 	h3
-		b Reverse identity
+		b Unity
 	p Note that with imaginary numbers we can reverse all \(i\)s. So:
 	p $$e^{i\theta }=\cos (\theta )+i\sin (\theta )$$
 	p $$e^{-i\theta }=\cos (\theta )-i\sin (\theta )$$
@@ -52,25 +41,41 @@ block subSubContent
 	p Similarly if the derivative of the real part of \(e^{i\theta }\) is \(0\), the imaginary part is \(\pm 1\). And visa versa.
 
 	h3
-		b Nature of \(\cos \) and \(\sin \) functions
-	p $$e^{i\theta }=\cos (\theta )+i\sin (\theta )$$
+		b Calculus: Derivatives 1
+	p Note that these functions are linked in their derivatives.
+	p $$\frac{\delta }{\delta \theta }\cos (\theta )=\sum_{j=0}^\infty \frac{(\theta )^{(4j+3)}}{(4j+3)!}-\sum_{j=0}^\infty \frac{(\theta )^{4j+1}}{(4j+1)!}$$
+	p $$\frac{\delta }{\delta \theta }\cos (\theta )=-\sin (\theta )$$
+	p Similarly:
+	p $$\frac{\delta }{\delta \theta }\sin (\theta )=cos(\theta )$$
+	h3
+		b Calculus: Derivatives 2
+	p $$\frac{\delta^2 }{\delta \theta^2}\sin (\theta )=-\sin (\theta )$$
+	p $$\frac{\delta^2 }{\delta \theta^2}\cos (\theta )=-\cos (\theta )$$
 
-	p
-		b De moive's theorem
-	p
-		b Position and derivative at \(\theta =0\)
+	p So for either of:
+	p $$y=\cos (\theta )$$
+	p $$y=\sin (\theta )$$
+	p We know that
+	p $$\frac{\delta^2 }{\delta \theta^2}y(\theta )=-y(\theta )$$
+	h3
+		b Calculus: Derivatives 3
+	p $$\frac{\delta }{\delta \theta }e^{i\theta }=ie^{i\theta }$$
+	p $$\frac{\delta }{\delta \theta }e^{i\theta }=i\cos (\theta )-\sin(\theta )$$
+	h3
+		b Calculus: Behaviour at \(0\)
 	p Consider \(\theta =0\).
-	p $$e^{i.0}=1$$
+
+	p $$e^{i.0}=\cos (0)+i\sin (0)$$
+	p $$1=\cos (0)+i\sin (0)$$
 	p $$\sin (0)=0$$
 	p $$\cos (0)=1$$
-	p Similarly we know that the derivative
-	p $$-\sin (\theta )+i\cos (\theta )$$
-	p Which evaluates at \(\theta =0\) to:
-	p $$-\sin (0)+i\cos (0)$$
-	p $$0+i$$
-	p That is, \(\sin (\theta \) is increasing at \(\theta =0\) which \(\cos (0)\) is static.
-	p
+	p Similarly we know that the derivative:
+	p $$\sin'(0)=\cos(0)=1$$
+	p $$\cos'(0)=-\sin(0)=0$$
+
+	h3
 		b Repeating function
+	p Consider \(\cos(\theta )\). 
 	p As \(\cos (0)\) is static at \(\theta =0\), and is positive, it will fall until \(\cos (\theta )=0\).
 	p While this is happening, \(\sin (\theta )\) is increasing. As:
 	p $$\cos (\theta )^2+\sin (\theta )^2=1$$

@@ -13,6 +13,13 @@ block subSubContent
 	p $$x\in s$$
 	p Sets are also terms. In first-order logic they will be included in quantifiers. Indeed, in set theory, we aim to treat everything as sets.
 	h3
+		b Empty set
+	p The empty set is \(\varempty \)
+	p \(\forall x (x \not\in \emptyset \)
+	h3
+		b Classes and sets
+	p We can describe something without saying it is included in the domain.
+	h3
 		b The axiom schema of unrestricted comprehension does not work
 	p We want to formalise the relationship between the preterite and the set. An obvious way of doing this is to add an axiom for each preterite in our structure that:
 	p $$\forall x \exists s[P(x)\leftrightarrow (x\in s)]$$
@@ -24,6 +31,8 @@ block subSubContent
 	p As this is true for all \(x\), it is true for \(x=s\). So:
 	p $$\exists s[¬(s\in s) \leftrightarrow (s  \in s)]$$
 	p This statement is false. As we have inferred a false formula, the axiom of unrestricted comprehension does not work. This result is known as Russel's Paradox.
+	p This is an axiom schema rather than an axiom. That is, there is a new axiom for each preterite.
+
 	h3
 		b Axiom schema of specification
 	p 	To resolve Russels' paradox, we amend the axiom schema to:
@@ -34,13 +43,25 @@ block subSubContent
 	p $$\exists s[(¬(s\in s)\land s\in s )\leftrightarrow (s\in s)]$$
 	p So long as the subsets \(s\) are not members of themselves, this holds.
 	h3
-		b Note on axiom schema
-	p This is an axiom schema rather than an axiom. That is, there is a new axiom for each preterite.
-	h3
 		b Non-member definition
 	p If a term is not a member of another term, we can write this using the non-member relation as follows:
 	p $$\forall x \forall s [¬(x\in s)\leftrightarrow x\not\in s]$$
 	h3
-		b Subset definition
+		b Subsets
+	p Subset:
+	p $$\forall x\forall y[(\forall z(z\in x\and z\in y))\leftrightarrow (x\subsetproper y)]$$
+	p Proper subset
+	p $$\forall x\forall y[((\forall z(z\in x\and z\in y)))\land(x\ne y)\leftrightarrow (x\subsetproper y)]$$
+
 	p If all terms which are members of term \(x\) are also members of term \(y\), then \(x\) is a subset of \(y\). This is formally defined as:
 	p $$\forall x \forall y [(\forall z \in x, z\in y)\rightarrow (x\subseteq y)]$$
+	h3
+		b Do subsets all exist
+	p Finite subsets. Don't know about infinite subsets
+	p If we can define a subset, by the axiom of specification it exists.
+	p For example if set \(\{a,b,c\}\) exists, we can define a preterite to select any subset of this.
+	p For example we can use define a \(P(x)\) as \(x=a\lor x=b\) to extract the subset \(\{a,b\}\).
+	p If a subset is infinitely large, 
+	h3
+		b Intersection of finite sets
+	p Can prove exists from this axiom

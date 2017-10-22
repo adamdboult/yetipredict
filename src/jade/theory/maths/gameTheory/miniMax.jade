@@ -1,0 +1,17 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Minimax
+
+block subSubContent
+	p minimax: two players, max min
+	p max goes first, maximises results. min minimises results
+	p a node's minimax value is the best outcome against best player.
+	p to find optimal strategy, depth first search of game tree.
+	p propagate minimax values up tree as terminal nodes are discovered
+	p if a state is terminal, its value is utility of state
+	p if a state is max node, highest value of children
+	p if a state is min node, lowest value of children
+
+	p minimax is optimal, complete (for finite trees)
