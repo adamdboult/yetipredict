@@ -1,0 +1,19 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Naive Bayes classifier
+block subSubContent
+	h3
+		b 
+	p P(A|B)=\frac{P(B|A)P(A)}{P(B)}
+	p P(A|B)=\frac{P(B|A)P(A)}{P(B|A)P(A)+P(B|¬A)P(¬A)}
+
+	p choose label a which is largest
+	p is generative ist
+
+	p but, p(b) is same across, so can just look at numerator
+	p P(A) easy to estimate, frequency across sample
+	p P(B|A) harder, B is array.
+
+	p naive becauase assumes independence between features. that is:
+

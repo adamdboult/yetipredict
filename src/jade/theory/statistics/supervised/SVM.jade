@@ -1,0 +1,77 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Support Vector Machines
+block subSubContent
+	h3
+		b 
+	p 
+	p similar to logistic regression:
+
+	p -ylog(1/(1+e^-the x)) - (1-y)log...
+
+	p new rule: flat going down then flat
+	p no cost above certain value of z, similar for other end of wrong
+
+	p ignore error for good results!
+
+	p rather than minimise A + lambda B (loss + lambda theta)
+	p C * A + B
+	p by convention
+
+	p C sets us bias/variance trade off
+
+	p still min ycost(h) + (1-y)cost(h)
+
+	p if y = 1 we want theta x >  1
+	p if y = 0 we want theta x > -1
+
+	p chooses large margin as these require lower values of theta
+
+
+
+	p use new features: kernels
+	p distance of values from landmarks
+
+	p f1 = similarity(x, l1) = exp[-(||x - l1||^2)/2var^2]
+
+	p how to choose sigma squared? high sigma means high bias, low variance, less weight on f1
+
+	p using this, can predict whether points near kernels. kernels define where y=1, roughly bunch of circles, size of theta.
+
+
+	p or k(x, l)
+
+
+	p how to choose location?
+
+	p choose kernels for each of training set data
+	p new features list now size of training set!
+
+	p to calculate hypothesis, theta * f
+
+	p loss can be different to just sum theta ^2. rather than
+	p theta' theta, can do 
+	p theta' M theta
+
+	p often faster, depends on algo
+
+
+	p using kernels in svm faster than in logistic regression etc
+
+
+	p options?
+	p linear kernel, just theta' x, if >0 y=1. closer to linear regression
+
+	p more outcome options => linear better?
+
+	p other is gaussian
+	p kernels need to satisfy mercer's theorem. this makes them efficient to calculate
+	p other include polynomial kernel (X' l)^2, (X' l + c)^p
+
+	p svm slows down with size, 50k+ samples -> slow. can manually create more features, do logistic regression
+
+
+	p don't write yourself, too difficult
+
+	p svm's tend not to get stuck in local optima

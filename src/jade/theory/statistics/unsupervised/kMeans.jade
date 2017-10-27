@@ -1,0 +1,47 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b k-means clustering
+block subSubContent
+	h3
+		b Unsupervised
+	p No "correct" answer to find, unstructred data, try to find relationships
+
+	p Eg google news, group data together by what seems similar
+
+	p Use gene data to group people into types
+
+	p No priors about data, but can find structure
+
+	p Other examples include using two microphones to separate two different speeches in a room, remove music from speech
+
+	p Can group customers into segments
+	h3
+		b KMC
+	p K means is most widely used unsupervised model
+
+	p create 2 cluster centroids randomly in data
+
+	p data will then be assigned to one of the clusters
+	p by nearest: distance squared on dimension
+
+	p centroid then move to center of the data in cluster
+
+	p then iterate
+
+	p if no data on cluster can eliminate or reassign
+
+	p optimisation function: difference from cluster center squared / m
+
+	p Initialisation:
+	p K < m
+
+	p randomly pick k samples
+
+	p can do it under different initialisations in order to minimise risk of bad local optima
+
+	p choosing k:
+	p cost function for each K. Is there a kink?
+
+	p can choose k if output is being used in later data analysis (eg type assignment, complaint level or something)
+

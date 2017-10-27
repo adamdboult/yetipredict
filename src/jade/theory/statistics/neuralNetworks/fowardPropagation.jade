@@ -1,0 +1,36 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Forward propagation
+block subSubContent
+	h3
+		b 
+	p Each node is a logit model. rather than pass to output, pass to a range of hidden layers first. We add a bias term, \(x_0=1\), for each node.
+	p Each neuron will have different parameters.
+	p Once a layer has been calculated, use activiation values for the next layer.
+
+	p We refer to the value of a node as \(ai^(j)\), the activation of unit \(i\) in layer \(j\).
+	p \(\Theta^(j)\) is a matrix of weights for mapping layer \(j\) to \(j+1\).
+
+	p a=sig(z)
+
+	p Input layer: number of inputs
+	p Output layer: \(K\) classes
+	p Hidden layers: \(L\) layers with \(S_l\) units in layer \(l\) - excluding the bias unit. A model can use just one hidden layer. Using twice as many nodes as inputs is a good starting point.
+
+	p deeper models can compute more complex ideas
+
+	p The weights for a single node can act as logical gates:
+
+	p can use and gates:
+	p h(x) = g(-30 +20x1 + 20x2)
+
+	p or:
+	p h(x) = g(-10 +20x1 + 20x2)
+
+	p not:
+	p h(x) = g(10 - 20x1)
+
+	p nor:
+	p h(x) = g(10 - 20x1 - 20x2)
+

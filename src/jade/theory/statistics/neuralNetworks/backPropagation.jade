@@ -1,0 +1,56 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Back propagation
+block subSubContent
+	h3
+		b 
+	p 
+	p 
+	p Start by randomly initialisng weights, otherwise each neuron will move in sync
+
+	p backpropagation:
+	p delta_j^(l) is the error of node j in layer l
+	p delta_j^(4) = a_j^(4) - y_j
+
+	p cost function: is same as before, but for each possible y value.
+	p for the lamda, theta is 3 dimensional (each layer has nodes, each node has weights for each input)
+
+	p what is lower delta? partial derivative of cost function wrt to z(l)
+
+	p lower delta of final layer is actual error: difference between forecast and actual
+
+	p how end at earlier delta values? same as forward: use same theta values, but times by delta value for later section, rather than sigmoid outcome
+
+	p delta values are calculated for bias values, however these are discarded
+
+	p end result: derivatives!
+
+	p rather than 3d matrix, can have matrix for each layer
+
+	p can unroll these matricies using octave, to put in as theta values for min functions
+
+	p what should cost functions be here? forward/back propagation used to get D and J
+	p D are gradients. matrix for each layer
+
+	p gradient checking can be used on back prop to check algo
+
+	p can check gradient calculation by working out for theta + epsilon. diff/eps should be similar to gradient
+
+	p can use two sided difference ( f(theta+eps) - f(theta-eps))/2eps
+
+	p want eps to be small, limit is computational issues (10^-4 or so is often used)
+
+	p where theta is large vector, can just increase, decrease the relevant theta
+
+	p for i = 1:n
+	p thetaPlus = theta
+	p thetaPlus(i) = thetaPlus(i)+EPSILON
+	p thetaMinus = theta
+	p thetaMinus(i) = thetaMinus(i) - EPSILON
+	p gradApprox(i) = (J(thetaPlus) - J(thetaMinus))/(2*EPSILON)
+	p end
+
+	p can then check. gradApprox should roughly be DVec
+
+	p only do this to check algo works. DVec works better, so only use this for testing. turn off for training classifier

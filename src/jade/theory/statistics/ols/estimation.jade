@@ -70,4 +70,122 @@ block subSubContent
 	p $$X^{T}XM=X^T y$$
 	p $$M=(X^{T}X)^{-1}X^T y$$
 	p Note that this only has a solution if \(X^TX\) is invertible. Intuitively it isn’t if there are more variables than samples, or if variables are linearly dependent. Examples of linearly dependent variables include “distance in miles” and “distances in kilometres”.
+
+
+
+	h3
+		b Univariate linear regression
+	p Get each theta, get the variance of each theta.
+
+	p Of form y=mx+c, or
+	p $$h_\theta (x)=\theta _0 + \theta _1 x$$
+
+	p Know x, y for existing sample.
+
+	p Estimates of $\theta _0$ and $\theta _1$ result in different accuracy.
+	p Can use cost functions to measure fit of estimates.
+
+	p Standard sum of square residuals fine. Framed as:
+	p $$J(\theta _0 ,\theta _1 )=\frac{1}{2m}\sum\limits_{i=1}^m (h_\theta (x^{(i)})-y^{(i)})^2$$
+	p theta = 1/2m sum(m) [h(theta) -y]^2
+
+	p h refers to hypothesis
+
+	p $$h_\theta (x)=\theta _0 +\theta _1 x=h(x)$$
+
+	p Divided by 2 for easier for dealing with derivatives.
+
+	p Can take derivates of cost function for estimate (ends with OLS...)
+
+	p In practice derivatives may not be simple, can do gradient descent.
+	p take starting point, go down steepest part.
+
+	p not guaratneed to arrive at global minimum, depends on start point and type of regression. linear regression doesn't have this issue
+
+	p $$\theta _j := \alpha \frac{\delta }{\delta \theta _j}J(\theta _0,\theta _1)$$
+
+	p alpha sets rate of descent.
+
+	p := used to denote an update of variable. Used in programming, eg x=x+1.
+
+	p As more than one variable used, needs to be:
+	p $$temp0:=\theta _0 -\alpha...$$
+	p $$temp1:=\theta _1 -\alpha...$$
+	p $$\theta _0=temp0$$
+	p $$\theta _1=temp1$$
+
+	p Prevents misestimates, temp1 needs to be based on old value of theta.
+
+	p As derivative term gets smaller, convergance happens ("large" moves at start, then smaller steps)
+
+	p Derivative term for least squares:
+	p $$\frac{\delta }{\delta \theta _0}J(\theta _0,\theta _1)=\frac{1}{m}\sum\limit_{i=1}^m (h_{\theta} (x^{(i)})-y^{(i)})$$
+	p $$\frac{\delta }{\delta \theta _1}J(\theta _0,\theta _1)=\frac{1}{m}\sum\limit_{i=1}^m (h_{\theta} (x^{(i)})-y^{(i)})x^{(i)}$$
+
+	p Can plug into update equation
+
+	p This is batch gradient descent. Each step of descent uses all training examples
+
+
+	p theta 0 := theta 0 - alpha/m sum(h0(x) - y)
+	p theta j := theta j - alpha/m sum(h0(x) - y)xj
+
+	p Can use matricies to do all this stuff
+
+	p eg linear regresssion can be shown as:
+
+	p features for gradient descent should be roughly same scale
+	p if rooms and size sqft, then can scale size downwards
+
+	p makes trajectory smoother, gets there faster
+	p get things to -1<x<1 range
+
+
+	p get run for x iterations,evaluate j(theta)
+
+	p can stop if not lowering by much
+	p can check if j theta increasing, means bad methodology, lower alpha
+
+	p can generate more varibles for polynomial stuff
+	p x x2, log x etc, sqr x, then have y = x + log x etc
+
+	p have implication for feature scaling
+
+
+	p Design matrix
+	p | 1 | 2104 |
+	p | 1 | 1416 |
+	p | 1 | 1534 |
+	p | 1 |  852 |
+
+	p times X
+
+	p 1st col is all 1s, column for times by constant
+
+	p |  -40 |
+	p | 0.25 |
+
+
+
+	p Where 2nd col is, say, house sizes in sqr feed, and -40 is theta_0, 0.25 is gradient.
+
+	p Can have multiple columns for additional hypotheses
+
+
+	p can get theta without estimation by calcing
+	p (XtX)^-1 Xt y
+
+	p This normal equation gets exact answer of theta
+	p which to use?
+	p normal needs no alpha, iterations, is exact
+
+	p but gradient descent works better with v large number of features, unlike normal equation.calcuing x'x^-1 is n^3 complexity in software
+
+	p anything above n = 10 000 is slow, gradient descent can be better
+
+
+	p feature scaling:
+
+	p [x- min(x)] / [max(x) min(x)]
+
 	
