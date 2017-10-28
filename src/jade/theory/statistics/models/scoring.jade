@@ -1,0 +1,35 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Scoring models
+block subSubContent
+	p high bias:
+	p + both cost of cv, train have high cost, converges, isn't decreasing..
+	p + more data won't help
+	p + not much gap between training, cv error
+	p high variance
+	p is cv cost decreasing with training set size?
+
+	p high variance:
+	p + training set error increases for large m, low error
+	p + cv error slow to converge, decreases for large m
+	p + gap between errors!
+
+	p Program learns from experience E with respect to task T and performance measure P
+
+	p We want to the actual distribution model f(x, y). This could be E(X), P(Y=y|X=x) etc.
+	p Our model is g(x, y)
+	p Model error
+	p We have actual result \(y\), and estimated result \(\hat{y}\).
+	p How can we evaluate how good our model is?
+	p Can do least squares
+	p Logarithmic
+	p Least absolute squares
+	p Ridge regression
+	p Lasso regression
+	p Even if model is perfect, we may still have errors, as there may be underlying uncertainty in the underlying distribution.
+	p Bias-variance tradeoff
+
+	p F_1 score: 2PR/(P+R)
+	p may not just care about accuracy, eg breast cancer screening
+	p high accurancy can result from v basic model (ie all died on titanic)

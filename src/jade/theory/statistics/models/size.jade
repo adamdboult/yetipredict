@@ -1,0 +1,27 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Sample sizes
+block subSubContent
+	p If you're modelling house prices using just size, getting a large sample size won't help too much
+	p Can improve low bias models*** Sample size
+	p 
+
+	p is data size an issue? can artificially restrict training data size and then evaluate error
+	p training:
+	p + zero error for low m
+	p + increases error as m increases, as degrees of freedom/m falls
+	p cv:
+	p + error decreases as data set increases, more accurate theta
+	p the two curves converge towards each other for v large m
+
+	p When are large datasets useful?
+	p when all features available:
+	p predicting house price using just size, won't benefit from more data...
+	p if choosing correct word in sentence (to, too, two), more helpful
+	p if human expert can do it, then more data probably helpful
+
+	p expert realtor probably couldn't do much with just size, but speaker could answer other q
+	p could expert do it?
+	p low bias algorithms do well with more data
+	p more data good if large number of parameters, or lot of hidden units

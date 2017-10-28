@@ -1,0 +1,53 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Overfitting
+block subSubContent
+	p role of lambda: high makes impact of more variables lower => high bias
+	p low makes impacts of more variables strong => high variance
+	p can trade off using cut off. only make positive if above 0.7
+	p how to use? difficult, as lambda within cost!
+
+	p can do similarly to d:
+	p run for a range of lambda (eg 0, 0.01, 0.02, 0.04, 0.08:~10), then pick from cross validation set
+	p low lambda always has low cost for training set, but not for cv set..
+
+
+
+	p regularisation: add to error term the size of the term. penalised large parameters
+	p May not fit outside sample
+
+	p High bias: eg house prices and size. linear would have high bias for out of scope sample (underfitting)
+
+	p high variance: making polynomial passing through all data (overfitting)
+
+	p Can reduce overfitting by reducing features either manaually or using models
+	p OR regularisation: keep all features, but reduce magnitude of theta
+	h3
+		b Regularisation
+	p make cost function include size of theta^2 values
+	p min 1/2m [sum (h(x)-y)^2 + 1000 theta3 ^2 + 1000 theta4 ^2]
+	p or more broadly:
+	p min 1/2m[sum ..... + lamba sum thetaj^2]
+
+	p tend to not include theta 0 as convention, no regularisation
+
+	p update for linear regression is
+	p theta j = theta j -alpha{(1/m)* sum(h(x)-y)xj + (lambda/m thetaj)}
+	p theta j = theta j (1- alpha lambda / m) -alpha {(1/m)*sum(h(x)-y)xj}
+
+	p this is the same as before, but theta j updates from a smaller theta j each time
+
+	p normal equation needs a change
+
+	p (X'X)^-1X'y=theta'')
+	p now is
+	p (X'X+lambdaI)^-1X y  ')
+	p although for theta 0, lambda zero, so indentiy matrix, but first element 0
+
+	p REGULARISATION FOR REGULARISATION
+	p add to end of J(theta):
+	p + lamda/2m .sum thetaj^21
+
+	p update for theta j j>0:
+	p is a as linear regression, but h(x) is a different function
