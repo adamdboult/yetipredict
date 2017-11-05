@@ -1,0 +1,77 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Morphisms
+
+block subSubContent
+	h3
+		b What are morphisms?
+	p Morphisms are functions which preserve the relationships between members of a set, and specified functions.
+	p That is, if:
+	p \(a\odot b=c\)
+	p Then \(f(x)\) is morphism if:
+	p \(f(a)\odot f(b)=f(a\odot b)\)
+	p Here we discuss morphisms in the context of groups, but we can define morphisms for sets with more than one function, for example with addition and multiplication.
+	p Morphisms are also known as homomorphisms.
+	p The following are morphisms of the additive group of integers.
+	p Where we refer to \(c\), \(c\ne 0\in \mathbb{I}\).
+	ul
+		li \(f(x)=0\)
+		li \(f(x)=x\)
+		li \(f(x)=cx\)
+		li Converting natural numbers to integers
+	p The following are not morphisms
+	ul
+		li \(f(x)=x+1\)
+	h3
+		b Isomorphism
+	p An isomorphism is a morphism which has an inverse.
+	p This means the function is bijective.
+	p The following are isomorphisms:
+	ul
+		li \(f(x)=x\)
+		li \(f(x)=cx\)
+		li Converting natural numbers to integers
+	p The following are not isomorphisms
+	ul
+		li \(f(x)=0\)
+		li \(f(x)=x+1\)
+	h3
+		b Endomorphism
+	p An endomorphism is one where the domain and codomain are the same.
+	p The following are endomorphisms:
+	ul
+		li \(f(x)=0\)
+		li \(f(x)=x\)
+		li \(f(x)=cx\)
+	p The following are not endomorphisms
+	ul
+		li Converting natural numbers to integers
+		li \(f(x)=x+1\)
+	h3
+		b Automorphism
+	p An endomorphism which is also an isomorphism
+	p The following are automorphisms:
+	ul
+		li \(f(x)=x\)
+		li \(f(x)=cx\)
+	p The following are not automorphisms
+	ul
+		li \(f(x)=0\)
+		li \(f(x)=x+1\)
+		li Converting natural numbers to integers
+	h3
+		b Monomorphism
+	p A morphism which is injective. That is:
+	p \(f(a)=f(b)\rightarrow a=b\)
+	p The following are monomorphisms:
+	ul
+		li \(f(x)=x\)
+		li \(f(x)=cx\)
+		li Converting natural numbers to integers
+	p The following are not monomorphisms
+	ul
+		li \(f(x)=0\)
+		li \(f(x)=x+1\)
+

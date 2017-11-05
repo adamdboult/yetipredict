@@ -1,0 +1,23 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Commutation
+
+block subSubContent
+	h3
+		b Commutators
+	p We define a function, the commuter, between two objects \(a\) and \(b\) as:
+	p \([a,b]=ab-ba\)
+	p For numbers, \(ab-ba=0\), however for matrices this is not generally true.
+	h3
+		b Commutators and eigenvectors
+	p Consider two matrices which share an eigenvector \(v\).
+	p \(Av=\lambda_A v\)
+	p \(Bv=\lambda_B v\)
+	p Now consider:
+	p \(ABv=A\lambda_B v\)
+	p \(ABv=\lambda_A\lambda_B v\)
+	p \(BAv=\lambda_A\lambda_B v\)
+	p If the matrices share all the same eigenvectors, then the matrices commute, and \(AB=BA\).
+

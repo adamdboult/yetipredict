@@ -2,26 +2,11 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Linear decomposition
+		b Eigen-decomposition
 
 block subSubContent
-	p It is often useful to show a matrix as a product of other matrices.
-	p
-		b LU decomposition
-	p This a matrix
-	p $$A=LU$$
-	p Where \(L\) is a lower triangular matrix, and \(U\) is an upper triangular matrix.
-	p
-		b Cholesky decomposition
-	p This a matrix
-	p $$A=LL*$$
-	p Where \(L\) is a lower triangular matrix.
-	p
-		b LDL decomposition
-	p $$A=LDL*$$
-	p Where \(L\) is a lower triangular matrix and \(D\) is a diagonal matrix
-	p
-		b Eigen decomposition
+	h3
+		b Eigen-decomposition
 	p If \(A\) is full rank:
 	p $$A=Q\Lambda Q^{-1}$$
 	p Where \(Q\) is the eigenvectors as columns, and \(\Lambda \) is a diagonal matrix with the corresponding eigenvalues.

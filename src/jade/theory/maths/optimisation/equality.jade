@@ -2,22 +2,9 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b KKT
+		b Equality constraints
 
 block subSubContent
-	p Given a function with inputs \(x\), what values of \(x\) maximise the function?
-	p We explore constrained and unconstrained optimisation. The former is where restrictions are placed on vector \(x\), such as a budget constraint in economics.
-	h3
-		b Unconstrained optimisation
-	p Find stationary points
-	p Stationary points of a function are points where marginal changes do not have an impact on the value of the function. As a result they are either local maxima or minima.
-	p We can identify these by taking partial derivatives of the function in question and identifying where this function is equal to zero.
-	p $$u=f(x)$$
-	p $$u_{x_i}=\frac{\delta f}{\delta x_i}=0$$
-	p We can then solve this bundle of equations.
-	p Find direction beyond stationary points
-	p After identifying the vector \(x\) for these points we can then  determine whether or not the points are minima or maxima by  examining the second derivative at these points. If it is positive it is a local minima, and therefore not an optimal point. Points beyond these will be higher, and may be higher than any local maxima.
-	p If a function is concave 
 	h3
 		b Constrained optimisation
 	p Lagrangian
@@ -58,3 +45,18 @@ block subSubContent
 	p $$\mathcal{L}_{x_i}=\frac{\delta f}{\delta x_i}-\sum^m_k\lambda_k \frac{\delta g_k}{\delta x_i}=0$$
 	p $$\mathcal{L}_{x_j}=\frac{\delta f}{\delta x_j}-\sum^m_k\lambda_k \frac{\delta g_k}{\delta x_j}=0$$
 	p $$\frac{\delta f}{\delta x_i}-\sum^m_k\lambda_k \frac{\delta g_k}{\delta x_i}=\frac{\delta f}{\delta x_j}-\sum^m_k\lambda_k \frac{\delta g_k}{\delta x_j}$$
+	h3
+		b More
+	p We can add equality constraints to an optimisation problem.
+	p Minimise \(f(x)\) subject to 
+	p \(g_i(x)=0\) for \(i=1,…,p\)
+	p Consider a function, the Lagrangian:
+	p \(\mathcal{L}(x, \lambda )=f(x) +\sum_{i=1}^p\lambda_ig_i(x)\)
+	p By taking partial derivatives with respect to \(x\) and \(\lambda \), we can identify the critical points.
+	p This forces the equality condition to hold, as the first order condition for \(lambda_i\) is one of the equality constraints.
+	p If the constraints are mutually exclusive, for example \(y=x+1\) and \(y=x+2\) then these will not be solvable.
+	p The values of the Lagrangian multipliers can have interpretations, depending on their formulation. If a constraint is of the format:
+	p \(g_i(x)=m-h(x)\)
+	p Then:
+	p \(\mathcal{L}_m=\lambda_i \)
+	p Here, \(lambda_i\) represents the impact of increasing \(m\).

@@ -13,78 +13,15 @@ block subSubContent
 
 
 	h3
-		b Maps and forms
-
-
-	p
-		b Linear maps
-	p A linear map (or function) is a map from one input to an output which preserves addition and scalar multiplication.
-	p That is if function \(f\) is linear then:
-	p $$f(aM+bN)=af(M)+bf(N)$$
-	p Linear form
-	p A linear form is a special type of linear map, which takes a vector and returns a scalar.
-	p Let’s consider what this implies.
-	p $$v=[a_1,…,a_n]$$
-	p $$v=[a_1,…,0]+...+[0,…,a_n]$$
-	p $$f(v)=f([a_1,…,a_n])
-	p $$f(v)=f([a_1,…,0]+...+[0,…,a_n])$$
-	p Because a linear map is linear in additon:
-	p $$f(v)=f([a_1,…,0])+...+f([0,…,a_n])$$
-	p $$f(v)=f(a_1[1,…,0])+...+f(a_n[0,…,1])$$
-	p Because a linear map is linear in scaling:
-	p $$f(v)=a_1f([1,…,0])+...+a_nf([0,…,1])$$
-	p Because the function terms are now independent of the vector:
-	p $$f(v)=a_1f_1+...+a_nf_n$$
-	p $$f(v)=fv$$
-	p That is, the linear form is a vector multiplication.
-	p
-		b Biliear map
-	p A bilinear map (or function) is a map from two inputs to an output which preserves addition and scalar multiplication. This is in contrast to a linear map, which only has one input.
-	p In addition, the function is linear in both arguments.
-	p That is if function \(f\) is bilinear then:
-	p $$X=aM+bN$$
-	p $$Y=cO+dP$$
-	p $$f(X,Y)=f(aM+bN,cO+dP)$$
-	p $$f(X,Y)=f(aM,cO+dP)+f(bN,cO+dP)$$
-	p $$f(X,Y)=f(aM,cO)+f(aM,dP)+f(bN,cO)+f(bN,dP)$$
-	p $$f(X,Y)=acf(M,O)+adf(M,P)+bcf(N,O)+bdf(N,P)$$
-	p Note that:
-	p $$f(X,Y)=f(X+0,Y)$$
-	p $$f(X,Y)=f(X,Y)+f(0,Y)$$
-	p $$(0,Y)=0$$
-	p That is, if any input is \(0\) in an additative sense, the value of the map must be zero.
-	p
-		b Bilinear form
-	p A bilinear form is a special type of bilinear map, which takes a vector and returns a scalar.
-	p
-		b Multilinear map
-	p This extends from \(2\) inputs to an arbitrary number of inputs.
-	p
-		b Multilinear form
-	p A special type of multilinear map which takes vectors and returns a scalar.
-	p $$f(M)=f([v_1,…,v_n])$$
-	p We introduce \(e_i\), the element vector. This is \(0\) for all entries except for \(i\) where it is \(1\). Any vector can be shown as a sum of these vectors multiplied by a scalar.
-	p $$f(M)=f([\sum^m_{i=1}v_{1i}e_i,…,\sum^m_{i=1}v_{ni}e_i])$$
-	p $$f(M)=\sum^m_{k_1=1}f([v_{1k_1}e_{k_1},…,\sum^m_{i=1}v_{ni}e_i])$$
-	p $$f(M)=\sum^m_{k_1=1}...\sum^m_{k_n=1}f([v_{1k_1}e_{k_1},…,v_{nk_n}e_{k_n}])$$
-	p Because this in linear in scalars:
-	p $$f(M)=\sum^m_{k_1=1}...\sum^m_{k_n=1}\prod_{j=1}^nv_{jk_j}f([e_{k_1},…,e_{k_n}])$$
-
-
-	h3
-		b Terminology
-	p
 		b Matrices as columns
 	p A matrix can be shown in terms of its columns.
 	p $$A=[a_1,a_2,...,a_n]$$
-	p
+	h3
 		b Columns as sums of elements
 	p An element vector \(E^k\) is empty except for \(1\) in row \(k\). It is the \(i\)th column of the identity matrix.
 	p Column \(a_i\) can be shown as;
 	p $$a_i=\sum_{j=1}^na_{ji}E^j$$
 	h3
-		b Desired properties
-	p
 		b Linear dependence
 	p If a column is a linear combination of other columns, then the matrix cannot be inverted.
 	p If:
@@ -100,7 +37,7 @@ block subSubContent
 	p The following is the rule
 	p $$D(M)=\sum_{i=1}^{m}c_iD([a_1,a_2,...,b_i,...,a_n])$$
 
-	p
+	h3
 		b Result 1: A matrix with a column of \(0\)s has a determinant of \(0\)
 	p Linear dependence implies that if a matrix has a column of \(0\)s then the determinant is \(0\).
 	p $$A=[a_1,...,0,...,a_n]$$
@@ -108,7 +45,7 @@ block subSubContent
 	p $$D(A)=D([a_1,...,0.c,...,a_n])$$
 	p $$D(A)=0.D([a_1,...,c,...,a_n])$$
 	p $$D(A)=0$$$
-	p
+	h3
 		b Result 2: Multiplying a column by \(-1\) multiplies the determinant by \(-1\)
 	p Reversing the sign of a column reverses the sign of the determinant.
 	p $$M_1=[a_1,a_2,...,a_i,...,a_n]$$
@@ -120,7 +57,7 @@ block subSubContent
 	p $$D(M_2)=-D([a_1,a_2,...,a_i,...,a_n])$$
 	p $$D(M_2)=-D(M_1)$$
 
-	p
+	h3
 		b Result 3: Swapping columns multiplies the determinant by \(-1\)
 	p 
 	p $$A=[a_1,...,a_i+a_j,...,a_i+a_j,...,a_n]$$
@@ -130,7 +67,7 @@ block subSubContent
 	p As \(2\) of these have equal columns these are equal to \(0\).
 	p $$D([a_1,...,a_i,...,a_j,...,a_n])+D([a_1,...,a_j,...,a_i,...,a_n])=0$$
 	p $$D([a_1,...,a_i,...,a_j,...,a_n])=-D([a_1,...,a_j,...,a_i,...,a_n])$$
-	p
+	h3
 		b Result 4: A matrix with equal columns has a determinant of \(0\).
 	p $$A=[a_1,...,a_i,...,a_i,...,a_n]$$
 	p $$D(A)=D([a_1,...,a_i,...,a_i,...,a_n])$$
@@ -138,7 +75,7 @@ block subSubContent
 	p $$D(A)=-D(A)$$
 	p $$D(A)=0$$
 
-	p
+	h3
 		b Result 5: Linear dependence results in a determinant of \(0\).
 	p Consider linearly dependent matrix \(A\):
 	p $$A=[a_1,a_2,...,\sum_{j\ne i}^{n}c_ja_j,...,a_n]$$
@@ -151,8 +88,6 @@ block subSubContent
 
 	h3
 		b Calculating the determinant
-	p
-		b Matrix to element form
 	p We have
 	p $$A=[a_1,...,a_i,...,a_n]$$
 	p Let's show this in element form.
@@ -177,9 +112,6 @@ block subSubContent
 	p $$\sum_{\sigma \in S_n}sgn (\sigma )\prod_{i=1}^na_{i,\sigma_i}$$
 
 	h3
-		b Properties of determinants
-	p We know the below as it is of bilinear form.
-	p
 		b Multiplication
-	p detAdetB=detAB
+	p \(|A||B|=|AB|\)
 		

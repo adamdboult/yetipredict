@@ -4,53 +4,33 @@ block subSubTitle
 		b Back propagation
 block subSubContent
 	h3
-		b 
-	p 
-	p 
-	p Start by randomly initialisng weights, otherwise each neuron will move in sync
+		b Initialising
+	p We start by randomly initialisng the value of each \(\theta \).
+	p We do this to prevent each neuron from moving in sync.
+	h3
+		b Calculating errors for the last layer
+	p For the last layer, the error is the difference between the activiation and actual label
+	p The activitation is written as:
+	p \(a_j^l\)
+	p The error for example \(e\) is:
+	p \(E_e(\theta )=\frac{1}{2}\sum_{k}(y_k-a_j^L)^2\)
+	p We use gradient descent to change \(\theta \).
+	p \(\Delta \theta_{ij}=-\alpha \frac{\delta E_e(\theta )}{\delta \theta_{ij}}\)
+	p \(\Delta \theta_{ij}=-\alpha \frac{\delta E_e(\theta )}{\delta z_{j}^l}\frac{\delta z_j^l}{\delta \theta_{ij}}\)
+	p \(\Delta \theta_{ij}=-\alpha \frac{\delta E_e(\theta )}{\delta z_{j}^l}a_i^l\)
+	h3
+		b Back propagation
+	p Back propagation refers to errors being sent backwards from the ultimate layer.
+	p For node \(j\) in layer \(l\) we can write the error as:
+	p \(\delta_j^l\)
+	
+	p This is set to the partial derivative of the cost function with respect to to z(l)
 
-	p backpropagation:
-	p delta_j^(l) is the error of node j in layer l
-	p delta_j^(4) = a_j^(4) - y_j
-
-	p cost function: is same as before, but for each possible y value.
-	p for the lamda, theta is 3 dimensional (each layer has nodes, each node has weights for each input)
-
-	p what is lower delta? partial derivative of cost function wrt to z(l)
-
-	p lower delta of final layer is actual error: difference between forecast and actual
-
-	p how end at earlier delta values? same as forward: use same theta values, but times by delta value for later section, rather than sigmoid outcome
-
-	p delta values are calculated for bias values, however these are discarded
-
-	p end result: derivatives!
-
-	p rather than 3d matrix, can have matrix for each layer
-
-	p can unroll these matricies using octave, to put in as theta values for min functions
-
-	p what should cost functions be here? forward/back propagation used to get D and J
-	p D are gradients. matrix for each layer
-
-	p gradient checking can be used on back prop to check algo
-
-	p can check gradient calculation by working out for theta + epsilon. diff/eps should be similar to gradient
-
-	p can use two sided difference ( f(theta+eps) - f(theta-eps))/2eps
-
-	p want eps to be small, limit is computational issues (10^-4 or so is often used)
-
-	p where theta is large vector, can just increase, decrease the relevant theta
-
-	p for i = 1:n
-	p thetaPlus = theta
-	p thetaPlus(i) = thetaPlus(i)+EPSILON
-	p thetaMinus = theta
-	p thetaMinus(i) = thetaMinus(i) - EPSILON
-	p gradApprox(i) = (J(thetaPlus) - J(thetaMinus))/(2*EPSILON)
-	p end
-
-	p can then check. gradApprox should roughly be DVec
-
-	p only do this to check algo works. DVec works better, so only use this for testing. turn off for training classifier
+	p For each layer there is a matrix, where the columns and rows represent the \(theta \) between the current layer and the next layer. We have a matrix for each layer in the network.
+	h3
+		b Checking
+	p We can use a slower alternative to back propagation to ensure that the algorithm is working correctly.
+	p Gradient checking is used to manually work out the gradient of the cost function.
+	p We can do this by taking a value of theta, adding a small value, \(\epsilon \), to and from it to get \(\theta +\) and \(\theta -\).
+	p We can then calculate the gradient for \(\theta_i\) by calculating:
+	p \(\frac{J(\theta +)-J(\theta -)}{2\epsilon }\)

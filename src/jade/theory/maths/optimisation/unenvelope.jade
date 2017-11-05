@@ -1,0 +1,25 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Unconstrained envelope theorem
+
+block subSubContent
+	h3
+		b Introduction
+
+	p Consider a function which takes two parameters:
+	p \(f(x,\alpha \)
+	p We want to choose \(x\) to maximise \(f\), given \(\alpha ).
+	p \(V(\alpha )=\sup_{x\in X}f(x,\alpha )\)
+	p There is a subset of \(X\) where f(x,\alpha )=V(\alpha )\).
+	p \(X^*(\alpha )=\{x\in X|f(x, \alpha )=V(\alpha )\}\)
+	p This means that \(V(\alpha )=f(x^*,\alpha )\) for \(x^*\in X^*\).
+	p Let’s assume that there is only one \(x^*\).
+	p \(V(\alpha )=f(x^*,\alpha )\)
+	p What happens to the value function as we relax \(\alpha\)?
+	p \(V_{\alpha_i}(\alpha )=f_{\alpha_i}(x^*(\alpha ),\alpha )\).
+	p \(V_{\alpha_i}(\alpha )=f_x\frac{\delta x^*}{\delta \alpha )+f_{\alpha_i}\).
+	p We know that \(f_x=0\) from first order conditions. So:
+	p \(V_{\alpha_i}(\alpha )= f_{\alpha_i}\).
+	p That is, at the optimum, as the constant is relaxed, we can treat the \(x^*\) as fixed, as the first-order movement is \(0\).

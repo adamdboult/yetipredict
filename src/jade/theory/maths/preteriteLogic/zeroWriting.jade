@@ -14,12 +14,17 @@ block subSubContent
 		b Relations
 	p A special type of predicates is a relation. These take two terms and can be written differently:
 	p $$P(x,y)\Leftrightarrow x\oplus y$$
-	p Key examples of relations which we will introduce later are:
+	h3
+		b Equality
+	p In preterite logic we define the relation for equality.
+	p \((a=b)\)
+	p It is defined by the following:
 	ul
-		li Equality \((a=b)\)
-		li Membership \((a\in b)\)
-		li Ordinality \((a < b)\)
-	p Each relation has a corresponding inverse relation. That is, for \(a\oplus b\), there exists \(a\otimes b\) such that \(a\oplus b \lor a\otimes b\) is true.
+		li Reflexivity : \(x=x\)
+		li Symmetry: \(x=y\leftrightarrow y=x\)
+		li Transivity: \(x=y\land y=z \rightarrow x=z\)
+		li Substitution for functions: \(x=y\rightarrow f(x)=f(y)\)
+		li Substitution for formulae: \(x=y\land P(x)\rightarrow P(y)\)
 	h3
 		b Functions
 	p Functions take other terms, and are themselves terms. For example if we wanted to know if someone can legally drive in a specific country, we could use:

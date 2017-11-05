@@ -1,0 +1,43 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Concave and convexs
+
+block subSubContent
+	h3
+		b Concave and convex functions
+	p A convex function is one where a line segment between any two points is higher than the function at that point. An example is \(y=x^2\).
+	p Alternatively a function is concave if for any line segment, the points are below the value of the function at that point. An example is \(y=-x^2\).
+	p If a function is concave at all points it will only have one stationary point, a local, and global, maxima.
+	p If a function is convex at all points it will only have one stationary point, a local, and global, minima.
+	p Convex, concave formal definitions
+	p Strictly formal definitions
+
+	h3
+		b Monotonic functions
+	p Calculus stationary points finding and monotonic functions
+
+
+	h3
+		b Jensen's inequality
+		
+
+
+	h3
+		b Concave and convex functions
+	p Show that if a function is concave and convex, it is affine.
+	p Consider a function \(f\) at two points \(x\) and \(y\).
+	p A concave function is one such where for any given two points; the function at the average is greater than on equal to than the average of the function at the two points.
+	p \(f((1-\alpha )x+\alpha y)\ge (1-\alpha )f(x)+\alpha f(y)\)
+	p Similarly, it is strictly concave if:
+	p \(f((1-\alpha )x+\alpha y)> (1-\alpha )f(x)+\alpha f(y)\)
+	p Convex
+	p We can also define convexity, where for any given two points, the function at the average is less than or equal to the average of the function at the two points.
+	p \(f((1-\alpha )x+\alpha y)\le (1-\alpha )f(x)+\alpha f(y)\)
+	p Strict convexity is defined in the same way
+	p \(f((1-\alpha )x+\alpha y)< (1-\alpha )f(x)+\alpha f(y)\)
+	p Convexity, concavity and affinity
+	p  A function can be both concave and convex. This means that:
+	p \(f((1-\alpha )x+\alpha y)= (1-\alpha )f(x)+\alpha f(y)\)
+	p This is an affine function.
