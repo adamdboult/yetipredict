@@ -2,16 +2,16 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Linear algebra operations
+		b Matrix operations
 
 block subSubContent
 	h3
-		b Addition
+		b Matrix addition
 	p \(2\) matricies of the same size, that is with idental dimensions, can be added together.
-	p If we have \(2\) matricies \(A^{mn}\) and \(B^{mn}\)
+	p If we have \(2\) matrices \(A^{mn}\) and \(B^{mn}\)
 	p $$C=A+B$$
 	p $$c_{ij}=a_{ij}+b_{ij}$$
-	p An empty matrix with \(0\)s of the same size as the other matrix is the indentity matrix for multiplication.
+	p An empty matrix with \(0\)s of the same size as the other matrix is the identity matrix for addition.
 	h3
 		b Scalar multiplication
 	p A matrix can be multiplied by a scalar. Every element in the matrix is multiplied by this.
@@ -24,7 +24,7 @@ block subSubContent
 	p $$B=A^T$$
 	p $$b_{ij}=a{ji}$$
 	p Transposing twice results in the original matrix. Transposing also allows vectors to be transformed from horizontal to vertical.
-
+	
 	h3
 		b Conjugate transposition
 	p Like transposition, but with conjucate.

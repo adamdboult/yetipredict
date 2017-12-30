@@ -1,0 +1,43 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Moments of parameters
+block subSubContent
+	h3
+		b Expectation of OLS estimators
+	p We have: \(\hat{\theta }=(X^TX)^{-1}X^Ty\)
+	p Let’s take the expectation.
+	p \(E[\hat{\theta }]=E[(X^TX)^{-1}X^Ty]\)
+	p Let’s model \(y\) as a function of \(X\). As we place no restrictions on the error terms, this is not as assumption.
+	p \(y=X\theta +\epsilon\). 
+	p \(E[\hat{\theta }]=E[(X^TX)^{-1}X^T(X\theta +\epsilon)]\)
+	p \(E[\hat{\theta }]=E[(X^TX)^{-1}X^TX\theta ]+E[(X^TX)^{-1}X^T \epsilon)]\)
+	p \(E[\hat{\theta }]=\theta +E[(X^TX)^{-1}X^T \epsilon)]\)
+	p \(E[\hat{\theta }]=\theta +E[(X^TX)^{-1}X^T]E[ \epsilon)]+\cov [(X^TX)^{-1}X^T ,\epsilon]\)
+	p Gauss-Markov condition 1: \(E[\epsilon  =0]\)
+	p This means that:
+	p \(E[\hat{\theta }]=\theta + \cov [(X^TX)^{-1}X^T ,\epsilon]\)
+
+
+	p \(E[\hat{\theta }]=\theta +E[E[(X^TX)^{-1}X^T \epsilon)|X]]\)
+	p ???
+	p \(E[\hat{\theta }]=\theta +E[(X^TX)^{-1}X^T E[\epsilon)|X]]\)
+	p If the error terms and \(X\) are uncorrelated then \(E[\epsilon|X]=0\) and therefore
+	p \(E[\hat{\theta }]=\theta\)
+	p So this is an unbiased estimator, so long as the condition holds.
+
+	h3
+		b Variance of parameters
+
+	p We have: \(\hat{\theta }=(X^TX)^{-1}X^Ty\)
+	p Let’s look at the variance.
+	p \(\hat{\theta }-\theta=(X^TX)^{-1}X^Ty -\theta\)
+	p \(\hat{\theta }-\theta=(X^TX)^{-1}X^Ty -\theta\)
+	p \(\hat{\theta }-\theta=(X^TX)^{-1}X^T(X\theta +\epsilon) -\theta\)
+
+	p \(Var[\hat{\theta }=E[(\hat{\theta }-\theta)(\hat{theta} -\theta)^T]]\)
+
+	p \(Var[\hat{\theta }=E[(\hat{\theta }-\theta)(\hat{theta} -\theta)^T]]\)
+	h3
+		b T distribution
+	p For large samples approximates a normal distribution

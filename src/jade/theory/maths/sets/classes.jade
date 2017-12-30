@@ -1,0 +1,44 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Classes
+
+block subSubContent
+	h3
+		b Membership relation
+	p Say we have a preterite \(P(x)\) which is true for some value of \(x\). Sets allow us to refer to these inputs collectively.
+	p For every preterite therefore, we can describe a corresponding set. For our preterite \(P(x)\) we have a set \(s\).
+	p To do this this we introduce a new relation: membership. If element \(x\) is in set \(s\) then the following relation is true, otherwise it is false:
+	p $$x\in s$$
+	p Sets are also terms. In first-order logic they will be included in quantifiers. Indeed, in set theory, we aim to treat everything as sets.
+	h3
+		b Non-member definition
+	p If a term is not a member of another term, we can write this using the non-member relation as follows:
+	p $$\forall x \forall s [¬(x\in s)\leftrightarrow x\not\in s]$$
+
+	h3
+		b Subsets
+	p Subset:
+	p $$\forall x\forall y[(\forall z(z\in x\land z\in y))\leftrightarrow (x\subsetproper y)]$$
+	p Proper subset
+	p $$\forall x\forall y[((\forall z(z\in x\land z\in y)))\land(x\ne y)\leftrightarrow (x\subsetproper y)]$$
+
+	p If all terms which are members of term \(x\) are also members of term \(y\), then \(x\) is a subset of \(y\). This is formally defined as:
+	p $$\forall x \forall y [(\forall z \in x, z\in y)\rightarrow (x\subseteq y)]$$
+
+	h3
+		b Equivalence class
+	p We have already ready defined the relationship equality, between terms.
+	p \(a=b\).
+	p Sometimes we may wish to talk about a collection of terms which are all equal to each other. This is an equivalence class.
+	p Though we have not yet defined it, integers are example of this. For example \(-1\) can be written as \(0-1\), \(1-2\) and so on.
+
+	h3
+		b Empty set
+	p The empty set is \(\emptyset \)
+	p \(\forall x (x \not\in \emptyset )\)
+	p Without the axiom of extentionality there could be many different empty sets.
+
+
+

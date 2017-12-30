@@ -1,0 +1,14 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Bagging
+block subSubContent
+	h3
+		b Bootstrapping
+	p Bootstraping takes samples from the raw data set and uses these for estimators.		
+	h3
+		b Bagging
+	p Bagging, or Boosted AGGregation.
+	p We divide the training data into subsets, and train separately.
+	p Aggregation takes the estimators from each of the bootstraps and averages them.
+	p Random forests are a type of bagging method, for decision trees. We discuss these in more detail later.

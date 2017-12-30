@@ -1,0 +1,19 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Boosting
+block subSubContent
+	h3
+		b Boosting
+	p Boosting uses bootstrapping.
+	p In boosting, we create independent weak models by:
+	ul
+		li Creating a weak model using the training data \(G_1(x)\).
+		li Creating a new weighting for the dataset, where ones poorly predicted are given high weights.
+		li Creating another weak model on this data set \(G_i(x)\), where we care more about errors for instances with high weights.
+		li Repeating the process
+	p The final decision model is based on all the weak models..
+	p \(G(x)=\sign \sum_{i=1}^n\alpha_i G_i(x)\)
+	p If the sign is positive, we label \(1\), otherwise \(-1\).
+	p High importance weak models identify important variables. This can be used for feature selection.
+

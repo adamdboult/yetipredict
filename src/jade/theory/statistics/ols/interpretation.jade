@@ -1,0 +1,18 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Interpreting linear models
+block subSubContent
+	h3
+		b Prediction and policy
+	p Linear models can be used to predict future values  of \(y\). They can also be used to examine parameters.
+	p A linear model can be considered as:
+	p \(y=f(x)+\epsilon \)
+	p When we change a parameter we have:
+	p \(\frac{\delta y}{\delta x}=\frac{\delta f(x)}{\delta x}+\frac{\delta \epsilon}{\delta x}\)
+	p For a linear model this is:
+	p \(\frac{\delta y}{\delta x}=\theta+\frac{\delta \epsilon}{\delta x}\)
+want to see thet = dE[y|x]dx
+
+estimating parameters, we care because dydx
+can't do if x correlated with error

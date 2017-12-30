@@ -1,47 +1,38 @@
 extends ./subSubTemplate.jade
 block subSubTitle
 	h1
-		b k-means clustering
+		b K-means clustering
 block subSubContent
 	h3
-		b Unsupervised
-	p No "correct" answer to find, unstructred data, try to find relationships
-
-	p Eg google news, group data together by what seems similar
-
-	p Use gene data to group people into types
-
-	p No priors about data, but can find structure
-
-	p Other examples include using two microphones to separate two different speeches in a room, remove music from speech
-
-	p Can group customers into segments
+		b Introduction
+	p K-means clustering is the most widely used unsupervised model.
 	h3
-		b KMC
-	p K means is most widely used unsupervised model
-
-	p create 2 cluster centroids randomly in data
-
-	p data will then be assigned to one of the clusters
-	p by nearest: distance squared on dimension
-
-	p centroid then move to center of the data in cluster
-
-	p then iterate
-
-	p if no data on cluster can eliminate or reassign
-
-	p optimisation function: difference from cluster center squared / m
-
-	p Initialisation:
-	p K < m
-
-	p randomly pick k samples
+		b Choosing k
+	p cost function for each K. Is there a kink?
+	p If the points in each cluster follow a normal distribution, that's a good sign. This can be tested with Anderson-Darling.
+	p If it's not normal, we can split the cluster into 2.
 
 	p can do it under different initialisations in order to minimise risk of bad local optima
 
-	p choosing k:
-	p cost function for each K. Is there a kink?
 
-	p can choose k if output is being used in later data analysis (eg type assignment, complaint level or something)
+	p We can choose \(k\) if output is being used in later data analysis (eg type assignment, complaint level or something)
 
+	h3
+		b First round
+	p The model creates \(k\) cluster centroids randomly in the data.
+
+	p We then assign each data point to one of the clusters, by assessing the distance between the two points. We use the Euclidian distance.
+	h3
+		b Updating the means
+	p After this has been done for all data points, we move each centroid to the center of the data in each cluster.
+	h3
+		b Iteration
+	p We then iterate the process.
+	h3
+		b Potential issues
+	p It is possibile for a centroid to have no data assigned to it. If this happens we can eliminate the cluster, or reassign some data pointss.
+	h3
+		b Evaluating the model
+	p We can evaluate by looking at the distance within a cluster, and distance between clusters.
+	p The Davies-Bouldin index does this.
+	

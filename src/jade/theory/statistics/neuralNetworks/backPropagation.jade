@@ -8,24 +8,36 @@ block subSubContent
 	p We start by randomly initialisng the value of each \(\theta \).
 	p We do this to prevent each neuron from moving in sync.
 	h3
-		b Calculating errors for the last layer
-	p For the last layer, the error is the difference between the activiation and actual label
-	p The activitation is written as:
-	p \(a_j^l\)
-	p The error for example \(e\) is:
-	p \(E_e(\theta )=\frac{1}{2}\sum_{k}(y_k-a_j^L)^2\)
-	p We use gradient descent to change \(\theta \).
-	p \(\Delta \theta_{ij}=-\alpha \frac{\delta E_e(\theta )}{\delta \theta_{ij}}\)
-	p \(\Delta \theta_{ij}=-\alpha \frac{\delta E_e(\theta )}{\delta z_{j}^l}\frac{\delta z_j^l}{\delta \theta_{ij}}\)
-	p \(\Delta \theta_{ij}=-\alpha \frac{\delta E_e(\theta )}{\delta z_{j}^l}a_i^l\)
-	h3
-		b Back propagation
-	p Back propagation refers to errors being sent backwards from the ultimate layer.
-	p For node \(j\) in layer \(l\) we can write the error as:
-	p \(\delta_j^l\)
-	
-	p This is set to the partial derivative of the cost function with respect to to z(l)
+		b Adapting the delta rule
+	p To arrive at the delta rule we considered the cost function:
+	p \(E=\sum_j\frac{1}{2}(y_j-a_j)^2\)
+	p And used the chain rule:
+	p \(\frac{\delta E}{\delta \theta_i }=\frac{\delta E}{\delta a_j}\frac{\delta a_j}{\delta z_j}\frac{\delta z_j}{\delta \theta_i}\)
+	p This gave us:
+	p \(\Delta \theta_i=\alpha \sum_j(y_j-a_j)a'(z_j)x_{ij}\)
+	p Or, setting \(\delta_i=-\frac{\delta E}{\delta z_j}=\sum_j(y_j-a_j)a'(z_j)\)
+	p \(\Delta \theta_i=\alpha \delta_j x_{ij}\)
+	p Let's update the rule for multiple layers:
+	p \(\frac{\delta E}{\delta \theta_{li}}=\frac{\delta E}{\delta a_{lj}}\frac{\delta a_{lj}}{\delta z_{lj}}\frac{\delta z_{lj}}{\delta \theta_{li}}\)
 
+
+
+
+	p Previously \(\frac{\delta z_{lj}}{\delta \theta_{li}}=x_i\). We now use the more general \(a_{li}\). For the first layer, these will be the same.
+	p We can then instead write:
+	p \(\Delta \theta_i=\alpha \delta_{lj} a_{li}\)
+	h3
+		b Calculating delta values
+	p Now we need a way of calculating the value of \(\delta_{lj}\) for all neurons.
+	p \(\delta_i=-\frac{\delta E}{\delta z_{lj}}\)
+
+	p If this is an output node, then this is simply \(\sum_j(y_j-a_j)a'(z_j)\)
+	p If this is not an output node, then the impact of change in the parameter will affect the results through all intermediate neurons.
+	p In this case:
+	p \(\frac{\delta E}{\delta z_{lj}}=\sum_{k\in succ{l}}\frac{\delta E}{\delta z_{k}}\frac{\delta z_{k}}{\delta z_{lj}}\)
+	p \(\frac{\delta E}{\delta z_{lj}}=\sum_{k\in succ{l}}-\delta_{k}\frac{\delta z_{k}}{\delta a_{kj}}\frac{\delta a_{kj}}{\delta z_{lj}}\)
+	p \(\frac{\delta E}{\delta z_{lj}}=\sum_{k\in succ{l}}-\delta_{k}\theta_{kj}a'_{kj}\)
+	p \(\delta_i=a'_{kj}\sum_{k\in succ{l}}\delta_{k}\theta_{kj}\)
 	p For each layer there is a matrix, where the columns and rows represent the \(theta \) between the current layer and the next layer. We have a matrix for each layer in the network.
 	h3
 		b Checking

@@ -2,11 +2,18 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Linear algebra objects
+		b Matrices
 
 block subSubContent
 	h3
 		b Matrix
+	p We previously discsussed morphisms on vector spaces. We can write these as matrices.
+	p Matrices represents transformations of vector spaces
+	h3
+		b Why are operations on vector spaces linear?
+	p Why can't you have non-linear functions on vector spaces?
+	p Because they would not preserve the underlying structure of a vector space.
+
 	p A matrix is a collection of numbers. For example:
 	p $$A=\begin{bmatrix}a_{11} & a_{12}&...&a_{1n}\\a_{21} & a_{22}&...&a_{2n}\\...&...&...&...\\a_{m1}&a_{m2}&...&a_{mn}\end{bmatrix}$$
 	p Matricies can include elements from domains such as complex numbers and real numbers.
@@ -15,20 +22,4 @@ block subSubContent
 	p $$M=\{1,…,m\}$$
 	p $$N=\{1,…,n\}$$
 	p $$f:MxN\rightarrow F$$
-
-
-	h3
-		b Vector
-	p A vector is a matrix where one of the dimensions is equal to \(1\). For example
-	p $$V=\begin{bmatrix}a_{11} & a_{12}&...&a_{1n}\end{bmatrix}$$
-	p Or
-	p $$V=\begin{bmatrix}a_{11}\\a_{21}\\...\\a_{m1}\end{bmatrix}$$
-
-	h3
-		b Scalar
-	p A scalar is a non-matrix number, such as a real or complex number.
-	p A matrix may have the has dimensions of a scalar, \(M^{11}\), but this is not a scalar and obeys different rules.
-	p For example:
-	p $$c=a$$
-	p $$c\ne \begin{bmatrix}a_{11}\end{bmatrix}$$
 
