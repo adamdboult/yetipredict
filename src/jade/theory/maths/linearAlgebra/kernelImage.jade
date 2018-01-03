@@ -1,0 +1,20 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Kernels and images
+
+block subSubContent
+	h3
+		b Kernels
+	p The kernel of a linear operator is the set of vectors such that:
+	p \(Mv=0\)
+	p The kernel is also called the nullspace.
+	p This can be shown as \(\ker (M)\)
+	h3
+		b Images
+	p The image of a linear operator is the set of vectors \(w\) such that:
+	p \(Mv=w\).
+	p This can be shown as \(\Im (M)\)
+	p We also know that:
+	p \(\span (M)=\ker (M)+\im (M)\)

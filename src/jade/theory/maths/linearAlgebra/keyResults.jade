@@ -2,7 +2,7 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Key results
+		b Transposition and conjugation
 
 block subSubContent
 	h3
@@ -19,3 +19,18 @@ block subSubContent
 	p $$(A+B)^*=A^*+B^*$$
 	p $$(zM)^*=z^*M^*$$
 
+	h3
+		b Transposition
+	p A matrix of dimensions \(m*n\) can be transformed into a matrix \(n*m\) by transposition.
+	p $$B=A^T$$
+	p $$b_{ij}=a{ji}$$
+	p Transposing twice results in the original matrix. Transposing also allows vectors to be transformed from horizontal to vertical.
+	h3
+		b Conjugate transposition
+	p Like transposition, but with conjucate.
+	p $$B=A^*$$
+	p $$b_{ij}=\bar{a_{ji}}$$
+	p Alternatively, and particularly in physics, the following symbol is often used instead.
+	p $$(A^*)=A^\dagger$$	
+
+s

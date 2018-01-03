@@ -2,37 +2,9 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Matrix operations
+		b Matrix multiplication
 
 block subSubContent
-	h3
-		b Matrix addition
-	p \(2\) matricies of the same size, that is with idental dimensions, can be added together.
-	p If we have \(2\) matrices \(A^{mn}\) and \(B^{mn}\)
-	p $$C=A+B$$
-	p $$c_{ij}=a_{ij}+b_{ij}$$
-	p An empty matrix with \(0\)s of the same size as the other matrix is the identity matrix for addition.
-	h3
-		b Scalar multiplication
-	p A matrix can be multiplied by a scalar. Every element in the matrix is multiplied by this.
-	p $$B=cA$$
-	p $$b_{ij}=ca_{ij}$$
-	p The scalar \(1\) is the identity scalar.
-	h3
-		b Transposition
-	p A matrix of dimensions \(m*n\) can be transformed into a matrix \(n*m\) by transposition.
-	p $$B=A^T$$
-	p $$b_{ij}=a{ji}$$
-	p Transposing twice results in the original matrix. Transposing also allows vectors to be transformed from horizontal to vertical.
-	
-	h3
-		b Conjugate transposition
-	p Like transposition, but with conjucate.
-	p $$B=A^*$$
-	p $$b_{ij}=\bar{a_{ji}}$$
-	p Alternatively, and particularly in physics, the following symbol is often used instead.
-	p $$(A^*)=A^\dagger$$	
-
 	h3
 		b Matrix multiplication
 	p $$A=A^{mn}$$
@@ -45,5 +17,8 @@ block subSubContent
 	p A matrix multiplied by the identity matrix returns the original matrix.
 	p For matrix \(M=M^{mn}\)
 	p $$M=MI^m=I^nM$$
-
-
+	h3
+		b Matrix ring
+	p Addition, subtraction and multiplication are defined on endomorphism matrices, as a result they form a ring.
+	p As we shall see, not all endomorphic matrices have inverses, and so they do not form a field.
+	

@@ -2,18 +2,18 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Morphisms
+		b Linear maps
 
 block subSubContent
 	h3
 		b Introduction
-	p A homomorphism on a vector space is a mapping from each vector to another vector, which preserves the underlying structure.
+	p A homomorphism on a vector space is a mapping from one vector space to another vector space, which preserves the underlying structure.
 	p The homomorphism must preserve the group-like structure.
 	p \(f(u+v)=f(u)+f(v)\)
 	p The homomorphism must also preserve scalar multiplication.
 	p \(f(\alpha v)=\alpha f(v)\)
 	h3
-		b Homomorphism form an abelian group
+		b Homomorphisms form an abelian group
 	p Consider two homomorphisms: \(f\) and \(g\).
 	p \(f(u+v)=fu+fv\)
 	p \(g(u+v)=gu+gv\)
@@ -36,3 +36,51 @@ block subSubContent
 	p That is, the dimensions of the new vector space is the dimensions of the underlying vector spaces, multiplied.
 	p For a homomorphism from \(V\) to \(W\), where \(\dim V=m\) and \(\dim W=n\), the dimension of the new vector space is \(mn\).
 	p We can prove this by exploring the basis of the new vector space.
+	h3
+		b Endomorphisms
+	p An endomorphism maps a vector space onto itself.
+	p \(\dim (End(V))=(\dim V )^2\)
+	p 
+
+	h3
+		b Linear maps
+	p A linear map (or function) is a map from one input to an output which preserves addition and scalar multiplication.
+	p That is if function \(f\) is linear then:
+	p $$f(aM+bN)=af(M)+bf(N)$$
+	p Linear form
+	p A linear form is a special type of linear map, which takes a vector and returns a scalar.
+	p Let’s consider what this implies.
+	p $$v=[a_1,…,a_n]$$
+	p $$v=[a_1,…,0]+...+[0,…,a_n]$$
+	p $$f(v)=f([a_1,…,a_n])
+	p $$f(v)=f([a_1,…,0]+...+[0,…,a_n])$$
+	p Because a linear map is linear in additon:
+	p $$f(v)=f([a_1,…,0])+...+f([0,…,a_n])$$
+	p $$f(v)=f(a_1[1,…,0])+...+f(a_n[0,…,1])$$
+	p Because a linear map is linear in scaling:
+	p $$f(v)=a_1f([1,…,0])+...+a_nf([0,…,1])$$
+	p Because the function terms are now independent of the vector:
+	p $$f(v)=a_1f_1+...+a_nf_n$$
+	p $$f(v)=fv$$
+	p That is, the linear form is a vector multiplication.
+	h3
+		b Biliear map
+	p A bilinear map (or function) is a map from two inputs to an output which preserves addition and scalar multiplication. This is in contrast to a linear map, which only has one input.
+	p In addition, the function is linear in both arguments.
+	p That is if function \(f\) is bilinear then:
+	p $$X=aM+bN$$
+	p $$Y=cO+dP$$
+	p $$f(X,Y)=f(aM+bN,cO+dP)$$
+	p $$f(X,Y)=f(aM,cO+dP)+f(bN,cO+dP)$$
+	p $$f(X,Y)=f(aM,cO)+f(aM,dP)+f(bN,cO)+f(bN,dP)$$
+	p $$f(X,Y)=acf(M,O)+adf(M,P)+bcf(N,O)+bdf(N,P)$$
+	p Note that:
+	p $$f(X,Y)=f(X+0,Y)$$
+	p $$f(X,Y)=f(X,Y)+f(0,Y)$$
+	p $$(0,Y)=0$$
+	p That is, if any input is \(0\) in an additative sense, the value of the map must be zero.
+
+	h3
+		b Multilinear map
+	p This extends from \(2\) inputs to an arbitrary number of inputs.
+	

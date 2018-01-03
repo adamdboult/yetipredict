@@ -2,7 +2,7 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Matrices
+		b Matrix representation
 
 block subSubContent
 	h3
@@ -22,4 +22,22 @@ block subSubContent
 	p $$M=\{1,…,m\}$$
 	p $$N=\{1,…,n\}$$
 	p $$f:MxN\rightarrow F$$
+	h3
+		b Representing vectors
+	p We can represent vectors as row or column matrices.
+	p $$v=\begin{bmatrix}a_{1} & a_{2}&...&a_{n}\end{bmatrix}$$
+	p $$v=\begin{bmatrix}a_{1}\\a_{2}\\...\\a_{m}\end{bmatrix}$$
+	h3
+		b Matrix addition
+	p \(2\) matricies of the same size, that is with idental dimensions, can be added together.
+	p If we have \(2\) matrices \(A^{mn}\) and \(B^{mn}\)
+	p $$C=A+B$$
+	p $$c_{ij}=a_{ij}+b_{ij}$$
+	p An empty matrix with \(0\)s of the same size as the other matrix is the identity matrix for addition.
+	h3
+		b Scalar multiplication
+	p A matrix can be multiplied by a scalar. Every element in the matrix is multiplied by this.
+	p $$B=cA$$
+	p $$b_{ij}=ca_{ij}$$
+	p The scalar \(1\) is the identity scalar.
 

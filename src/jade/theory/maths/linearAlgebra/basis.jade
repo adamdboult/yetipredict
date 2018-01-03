@@ -2,16 +2,9 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Basis vectors
+		b Spectral theorem
 
 block subSubContent
-	h3
-		b Basis vectors
-	p We can write a vector as a sum of other vectors:
-	p \(v=\sum_{k=1}^n\alpha_k e_k\)
-	p For an arbitrary vector of size \(n\), we cannot use less than \(n\) elementary vectors. We could use more, but these would be redundant.
-	p If we use \(n\) elementary vectors, there is a unique solution of weights of elementary vectors.
-	p If we use more than \(n\) elementary vectors, there will be linear dependence, and so there will not be a unique solution.
 	h3
 		b Basis vectors from eigenvectors
 	p We can use eigenvectors to form a basis.
@@ -20,3 +13,4 @@ block subSubContent
 		b Wave function
 	p For a Hermitian matrix, the eigenvalues are all real.
 	p \(v=\int_{-\infty }^{\infty }\alpha(\lambda) |\lambda > d\lambda \)
+

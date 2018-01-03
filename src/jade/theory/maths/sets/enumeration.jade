@@ -1,0 +1,22 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Defining sets by enumeration
+
+block subSubContent
+	h3
+		b Defining sets by enumeration
+	p We can describe a set by the elements it contains.
+	p $$s=\{a,b,c\}$$
+	p This is a shorthand way of writing:
+	p $$\forall x (x\in s \leftrightarrow (x=a\lor x=b \lor x=c))$$
+	h3
+		b Empty set
+	p We can use this to define the empty set - the set with no members.
+	p \(\varnothing =\{\}\)
+	p Using the above definition this is the same as writing:
+	p $$\forall x ¬(x\in \varnothing )$$
+
+	p Without the axiom of extentionality there could be many different empty sets, which are equal to each other.
+
