@@ -1,0 +1,23 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Maximum A-Priori (MAP) estimator for linear regression
+block subSubContent
+	h3
+		b tikhinov regularisation
+
+	p lasso and L1 induces sparcity
+
+	p goal is min ||y - f(x)|| + \lambda g(w)
+	p ridge regression: g(w)=||w||
+	p if lambda 0, OLS, if infinite, w goes to 0
+
+	p normal equation changes to: (\lambda I + X^TX)^{-1}X^Ty
+	p we can preprocess to avoid processing of 1s. shift mean of y to 0. normalise x mean 0 var 1
+
+	p maximum a priori estimation. equiv to ridge regression with a priori estimate of 0
+
+	p W_{RR}=(\lamda I+X^TX)^{-1}X^Ty
+	p E_[w{RR}]=(\lambda I+X^TX)^{-1}X^TXw
+	p Var[W_{RR}]=\a
+

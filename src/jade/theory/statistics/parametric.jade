@@ -1,23 +1,61 @@
 extends ./parametric/subSubTemplate.jade
 block subSubContent
 	h3
-		b Estimation
+		b Parametric models
+	p
+		a(href="./parametric/models") Models
+	p
+		a(href="./parametric/errors") Errors
+	p
+		a(href="./parametric/language") Language
+	p
+		a(href="./parametric/regression") Regression (y=f(x,theta) v y=f(theta))
+	h3
+		b Choosing a model
+	p
+		a(href="./parametric/size") Sample sizes
+	p
+		a(href="./parametric/overfitting") Overfitting
+	p
+		a(href="./parametric/scoring") Scoring models
+	p
+		a(href="./parametric/costFunction") Cost functions
+	p
+		a(href="./parametric/testSets") Test sets
+	p
+		a(href="./parametric/validationSets") Validation sets
+	h3
+		b Interpreting models
+	p
+		a(href="./parametric/MoM") R^2
+	h3
+		b Estimators
+	p
+		a(href="./parametric/MoM") Method Of Moments (MOM)
+	p
+		a(href="./parametric/MLE") Maximum Likelihood Estimation (MLE)
+	p
+		a(href="./parametric/MAP") Maximum A-Priori estimation (MAP)
+	p
+		a(href="./parametric/MSSE") Minimum Sum of Squared Errors (MSSE)
+	h3
+		b Choosing estimators
 	p
 		a(href="./parametric/Bias") Bias
 	p
 		a(href="./parametric/biasVariance") Bias-Variance trade-off
 	p
-		a(href="./parametric/errors") Errors
-	p
-		a(href="./parametric/SingleMoM") Method of moments
+		a(href="./parametric/predictionsParameters") Predictions and parameters
+	h3
+		b Estimation
 	p
 		a(href="./parametric/gradientDescent") Gradient descent
 	p
-		a(href="./parametric/SingleMLE") Maximum Likelihood Estimation
+		a(href="./parametric/onlineOffline") Online and offline learning
+	h3
+		b Other
 	p
 		a(href="./parametric/CramerRao") Cramér-Rao lower bound
 	p
 		a(href="./parametric/sufficient") Sufficient statistics
-	p
-		a(href="./parametric/costFunction") Cost functions
 
