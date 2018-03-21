@@ -20,3 +20,17 @@ block subSubContent
 	p $$\frac{\delta f}{\delta x}=\frac{\delta f}{\delta h}\frac{\delta h}{\delta x}+\frac{\delta f}{\delta g}\frac{\delta g}{\delta x}$$
 	p If \(g(x)=x\), then:
 	p $$\frac{\delta f}{\delta x}=\frac{\delta f}{\delta h}\frac{\delta h}{\delta x}+\frac{\delta f}{\delta g}$$
+
+
+	p \(df=\sum_i^n\frac{\delta f}{\delta x_i}dx_i\)
+
+	p We can express this in terms of x_j:
+	p \(\frac{df}{dx_j}=\sum_i^n\frac{\delta f}{\delta x_i}\frac{dx_i}{dx_j}\)
+	p \(\frac{df}{dx_j}=\frac{\delta f}{\delta x_j}\frac{dx_j}{dx_j\)+\sum_{i\ne j}^n\frac{\delta f}{\delta x_i}\frac{dx_i}{dx_j\})
+	p \(\frac{df}{dx_j}=\frac{\delta f}{\delta x_j}+\sum_{i\ne j}^n\frac{\delta f}{\delta x_i}\frac{dx_i}{dx_j}\)
+
+	p If there is just one inpout variable then:
+	p \(\frac{df}{dx_j}=\frac{\delta f}{\delta x_j}\)
+
+	p We can often use \(x_j = t\)
+	p \(\frac{df}{dt}=\frac{\delta f}{\delta t}+\sum_{i}^n\frac{\delta f}{\delta x_i}\frac{dx_i}{dt}\)

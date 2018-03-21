@@ -5,38 +5,6 @@ block subSubTitle
 		b Ordering
 		
 block subSubContent
-	h3
-		b Definition
-	p Orderings define relations between elements in a set, where one element can preceed the other. 
-	p Orderings are antisymmetric. That is, the only case where the relation is satisfied in both directions is if the elements are equal.
-	p $$(a\le b)\land (b\le a)\rightarrow (a=b)$$
-	p Orderings are transitive. That is: 
-	p $$(a\le b)\land (b\le c)\rightarrow (a\le c)$$
-	h3
-		b Strict and non-strict order
-	p The relation \(\le \) is refered to as non-strict.
-	p There is a similar strict relation relation, \(<\):
-	p $$(a\le b)\land ¬(b\le a)\rightarrow (a < b)$$
-
-	h3
-		b Totally- and partially-ordered sets
-	p A totally ordered set is one where the relation is defined on all pairs:
-	p $$\forall a \forall b	(a\le b)\lor (b\le a)$$
-	p Note that totality implies reflexivity.
-	p A partially ordered set, or poset, is one where the relation is defined between each element and itself.
-	p $$\forall a (a\le a)$$
-	p That is, every element is related to itself.
-	h3
-		b Well-ordering
-	p A well-ordering on a set is a total order on the set where the set contains a minimum number. For example the relation \(\le \) on the natural numbers is a well-ordering because \(0\) is the minimum.
-	p The relation \(\le \) on the integers however is not a well-ordering, as there is no minimum number in the set.
-	h3
-		b Intervals
-	p For a totally ordered set we can define a subset as being all elements with a relationship to a number. For example:
-	p $$[a,b]=\{x:a\le x \land x\le b\}$$
-	p This denotes a closed interval. Using the definition above we can also define an open interval:
-	p $$(a,b)=\{x:a< x \land x< b\}$$
-
 
 	h3
 		b Ordering of the natural numbers

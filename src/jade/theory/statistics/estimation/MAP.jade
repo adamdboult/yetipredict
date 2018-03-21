@@ -1,0 +1,16 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Maximum A-Priori (MAP) estimation
+block subSubContent
+	h3
+		b Definition
+	p Mode estimate
+	p \(Arg max_\theta p(\theta | X)\)
+	p Using Bayes theorem:
+	p \(p(\theta | X)= \frac{p(X|\theta )P(\theta)}{P(X)}\)
+	p So:
+ 	p \(Arg max_\theta p(\theta | X)=Arg max_\theta \frac{p(X|\theta )P(\theta)}{P(X)}\)
+	p The denominator isn't affected so:
+ 	p \(Arg max_\theta p(\theta | X)=Arg max_\theta p(X|\theta )P(\theta)\)
+	p If \(P(theta )\) is a constant then this is the same as the MLE estimator.

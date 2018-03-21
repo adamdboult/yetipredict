@@ -1,14 +1,12 @@
 extends ./subSubTemplate.jade
 block subSubTitle
 	h1
-		b Cramér-Rao lower bound
+		b Likelihood function
 block subSubContent
-	p Cramér-Rao lower bound
-	p Likelihood function
+	h3
+		p Likelihood function
 	p \(P(X|\theta )\)
-	p Fisher Information
 	p We want to estimate parameters. One way of looking into this is to look at the likelihood function:
-	p \(P(X|\theta )\)
 	p If this has high peaks then it provides information that \(\theta \) is located in this region.
 	p Consider:
 	p \(\frac{\delta }{\delta \theta }\log f(X, \theta ) \)
@@ -17,5 +15,3 @@ block subSubContent
 	p The Fisher information is the variance:
 	p \(E[(\frac{\delta }{\delta \theta }\log f(X, \theta ))^2 |\theta ]\)
 	p \(E[\frac{\delta^2 }{\delta \theta^2 }\log f(X, \theta ) |\theta ]\)
-	p Cramér-Rao lower bound
-	p For an unbiased estimator, the variance cannot be below the Cramer-Rao lower bound.
