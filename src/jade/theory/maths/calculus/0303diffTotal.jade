@@ -5,32 +5,14 @@ block subSubTitle
 		b Total differentiation
 
 block subSubContent
-	h2
-		b Calculus
-
-	p Total derivative
-	p $$f(g(x),h(x))$$
-	p $$\frac{\delta f}{\delta x}= \frac{f(g(x+\delta ),h(x+\delta ))-f(g(x),h(x)}{\delta }$$
-	p $$\frac{\delta f}{\delta x}= \frac{f(g(x+\delta ),h(x+\delta ))-f(g(x+\delta ),h(x))+f(g(x+\delta ),h(x)) -f(g(x),h(x)}{\delta }$$
-
-	p $$\frac{\delta f}{\delta x}= \frac{f(g(x+\delta ),h(x+\delta ))-f(g(x+\delta ),h(x))}{\delta }+\frac{f(g(x+\delta ),h(x)) -f(g(x),h(x)}{\delta }$$
-
-	p $$\frac{\delta f}{\delta x}= \frac{f(g(x+\delta ),h(x+\delta ))-f(g(x+\delta ),h(x))}{\delta }frac{h(x+\delta )-h(x)}{ h(x+\delta )-h(x)}+\frac{f(g(x+\delta ),h(x)) -f(g(x),h(x)}{\delta }\frac{g(x+\delta )-f(x)}{ g(x+\delta )-f(x)}$$
-	p $$\frac{\delta f}{\delta x}=\frac{f(g(x+\delta ),h(x+\delta ))-f(g(x+\delta ),h(x))}{h(x+\delta )-h(x)}frac{h(x+\delta )-h(x)}{\delta  }+\frac{f(g(x+\delta ),h(x)) -f(g(x),h(x)}{ g(x+\delta )-g(x)}\frac{g(x+\delta )-g(x)}{\delta }$$
-	p $$\frac{\delta f}{\delta x}=\frac{\delta f}{\delta h}\frac{\delta h}{\delta x}+\frac{\delta f}{\delta g}\frac{\delta g}{\delta x}$$
-	p If \(g(x)=x\), then:
-	p $$\frac{\delta f}{\delta x}=\frac{\delta f}{\delta h}\frac{\delta h}{\delta x}+\frac{\delta f}{\delta g}$$
-
-
-	p \(df=\sum_i^n\frac{\delta f}{\delta x_i}dx_i\)
-
-	p We can express this in terms of x_j:
-	p \(\frac{df}{dx_j}=\sum_i^n\frac{\delta f}{\delta x_i}\frac{dx_i}{dx_j}\)
-	p \(\frac{df}{dx_j}=\frac{\delta f}{\delta x_j}\frac{dx_j}{dx_j\)+\sum_{i\ne j}^n\frac{\delta f}{\delta x_i}\frac{dx_i}{dx_j\})
-	p \(\frac{df}{dx_j}=\frac{\delta f}{\delta x_j}+\sum_{i\ne j}^n\frac{\delta f}{\delta x_i}\frac{dx_i}{dx_j}\)
-
-	p If there is just one inpout variable then:
-	p \(\frac{df}{dx_j}=\frac{\delta f}{\delta x_j}\)
-
-	p We can often use \(x_j = t\)
-	p \(\frac{df}{dt}=\frac{\delta f}{\delta t}+\sum_{i}^n\frac{\delta f}{\delta x_i}\frac{dx_i}{dt}\)
+	h3
+		b Intro
+	p Consider a multivariate function.
+	p \(f(x)\).
+	p We can define:
+	p \(\Delta f(x, \Delta x):=f(x+\Delta x)-f(x)\)
+	p \(\Delta f(x, \Delta x)=\sum_{i=1}^nf(x+\Delta x_i+\sum_{j=0}^{i-1}\Delta x_j)-f(x+\sum_{j=0}^{i-1}\Delta x_j)\)
+	p \(\Delta f(x, \Delta x)=\sum_{i=1}^n\Delta x_i \frac{f(x+\Delta x_i+\sum_{j=0}^{i-1}\Delta x_j)-f(x+\sum_{j=0}^{i-1}\Delta x_j)}{\Delta x_i}\)
+	p \(\frac{\Delta f}{\Delta x_k}=\sum_{i=1}^n\frac{\Delta x_i}{\Delta x_k} \frac{f(x+\Delta x_i+\sum_{j=0}^{i-1}\Delta x_j)-f(x+\sum_{j=0}^{i-1}\Delta x_j)}{\Delta x_i}\)
+	p \(\lim_{\Delta x_k \rightarrow 0}\frac{\Delta f}{\Delta x_k}=\sum_{i=1}^n\lim_{\Delta x_k \rightarrow 0}\frac{\Delta x_i}{\Delta x_k} \frac{f(x+\Delta x_i+\sum_{j=0}^{i-1}\Delta x_j)-f(x+\sum_{j=0}^{i-1}\Delta x_j)}{\Delta x_i}\)
+	p \(\frac{df}{dx_k}=\sum_{i=1}^n\frac{dx_i}{dx_k} \frac{\delta f}{\delta x_i}\)

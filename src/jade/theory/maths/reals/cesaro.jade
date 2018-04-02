@@ -2,13 +2,9 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Divergent series
+		b Cesàro sum
 
 block subSubContent
-	h3
-		b Partial sum
-	p Take a series. We can define the partial sum as:
-	p \(s_k=\sum_{i=1}^ka_i\)
 	h3
 		b Cesàro sum
 	p The Cesàro sum is the limit of the average of the first \(n\) partial sums.
@@ -22,6 +18,3 @@ block subSubContent
 	p \(\lim_{n\rightarrow \infty }\frac{1}{n}\sum_{k=1}^ns_k\)
 	p \(\lim_{n\rightarrow \infty }\frac{1}{n}\sum_{k=1}^nk\mod(2)\)
 	p \(\frac{1}{2}\)
-	h3
-		b Abel summation
-	p 

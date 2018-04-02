@@ -2,12 +2,10 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Real numbers
+		b Incompleteness of the real numbers
 block subSubContent
-	p Define from dedekind cuts
-
-
-	p Not all numbers can be shown as fractions. \(\sqrt 2\), \(\pi\). No way to have ordered set.
+	h3
+		b The square root of \(2\) is not a rational number
 	p Let's prove there are numbers which are not rational. Consider \(\sqrt 2\) and let's show that it being rational leads to a contradiction.
 	$$\sqrt 2=\frac{x}{y}$$
 	p $$2=\frac{x^2}{y^2}$$
@@ -18,10 +16,4 @@ block subSubContent
 	p So \(y\) is even. But if both \(x\) and \(y\) are even, then the fraction was not reduced.
 	p This presents a contraction so the original statement must have been false.
 
-	p So we know there isn't a rational solution to \(\sqrt 2\), but how should we think about this value?
-	p We previously discussed cauchy sequences, and completeness. A series of rational numbers can converge arbitrarily close towards \(\sqrt 2\) but never reach it. By adding these points which rational numbers can converge towards we create the real numbers.
-
-	p Show that rationals and dense in reals, reals dense in rationals.
-
-	p
-		b Cardinality of real numbers
+	p So we know there isn't a rational solution to \(\sqrt 2\).

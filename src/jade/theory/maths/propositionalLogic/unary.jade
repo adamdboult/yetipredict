@@ -1,0 +1,27 @@
+extends ./subSubTemplate.jade
+
+block 	subSubTitle
+	h1
+		b Unary operators
+
+block subSubContent
+	h3
+		b We don't need \(0\)-ary operators
+	p There are two unique \(0\)-ary operators. One always returns \(T\) and the other always returns \(F\). These are already described.
+	h3
+		b We need one unary operator
+	p For the operators with \(1\) input we have:
+	ul
+		li one which always returns \(T\)
+		li one which always returns \(F\)
+		li one which always returns the same as the input
+		li one which returns the opposite of the input
+	p It is this last one, negation, shown as \(¬\) and is of most interest.
+	h3
+		b Unary operators
+	p A unary operator takes one input and returns another.
+	p Only negation, \(¬\) is of interest.
+	p The following statements are equivalent:
+	ul
+		li \(T\)
+		li \(¬F\)

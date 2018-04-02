@@ -1,0 +1,21 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Euclidian division
+
+block subSubContent
+	h3
+		b Statement
+	p Euclidian division is the theory for any pair of natural numbers, we can divide one by the other and have a remainder less than the divisor. Formally:
+	p $$\forall a \in \mathbb{N} ,\forall b \in \mathbb{N}^+ ,\exists q \in \mathbb{N},\exists r\in \mathbb{N} [(a=bq+r)\land (0\le r < b)]$$
+	p Where \(\mathbb{N}^+\) refers to natural numbers excluding \(0\).
+
+	p That is, every natural number \(a\) is a multiple \(q\) of any other natural number \(b\), plus another natural number \(r\) less than the other natural number \(b\).
+	h3
+		b Proof
+	p These are unique. For each jump in \(q\), \(r\) falls by \(b\). As the range of \(r\) is \(b\) there is only one solution.
+	h3
+		b Examples
+	$$17=2.8+1$$
+	$$9=3.3+0$$

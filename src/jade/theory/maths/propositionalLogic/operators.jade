@@ -2,7 +2,7 @@ extends ./subSubTemplate.jade
 
 block 	subSubTitle
 	h1
-		b More on operators
+		b Binary operators
 
 block subSubContent
 	h3
@@ -12,176 +12,12 @@ block subSubContent
 	p For the operator with one permutation there are two operators. For every additional permutation the number of operator doubles. Therefore there are \(2^{(2^n)}\) possible operations.
 	p With \(0\) inputs, we need \(2\) different operators to cover all outputs. For \(1\) input we need \(4\) and for \(2\) inputs we need \(16\).
 	h3
-		b We don't need \(0\)-ary operators
-	p There are two unique \(0\)-ary operators. One always returns \(T\) and the other always returns \(F\). These are already described.
-	h3
-		b We need one unary operator
-	p For the operators with \(1\) input we have:
+		b Binary operators
+	p A binary operator takes two inputs.
+	p Of the 16, the the commonly used binary operators are:
 	ul
-		li one which always returns \(T\)
-		li one which always returns \(F\)
-		li one which always returns the same as the input
-		li one which returns the opposite of the input
-	p It is this last one, negation, shown as \(¬\) and is of most interest.
-	h3
-		b We can use a subset of binary operators
-	p The full list of binary operators are included below.
-	p Of these, the first two are \(0\)-ary operators, and so are not needed. The next four are unary operators, and so are not needed.
-	p The non-implications can be rewritten using negation.
-	table.table
-		thead
-			tr
-				th 
-				th 
-				th True
-				th False
-				th \(-\)
-				th Projection 1
-				th Projection 2
-				th Inverse projection 1
-				th Inverse projection 2
-				th \(-\)
-				th AND
-				th OR
-				th If then
-				th Then if 
-				th XNOR (iff)
-				th \(-\)
-				th NAND
-				th  NOR
-				th Material non-implication
-				th Converse non-implication
-				th XOR
-			tr
-				th L
-				th R
-				th \(T\)
-				th \(F\)
-				th \(-\)
-				th \(p\)
-				th \(q\)
-				th \(¬p\)
-				th \(¬q\)
-				th \(-\)
-				th \(\land \)
-				th \(\lor \)
-				th \(\rightarrow \)
-				th \(\leftarrow \)
-				th \(\leftrightarrow \)
-				th \(-\)
-				th \(\uparrow \)
-				th \(\downarrow \)
-				th \(\nrightarrow \)
-				th \(\nleftarrow \)
-				th \(\oplus \)
-		tbody
-			tr
-				th \(T\)
-				th \(T\)
-				td \(T\)
-				td \(F\)
-				td \(-\)
-				td \(T\)
-				td \(T\)
-				td \(F\)
-				td \(F\)
-				td \(-\)
-				td \(T\)
-				td \(T\)
-				td \(T\)
-				td \(T\)
-				td \(T\)
-				td \(-\)
-				td \(F\)
-				td \(F\)
-				td \(F\)
-				td \(F\)
-				td \(F\)
-			tr
-				th \(T\)
-				th \(F\)
-				td \(T\)
-				td \(F\)
-				td \(-\)
-				td \(T\)
-				td \(F\)
-				td \(F\)
-				td \(T\)
-				td \(-\)
-				td \(F\)
-				td \(T\)
-				td \(F\)
-				td \(T\)
-				td \(F\)
-				td \(-\)
-				td \(T\)
-				td \(F\)
-				td \(T\)
-				td \(F\)
-				td \(T\)
-			tr
-				th \(F\)
-				th \(T\)
-				td \(T\)
-				td \(F\)
-				td \(-\)
-				td \(F\)
-				td \(T\)
-				td \(T\)
-				td \(F\)
-				td \(-\)
-				td \(F\)
-				td \(T\)
-				td \(T\)
-				td \(F\)
-				td \(F\)
-				td \(-\)
-				td \(T\)
-				td \(F\)
-				td \(F\)
-				td \(T\)
-				td \(T\)
-			tr
-				th \(F\)
-				th \(F\)
-				td \(T\)
-				td \(F\)
-				td \(-\)
-				td \(F\)
-				td \(F\)
-				td \(T\)
-				td \(T\)
-				td \(-\)
-				td \(F\)
-				td \(F\)
-				td \(T\)
-				td \(T\)
-				td \(T\)
-				td \(-\)
-				td \(T\)
-				td \(T\)
-				td \(T\)
-				td \(F\)
-				td \(F\)
-	h3
-		b N-ary operators
-	p N-ary operators contain \(3\) or more inputs.
-
-	p N-ary operators can be defined in terms of binary operators.
-	p As an example if we want an operator to return positive if all inputs are true, we can use:
-	p $$(\theta \land \gamma )\land \beta $$
-
-	h3
-		b Normal form
-	p This is where a formula is shown using only:	
-	ul
-		li And - \(\land \)
-		li Or - \(\lor \)
-		li Negation - \(¬\)
-	p The conjunctive normal form (CNF) is where a formula is converted to a normal form with the following layout:
-	p $$a \land b \land c \land d$$
-	p These letters can represent complex sub-formulae, in normal form.
-	p Statements in this form are easier to evaluate, as each subformula can be evaluated separately. The statement is true only if all formulaes within are also true.
-	p The disjunctive normal form (DNF) is similar for \(\lor \).
-	p $$a \lor b \lor c \lor d$$
-	
+		li If then - \(\theta \rightarrow \gamma \)
+		li Then if - \(\theta \leftarrow \gamma \)
+		li Iff - \(\theta \leftrightarrow \gamma \)
+		li And / Conjunction - \(\theta \land \gamma \)
+		li Or / Disjunction - \(\theta \lor \gamma \)

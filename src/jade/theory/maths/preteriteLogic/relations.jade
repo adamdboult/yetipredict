@@ -1,0 +1,21 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Relations and equality
+block subSubContent
+	h3
+		b Relations
+	p A special type of predicates is a relation. These take two terms and can be written differently:
+	p $$P(x,y)\Leftrightarrow x\oplus y$$
+	h3
+		b Equality
+	p In preterite logic we define the relation for equality.
+	p \(a=b\)
+	p It is defined by the following:
+	ul
+		li Reflexivity : \(x=x\)
+		li Symmetry: \(x=y\leftrightarrow y=x\)
+		li Transivity: \(x=y\land y=z \rightarrow x=z\)
+		li Substitution for functions: \(x=y\rightarrow f(x)=f(y)\)
+		li Substitution for formulae: \(x=y\land P(x)\rightarrow P(y)\)

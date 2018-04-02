@@ -9,23 +9,14 @@ block subSubContent
 		b Defining rational numbers
 	p We previously defined integers in terms of natural numbers. Similarly we can define rational numbers in terms of integers.
 	p $$\forall ab \in \mathbb{I} (¬(b=0)\rightarrow \exists c (b.c=a))$$
+	p A rational is an ordered pair of integers.
+	p $$\{\{a\},\{a,b\}\}$$
 	p So that:
-	p $$(a,b)=\frac{a}{b}$$
+	p $$\{\{a\},\{a,b\}\}=\frac{a}{b}$$
+	h3
+		b Converting integers to rational numbers
 	p Integers can be shown as rational numbers using:
 	p $$(i,1)$$
-	p Then we can define addition as:
-	p $$(a,b)+(c,d)=(a.d+b.c,b.d)$$
-	p Similarly, multiplication can be defined as:
-	p $$(a,b).(c,d)=(a.c, b.d)$$
-
-	p There are an infinite number of ways to write any rational number, as with integers. \(\frac{1}{2}\) can be written as \(\frac{1}{2}\), \(\frac{-2}{-4}\) etc.
-	p The class of these terms form an equivalence class.
-
-	h3
-		b Rationals as ordered pairs
-	p Like with integers, we define rational numbers as an ordered pair of integers:
-	p $$\mathbb{Q}={{a},{a,b}}$$
-	p Where \(\mathbb{Q}=\frac{a}{b}\).
 	p Integers can then be turned into rational numbers:
 	p $$\mathbb{Q}=\frac{a}{1}$$
 	p $$a=\frac{a_1}{a_2}$$
@@ -33,11 +24,14 @@ block subSubContent
 	p $$c=\frac{c_1}{c_2}$$
 
 	h3
-		b Converting integers to rational numbers
-	h3
-		b Ordering of the rational numbers
-	p A rational is an ordered pair of integers.
-	p $$\{\{a\},\{a,b\}\}$$
+		b Equivalence classes of rationals
+	p There are an infinite number of ways to write any rational number, as with integers. \(\frac{1}{2}\) can be written as \(\frac{1}{2}\), \(\frac{-2}{-4}\) etc.
+	p The class of these terms form an equivalence class.
+	p We can show these are equal:
+	p $$\frac{a}{b}=\{\{a\},\{a,b\}\}$$
+	p $$\frac{ca}{cb}=\{\{a\},\{a,b\}\}$$
+	p $$\frac{ca}{cb}=\{\{ca\},\{ca,cb\}\}$$
+	p $$\{\{a\},\{a,b\}\}=\{\{ca\},\{ca,cb\}\}$$
 	h3
 		b Cardinality of rational numbers
 	p We can see rational numbers as cartesian products of integers. That is:
@@ -51,9 +45,9 @@ block subSubContent
 	p $$|\mathbb{N}|^n=\mathbb{N}$$
 
 	h3
-		b Functions on rational numbers
-	h3
 		b Rational addition
+	p Then we can define addition as:
+	p $$(a,b)+(c,d)=(a.d+b.c,b.d)$$
 	p $$a+b=c$$
 	p $$c_1=a_1b_2+a_2b_1$$
 	p $$c_1=a_2b_2$$
@@ -64,6 +58,8 @@ block subSubContent
 	p $$c_1=a_2b_2$$
 	h3
 		b Rational multiplication
+	p Similarly, multiplication can be defined as:
+	p $$(a,b).(c,d)=(a.c, b.d)$$
 	p $$ab=c$$
 	p $$c_1=a_1b_1$$
 	p $$c_1=a_2b_2$$
@@ -73,3 +69,19 @@ block subSubContent
 	p $$c_1=a_1b_2$$
 	p $$c_1=a_2b_1$$
 
+
+	h3
+		b Rationals are dense in rationals
+	p For any pair of rationals, there is another rational between them:
+	p $$a=\frac{p}{q}$$
+	p $$b=\frac{m}{n}$$
+	p Where \(b>a\).
+	p We define a new rational:
+	p $$c=\frac{a+b}{2}$$
+	p $$c=\frac{pn+qm}{2qn}$$
+	p This is a rational number.
+	p We can write:
+	p $$a=\frac{2pn}{2qn}$$
+	p $$b=\frac{2qm}{2qn}$$
+	p As \(b>a\) we know \(2qm>2pn\)
+	p So: \(a < c < b\)

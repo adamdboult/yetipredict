@@ -2,16 +2,9 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Convergence
+		b Cauchy sequences
 
 block subSubContent
-	h3
-		b Defining
-	p A sequence is an ordered set, where the same element can repeat.
-	p Examples include the prime numbers and the fibonacci numbers.
-	p Entries in the sequence can be referred to by their index.
-	p Entries in a sequence can be generated from a function. For example the sequence of even numbers is:
-	$$(2n)_{n\in \mathbb{N}}$$
 	h3
 		b Cauchy sequence
 	p A cauchy sequence is a sequence such that for an any arbitrarily small number \(\epsilon\), there is a point in the sequence where all possible pairs after this are even closer together.
@@ -25,25 +18,4 @@ block subSubContent
 	p For example, the numbers between \(0\) and \(1\) but not including \(0\) and \(1\) are not complete. It is possible to define sequences which converge to these missing points.
 	p More abstractly, you could have all vectors where \(x^2+y^2<1\). This is incomplete (or open) as sequences on these vectors can converge to limits not in the set.
 	p Cauchy sequences are important when considering real numbers. We could define a sequence converging on \(\sqrt 2\), but as this number is not in the set, it is incomplete.
-
-	h3
-		b Definition
-
-	p
-		b Direct comparison test
-
-	p
-		b Root test
-
-	p
-		b Limits of sequences
-
-	p Types of convergence
-	p A sequence converges to a limit if
-	p Can converge to a number (1/x)
-	p Can converge to +/- infinity (x)
-	p Otherwise, does not converge (1,-1,1,-1…)
-	p Superior and inferior limits
-
-	p A bounded increasing sequence converges to least upper bound
 

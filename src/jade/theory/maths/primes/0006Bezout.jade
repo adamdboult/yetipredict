@@ -6,38 +6,12 @@ block subSubTitle
 
 block subSubContent
 	h3
-		b Remainders
-	p Division is defined between natural numbers. However there are many cases where this division does not map to a natural number. For example:
-	p $$\frac{7}{3}$$ 
-	p We can divide \(6\) of the \(7\) by \(3\), giving \(2\) with \(1\) remaining.
-	p Alternatively we can divide \(3\) of the \(7\) by \(3\), giving \(1\) with \(4\) remaining
-	p Or we could divide \(0\) of the \(7\) by \(3\) giving \(0\) with \(7\) remaining.
-	p The remainder refers to the lowest possible number - in this case \(1\).
-	h3
-		b Euclidian division
-	p
-		b Statement
-	p Euclidian division is the theory for any pair of natural numbers, we can divide one by the other and have a remainder less than the divisor. Formally:
-	p $$\forall a \in \mathbb{N} ,\forall b \in \mathbb{N}^+ ,\exists q \in \mathbb{N},\exists r\in \mathbb{N} [(a=bq+r)\land (0\le r < b)]$$
-	p Where \(\mathbb{N}^+\) refers to natural numbers excluding \(0\).
-
-	p That is, every natural number \(a\) is a multiple \(q\) of any other natural number \(b\), plus another natural number \(r\) less than the other natural number \(b\).
-	p
-		b Proof
-	p These are unique. For each jump in \(q\), \(r\) falls by \(b\). As the range of \(r\) is \(b\) there is only one solution.
-	p
-		b Examples
-	$$17=2.8+1$$
-	$$9=3.3+0$$
-	h3
-		b Bezout's Identity
-	p
 		b Statement
 	p For any two non-zero natural numbers \(a\) and \(b\) we can select natural numbers \(x\) and \(y\) such that
 	$$ax+by=c$$
 	p The value of \(c\) is always a multiple of the greatest common denominator of \(a\) and \(b\).
 	p In addition, there exist \(x\) and \(y\) such that \(c\) is the greatest common denominator itself. This is the smallest positve value of c..
-	p
+	h3
 		b Proof
 	p Let's take two numbers of the form \(ax+by\):
 	$$d=as+bt$$

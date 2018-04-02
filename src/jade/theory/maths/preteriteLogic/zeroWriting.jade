@@ -2,7 +2,7 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Writing zero-order logic
+		b Terms and predicates
 block subSubContent
 	h3
 		b Predicates
@@ -10,28 +10,3 @@ block subSubContent
 	p For example using propositional logic we can write the statement "you are 25" as \(\theta \).
 	p With preterites we can write this as \(P(you, 25)\).
 	p A propositional variable can be considered a special case of a predicate variable, where the number of inputs is \(0\).
-	h3
-		b Relations
-	p A special type of predicates is a relation. These take two terms and can be written differently:
-	p $$P(x,y)\Leftrightarrow x\oplus y$$
-	h3
-		b Equality
-	p In preterite logic we define the relation for equality.
-	p \(a=b\)
-	p It is defined by the following:
-	ul
-		li Reflexivity : \(x=x\)
-		li Symmetry: \(x=y\leftrightarrow y=x\)
-		li Transivity: \(x=y\land y=z \rightarrow x=z\)
-		li Substitution for functions: \(x=y\rightarrow f(x)=f(y)\)
-		li Substitution for formulae: \(x=y\land P(x)\rightarrow P(y)\)
-	h3
-		b Functions (or maps)
-	p Functions take other terms, and are themselves terms. For example if we wanted to know if someone can legally drive in a specific country, we could use:
-	p $$P(you,age(UK))$$
-	p A function may not be able to produce an output for all inputs. For examples \(age(green)\) has no interpretation.
-	p Functions can also take different numbers of inputs. Constants, such as “you” and “UK” can be shown as functions with \(0\) inputs. As a result we could instead write:
-	p $$P(you(),age(UK()))$$
-	p We generally denote functions with a lower case letter, so would instead write:
-	p $$P(y(),a(b()))$$
-	p Functions are also called maps.

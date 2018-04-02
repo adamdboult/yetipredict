@@ -1,0 +1,16 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Subset relation
+block subSubContent
+	h3
+		b Subset
+	p If all terms which are members of term \(x\) are also members of term \(y\), then \(x\) is a subset of \(y\).
+	p $$\forall x\forall y[(\forall z(z\in x\rightarrow z\in y))\leftrightarrow (x\subseteq y)]$$
+	h3
+		b Proper subset
+	p If two sets are equal, then each is a subset of the other. A proper subset is one which is a subset, and not equal to the other set.
+	p $$\forall x\forall y[((\forall z(z\in x\rightarrow z\in y)))\land(x\ne y)\leftrightarrow (x\subset y)]$$
+
+

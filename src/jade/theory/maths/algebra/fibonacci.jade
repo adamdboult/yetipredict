@@ -1,0 +1,69 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Fibonacci sequence
+
+block subSubContent
+	h3
+		b The generating function
+	p Let's use a generating function to create a function for the Fibonacci sequence's \(c\)th digit.
+	$$F(c)=\sum_{i=c} x^is_i$$
+	p Let's look at it for other starts:
+	$$F(c+k)=\sum_{i=c} x^{i+k}s_{i+k}$$
+	$$F(c+k)=\sum_{i=c+k} x^is_i$$
+
+
+	$$F(c+1)=\sum_{i=c} x^{i+1}s_{i+1}$$
+	$$F(c+2)=\sum_{i=c} x^{i+2}s_{i+2}$$
+	p This means
+	$$F(c)x^2+F(c+1)x=\sum_{i=c} x^i s_i x^2 +\sum_{i=c} x^{i+1} s_{i+1} x$$
+	$$F(c)x^2+F(c+1)x=\sum_{i=c} x^{i+2}s_i+\sum_{i=c} x^{i+2}s_{i+1}$$
+	$$F(c)x^2+F(c+1)x=\sum_{i=c} x^{i+2}(s_i+s_{i+1})$$
+	h3
+		b Using the definiton of the Fibonacci sequence
+	p From the definition of the fibonacci sequence, \(s_{i}+s_{i+1}=s_{i+2}\).
+	$$F(c)x^2+F(c+1)x=\sum_{i=c} x^{i+2}(s_{i+2})$$
+	$$F(c)x^2+F(c+1)x=F(c+2)$$
+	h3
+		b Reducing the functions
+	p Next, we expand out \(F(c+1)\) and \(F(c+2)\).
+	$$F(c)-F(c+k)=\sum_{i=c} x^i s_i -\sum_{i=c+k} x^i s_i$$
+	$$F(c)-F(c+k)=\sum^{c+k}_{i=c} x^i s_i$$
+	$$F(c+k)=F(c)-\sum^{c+k}_{i=c} x^i s_i$$
+	p So:
+	$$F(c+1)=F(c)-\sum^{c+1}_{i=c} x^i s_i$$
+	$$F(c+1)=F(c)-x^c s_c$$
+	$$F(c+2)=F(c)-\sum^{c+2}_{i=c} x^i s_i$$
+	$$F(c+2)=F(c)-x^{c+1}s_{c+1}-x^c s_c$$
+	p Let's take our previous equation
+	$$F(c)x^2+F(c+1)x=F(c+2)$$
+	$$F(c)x^2+[F(c)-x^c s_c]x=F(c)-x^{c+1}s_{c+1}-x^c s_c$$
+	$$F(c)x^2+F(c)x-x^{c+1} s_c=F(c)-x^{c+1}s_{c+1}-x^c s_c$$
+	$$F(c)[x^2+x-1]=x^{c+1}s_c-x^{c+1}s_{c+1}-x^c s_c$$
+	$$F(c)=\frac{x^c s_c + x^{c+1}s_{c+1}-x^{c+1}s_c}{1-x-x^2}$$
+	h3
+		b Using the first element in the sequence
+	p For the start of the sequence, \(c=0\), \(s_0=s_1=1\).
+	$$F(0)=\frac{x^0 1 + x - x}{1-x-x^2}$$
+	$$F(0)=\frac{1}{1-x-x^2}$$
+	p Let's factorise this:
+	$$F(0)=\frac{-1}{(x+\frac{1}{2}+\frac{\sqrt 5}{2})(x+\frac{1}{2}-\frac{\sqrt 5}{2})}$$
+	p We can then use partial fraction decomposition
+	$$\frac{1}{(M+\delta)(M-\delta)}=\frac{1}{2\delta}[\frac{1}{M-\delta}-\frac{1}{M+\delta}]$$
+	p To show that
+	$$F(0)=\frac{-1}{\sqrt 5}[\frac{1}{x+\frac{1}{2}-\frac{\sqrt 5}{2}}-\frac{1}{x+\frac{1}{2}+\frac{\sqrt 5}{2}}]$$
+	$$F(0)=\frac{-1}{\sqrt 5}[\frac{\frac{1}{2}+\frac{\sqrt 5}{2}}{(x+\frac{1}{2}-\frac{\sqrt 5}{2})(\frac{1}{2}+\frac{\sqrt 5}{2})}-\frac{\frac{1}{2}-\frac{\sqrt 5}{2}}{(x+\frac{1}{2}+\frac{\sqrt 5}{2})(\frac{1}{2}-\frac{\sqrt 5}{2})}]$$
+	$$F(0)=\frac{-1}{\sqrt 5}[\frac{\frac{1}{2}+\frac{\sqrt 5}{2}}{x(\frac{1}{2}+\frac{\sqrt 5}{2})-1}-\frac{\frac{1}{2}-\frac{\sqrt 5}{2}}{x(\frac{1}{2}-\frac{\sqrt 5}{2})-1}]$$
+	$$F(0)=\frac{1}{\sqrt 5}[(\frac{1}{2}+\frac{\sqrt 5}{2})\frac{1}{1-x(\frac{1}{2}+\frac{\sqrt 5}{2})}-(\frac{1}{2}-\frac{\sqrt 5}{2})\frac{1}{1-x(\frac{1}{2}-\frac{\sqrt 5}{2})}]$$
+	h3
+		b Finishing off
+	p As we know
+	$$\frac{1}{1-x}=\sum_{i=0}x^i $$
+	p So
+	$$F(0)=\frac{1}{\sqrt 5}[(\frac{1}{2}+\frac{\sqrt 5}{2})\sum_{i=0} x^i(\frac{1}{2}+\frac{\sqrt 5}{2})^i -(\frac{1}{2}-\frac{\sqrt 5}{2})\sum_{i=0}x^i(\frac{1}{2}-\frac{\sqrt 5}{2})^i]$$
+	$$F(0)=\frac{1}{\sqrt 5}[\sum_{i=0} x^i(\frac{1}{2}+\frac{\sqrt 5}{2})^{i+1} -\sum_{i=0}x^i(\frac{1}{2}-\frac{\sqrt 5}{2})^{i+1}]$$
+	$$F(0)=\frac{1}{\sqrt 5}\sum_{i=0} x^i[(\frac{1}{2}+\frac{\sqrt 5}{2})^{i+1} -(\frac{1}{2}-\frac{\sqrt 5}{2})^{i+1}]$$
+	p So the \(n\)th number in the sequence (treating \(n=1\) as the first number) is:
+	$$\frac{1}{\sqrt 5}[(\frac{1}{2}+\frac{\sqrt 5}{2})^{n} -(\frac{1}{2}-\frac{\sqrt 5}{2})^{n}]$$
+

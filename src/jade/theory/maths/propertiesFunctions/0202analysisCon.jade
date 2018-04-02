@@ -2,42 +2,25 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Concave and convexs
+		b Concave and convex functions
 
 block subSubContent
 	h3
-		b Concave and convex functions
-	p A convex function is one where a line segment between any two points is higher than the function at that point. An example is \(y=x^2\).
-	p Alternatively a function is concave if for any line segment, the points are below the value of the function at that point. An example is \(y=-x^2\).
-	p If a function is concave at all points it will only have one stationary point, a local, and global, maxima.
-	p If a function is convex at all points it will only have one stationary point, a local, and global, minima.
-	p Convex, concave formal definitions
-	p Strictly formal definitions
-
+		b Convex functions
+	p A convex function is one where:
+	p \(\forall x_1, x_2\in \mathbb{R} \forall t \in [0,1] [f(tx_1+(1-t)x_2 \le tf(x_1)+(1-t)f(x_2)]\)
+	p That is, for any two points of a function, a line between the two points is above the curve.
+	p A function is strictly convex if the line between two points is strictly above the curve:
+	p \(\forall x_1, x_2\in \mathbb{R} \forall t \in (0,1) [f(tx_1+(1-t)x_2 < tf(x_1)+(1-t)f(x_2)]\)
+	p An example is \(y=x^2\).
 	h3
-		b Monotonic functions
-	p Calculus stationary points finding and monotonic functions
-
-
+		b Concave functions
+	p A concave function is an upside down convex function. The line between two points is below the curve.
+	p \(\forall x_1, x_2\in \mathbb{R} \forall t \in [0,1] [f(tx_1+(1-t)x_2 \ge tf(x_1)+(1-t)f(x_2)]\)
+	p A function is strictly concave if the line between two points is strictly below the curve:
+	p \(\forall x_1, x_2\in \mathbb{R} \forall t \in (0,1) [f(tx_1+(1-t)x_2 > tf(x_1)+(1-t)f(x_2)]\)
+	p An example is \(y=-x^2\).
 	h3
-		b Jensen's inequality
-		
-
-
-	h3
-		b Concave and convex functions
-	p Show that if a function is concave and convex, it is affine.
-	p Consider a function \(f\) at two points \(x\) and \(y\).
-	p A concave function is one such where for any given two points; the function at the average is greater than on equal to than the average of the function at the two points.
-	p \(f((1-\alpha )x+\alpha y)\ge (1-\alpha )f(x)+\alpha f(y)\)
-	p Similarly, it is strictly concave if:
-	p \(f((1-\alpha )x+\alpha y)> (1-\alpha )f(x)+\alpha f(y)\)
-	p Convex
-	p We can also define convexity, where for any given two points, the function at the average is less than or equal to the average of the function at the two points.
-	p \(f((1-\alpha )x+\alpha y)\le (1-\alpha )f(x)+\alpha f(y)\)
-	p Strict convexity is defined in the same way
-	p \(f((1-\alpha )x+\alpha y)< (1-\alpha )f(x)+\alpha f(y)\)
-	p Convexity, concavity and affinity
-	p  A function can be both concave and convex. This means that:
-	p \(f((1-\alpha )x+\alpha y)= (1-\alpha )f(x)+\alpha f(y)\)
-	p This is an affine function.
+		b Affine functions
+	p If a function is both concave and convex, then the line between two points must be the function itself. This means the function is an affine function.
+	p \(y=cx\)

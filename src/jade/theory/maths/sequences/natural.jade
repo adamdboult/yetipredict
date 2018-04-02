@@ -1,0 +1,32 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Summation of natural numbers
+
+block subSubContent
+	h3
+		b Goal
+	p Let's prove that:
+	p $$\sum_{i=0}^n i= \frac{n(n+1)}{2}$$
+	h3
+		b Proof by induction	
+	p We use the inference rules Modus Ponens, which says that if \(X\) is true, and \(X\rightarrow Y\) is true, then \(Y\) is true.
+	h3
+		b True for \(n=0\)
+	p We know this is true for \(n=0\):
+	p $$0=\frac{0(0+1)}{2}$$
+	p $$0=0$$
+	h3
+		b If it's true for \(n\), it's true for \(n+1\)
+	p We can also prove that if it true for \(n\), it is true for \(n+1\).
+	p $$\sum_{i=0}^{n+1} i= \frac{(n+1)(n+2)}{2}$$
+	p $$(n+1)+\sum_{i=0}^{n} i= \frac{n^2 +3n +2}{2}$$
+	p If it is true for \(n\), then:
+	p $$(n+1)+\frac{n(n+1)}{2}= \frac{n^2 +3n +2}{2}$$
+	p $$\frac{n^2+3n+2}{2}= \frac{n^2 +3n +2}{2}$$
+	p $$1=1$$
+	h3
+		b Result
+	p So we know that it is true for \(n=0\), and if it is true for \(n\), then it is true for \(n+1\). As a result it is true for all natural numbers.
+

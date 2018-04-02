@@ -1,0 +1,19 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h2
+		b Existence of an infinite number of prime numbers
+
+block subSubContent
+	h3
+		b Existence of an infinite number of prime numbers
+	p If there are a finite number of primes, we can call the set of primes \(P\).
+	p We identify a new natural number \(a\) by taking the product of existing primes and adding \(1\).
+	p $$a=1+\prod_{p\in P} p$$
+	p From the fundamental theorem of arithmetic we know all numbers are primes or the products of primes.
+	p If \(a\) is not a prime then it can be divided by one of the existing primes to form number \(n\):
+	p $$\frac{\prod^n p_i +1}{p_j}=n$$
+	p $$\frac{p_j \prod^n_{i\ne j} p_i +1}{p_j}=n$$
+	p $$\prod^n_{i\ne j} p_i +\frac{1}{p_j}=n$$
+	p As this is not a whole number, \(n\) must prime.
+	p We can do this process for any finite number of primes, so there are an infinite number.
+

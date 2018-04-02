@@ -1,0 +1,29 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Complements and disjoint sets
+
+block subSubContent
+	h3
+		b Disjoint sets
+	p Sets are disjoint is there is no overlap in their elements. Two sets are \(s_i\) and \(s_j\) are mutually exclusive if:
+	p \(s_i\land s_j=\emptyset\)
+	p A collection of events \(s\) are all mutually exclusive if all pairs are mutually exclusive. That is:
+	p \(\forall s_i \in s\forall s_j\in s[s_i\land s_j\ne \emptyset \rightarrow s_i=s_j]\)
+	h3
+		b Complement function
+	p \(x^C\) is the completement. It is defined such that:
+	p $$\forall x [x\land x^C=\varnothing ]$$
+	p For a set \(b\), the complement with respect to \(a\) is all elements in \(a\) which are not in \(b\).
+	p \(\forall x \in a \forall y \in b [x \in (a \setminus b) \land y\in (a \setminus b)]\)
+	p \(b\land (a \setminus b)= \varnothing \)
+	p That is, \(b\) and \(a \setminus b\) are disjoint.
+	h3
+		b Existence of the complement
+	p For two sets \(a\) and \(b\) we can write \((a \setminus b)\). This is the set of elements of \(a\) which are not in \(b\).
+	p Consider the axiom of specification:
+	p $$\forall x \forall a \exists s[(P(x)\land x\in a )\leftrightarrow (x\in s)]$$
+	p We can also write
+	p $$\forall x \forall a \forall b\exists s[(x\not\in b\land x\in a )\leftrightarrow (x\in s)]$$
+	p Which provides the complement, \(s\).

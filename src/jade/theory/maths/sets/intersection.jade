@@ -1,0 +1,26 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Set union and intersection
+
+block subSubContent
+	h3
+		b Introduction
+	p We discuss functions. Just because we can write a function of sets which exist, does not mean the results of the functions exist. For that we need axioms discussed later.
+	h3
+		b Union function
+	p We define a function on two sets, \(a\lor b\), such that the result contains all elements from either sets.
+	p $$\forall a \forall x \forall y [a\in (x\lor y) \leftrightarrow (a\in x \lor a\in y)]$$
+	p This is commutative: \(a\lor b = b\lor a\)
+	p This is associative: \((a\lor b)\lor c = a\lor (b\lor c)\)
+	h3
+		b Intersection function
+	p We define a function, \(a\land b\), on two sets, such that the result contains all elements which are in both.
+	p $$\forall a \forall x \forall y [a\in (x\land y) \leftrightarrow (a\in x \land a\in y)]$$
+	p This is commutative: \(a\land b = b\land a\)
+	p This is associative: \((a\land b)\land c = a\lor (b\land c)\)
+	h3
+		b Distribution of union and intersection
+	p Union is distributive over intersection: \(a\lor (b\land c)=(a\lor b)\land (a\lor c)\)
+	p Intersection is distributive over union: \(a\land (b\lor c)=(a\land b)\lor (a\land c)\)

@@ -1,0 +1,30 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b The chain rule, the product rule and the quotient rule
+block subSubContent
+	h3
+		b Chain rule
+	p $$f(x)=f(g(x))$$
+	p $$\frac{\delta f}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(g(x+\epsilon) )-f(g(x))}{\epsilon }$$
+	p $$\frac{\delta f}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{g(x+\epsilon )-g(x)}{g(x+\epsilon )-g(x)}\frac{f(g(x+\epsilon) )-f(g(x))}{\epsilon }$$
+	p $$\frac{\delta f}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{g(x+\epsilon )-g(x)}{\epsilon }\frac{f(g(x+\epsilon) )-f(g(x))}{g(x+\epsilon )-g(x)}$$
+	p $$\frac{\delta f}{\delta x}=\lim_{\epsilon \rightarrow 0^+}[\frac{g(x+\epsilon )-g(x)}{\epsilon }]\lim_{\epsilon \rightarrow 0^+}[\frac{f(g(x+\epsilon) )-f(g(x))}{g(x+\epsilon )-g(x)}]$$
+	p $$\frac{\delta f}{\delta x}=\frac{\delta g}{\delta x}\frac{\delta f}{\delta g}$$
+	h3
+		b Product rule
+	p $$y=f(x)g(x)$$
+	p $$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(x+\epsilon )g(x+\epsilon )-f(x)g(x)}{\epsilon }$$
+	p $$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(x+\epsilon )g(x+\epsilon )-f(x)g(x+\epsilon )+f(x)g(x+\epsilon )-f(x)g(x)}{\epsilon }$$
+	p $$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}\frac{f(x+\epsilon )g(x+\epsilon )-f(x)g(x+\epsilon )}{\epsilon }+\lim_{\epsilon \rightarrow 0^+}\frac{f(x)g(x+\epsilon )-f(x)g(x)}{\epsilon }$$
+	p $$\frac{\delta y}{\delta x}=\lim_{\epsilon \rightarrow 0^+}g(x+\epsilon )\frac{f(x+\epsilon )-f(x)}{\epsilon }+\lim_{\epsilon \rightarrow 0^+}f(x)\frac{g(x+\epsilon )-g(x)}{\epsilon }$$
+	p $$\frac{\delta y}{\delta x}=g(x)\frac{\delta f}{\delta x }+f(x)\frac{\delta g}{\delta x}$$
+	h3
+		b Quotient rule
+	p
+	p $$y=\frac{f(x)}{g(x)}$$
+	p $$\frac{\delta }{\delta x}y=\frac{\delta }{\delta x}\frac{f(x)}{g(x)}$$
+	p $$\frac{\delta }{\delta x}y=\frac{\delta }{\delta x}f(x)\frac{1}{g(x)}$$
+	p $$\frac{\delta }{\delta x}y=\frac{\delta f}{\delta x}\frac{1}{g(x)}-\frac{\delta g}{\delta x}\frac{f(x)}{g(x)^2}$$
+	p $$\frac{\delta }{\delta x}y=\frac{\frac{\delta f}{\delta x}g(x)-\frac{\delta g}{\delta x}f(x)}{g(x)^2}$$
