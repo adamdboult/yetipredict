@@ -1,0 +1,18 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Norms
+
+block subSubContent
+	h3
+		b Norms
+	p An inner product
+	p \( \langle v, v \rangle \)
+	p This, however, is not a linear form, as if we multiplied each vector by \(2\), the inner product grows by \(2^2=4\).
+	p We can take the square root of this.
+	p \(|v|= \sqrt{\langle v, v \rangle }\)
+	p This is still not a linear form, as this would require:
+	p \(|v|+|w|= \sqrt{\langle v+w, v+w \rangle }\)
+	p \(|v|+|-v|= \sqrt{\langle 0, 0 \rangle }\)
+

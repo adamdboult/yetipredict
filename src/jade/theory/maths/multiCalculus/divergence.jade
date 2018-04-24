@@ -1,0 +1,15 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Divergence
+block subSubContent
+	h3
+		b Introduction
+	p This takes a vector field and produces a scalar field
+
+	p It is the dot product of the vector field with the del operator
+
+	p \(div F = \nabla . F\)
+	p \( =(\sum_{i=1}^n e_i\frac{\delta }{\delta x_i})\)
+	p \(div F = \sum_{i=1}^n e_i\frac{\delta F_i}{\delta x_i}\)

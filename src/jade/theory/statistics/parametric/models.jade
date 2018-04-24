@@ -4,21 +4,18 @@ block subSubTitle
 		b Models
 block subSubContent
 	h3
-		b Models
-	p There is a distribution we want to estimate. This could be:
-	ul
-		li a probability distribution – \(P(Y)\)
-		li condition expectation distribution - \(E(Y|X)\)
-	p We call the distribution \(P\).
-	p We do not observe \(P\). Instead we model it from data. Our model distribution can be classified by parameters, \(\theta \). So our model for \(P\) is \(P_\theta \).
+		b Introduction
+	p We have some data \(X\). We model it as a function of parameters, \(\theta \).
+	p \(P(X|\theta )=f(\theta )\).
+	p There is a data generating process. We use models to say things about the data generating process.
+
+	h3
+		b Distributions of \(\theta \)
+	p We can create a distribution of \(\theta \):
+	p \(P(\theta | X)\).
 	p So to create a model for the data we need:
 	ul
 		li A model - \(P\)
 		li Parameters for the model - \(\theta \)
 	p There are therefore two questions: how to select a model and, given a model, how to select parameters.
-	p There is a data generating process. We use models to say things about the data generating process.
-	h3
-		b Evaluating a model
-	p Forecast accuracy
-	p Interpreting parameters for dy/dx
 

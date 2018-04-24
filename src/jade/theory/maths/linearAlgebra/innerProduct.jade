@@ -12,30 +12,4 @@ block subSubContent
 		b Inner products
 	p An inner product is a 
 	p \( \langle v, w \rangle \)
-	h3
-		b Norms
-	p An inner product
-	p \( \langle v, v \rangle \)
-	p This, however, is not a linear form, as if we multiplied each vector by \(2\), the inner product grows by \(2^2=4\).
-	p We can take the square root of this.
-	p \(|v|= \sqrt{\langle v, v \rangle }\)
-	p This is still not a linear form, as this would require:
-	p \(|v|+|w|= \sqrt{\langle v+w, v+w \rangle }\)
-	p \(|v|+|-v|= \sqrt{\langle 0, 0 \rangle }\)
-	h3
-		b Cauchy-Schwarz inequality
-	p This states that:
-	p \(|\langle u,v\rangle |^2 \le \langle u, u\rangle \dot \langle v, v\rangle \)
-	p Consider:
-	p \(0\le |u-\lambda v|^2\)
-	p \(0\le \langle u-\lambda v, u-\lambda v\rangle\)
-	p \(0\le \langle u, u\rangle+ \langle u, -\lambda v\rangle+\langle -\lambda v, u\rangle+ \langle -\lambda v, -\lambda v\rangle\)
-	p \(0\le |u|^2-\bar{\lambda }\langle u, v\rangle-\lambda \overline{ \langle u, v\rangle }+ \lambda \bar{\lambda }|v|^2\)
-	p We now look for a value of \(\lambda \) to simplify this equation.
-	p \(\lambda = \frac{\langle u,v \rangle}{||v||^2}\)
-	p This allow us to use \(\lambda =\bar{\lambda }\).
-	p \(0\le |u|^2-\lambda \langle u, v\rangle-\lambda \overline{ \langle u, v\rangle }+ \lambda \lambda |v|^2\)
-	p \(0\le |u|^2-\frac{\langle u,v \rangle}{||v||^2}\langle u, v\rangle-\frac{\langle u,v \rangle}{||v||^2}\overline{ \langle u, v\rangle }+ \frac{\langle u,v \rangle}{||v||^2}\frac{\langle u,v \rangle}{||v||^2}|v|^2\)
-	p \(0\le |u|^2-\frac{|\langle u,v \rangle|^2}{||v||^2}\)
-	p \(|\langle u,v \rangle|^2\ge |u|^2||v||^2\)
 

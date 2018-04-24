@@ -1,0 +1,35 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Bayesian inference
+block subSubContent
+	h3
+		b Prior
+	p Our prior distribution is the probability distribution of the model parameters without reference to the data.
+	p We can write this as:
+	h3
+		b Posterior
+	p The posterior distribution is the probability distribution of thte model parameters conditional on the data.
+	p We can write this as:
+	p \(P(\theta |X)\)
+	h3
+		b Calculating the posterior distribution
+	p To date we have not created a distribution of parameters, but instead a point estimate.
+	p We can use Bayes rule to break down how to calculate the posterior distribution:
+	p \(P(\theta |X)=\frac{P(X|\theta )P(\theta )}{P(X)}\)
+	h3
+		b Normal priors and posteriors
+	p If our prior is a normal distribution then:
+	p \(P(\theta )=\frac{1}{\sqrt {(2\pi )^n|\Sigma_0|}}e^{-\frac{1}{2}(x-\mu )^T\Sigma_0^{-1}(x-\mu)}\)
+
+	p Similarly, if our likelihood function (\(P(X|\theta )\) is a normal distriubtion then:
+
+	p \(P(X|\theta )=\frac{1}{\sqrt {2\pi \sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma ^2}}\)
+
+	p We can now plug these into Bayes rule:
+	p \(P(\theta |X)=\frac{1}{P(X)}\frac{1}{\sqrt {2\pi \sigma_0^2}}e^{-\frac{(\theta-\mu_0)^2}{2\sigma_0^2}}\frac{1}{\sqrt {2\pi \sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma ^2}}\)
+	p \(P(\theta |X)\propto e^{-\frac{1}{2}[\frac{(\theta-\mu_0)^2}{\sigma_0^2}+\frac{(x-\mu)^2}{\sigma ^2}]}\)
+	p We can then set this an a new Gaussian:
+	p \(P(\theta |X)\=\frac{1}{(2\pi )^{n/2}|\Sigma|^{\frac{1}{2}}} e^{-\frac{1}{2}[\frac{(\theta-\mu_0)^2}{\sigma_0^2}+\frac{(x-\mu)^2}{\sigma ^2}]}\)
+
+	p mean of posterior is equal to MAP	

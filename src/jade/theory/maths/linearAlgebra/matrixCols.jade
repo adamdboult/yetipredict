@@ -1,0 +1,16 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Matrix columns as vector inputs
+block subSubContent
+	h3
+		b Columns of matrices can be the input to a multilinear form
+	p A matrix can be shown in terms of its columns.
+	p $$A=[a_1,a_2,...,a_n]$$
+	h3
+		b Columns as sums of elements
+	p An element vector \(E^k\) is empty except for \(1\) in row \(k\). It is the \(i\)th column of the identity matrix.
+	p Column \(a_i\) can be shown as;
+	p $$a_i=\sum_{j=1}^na_{ji}E^j$$
+

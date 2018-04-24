@@ -1,0 +1,18 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Generative and discriminative models
+block subSubContent
+	h3
+		b Generative models
+	p In generative models we learn:
+	p \(P(X, y)\)
+	p Through Bayes rule we can also specify a generative model with both:
+	p \(P(y)\)
+	p \(P(X|y)\)
+	p Similarly, if we have a generative model and also \(P(X)\), we can calculate \(P(X|y)\) using Bayes rule.
+	h3
+		b Discriminative models
+	p In discriminative models we learn:
+	p \(P(y|X)\)
+

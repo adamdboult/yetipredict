@@ -2,7 +2,7 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Cosine and sine
+		b Defing sine and cosine using Euler's formula
 
 block subSubContent
 	h3
@@ -19,112 +19,34 @@ block subSubContent
 	p So:
 	$$e^{i\theta }=\cos (\theta )+i\sin (\theta )$$
 	h3
+		b Alternative formulae for sine and cosine
+	p We know
+	p $$e^{i\theta }=\cos (\theta )+i\sin (\theta )$$
+	p $$e^{-i\theta }=\cos (\theta )-i\sin (\theta )$$
+	p So
+	p $$e^{i\theta }+e^{-i\theta }=cos (\theta )+i\sin (\theta )+\cos (\theta )-i\sin (\theta )$$
+	p $$\cos (\theta )=\frac{e^{i\theta }+e^{-i\theta }}{2}$$
+	p And
+	p $$e^{i\theta }-e^{-i\theta }=cos (\theta )+i\sin (\theta )-\cos (\theta )+i\sin (\theta )$$
+	p $$\sin (\theta )=\frac{e^{i\theta }-e^{-i\theta }}{2i}$$
+
+	h3
+		b Sine and cosine are odd and even functions
+	p Sine is an odd function.
+	p $$\sin (-\theta )=-\sin (\theta )$$
+	p Cosine is an even function.
+	p $$\cos (-\theta )=\cos (\theta )$$
+
+	h3
 		b De Moive's formula
 	p $$e^{i\theta }=\cos (\theta )+i\sin (\theta )$$
 	p Let \(\theta = nx\):
 	p $$e^{inx }=\cos (nx )+i\sin (nx )$$
 	p $$(e^{ix})^n=\cos (nx )+i\sin (nx )$$
 	p $$(\cos (x)+i\sin (x))^n=\cos (nx )+i\sin (nx )$$
-	h3
-		b Unity
-	p Note that with imaginary numbers we can reverse all \(i\)s. So:
-	p $$e^{i\theta }=\cos (\theta )+i\sin (\theta )$$
-	p $$e^{-i\theta }=\cos (\theta )-i\sin (\theta )$$
-	p $$e^{i\theta }e^{-i\theta }=(\cos (\theta )+i\sin (\theta ))(\cos (\theta )-i\sin (\theta ))$$
-	p $$e^{i\theta }e^{-i\theta }=\cos (\theta )^2+\sin (\theta )^2$$
-	p $$e^{i\theta }e^{-i\theta }=e^{i\theta -i\theta }=e^0=1$$
-	p So:
-	p $$\cos (\theta )^2+\sin (\theta )^2=1$$
-
-	p Note that if \(\cos (\theta )^2=0\), then \(\sin (\theta )^2=\pm 1\)
-	p That is, if the real part of \(e^{i\theta }\) is \(0\), the imaginary part is \(\pm 1\). And visa versa.
-	p Similarly if the derivative of the real part of \(e^{i\theta }\) is \(0\), the imaginary part is \(\pm 1\). And visa versa.
-
-	h3
-		b Calculus: Derivatives 1
-	p Note that these functions are linked in their derivatives.
-	p $$\frac{\delta }{\delta \theta }\cos (\theta )=\sum_{j=0}^\infty \frac{(\theta )^{(4j+3)}}{(4j+3)!}-\sum_{j=0}^\infty \frac{(\theta )^{4j+1}}{(4j+1)!}$$
-	p $$\frac{\delta }{\delta \theta }\cos (\theta )=-\sin (\theta )$$
-	p Similarly:
-	p $$\frac{\delta }{\delta \theta }\sin (\theta )=cos(\theta )$$
-	h3
-		b Calculus: Derivatives 2
-	p $$\frac{\delta^2 }{\delta \theta^2}\sin (\theta )=-\sin (\theta )$$
-	p $$\frac{\delta^2 }{\delta \theta^2}\cos (\theta )=-\cos (\theta )$$
-
-	p So for either of:
-	p $$y=\cos (\theta )$$
-	p $$y=\sin (\theta )$$
-	p We know that
-	p $$\frac{\delta^2 }{\delta \theta^2}y(\theta )=-y(\theta )$$
-	h3
-		b Calculus: Derivatives 3
-	p $$\frac{\delta }{\delta \theta }e^{i\theta }=ie^{i\theta }$$
-	p $$\frac{\delta }{\delta \theta }e^{i\theta }=i\cos (\theta )-\sin(\theta )$$
-	h3
-		b Calculus: Behaviour at \(0\)
-	p Consider \(\theta =0\).
-
-	p $$e^{i.0}=\cos (0)+i\sin (0)$$
-	p $$1=\cos (0)+i\sin (0)$$
-	p $$\sin (0)=0$$
-	p $$\cos (0)=1$$
-	p Similarly we know that the derivative:
-	p $$\sin'(0)=\cos(0)=1$$
-	p $$\cos'(0)=-\sin(0)=0$$
-
-	h3
-		b Repeating function
-	p Consider \(\cos(\theta )\). 
-	p As \(\cos (0)\) is static at \(\theta =0\), and is positive, it will fall until \(\cos (\theta )=0\).
-	p While this is happening, \(\sin (\theta )\) is increasing. As:
-	p $$\cos (\theta )^2+\sin (\theta )^2=1$$
-	p \(\sin (\theta )\) will equal \(1\) where \(\cos (\theta )=0\).
-	p Due to symmetry this will repeat \(4\) times.
-	p Let's call the length of this period \(\tau \).
-	p Where \(\theta =\tau *0\)
-	ul
-		li \(\cos (\theta )=1\)
-		li \(\sin (\theta )=0\)
-	p Where \(\theta =\tau *\frac{1}{4}\)
-	ul
-		li \(\cos (\theta )=0\)
-		li \(\sin (\theta )=1\)
-	p Where \(\theta =\tau *\frac{2}{4}\)
-	ul
-		li \(\cos (\theta )=-1\)
-		li \(\sin (\theta )=0\)
-	p Where \(\theta =\tau *\frac{3}{4}\)
-	ul
-		li \(\cos (\theta )=0\)
-		li \(\sin (\theta )=-1\)
-
-	p
-		b Relationship between\( \cos (\theta )\) and \(\sin(\theta )\).
-	p Note that \(\sin(\theta + \frac{\tau }{4})=\cos(\theta )\)
-	p Note that \(\sin (\theta )=\cos (\theta )\) at
-	ul
-		li $$\tau *\frac{1}{8}$$
-		li $$\tau *\frac{5}{8}$$
-	p And that all these answers loop. That is, add any integer multiple of \(\tau \) to \(\theta \) and the results hold.
-	p $$e^{i\theta } = e^{i\theta +n\tau }$$
-	p $$n \in \mathbb{N}$$
-	p $$e^{i\theta } = \cos(\theta )+i\sin(\theta )$$
-	p $$e^{i\theta } = \cos(\theta +n\tau )+i\sin(\theta +n\tau ) $$
-	p $$e^{i\theta } = e^{i(\theta +n\tau )}$$
-	
 
 
-	h3
-		b Calculus of trig
-	p Relationship between cos and sine
-	p $$\sin(x+\frac{\pi }{2})=\cos(x)$$
-	p $$\cos(x+\frac{\pi }{2})=-\sin(x)$$
-	p $$\sin(x+\pi )=-\sin(x)$$
-	p $$\cos(x+\pi )=-\cos(x)$$
-	p $$\sin(x+\tau )=\sin(x)$$
-	p $$\cos(x+\tau )=\cos(x)$$
-	h3
-		b Differential equations
-	p Define from differential equations
-	
+
+
+
+

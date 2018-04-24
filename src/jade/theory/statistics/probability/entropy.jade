@@ -1,0 +1,21 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Entropy
+block subSubContent
+	h3
+		b Introduction
+	p Entropy measures the expected amount of information produced by a source.
+
+	p H(P(x))=E(I(P(x))
+
+	p Entropy is similar to variance, is the sense that both measure uncertainty.
+
+	p Entropy, however, has no references to specific values of \(x\). If all values were multiplied by 100, or if parts of the distribution were cut up and swapped, entropy would be unaffected.
+	p for a probability function \(p(z)\), its entropy is :
+	p \(H(p)=-\int p(z)\ln p(z)dz\).
+	p This is a measure of the spread of a distribution.
+
+	p negative infinity means no uncertainty
+
+	p For a multivariate gaussian H=d/2 ln(2\pi e|\Sigma)

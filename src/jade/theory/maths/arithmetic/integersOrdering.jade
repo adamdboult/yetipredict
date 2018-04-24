@@ -1,0 +1,56 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Ordering of the integers
+
+block subSubContent
+	h3
+		b Ordering integers
+	p Integers are an ordered pair of naturals.
+	p $$\{\{x\},\{x,y\}\}$$
+	p For example \(-4\) can be:
+	p $$\{\{4\},\{4,8\}\}$$
+	p $$\{\{0\},\{0,8\}\}$$
+	p We extend the ordering to say:
+	p $$\{\{x\},\{x,y\}\}\le \{\{s(x)\},\{s(x),y\}\}$$
+	p $$\{\{x\},\{x,s(y)\}\}\le \{\{x\},\{x,y\}\}$$
+	p So can we define this on an arbitrary pair:
+	p $$\{\{a\},\{a,b\}\}\le \{\{c\},\{c,d\}\}$$
+	p We know that:
+	p $$\{\{a\},\{a,b\}\}=\{\{s(a)\},\{s(a),s(b)\}\}$$
+	p And either of:
+	p $$\{\{a\},\{a,b\}\}=\{\{0\},\{0,A\}\}$$
+	p $$\{\{a\},\{a,b\}\}=\{\{B\},\{B,0\}\}$$
+	p $$\{\{a\},\{a,b\}\}=\{\{0\},\{0,0\}\}$$
+	p As the latter is a case of either of the other \(2\), we consider only the first \(2\).
+	p So we can define:
+	p $$\{\{a\},\{a,b\}\}\le \{\{c\},\{c,d\}\}$$
+	p As any of:
+	p $$1: \{\{0\},\{0,A\}\}\le \{\{0\},\{0,C\}\}$$
+	p $$2: \{\{0\},\{0,A\}\}\le \{\{D\},\{D,0\}\}$$
+	p $$3: \{\{B\},\{B,0\}\}\le \{\{0\},\{0,C\}\}$$
+	p $$4: \{\{B\},\{B,0\}\}\le \{\{D\},\{D,0\}\}$$
+	p Case 1:
+	p $$\{\{0\},\{0,A\}\}\le \{\{0\},\{0,C\}\}$$
+	p Trivial, depends on relative size of \(A\) and \(C\).
+	p
+
+	p Case 2:
+	p $$\{\{0\},\{0,A\}\}\le \{\{D\},\{D,0\}\}$$
+	p We can see that:
+	p $$\{\{D\},\{D,A\}\}\le \{\{D\},\{D,0\}\}$$
+	p And therefore this holds.
+	p
+
+	p Case 3:
+	p $$\{\{B\},\{B,0\}\}\le \{\{0\},\{0,C\}\}$$
+	p We can see that:
+	p $$\{\{B\},\{B,0\}\}\le \{\{B\},\{B,C\}\}$$
+	p And therefore this does not hold.
+	p
+	p Case 4:
+	p $$\{\{B\},\{B,0\}\}\le \{\{D\},\{D,0\}\}$$
+	p Trivial, like case 1.
+	p
+

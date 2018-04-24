@@ -8,8 +8,8 @@ block subSubContent
 	h3
 		b The axiom
 	p The axiom of infinity states that:
-	p $$\exists \mathbb{N} (\varnothing \in \mathbb{N} \land \forall x \in \mathbb{N}((x\lor \{x\})\in \mathbb{N}))$$
-	p There exists a set, called the infinite set: \(\exists \mathbb{N} \).
+	p $$\exists I (\varnothing \in I \land \forall x \in I((x\lor \{x\})\in I))$$
+	p There exists a set, called the infinite set. This contains the empty set, and for all elements in \(I\) the set also contains the successor to it.
 	h3
 		b Sequential function
 	p Let's define the sequential function:
@@ -35,3 +35,21 @@ block subSubContent
 	h3
 		b From infinite set to natural set
 	p We don’t know I is limited to natural numbers. Could contain urelements etc.
+	h3
+		b More
+	p infinite set axiom written using N. should be I
+
+	p I could be superset of N, for example set of all natural numbers, and also the set containing the set containing 2.
+
+	p can extract N using axiom of specification
+
+	p we need a way to define the set of natural numbers:
+
+	p \(\forall n (n\in \mathbb{N}\leftrightarrow ([n=\nullset \lor \exists k (n=k\lor \{k\})]\land ))\)
+
+	p If we can can define N, we can show it exists from specicication
+
+	p \(\forall x \exists s [P(x)\leftrightarrow (x\in s)]\)
+
+	p \(\forall n \exists s [n\in N \leftrightarrow (n\in s)]\)
+	

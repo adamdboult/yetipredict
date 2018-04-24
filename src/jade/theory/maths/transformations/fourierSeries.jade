@@ -1,0 +1,56 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Fourier series
+
+block subSubContent
+	h3
+		b Fourier series
+	p Motivation: we have a function we want to display as another sort of function.
+	p More specifically, a function can be shown as a combination of sinusoidal waves.
+	p To frame this let’s imagine a sound wave, with values \(f(t)\) for all time values \(t\). We can imagine this as a summation of sinusoidal functions. That is:
+	p $$f(t)=\sum_{n=0}^\inf a_ncos(nw_0t)$$
+	p We want to get another function \(F(\xi )\) for all frequencies \(\xi \).
+	p
+		b Combinations of wave functions
+	p We can add sinusoidal waves to get new waves.
+	p For example
+	p $$s_N(x)=2\sin(x+3)+\sin(-4x)+\frac{1}{2}\cos(x)$$
+	p
+		b As a summation of series
+	p We can simplify arbitrary series using the following identities:
+	p $$\cos(x)=\sin(x+\frac{\tau }{8})$$
+	p $$\sin(-x)=-\sin(x)$$
+	p So we have:
+	p $$s(x)=2\sin(x+3)-\sin(4x)+\frac{1}{2}\sin(x+\frac{\tau }{8})$$
+	p We can put this into the following format:
+	p $$s(x)=\sum^m_{i=1}a_i\sin(b_ix+c_i)$$
+	p Where:
+	p $$a=[2,-1,\frac{1}{2}]$$
+	p $$b=[1,4,1]$$
+	p $$c=[3,0,\frac{\tau}{8}]$$
+	p
+		b Ordering by \(b\)
+	p We can move terms around to get:
+	p $$s(x)=\sum^m_{i=1}a_i\sin(b_ix+c_i)$$
+	p Where:
+	p $$a=[2,\frac{1}{2},-1]$$
+	p $$b=[1,1,4]$$
+	p $$c=[3,\frac{\tau}{8},0]$$
+	h3
+		b Adding waves with same frequency
+	p We know that:
+	p $$\sin(a+b)=\sin(a)\cos(b)+\sin(b)\cos(a)$$
+	p So:
+	p $$\sin(b_ix+c_i)=\sin(b_ix)\cos(c_i)+\sin(c_i)\cos(b_ix)$$
+	p If \(2\) terms have the same value for \(b_i\), then:
+	p $$a_i\sin(b_ix+c_i)+a_j\sin(b_jx+c_j)=a_i\sin(b_ix+c_i)+a_j\sin(b_ix+c_j)$$
+	p $$a_i\sin(b_ix+c_i)+a_j\sin(b_jx+c_j)=a_i\sin(b_ix)\cos(c_i)+a_i\sin(c_i)\cos(b_ix)+a_j\sin(b_ix)\cos(c_j)+a_j\sin(c_j)\cos(b_ix)$$
+
+	p So we now get for:
+	p $$s(x)=\sum^m_{i=1}a_i\sin(b_ix+c_i)$$
+	p $$a=[,-1]$$
+	p $$b=[,4]$$
+	p $$c=[,0]$$
+

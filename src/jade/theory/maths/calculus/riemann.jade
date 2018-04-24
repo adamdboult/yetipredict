@@ -1,0 +1,29 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Riemann integral
+
+block subSubContent
+	h3
+		b Riemann sums
+	p Given a function \(f(x)\) and an interval \([a,b]\), we can divide \([a,b]\) into \(n\) sections and calculate:
+	p $$\sum_{j=0}^{n(b-a)}f(a+\frac{j}{n})$$
+	p This is the Riemann sum.
+	h3
+		b Riemann integral
+	p We take the limit of the Riemann sum as \(n\rightarrow \infty\)
+	p \(\int_a^b f(x)dx:= \lim_{n\rightarrow \infty } \sum_{j=0}^{n(b-a)} f(a+ \frac{j}{n} )\)
+	h3
+		b Linearity
+	p $$\int_a^bf(x)+g(x)dx=\lim_{n\rightarrow \infty }\sum_{j=0}^{n(b-a)}f(a+\frac{j}{n})+g(a+\frac{j}{n})$$
+	p $$\int_a^bf(x)+g(x)dx=\lim_{n\rightarrow \infty }\sum_{j=0}^{n(b-a)}f(a+\frac{j}{n})+\lim_{n\rightarrow \infty }\sum_{j=0}^{n(b-a)}g(a+\frac{j}{n})$$
+	p $$\int_a^bf(x)+g(x)dx=\int_a^bf(x)dx +\int_a^bg(x)dx$$
+	h3
+		b Continuation
+	p $$\int_a^bf(x)dx+\int_b^cf(x)dx=\lim_{n\rightarrow \infty }\sum_{j=0}^{n(b-a)}f(a+\frac{j}{n})+\lim_{n\rightarrow \infty }\sum_{j=0}^{n(c-b)}f(b+\frac{j}{n})$$
+	p $$\int_a^bf(x)dx+\int_b^cf(x)dx=\lim_{n\rightarrow \infty }[\sum_{j=0}^{n(b-a)}f(a+\frac{j}{n})+\sum_{j=0}^{n(c-b)}f(b+\frac{j}{n})]$$
+	p $$\int_a^bf(x)dx+\int_b^cf(x)dx=\lim_{n\rightarrow \infty }[\sum_{j=0}^{n(b-a)}f(a+\frac{j}{n})+\sum_{j=n(b-a)}^{n(c-b)+n(b-a)}f(b+\frac{j-n(b-a)}{n})]$$
+	p $$\int_a^bf(x)dx+\int_b^cf(x)dx=\lim_{n\rightarrow \infty }[\sum_{j=0}^{n(b-a)}f(a+\frac{j}{n})+\sum_{j=n(b-a)}^{n(c-a)}f(a+\frac{j}{n})]$$
+	p $$\int_a^bf(x)dx+\int_b^cf(x)dx=\lim_{n\rightarrow \infty }[\sum_{j=0}^{n(c-a)}f(a+\frac{j}{n})$$
+	p $$\int_a^bf(x)dx+\int_b^cf(x)dx=\int_a^cf(x)dx$$

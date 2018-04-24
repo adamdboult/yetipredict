@@ -4,14 +4,12 @@ block subSubTitle
 		b K-nearest neighbours
 block subSubContent
 	h3
-		b 
-	p get distance between oints. euclidian.
-
-	p for each item, get the set of k nearest neighbours
-	p if most neighbours are type a, label it a. if b, label it b
-
-	p doesn't require a model or parameters
-
+		b Introduction
+	p K-nearest neighbours is a non-parametric classifer. For a point with an unknown class we identify the classes of the \(K\)-nearest neighbours and assign the most common class.
+	p For this we need to find the distance between observations. We can do this using norms.
+	p Weightings of the dependent variables is important here.
+	h3
+		b Practicality
 	p requires space to store
 	p n samples, d features
 	p times: O(n.d)

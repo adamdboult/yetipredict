@@ -1,0 +1,37 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Language models
+block subSubContent
+	h3
+		b probabilistic language model
+	p probabilistic language model:
+	p p(child|did you call your)
+
+	p can estimate p(child|did you call your) = \frac{|did you call your child|}{|did you call your|}
+	p can estimate p(did you call your child) = \frac{|did you call your child|}{|sentences 5 words|}
+	p need large corpus
+
+	p we can modify these
+	p can estimate p(child|did you call your) = \frac{|did you call your child| + 1}{|did you call your| + V}
+	p can estimate p(did you call your child) = \frac{|did you call your child| + 1}{|sentences 5 words| + V}
+	p called smoothing
+
+	p decompose using chain rule
+	p p(w_1, w_2, ...,w_5) = p(w_1)p(w_2|w_1)...p(w_5|w_4, w_3, w_2, w_1)
+	p p(w_1, w_2, ...,w_5) = \prod_k p(w_k|w_1,...,w_k-1)
+
+	p markov assumptionL p(w_k|w_1,...,w_k-1)=p(w_k|w_k-1)
+	p other models, look n-1 back: n-gram
+
+	p we can estiamte these conditional prob using the count model above.
+
+	p can compare models using Perplexity
+	p perplexity(w_1, w_2, ..., w_n)=p(w_1, w_2, ..., w_n)^{-\frac{1}{n}}
+	p we do this for words in corpus
+
+	p we can expand it
+	p perplexity(w_1, w_2, ..., w_n)=(\prod p(w_i| w_1, ..., w_{i-1})^{-\frac{1}{n}})
+	p depending on which n-gram we use we can then simplify this.
+
+	p choose model with lowest perplexity

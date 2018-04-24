@@ -1,0 +1,33 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Classification
+block subSubContent
+	h3
+		b Introduction
+	p Classification models are a type of regression model, where \(y\) is discrete rather than continuous.
+	p So we want to find a mapping from a vector \(X\) to probabilities across discrete \(y\) values.
+	p A classifier takes \(X\) and returns a vector.
+	p For a classifier we have \(K\) classes. 
+	h3
+		b Hard and soft classifiers
+	p A hard classifier can return a sparce vector with \(1\) in the relevant classification.
+	p A soft classifier returns probabilities for each entry in the vector.
+
+	p The vector represents  \(P(Y=k|X=x)\)
+	h3
+		b Classification risk
+
+	p We can measure the risk of a classifier. This is the chance of misclassification.
+
+	p \(R(C)=P(C(X)\ne Y)\)
+
+	h3
+		b Hinge loss
+	p 
+	h3
+		b F1 score
+	p 
+	h3
+		b Receiver Operating Characteristic (ROC) Area Under Curve (AUC)
+	p 

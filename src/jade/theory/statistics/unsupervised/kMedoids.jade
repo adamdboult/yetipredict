@@ -1,0 +1,20 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b k-medoids
+block subSubContent
+	h3
+		b Introduction
+	p k-mediods is similar to k-means clustering, with two key differences:
+	ul
+		li Centroids are now always located on data points, rather than floating freely.
+		li We mimimise \(l_1\) distance, rathern than \(l_2\).
+	h3
+		b Partitioning Around Medoids (PAM) algorithm
+	p This is the most common approach for k-medoids.
+	p We initialise randomly, as we do for k-means.
+	p We then iterate the following:
+	ul
+		li Calculate the loss for the current allocation
+		li For each medoid, see if swapping allocation with another (non-medoid) data point decreases the cost.
+		li If it does, make the swap.

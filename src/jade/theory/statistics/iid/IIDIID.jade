@@ -4,9 +4,7 @@ block subSubTitle
 		b IID
 block subSubContent
 	h3
-		b Distributions
-	p
-		b Independent and identically distributed (IID): Independence
+		b Independence
 	p \(x\) is independent of \(y\) if:
 	p $$\forall x_i \in x,\forall y_j \in y (P(x_i|y_j)=P(x_i)$$
 	p If \(P(x_i|y_j)=P(x_i)\) then:
@@ -20,7 +18,12 @@ block subSubContent
 	p $$P(x_i|y_j)=\frac{P(x_i)P(y_j)}{P(y_j)}$$
 	p $$P(x_i|y_j)=P(x_i)$$
 
-	p
-		b Independent and identically distributed (IID): Identically distributed
+	h3
+		b Identically distributed
 	p \(x\) is identically distributed to \(y\) if:
 	p $$\forall i (\exists x_i \rightarrow P(x_i)=P(y_i))$$
+
+	h3
+		b Covariance matrix of IID variables
+	p For IID varaibles, the covariance  matrix is:
+	p \(\Sigma = \sigma^2 I\)

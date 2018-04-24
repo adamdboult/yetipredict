@@ -1,0 +1,24 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Markov chains
+block subSubContent
+	h3
+		b Introduction
+	h3
+		b Transition matrices
+	p This shows the probability for moving between discrete states.
+	p We can show the probability of being in a state by multiplying the vector state by the transition matrix.
+	p \(\Mv\)
+
+	h3
+		b Time-homogenous Markov chains
+	p For time-homogenous Markov chains the transition matrix is independent of time.
+	p For these we can calculate the probability of being in any given state in the future:
+	p \(M^nv\)
+
+	p This becomes independent of v as we tend to infinity. The initial starting state does not matter for long term probabilities.
+
+	p How to find steady state probability?
+	p \(Mv=v\)
+	p The eigenvectors! With associated eigenvector \(1\). There is only one eigenvector. We can find it by iteratively multiplying any vector by \(M\).

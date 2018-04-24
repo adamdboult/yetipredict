@@ -3,21 +3,15 @@ block subSubTitle
 	h1
 		b Basic results
 block subSubContent
-	p We know that:
-	p $$\sum_yP(X\land Y)=P(X)$$
-	p So for the continuous case
-	p $$P(X)=\int_{-\infty }^{\infty }P(X\land Y)dy$$
-	p This behaves like the probability for a single event, or multiple events with one fewer event if there were more than \(2\) events to start with.
-	
-
 	h3
 		b Probability of null
 	p $$P(\Omega )=1$$
-	p $$P(\Omega \lor \nullset )=1$$
-	p $$P(\Omega )+P(\nullset )=1$$
-	p $$P(\nullset )=0$$
-	h3 Monotonicity
-		b Consider \(E_i\subseteq E_j\):
+	p $$P(\Omega \lor \varnothing )=1$$
+	p $$P(\Omega )+P(\varnothing )=1$$
+	p $$P(\varnothing )=0$$
+	h3 
+		b Monotonicity
+	p Consider \(E_i\subseteq E_j\):
 	p $$E_j=E_i\lor E_k$$
 	p $$P(E_j)=P(E_i\lor E_k)$$
 	p Disjoint so:
@@ -33,10 +27,10 @@ block subSubContent
 	p \(\forall E\in F [0<=P(E)<=1]\)
 	h3
 		b Union and intersection for null and universal
-	p $$P(E\land \nullset)=P(\nullset)=0$$
+	p $$P(E\land \varnothing )=P(\varnothing )=0$$
 	p $$P(E\lor \Omega )=P(\Omega )=1$$
-	p $$P(E\lor\nullset)=P(E)$$
-	p $$P(E\land \Omega )=P(E)
+	p $$P(E\lor \varnothing)=P(E)$$
+	p $$P(E\land \Omega )=P(E)$$
 	h3
 		b Separation rule
 	p Firstly:
@@ -66,10 +60,10 @@ block subSubContent
 	p Consider \(E\) and \(E^C\):
 	p $$P(E\lor E^C)=P(E)+P(E^C)-P(E\land E^C)$$
 	p We know that \(E\) and \(E^C\) are disjoint, that is:
-	p $$E\land E^C=\nullset$$
+	p $$E\land E^C=\varnothing$$
 	p Similarly by construction:
 	p $$E\lor E^C=\Omega $$
 	p So:
-	p $$P(\Omega )=P(E)+P(E^C)-P(\nullset)$$
+	p $$P(\Omega )=P(E)+P(E^C)-P(\varnothing)$$
 	p $$1=P(E)+P(E^C)$$
 

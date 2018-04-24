@@ -1,0 +1,23 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Bilinear maps
+block subSubContent
+	h3
+		b Bilinear map
+	p A bilinear map (or function) is a map from two inputs to an output which preserves addition and scalar multiplication. This is in contrast to a linear map, which only has one input.
+	p In addition, the function is linear in both arguments.
+	p That is if function \(f\) is bilinear then:
+	p $$X=aM+bN$$
+	p $$Y=cO+dP$$
+	p $$f(X,Y)=f(aM+bN,cO+dP)$$
+	p $$f(X,Y)=f(aM,cO+dP)+f(bN,cO+dP)$$
+	p $$f(X,Y)=f(aM,cO)+f(aM,dP)+f(bN,cO)+f(bN,dP)$$
+	p $$f(X,Y)=acf(M,O)+adf(M,P)+bcf(N,O)+bdf(N,P)$$
+	p Note that:
+	p $$f(X,Y)=f(X+0,Y)$$
+	p $$f(X,Y)=f(X,Y)+f(0,Y)$$
+	p $$(0,Y)=0$$
+	p That is, if any input is \(0\) in an additative sense, the value of the map must be zero.
+
