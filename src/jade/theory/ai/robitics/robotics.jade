@@ -1,0 +1,59 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Constraint Satisfaction Problem
+block subSubContent
+	h3
+		b Robotics
+	p robot exists in some configuration space
+	p by cartesian coordinates, angles and lengths.
+	p there are legal and illegal positions
+
+	p path planning is difficult
+	p there are many degrees of freedom for complex robots
+	p higher dimension space makes solutions more difficult
+
+	h3
+		b visibility graphs
+	p visibility graph generates nodes from points on obstacles, current position and goal. generate graph.
+	p use A* to solve
+	p that algorithm is called VGRAPH
+
+	p what if robot takes up space?
+	p expand each obstacle by size of robot
+
+	p how to grow each obstacle? draw shape of robot around each obstacle. shape is relative to point, so the growth is asymmetric if you choose a point for the robot which is not in the middle. eg a vertex.
+
+	p what about rotation? grow robot by shape of all rotations. but this is overly conservative. will miss paths
+	p can do vgraph for each rotation, and switch between rotations. can choose 2 or 3 rotations
+
+	h3
+		b Voronoi path planning
+	p find paths as far as way from obstacles as possible
+	p divide plane in cells, with a cell around each obstacle
+	p within a cell, all points are closest to that obstacle
+
+	p we move along the lines between cells
+
+	p overly conservative
+	p hard to compute in 3d
+	p small environmental changes can significantly change the graph.
+	h3
+		b Potential fields
+	p attracted to goal, repelled from obstacle.
+	p goal has 0 potential energy
+	p can use gradient descent to get to goal
+
+	p problem of local minimums
+	p if in a local minimum, can pertube by walking in a random direction to get out of it.
+
+	p can use laser, sonar, to detect obstacles and get potential
+
+	h3
+		b probabilistic roadmap planner (PRM)
+	p generate random configuration of robot in space.
+	p find n positions which are legal
+	p link them using k nearest neighbours
+
+	p risk: graph not fully connected.
+	p if so, can add extra nodes between breaks
