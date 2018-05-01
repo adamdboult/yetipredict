@@ -1,0 +1,12 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Q-learning
+block subSubContent
+	h3
+		b Q-learning
+
+	p We can't use value functions, so we use Q-values instead.
+	p \(Q(s,a)\) is the value of taking action \(a\) in state \(s\).
+	p \(Q(s,a)=R_{s,a}+\gamma E_{s'}[max_{a'}Q(s',a')]\).
+

@@ -1,19 +1,21 @@
 extends ./ensemble/subSubTemplate.jade
 block subSubContent
 	h3
-		b Ensemble methods
-	p
-		a(href="./ensemble/bagging") Bagging
-	p
-		a(href="./ensemble/boosting") Boosting
-	p
-		a(href="./ensemble/gradientBoosting") Gradient boosting
-	p
-		a(href="./ensemble/boosting") Extra trees
-	p
-		a(href="./ensemble/boosting") Random forests
+		b Combining classifiers
 	p
 		a(href="./ensemble/voting") Majority voting
 	p
-		a(href="./ensemble/stackedAggregation") Stacked aggregation
+		a(href="./ensemble/stackedAggregation") Stacking
+	h3
+		b Creating different classifiers
+	p
+		a(href="./ensemble/boosting") Boosting
+	p
+		a(href="./ensemble/bagging") Bagging
+	h3
+		b Ensemble methods for decision trees
+	p
+		a(href="./ensemble/extraTrees") Extra trees
+	p
+		a(href="./ensemble/randomForests") Random forests
 

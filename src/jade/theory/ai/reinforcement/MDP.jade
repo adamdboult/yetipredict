@@ -36,20 +36,6 @@ block subSubContent
 	p \(v_\pi = E[\sum_{t=1}^\infty \gamma^{t-1}r_t|s_1]\)
 
 	h3
-		b Bellman equations
-	p We breakdown the value function into an immediate reward, and the discounted value function of the next state.
-	p This is because the expectation function is linear.
-	p \(v_\pi (s)=R_{s,\pi(s)}+\gamma \sum_{s'}P_{s,\pi(s)}(s')v_\pi (s')\)
-
-	p We can write this in matrix form.
-	p \(v_pi (s)= r_\pi + \gamma P_\pi v_\pi(s)\)
-
-	p We can then solve this:
-	p \(v_pi (s)= (I-\gamma P_\pi)^{-1})r_\pi\)
-
-	p This depends on the starting state.
-
-	h3
 		b Optimal policy
 	p There exists a policy that is better than any other policy, under any starting state.
 	p There is no closed form solution to finding the optimal policy.
@@ -71,11 +57,4 @@ block subSubContent
 	h3
 		b Value iteration method
 	p Doesn't directly calculuate policy. Doesn't require inverting matrix
-
-	h3
-		b Q-learning
-
-	p We can't use value functions, so we use Q-values instead.
-	p \(Q(s,a)\) is the value of taking action \(a\) in state \(s\).
-	p \(Q(s,a)=R_{s,a}+\gamma E_{s'}[max_{a'}Q(s',a')]\).
 

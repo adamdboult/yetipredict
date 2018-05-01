@@ -4,11 +4,12 @@ block subSubTitle
 		b Constraint Satisfaction Problem
 block subSubContent
 	h3
-		b Constraint Satisfaction Problem
+		b Introduction
 	p A CSP problem is one where we don't care about the path, we just want to identify the goal state.
 	p For example, solving a sudoku
-
-	p A CPS has:
+	h3
+		b Defining a CSP
+	p A CSP has:
 	ul
 		li Variables \(X_i\).
 		li Domain for each variable \(D_i\).
@@ -26,15 +27,28 @@ block subSubContent
 	p after each move, update legal moves for each
 
 	p implement all this with recursive backtrack function, which returns a solution or failure. This is a depth first search
-
+	h3
+		b Arc-consistency
+	p X-Y is arc consistent if all of domain of X is consistnet with some value of Y.
+	p 
+	h3
+		b Node-consistency
+	p X is node consistent if all of domain satisfies all unary constraint.
+	h3
+		b Path-consistency
+	p Arc consistency for additional variables.
+	h3
+		b Constraint propagation
 	p Constraint propagation can be used to prevent bad choices
 	p we can check for:
-	p + node-consistency: X is node consistent if all of domain satisfies all unary constraint
-	p + arc-consistency: X-Y is arc consistent if all of domain of X is consistnet with some value of Y
-	p + path-consistency: arc consistency for additional variables.
-
+	ul
+		li node-consistency
+		li arc-consistency
+		li path-consistency
+	h3
+		b AC-3
 	p AC-3 algorihm makes a CSP arc-consistent
 	p take all arcs,
 
 	p it may be possible to break the problem down into sub problems, making the problems much easier to solve.
-	
+	p Can do this before/after other algorithm.

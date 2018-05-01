@@ -1,0 +1,15 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Stacking
+block subSubContent
+	h3
+		b Introduction
+	p With stacking we take the predictions from each of our classifiers, and then train a new model using these predictions as inputs.
+	h3
+		b Hard and soft inputs
+	p Hard classification (\(0\) or \(1\)) and soft classification (between \(0\) and \(1\)) can be used as inputs.
+	h3
+		b Cross validation
+	p We can select hyper-parameters using cross validation, however there is an issue of using cross validation twice on the same data. Once for the underyling classifiers, and again for the stacked model.
+	p 

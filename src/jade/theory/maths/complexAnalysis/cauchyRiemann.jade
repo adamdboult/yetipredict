@@ -1,0 +1,34 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		p Cauchy-Riemann equations
+block subSubContent
+	h3
+		b Introduction
+	p consider complex number z=x+iy
+
+	p a function on this gives:
+
+	p f(z)=u+iv
+
+	p take the total differential of :
+
+	p \(df/dz=\frac{\delta f}{\delta z}+\frac{\delta f}{\delta x}\frac{dx}{dz}+\frac{\delta f}{\delta y}\frac{dy}{dz}\)
+
+	p We know that:
+
+	p + \(\frac{dx}{dz}=1\)
+
+	p + \(\frac{dy}{dz}=-i\)
+
+ 
+
+	p we can see from this that
+
+	p du/dx=dv/dy
+
+	p du/dy=-dv/dx
+
+	p These are the Cauchy-Riemann equations
+

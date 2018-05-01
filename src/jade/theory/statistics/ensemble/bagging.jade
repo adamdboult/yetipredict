@@ -4,11 +4,12 @@ block subSubTitle
 		b Bagging
 block subSubContent
 	h3
-		b Bootstrapping
-	p Bootstraping takes samples from the raw data set and uses these for estimators.		
+		b Introduction
+	p Bagging, or Bootstrap AGGregation, is a way of generating weak learners.
 	h3
-		b Bagging
-	p Bagging, or Boosted AGGregation.
-	p We divide the training data into subsets, and train separately.
-	p Aggregation takes the estimators from each of the bootstraps and averages them.
-	p Random forests are a type of bagging method, for decision trees. We discuss these in more detail later.
+		b Bootstrapping
+	p Bootstraping refers to taking samples with repacement from the training set. This is how the datasets for each of the weak learners are formed.	
+	h3
+		b How to do bagging
+	p We take samples from the training set, with replacement, and train each of these separately. This gives us our weak learners.
+	p 

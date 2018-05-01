@@ -1,0 +1,19 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Bellman equations
+block subSubContent
+	h3
+		b Bellman equations
+	p We breakdown the value function into an immediate reward, and the discounted value function of the next state.
+	p This is because the expectation function is linear.
+	p \(v_\pi (s)=R_{s,\pi(s)}+\gamma \sum_{s'}P_{s,\pi(s)}(s')v_\pi (s')\)
+
+	p We can write this in matrix form.
+	p \(v_pi (s)= r_\pi + \gamma P_\pi v_\pi(s)\)
+
+	p We can then solve this:
+	p \(v_pi (s)= (I-\gamma P_\pi)^{-1})r_\pi\)
+
+	p This depends on the starting state.
+

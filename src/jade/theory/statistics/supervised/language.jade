@@ -1,37 +1,46 @@
 extends ./subSubTemplate.jade
 block subSubTitle
 	h1
-		b Language models
+		b Probabilistic language models
 block subSubContent
 	h3
-		b probabilistic language model
-	p probabilistic language model:
-	p p(child|did you call your)
+		b Introduction 
+	p Probabilistic language models can predict future words given a history of words.
+	p This can be used for predictive text. For example if a user types "Did you call your" we may want to estimate the probability that the next word is "child".
+	p We can state this problem:
+	p \(P(child|did\ you\ call\ your)\)
+	p By definition this is:
+	p \(P(child|did\ you\ call\ your)= \frac{P(did\ you\ call\ your\ child)}{P(did\ you\ call\ your)}\)
+	p We can estimate each of these:
+	p \(P(did\ you\ call\ your\ child)=\frac{|did\ you\ call\ your\ child|}{|5\ word\ sentences|}\)
+	p \(P(did\ you\ call\ your)=\frac{|did\ you\ call\ your|}{|4\ word\ sentences|}\)
+	h3
+		b Data requirements
+	p This needs a large corpus, which may not be practical.
+	p Additionallly, the words must be indexed, and not simply stored as a bag of words.
+	h3
+		b Decomposition
+	p We can decompose the probabilities using the chain rule.
+	p \(P(did\ you\ call\ your\ child)=P(did)P(you|did)...P(child|did\ you\ call\ your)\)
+	p \(P(w_1,...,w_k)= \prod_k p(w_k|w_1,...,w_{k-1})\)
+	h3
+		b N-grams
+	p We can simplify the decomposition using the Markov assumption:
+	p \(P(w_k|w_1,...,w_{k-1})=P(w_k|w_{k-1})\)
+	p This is a \(1\)-gram.
+	p We can do this for \(n\) words back. This is an \(n\)-gram.
+	h3
+		b Smoothing
+	p We can use smoothing to address small corpuses.
+	p \(P(did\ you\ call\ your\ child)=\frac{|did\ you\ call\ your\ child|+1}{|5\ word\ sentences|+V}\)
+	p \(P(did\ you\ call\ your)=\frac{|did\ you\ call\ your|+1}{|4\ word\ sentences|+V}\)
+	p For some value \(V\).
+	h3
+		b Perplexity
+	p We can compare probabilistic language models using perplexity.
+	p We can then choose the model with the lowest perplexity.
+	p \(perplexity(w_1, w_2, ..., w_n)=P(w_1, w_2, ..., w_n)^{-\frac{1}{n}}\)
+	p We can expand this:
+	p \(perplexity(w_1, w_2, ..., w_n)=\prod_i P(w_i| w_1, ..., w_{i-1})^{-\frac{1}{n}}\)
+	p Depending on which n-gram we use we can then simplify this.
 
-	p can estimate p(child|did you call your) = \frac{|did you call your child|}{|did you call your|}
-	p can estimate p(did you call your child) = \frac{|did you call your child|}{|sentences 5 words|}
-	p need large corpus
-
-	p we can modify these
-	p can estimate p(child|did you call your) = \frac{|did you call your child| + 1}{|did you call your| + V}
-	p can estimate p(did you call your child) = \frac{|did you call your child| + 1}{|sentences 5 words| + V}
-	p called smoothing
-
-	p decompose using chain rule
-	p p(w_1, w_2, ...,w_5) = p(w_1)p(w_2|w_1)...p(w_5|w_4, w_3, w_2, w_1)
-	p p(w_1, w_2, ...,w_5) = \prod_k p(w_k|w_1,...,w_k-1)
-
-	p markov assumptionL p(w_k|w_1,...,w_k-1)=p(w_k|w_k-1)
-	p other models, look n-1 back: n-gram
-
-	p we can estiamte these conditional prob using the count model above.
-
-	p can compare models using Perplexity
-	p perplexity(w_1, w_2, ..., w_n)=p(w_1, w_2, ..., w_n)^{-\frac{1}{n}}
-	p we do this for words in corpus
-
-	p we can expand it
-	p perplexity(w_1, w_2, ..., w_n)=(\prod p(w_i| w_1, ..., w_{i-1})^{-\frac{1}{n}})
-	p depending on which n-gram we use we can then simplify this.
-
-	p choose model with lowest perplexity

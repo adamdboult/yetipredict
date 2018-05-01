@@ -1,0 +1,19 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Autoregressive models (AR)
+block subSubContent
+	h3
+		b Introduction
+	p We add previous dependent variables as inputs
+
+	p AR(\(p\)) has \(p\) previous dependent variables
+
+	p A shock bumps up the output variable, which bumps up output variables forever, at a decreasing rate.
+
+	p If the coefficient on the last term is \(1\) we have a random walk, and the process is non-stationary.
+
+	p If the last term is \(<1\) then we have a stationary process.
+
+	p We can test for unit roots: Dickey-Fuller; Augmented Dickey-Fuller
+

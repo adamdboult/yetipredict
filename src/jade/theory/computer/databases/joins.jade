@@ -1,0 +1,22 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Joins
+block subSubContent
+	h3
+		b Introduction
+	p have index common to two tables
+	h3
+		b Cross join
+	p Keep all columns. can name [table name].[column name] to preserve any differences. including for index (could be missing for some)
+	p Not really matched if original n length, and other m, then new is n*m length. so all combinations of matches are kept
+	h3
+		b Inner join
+	p Drops those where no match. means data dropped in index missing
+
+	p Any predicate, equi join, equality predicate
+
+	h3
+		b Outer join
+	p Keep data if none matches. left outer join for one table, right outer join for other, or full outer join
+
