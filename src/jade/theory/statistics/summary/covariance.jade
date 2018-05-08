@@ -1,0 +1,13 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Sample covariance
+block subSubContent
+	h3
+		b Calculating
+	p We previously defined the population covariance as \(\sigma_{XY}=E[(X-\mu_X)^T(Y-\mu_Y)]\).
+	p We define the sample covariance as \(\sigma_{XY}=\frac{1}{n}\sum_i(x_i-\bar x)(y_i-\bar y)\).
+	p We can calculate this using matrices:
+	p \(M=X-\bar x\)
+	p \(N=Y-\bar y\)
+	p \(\sigma^2=\frac{1}{n}M^TN\).

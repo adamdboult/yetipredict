@@ -1,0 +1,14 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Autocovariance and autocorrelation
+block subSubContent
+	h3
+		b Autocovariance
+	p \(AC(a,b)=cov(X_a, X_b)\)
+	h3
+		b Autocorrelation
+	p The autocorrelation between two time periods is their covariance, normlised by their variances
+
+	p \(AC(a,b)=\frac{E[(X_a-\mu_a)(X_b-\mu_b)]}{\sigma_a \sigma_b}\)
+	p This is also called serial correlation.

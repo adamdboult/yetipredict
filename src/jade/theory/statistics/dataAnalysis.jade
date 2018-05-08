@@ -1,28 +1,29 @@
 extends ./dataAnalysis/subSubTemplate.jade
 block subSubContent
 	h3
-		b Generating data
+		b Joining data sets
 	p
-		a(href="./data/process") Data generating processes
+		a(href="./dataAnalysis/ngram") Concatenating data
 	p
-		a(href="./data/collecting") Collecting data
-	p
-		a(href="./data/generating") Generating additional data
+		a(href="./dataAnalysis/ngram") Joining data
 	h3
-		b Processing data
+		b Cleaning text data
 	p
-		a(href="./data/labelling") Labelling data
+		a(href="./dataAnalysis/ngram") Bag-of-words
 	p
-		a(href="./data/hashing") Feature hashing
+		a(href="./dataAnalysis/ngram") N-grams
 	p
-		a(href="./data/nGram") N-grams
+		a(href="./dataAnalysis/hashing") Feature hashing
 	h3
-		b Data cleaning
-	p
-		a(href="./data/normalisation") Normalisiation and logs
-	p
-		a(href="./data/missing") Missing data
+		b Cleaning image data
 	h3
-		b Preliminary analysis
+		b Cleaning audio data
+	h3
+		b Dealing with missing data
 	p
-		a(href="./data/visualisation") Data visualisation
+		a(href="./dataAnalysis/missing") Missing data
+	h3
+		b Dealing with inaccurate data
+	p
+		a(href="./dataAnalysis/outliers") Outliers	
+

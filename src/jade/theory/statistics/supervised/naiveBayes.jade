@@ -4,27 +4,32 @@ block subSubTitle
 		b Naive Bayes classifier
 block subSubContent
 	h3
-		b Theory
+		b Bayes theorem
 	p Consider Bayes' theorem
 	p \(P(y|x_1,x_2,...,x_n)=\frac{P(x_1,x_2,...,x_n|y)P(y)}{P(x_1,x_2,...,x_n)}\)
 	p Here, \(y\) is the label, and \(x_1,x_2,...,x_n\) is the evidence. We want to know the probability of each label given evidence.
-	p Naive Bayes classifiers choose the value of \(A\) which maximises \(P(y|x_1,x_2,...,x_n)\). It i s a generative algorithm, as it generates probabilities for each (as opposed to discriminative, which has a barrier between lables).
 	p The denominator, \(P(x_1,x_2,...,x_n)\), is the same for all, so we only need to identify:
-	p \(P(x_1,x_2,...,x_n|y)P(y)\)
+	p \(P(y|x_1,x_2,...,x_n)\propto P(x_1,x_2,...,x_n|y)P(y)\)
 	p We can easily calculate \(P(y)\), by looking at the frequency across the sample.
-	p Calculating the conditional probability here is difficult, as we need to look at the frequency of each combination occuring.
-	p If each input is independent, then:
+	h3
+		b The assumption of Naive Bayes
+	p We assume each \(x\) is independent. Therefore:
 	p \(P(x_1,x_2,...,x_n|y)=P(x_1|y)P(x_2|y)...P(x_n|y)\)
-	p There should be many instances of each of the sub-probabilities, making calculation easier.
+	h3
+		b Calculating the Naive Bayes estimator
+	p This is easier to calculate, as there is less of a sample restriction.
 	p This is used when evidence is also in classes, as the chance of any individual outcome on a continuous probability is \(0\).
 	p Normally, \(P(x_1|y)=\frac{n_c}{n_y}\), where:
 	ul
 		li \(n_c\) is the number of instances where the evidence is \(c\) and the label is \(y\).
 		li \(n_y\) is the number of instances where the label is \(y\).
+	h3
+		b Regularising the Naive Bayes estimator
 	p To reduce the risk of specific probabilities being zero, we can adjust them, so that:
-	p \(P(x_1|y)=\)
-
 	p \(P(x_1|y)=\frac{n_c+mp}{n_y+m}\), where:
 	ul
 		li \(p\) is the prior probability. If this is unknown, use \(\frac{1}{k}\), where \(k\) is the number of classes.
 		li \(m\) is a parameter called the equivilant sample size.
+	h3
+		b Naive Bayes and text classification
+	p Naive Bayes can be used to classify text documents. The \(x\) variables can be appearances of each word, and \(y\) can be the document classification.

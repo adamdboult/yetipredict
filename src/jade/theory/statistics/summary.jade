@@ -1,21 +1,23 @@
 extends ./summary/subSubTemplate.jade
 block subSubContent
 	h3
-		b Statistics for a single variable
-	p
-		a(href="./summary/range") Range statistics
-	p
-		a(href="./summary/moments") Moments
-	p
-		a(href="./summary/mode") Mode
+		b Basis statistics for a single variable
 	p
 		a(href="./summary/n") N
+	p
+		a(href="./summary/range") Sample range
+	p
+		a(href="./summary/mode") Sample mode
+	h3
+		b Sample moments
+	p
+		a(href="./summary/moments") Sample moments
 	h3
 		b Statistics for two variables
 	p
-		a(href="./summary/covariance") Covariance
-	p
-		a(href="./summary/spearman") Spearman rank correlation
+		a(href="./summary/covariance") Sample covariance
 	p
 		a(href="./summary/pearson") Pearson correlation coefficient
+	p
+		a(href="./summary/spearman") Spearman rank correlation
 

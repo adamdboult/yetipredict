@@ -1,0 +1,14 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Breadth-first search
+block subSubContent
+	h3
+		b Breadth-first search
+	p A breadth-first search operates First-in First-out (FiFo). That is, it selects the oldest frontier node. This results in a broad, rather than a deep search. Once all branches have been explored, the algorithm will move deeper. Path cost is not considered in this algorithm.
+	p Informed: No
+	p Time: \(O(b^d)\)
+	p Space: \(O(b^d)\)
+	p Complete: Yes
+	p Optimal: Picks the shallowest solution. Optimal of path costs are identical.
+

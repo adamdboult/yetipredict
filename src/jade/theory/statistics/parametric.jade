@@ -1,43 +1,39 @@
 extends ./parametric/subSubTemplate.jade
 block subSubContent
 	h3
-		b Creating parametric models
-	p
-		a(href="./parametric/models") Models
-	p
-		a(href="./parametric/likelihood") Likelihood function
-	h3
-		b Regression and classification
+		b Regression
 	p
 		a(href="./parametric/regression") Regression
 	p
-		a(href="./parametric/generativeDiscriminative") Generative and discriminative models
-	p
 		a(href="./parametric/regressionBayes") Bayesian regression
+	h3
+		b Classification
 	p
 		a(href="./parametric/classification") Classification
 	p
-		a(href="./parametric/cost") Cost functions for classifiers
+		a(href="./parametric/confusion") Confusion matrix
 	p
 		a(href="./parametric/classificationBayes") Bayesian classifier
 	h3
-		b Choosing a model
+		b Discriminative models
 	p
-		a(href="./parametric/size") Sample sizes
+		a(href="./parametric/generativeDiscriminative") Generative and discriminative models
 	p
-		a(href="./parametric/overfitting") Overfitting
+		a(href="./parametric/predictionsParameters") Predictions and parameters
 	p
-		a(href="./parametric/scoring") Scoring models
+		a(href="./parametric/onlineOffline") Online and offline learning
 	p
-		a(href="./parametric/testSets") Test sets
-	p
-		a(href="./parametric/validationSets") Validation sets
-	p
-		a(href="./parametric/AIC") AIC, AICc, Bayes factor, BIC
-	p
-		a(href="./parametric/selection") Selection (forward, backward, stepwise)
+		a(href="./parametric/R2") R^2	
 	h3
-		b Interpreting models
+		b Point estimates
 	p
-		a(href="./parametric/R2") R^2
-	
+		a(href="./parametric/MLE") Maximum Likelihood Estimation (MLE) for dependent variable
+	p
+		a(href="./parametric/MAP") Maximum A-Priori estimation (MAP)
+	h3
+		b Bayesian inference
+	p
+		a(href="./parametric/MMSE") Minimum Mean Square Error (MMSE)
+	p
+		a(href="./parametric/inference") Bayesian inference
+

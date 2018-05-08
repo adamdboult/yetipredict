@@ -1,0 +1,17 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b A* search
+block subSubContent
+	h3
+		b A*
+	p If the heuristic is admissible, then a* is optimal. Intuitively because the the heuristic steers away from any suboptimal solutions.
+	p Admissible? For all nodes n , h(n)<=h*(n). where h* is true cost
+	p \(f(n)=g(n)+h(n)\)
+	p \(g(n\) is the cost to reach \(n\) from the current position.
+	p Informed: Yes
+	p Time: Exponential
+	p Space: Big, all nodes kept in memory
+	p Complete: Yes
+	p Optimal: Yes, if the heuristic is admissible
+

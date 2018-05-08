@@ -1,0 +1,16 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Unstable gradient problem
+block subSubContent
+	h3
+		b Vanishing gradient problem
+	p Gradients can be become small, and so propagation can be very slow.
+	p 
+	h3
+		b Exploding gradient problem
+	p Gradients can become too large and not converge.
+	p 
+	h3
+		b ReLU
+	p This addresses the unstable gradient problem.

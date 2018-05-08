@@ -4,10 +4,6 @@ block subSubTitle
 		b Back propagation
 block subSubContent
 	h3
-		b Initialising
-	p We start by randomly initialisng the value of each \(\theta \).
-	p We do this to prevent each neuron from moving in sync.
-	h3
 		b Adapting the delta rule
 	p To arrive at the delta rule we considered the cost function:
 	p \(E=\sum_j\frac{1}{2}(y_j-a_j)^2\)
@@ -19,9 +15,6 @@ block subSubContent
 	p \(\Delta \theta_i=\alpha \delta_j x_{ij}\)
 	p Let's update the rule for multiple layers:
 	p \(\frac{\delta E}{\delta \theta_{li}}=\frac{\delta E}{\delta a_{lj}}\frac{\delta a_{lj}}{\delta z_{lj}}\frac{\delta z_{lj}}{\delta \theta_{li}}\)
-
-
-
 
 	p Previously \(\frac{\delta z_{lj}}{\delta \theta_{li}}=x_i\). We now use the more general \(a_{li}\). For the first layer, these will be the same.
 	p We can then instead write:

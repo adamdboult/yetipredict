@@ -1,18 +1,8 @@
 extends ./subSubTemplate.jade
 block subSubTitle
 	h1
-		b Minimax
+		b Alpha-beta pruning
 block subSubContent
-	h3
-		b Games
-	p Games are different to search. In a search algorithm we are looking for a sequence of actions. In a game we are looking for a reaction function. Unlike in seach, there are other players.
-	p We can use iterative deepening search.
-	h3
-		b Heuristics
-	p The search space can be too big to look through all the nodes. 
-	p Rather than look for win states, we evaluate a non-terminal state using heuristics.
-	h3
-		b Zero sum games
 	h3
 		b Pruning
 	p alpha-beta pruning
@@ -41,9 +31,4 @@ block subSubContent
 	p in practice can get time down to O(b^\frac{m}{2})
 
 	p use heuristic. deep blue uses 6000
-	h3
-		b Stochastic games
-	p can use expectminimax
-	p for max node, return highest expectminimax of children
-	p for min node ---
-	p for chance node, average of children weightted
+

@@ -1,0 +1,15 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Depth-first search
+block subSubContent
+	h3
+		b Depth-first search
+	p A depth-first search operates Last-in First-out (LiFo). That is, it selects the newest frontier node. This results in a deep, rather than a broad search. Once the maximum depth has been reached, the algorithm will move towards breadth. Path cost is not considered in this algorithm.
+	p May not find optimal solution, but is linear in space
+	p Informed: No
+	p Time: \(O(b^m)\)
+	p Space: \(O(bm)\)
+	p Complete: Yes
+	p Optimal: No
+

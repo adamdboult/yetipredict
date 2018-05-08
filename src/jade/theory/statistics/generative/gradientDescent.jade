@@ -3,23 +3,13 @@ block subSubTitle
 	h1
 		b Gradient descent
 block subSubContent
+	h3
+		b Introduction
 	p There are \(3\) main algorithms for gradient descent:
 	ul
 		li Batch gradient descent
 		li Stochastic gradient descent
 		li Mini-batch gradient descent
-	h3
-		b Map reduce
-	p Split data into sets
-	p eg data into 4 sets, for 4 computers
-
-	p each sums over their part of grad formula, these are then sent back and combined and divided over relevant m value (sum of all used in each comp)
-
-	p Can my learning algorithm be expressed as sums over training set? if so, can be divided up to computers
-
-	p map reduce can also be done on multi core machines
-	p latency less important on multicore
-
 	h3
 		b Batch gradient descent
 	p Do gradient descent on all samples

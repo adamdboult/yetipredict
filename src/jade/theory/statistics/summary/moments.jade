@@ -1,0 +1,16 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Sample moments
+block subSubContent
+	h3
+		b Sample mean
+	p We previously defined the population mean is defined as \(\mu=E[X]\).
+	p The sample mean is defined as \(\bar x = \frac{1}{n}\sum_i x_i\).
+	h3
+		b Sample variance
+	p We previously defined the population variance as \(\sigma^2=E[(X-\mu)^2]\).
+	p We define the sample variance as \(\sigma^2=\frac{1}{n}\sum_i(x_i-\bar x)^2\).
+	p We can calculate this using matrices:
+	p \(M=X-\bar x\)
+	p \(\sigma^2=\frac{1}{n}M^TM\).
