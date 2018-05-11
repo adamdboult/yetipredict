@@ -1,0 +1,110 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Schrodinger
+block subSubContent
+	h3
+		b Introduction
+	p $$|\Epsilon (\epsilon )> =U(\epsilon )|\Epsilon (0)>$$
+
+	p Continuous so:
+	p $$U(\epsilon )=I+\epsilon X$$
+
+	p $$|\Epsilon (\epsilon )> =(I+\epsilon X)|\Epsilon (0)>$$
+	p $$|\Epsilon (\epsilon )> =|\Epsilon (0)>+\epsilon X|\Epsilon (0)>$$
+	p $$\frac{|\Epsilon (\epsilon )> -|\Epsilon (0)>}{\epsilon }=X|\Epsilon (0)>$$
+	p $$\frac{\delta \Epsilon }{\delta t}=X|\Epsilon (0)>$$
+
+	p By convention we choose:
+	p $$X=-iH$$
+	p So:
+	p $$\frac{\delta \Epsilon }{\delta t}=-iH|\Epsilon (0)>$$
+	h3
+		b Unitary
+	p $$|\Epsilon (t)> =U(t)|\Epsilon (0)>$$
+	p $$<\Row (t)| = <\Row (0)|U(t)^{\dagger }$$
+	p So:
+	p $$<\Row (t)|\Epsilon (t)> = <\Row (0)|U(t)^{\dagger }U(t)|\Epsilon (0)>$$
+
+	p Let us take a case where:
+	p $$<\Row (0)|\Epsilon (0)> =0$$
+	p We also want:
+	p $$<\Row (t)|\Epsilon (t)> =0$$
+	p So:
+	p $$<\Row (0)|U(t)^{\dagger }U(t)|\Epsilon (0)> =0$$
+	p So:
+	p $$U(t)^{\dagger }U(t)=I$$
+	h3
+		b Hamiltonian
+	p $$U(\epsilon )=I+\epsilon X$$
+	p $$U(\epsilon )^{\dagger }=(I+\epsilon X)^{\dagger }$$
+	p $$U(\epsilon )^{\dagger }=[(I+\epsilon X)^T]^*$$
+	p $$U(\epsilon )^{\dagger }=(I+\epsilon X^T)^*$$
+
+	p (I+X)^*
+
+	p $$U(\epsilon )^{\dagger }=I+i\epsilon H^{\dagger }$$
+	p We know:
+	p $$U(\epsilon )U(\epsilon )^{\dagger }=I$$
+	p So:
+	p $$(I-i\epsilon H)(I+i\epsilon H^{\dagger })=I$$
+	p $$I+\epsilon^2 HH^{\dagger }-i\epsilon H+i\epsilon H^{\dagger }=I$$
+	p We know \(\epsilon \) is small so:
+	p $$H=H^{\dagger }$$
+
+	h3
+		b Lagrangian
+	p Definiton 1: Lagrangians
+	p For each state we can calcualte a Lagrangian which is a function of the coordinates and their velocity.
+
+	p $$L[q, q^i]$$
+
+	p Axiom 2: There exists a correct Lagrangian
+
+
+	p Definition 2: Action
+	p We define the action of a length of time as:
+	p $$A=\int_{t_0}^{t_1} L[q(t), q(t)^.]dt$$
+
+	p Axiom 3: Principle of stationary action
+	p $$\\delta A=0$$
+	p That is, the coordinates and their velocities are such that action is stationary.
+
+	p Theory 1: Euler-Lagrange
+	p We have \(q(t)\) which makes the action stationary. Consider adding proportion\(\epsilon \) of another function \(f(t)\) to \(q(t)\).
+	p $$A’=\int_{t_0}^{t_1} L[q(t)+\epsilon f(t), q(t)^.+\epsilon f^’(t)]dt$$
+	p $$\frac{A’-A}{\epsilon }=\frac{1}{\epsilon}\int_{t_0}^{t_1} L[q(t)+\epsilon f(t), q(t)^.+\epsilon f^’(t)]-L[q,q^.]dt$$
+
+	p We can do a Taylor expansion of \(A’\).
+	p $$A’=\int_{t_0}^{t_1} L[q(t)+\epsilon f(t), q(t)^.+\epsilon f^’(t)]dt$$
+	p $$A’=\int_{t_0}^{t_1} L[q(t),q(t)^.]+\epsilon [f\frac{\delta L}{\delta q}+f^.\frac{\delta L}{\delta q^.}]+\epsilon^2 [...]dt$$
+
+	p So:
+	p $$\frac{A’-A}{\epsilon }=\frac{1}{\epsilon}\int_{t_0}^{t_1}L[q(t),q(t)^.]+\epsilon [f\frac{\delta L}{\delta q}+f^.\frac{\delta L}{\delta q^.}]+\epsilon^2 [...]-L[q,q^.]dt$$
+
+	p $$\frac{A’-A}{\epsilon }=\int_{t_0}^{t_1}[f\frac{\delta L}{\delta q}+f^.\frac{\delta L}{\delta q^.}]+\epsilon [...]dt$$
+
+	p We can now make the left side \(0\), by using the definition of stationary action.
+
+	p $$\lim_{\epsilon \rightarrow 0} \frac{A’-A}{\epsilon }=\int_{t_0}^{t_1}[f\frac{\delta L}{\delta q}+f^.\frac{\delta L}{\delta q^.}]dt$$
+
+	p $$\int_{t_0}^{t_1}[f\frac{\delta L}{\delta q}+f^.\frac{\delta L}{\delta q^.}]dt=0$$
+
+	p $$\int_{t_0}^{t_1}[f\frac{\delta L}{\delta q}]dt +\int_{t_0}^{t_1}[f^.\frac{\delta L}{\delta q^.}]dt=0$$
+
+	p Note that
+	p $$\int_{t_0}^{t_1}[f^.\frac{\delta L}{\delta q^.}]dt=[f\frac{\delta L}{\delta q^.}]_{t_0}^{t_1}-\int_{t_0}^{t_1}f \frac{d}{dt}\frac{\delta L}{\delta q^.}dt$$
+
+	p We assume that \(f(t_0)=f(t_1)=0\) and so:
+	p $$\int_{t_0}^{t_1}[f^.\frac{\delta L}{\delta q^.}]dt=-\int_{t_0}^{t_1}f \frac{d}{dt}\frac{\delta L}{\delta q^.}dt$$
+
+	p Plugging this back in we get:
+	p $$\int_{t_0}^{t_1}[f\frac{\delta L}{\delta q}]-f \frac{d}{dt}\frac{\delta L}{\delta q^.}dt]=0$$
+	p $$\int_{t_0}^{t_1}f[\frac{\delta L}{\delta q}]-\frac{d}{dt}\frac{\delta L}{\delta q^.}dt]=0$$
+
+	p Since this applies to all possible functions we get:
+	p $$\frac{\delta L}{\delta q}=\frac{d}{dt}\frac{\delta L}{\delta q^.}$$
+
+	p Definition: Momentum
+	p $$p=\frac{\delta L}{\delta q^.}$$
+

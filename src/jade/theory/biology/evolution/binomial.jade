@@ -1,0 +1,27 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1 Binomial expansion
+
+block subSubContent
+	p How can we expand
+	$$(a+b)^n, n\in \mathbb{N}$$
+	p We know that:
+	$$(a+b)^n=(a+b)(a+b)^{n-1}$$
+	$$(a+b)^n=a(a+b)^{n-1}+b(a+b)^{n-1}$$
+	p Each time this is done, the terms split, and each terms is multiplied by either \(a\) or \(b\). That means at the end there are \(n\) total multiplications.
+	p This can be shown as:
+	$$(a+b)^n=\sum_{i=1}^n a^i b^{n-i} c_i$$
+	p So we want to identify \(c_i\).
+	p Each term can be shown as a series of \(n\) \(a\)s and \(b\)s. For example:
+	ul
+		li \(aaba\)
+		li \(baaa\)
+	p For any of these, there are \(n!\) ways or arranging the sequence, but this includes duplicates. If we were given \(n\) unique terms to multiply there would indeed by \(n!\) different ways this could have arisen, but we can swap \(a\)s and \(b\)s, as they were only generated once. So let's count duplicates.
+	p There are duplicates in the \(a\)s. If there are  \(i\) \(a\)s, then there are \(i!\) ways of rearranging this. Similarly, if there are \(n-i\) \(b\)s, then there are \((n-i)!\) ways or arranging this.
+	p As a result the number of actual observed instances, \(c_i\), is:
+	$$c_i=\frac{n!}{i!(n-i)!}$$
+	p And so:
+	$$(a+b)^n=\sum^n_{i=0} a^i b^{n-i} \frac{n!}{i!(n-i)!}$$
+	p We can also write this last term as:
+	$$\begin{pmatrix}n\\i\end{pmatrix}$$
