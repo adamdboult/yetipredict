@@ -1,0 +1,32 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Exchange rates
+block subSubContent
+	h3
+		b Introduction
+	h3
+		b Interest rate parity
+	p What determines an exchange rate? Consider someone in the US choosing between investing at home or in the UK. Returns in the US are 4% over the next year and otherwise identical investments in the UK offer 3%.
+	p Is the US investment better? Not necessarily - as the UK bond is valued in pounds, the investor will also consider changes to the exchange rate over the period. If the value of the pound is expected to increase sufficiently over the period then the 3% bond would be a better investment.
+	p If the investor can freely choose between the two –there are no capital controls - expected movements in the exchange rate equal current differences in returns. If the value of pounds was above this level then investors would sell pounds and buy US investments until this relationship was restored. This is known as interest rate parity.
+	p $$Return_USD = Return_GBP /div{Exchange rate_{next year}}{Exchange rate_today}$$
+	p Next, let’s break down what the returns include. If inflation is 1%, then a 3% nominal return only gets you (roughly) 2%.
+	p $$Return \approx inflation + real$$
+	p OK, so now we have a link between changes to the exchange rate and differences in inflation and real (inflation adjusted return).
+	h3
+		b Impossible trinity
+	p As inflation rates determine movements in the exchange rate, a central bank cannot at the same time:
+	ul
+		li Control inflation;
+		li Control exchange rates; and
+		li Allow free capital flows.
+	h3
+		b Capital controls
+	p If a government can prevent investors from freely choosing between investing in different countries, then interest parity does not apply.
+	p This means that an investor with assets in the lower return country would benefit from getting around such controls.
+	h3
+		b Internal and external adjustment
+	p We discussed above how nominal prices can be sticky. With trade this becomes more complex, as exchange rates can rapidly move.
+	p A price may be sticky in pounds, but with a flexible exchange rate the price in dollars can rapidly change, and disequilibrium effects can be reduced.
+

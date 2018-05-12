@@ -1,0 +1,12 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Payment systems
+block subSubContent
+	h3
+		b Introduction
+	p If Alice wants to pay Bob, she can give him shells, or tell the bank to move the shells from her box to his box. In reality there are multiple banks, and these must be able to talk to each other to facilitate payments.
+	p So what happens if one bank needs to pay another? Without the payment system Alice would take the shells out of her bank, give them to Bob who would put them in his bank. A payment system effectively allows banks to send these shells to each other.
+	p There are two types of interbank payment systems – gross and net. A gross payment system means that for each transaction made, the banks transfer money across. Many of these transactions will in effect cancel out – bank A pays bank B and bank B pays bank A. A net payment system looks out the net position at set times and them and transfers the difference.
+	p Net payment system transfer less total money, and allow banks to hold lower reserves. For example if one payment would have caused bank A to run out of reserves, but was followed by a large inflow, then bank A would have been able to make its payments under a net system.
+
