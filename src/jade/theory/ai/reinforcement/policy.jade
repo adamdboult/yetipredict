@@ -1,0 +1,20 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Policies
+block subSubContent
+	h3
+		b Policy
+	p A policy maps the state onto the action
+	p \(a_t=\pi (s_t)\)
+	p The policy does not need to change over time, as discounting is constant. That is, if the policy should be different in future, it should be different now.
+	p The policy affects the transition model, and so we have \(P_\pi \).
+
+
+
+	h3
+		b Optimal policy
+	p There exists a policy that is better than any other policy, under any starting state.
+	p There is no closed form solution to finding the optimal policy.
+	p There are instead iterative methods.
+

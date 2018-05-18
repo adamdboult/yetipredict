@@ -1,0 +1,17 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Voronoi path planning
+block subSubContent
+	h3
+		b Introduction
+	p find paths as far as way from obstacles as possible
+	p divide plane in cells, with a cell around each obstacle
+	p within a cell, all points are closest to that obstacle
+
+	p we move along the lines between cells
+
+	p overly conservative
+	p hard to compute in 3d
+	p small environmental changes can significantly change the graph.
+

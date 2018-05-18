@@ -22,39 +22,4 @@ block subSubContent
 	p \(E[\sum_{t=1}^\infty \gamma^{t-1}r_t|s_1]\)
 
 	p \(R_{s,a}\) and \(P_{s,a}\) are unknown.
-	h3
-		b Policy
-	p A policy maps the state onto the action
-	p \(a_t=\pi (s_t)\)
-	p The policy does not need to change over time, as discounting is constant. That is, if the policy should be different in future, it should be different now.
-	p The policy affects the transition model, and so we have \(P_\pi \).
-
-	h3
-		b Value function
-	p To evaluate a policy we use the value function. This is the expected return from following the policy.
-	p We can calculate this by working through the different possible outcomes in each time period.
-	p \(v_\pi = E[\sum_{t=1}^\infty \gamma^{t-1}r_t|s_1]\)
-
-	h3
-		b Optimal policy
-	p There exists a policy that is better than any other policy, under any starting state.
-	p There is no closed form solution to finding the optimal policy.
-	p There are instead iterative methods.
-
-	h3
-		b Policy iteration method
-	p We start with a random policy.
-	p We then loop:
-	ul
-		li Evaluate the policy, using the Bellman equations.
-		li Update the policy
-
-	p We update the policy by changing \(a\) to maximise:
-	p \(v_pi ' (s)= r_\pi + \gamma P_\pi v_\pi(s)\) 
-	p For example, if we have a policy of doing \(a\) in state \(s\), we would see if we increase the value if we change \(a\) to \(a'\).
-
-
-	h3
-		b Value iteration method
-	p Doesn't directly calculuate policy. Doesn't require inverting matrix
 

@@ -1,0 +1,22 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Visibility graphs
+block subSubContent
+	h3
+		b Introduction
+	p visibility graph generates nodes from points on obstacles, current position and goal. generate graph.
+	p use A* to solve
+	p that algorithm is called VGRAPH
+	h3
+		b Robots with volume
+	p what if robot takes up space?
+	p expand each obstacle by size of robot
+
+	p how to grow each obstacle? draw shape of robot around each obstacle. shape is relative to point, so the growth is asymmetric if you choose a point for the robot which is not in the middle. eg a vertex.
+	h3
+		b Rotation of robots
+	p what about rotation? grow robot by shape of all rotations. but this is overly conservative. will miss paths
+	p can do vgraph for each rotation, and switch between rotations. can choose 2 or 3 rotations
+
+

@@ -1,0 +1,23 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Schrodinger
+block subSubContent
+	h3
+		b Introduction
+	p 
+	h3
+		b Discrete time
+
+	p With discrete time we can use a canonical operator for moving between discrete states in single jumps.
+
+	p With discrete time there must a countable number of states.
+
+	p We can index time to the integers.
+
+	ul
+		li At time \(0\) we have \(v\)
+		li At time \(1\) we have \(\Psi v\)
+		li At time \(2\) we have \(\Psi \Psi v\)
+
+	p We can write this as \(\Psi (t_1,t_0)=\Psi ^{t_1-t_0}\)
