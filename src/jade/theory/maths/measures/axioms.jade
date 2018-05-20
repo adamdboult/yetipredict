@@ -1,0 +1,18 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Axioms for measures
+
+block subSubContent
+	h3
+		b Measures are non-negative
+	p $$\forall E \in \Sigma : \mu (E)\ge 0$$
+	h3
+		b The measure for the null set is \(0\).
+	p $$\mu (\null )=0$$
+	h3
+		b Disjoint sets are additive
+	p $$\mu (\lor_{k=1}^{\infty} E_k)=\sum \mu (E_k)$$
+	p Where all elements \(E_k\) are disjoint. That is, they have no elements in common.
+

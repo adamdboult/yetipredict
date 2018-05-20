@@ -1,0 +1,28 @@
+extends ./subSubTemplate.jade
+
+block subSubSpace
+	h1
+		b Nearness functions
+block subSubContent
+	h3
+		b Introduction
+	p We have considered different inputs to functions. Notably:
+	ul
+		li Real numbers;
+		li Complex numbers; and
+		li Vectors (with underlying real or complex numbers).
+
+	p Each of these can be considered examples of more general topoligical spaces.
+
+	p A topologic space is a set with an additional property: a set of subsets which meet the following definition.
+
+	p \((X, \tau)\) is a topology on set \(X\) if:
+	ul
+		li The null set is in \(\tau \): \(\var\nothing \in \tau \)
+		li The set itself is in \(\tau \): \(X \in \tau \)
+		li The union of all finite or infinite memebers of \(\tau \) is in \(\tau \): \(\forall x \subset \tau [\land x \in \tau ]\)
+		li The intersection of all finite members of \(\tau \) is in \(\tau \):
+
+	p Is this the same as saying \(\tau is an algebra on \(X\)?
+
+	p For the real and complex numbers, and vector spaces, the set of all intervals make a topology.

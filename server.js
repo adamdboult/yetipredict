@@ -91,6 +91,37 @@ app.use(flash());
 require(__dirname + '/config/passport')(passport);
 
 
+//MODELS
+var DataSerie = require(__dirname + '/config/models/data.js');
+var PredictSerie = require(__dirname + '/config/models/predict.js');
+var User = require(__dirname + '/config/models/user.js');
+var Group = require(__dirname + '/config/models/group.js');
+
+
+
+//FILTER OBJECT
+var filterArray = {};
+var filterMatchIdentity = "Any";
+var filterInit=function() {
+    DataSerie.find({}, 'filter', function(err, allobjs) {
+	if (err){
+	    //		logger.debug("Error: "+err);
+	}
+
+	for (var filter in allobjs) {
+	    for (var entry in allobjs[filter].filter) {
+		if (Object.keys(filterArray).indexOf(entry) === -1) {
+		    filterArray[entry] = [filterMatchIdentity];
+		}
+		if (filterArray[entry].indexOf(allobjs[filter].filter[entry]) === -1) {
+		    filterArray[entry].push(allobjs[filter].filter[entry]);
+		}
+	    }
+	}
+	logger.debug("Filt: " + filterArray);	
+    });
+};
+
 //DATA IMPORT
 var JSONloc = 'data/json/0.json';
 var jsonImport = fs.readFileSync(JSONloc, 'utf8').toString().split('\n');
@@ -125,28 +156,7 @@ for (i = 0; i < jsonImport.length; i++) {
     }
 }
 
-//FILTER OBJECT
-var filterArray = {};
-var filterMatchIdentity = "Any";
-var filterInit=function() {
-    DataSerie.find({}, 'filter', function(err, allobjs) {
-	if (err){
-	    //		logger.debug("Error: "+err);
-	}
 
-	for (var filter in allobjs) {
-	    for (var entry in allobjs[filter].filter) {
-		if (Object.keys(filterArray).indexOf(entry) === -1) {
-		    filterArray[entry] = [filterMatchIdentity];
-		}
-		if (filterArray[entry].indexOf(allobjs[filter].filter[entry]) === -1) {
-		    filterArray[entry].push(allobjs[filter].filter[entry]);
-		}
-	    }
-	}
-	logger.debug("Filt: " + filterArray);	
-    });
-};
 
 //FAVOURITE OBJECT
 var favouriteObject = {};
@@ -159,12 +169,6 @@ var favInit = function() {
 	logger.debug("Favs: " + favObj);
     });
 };
-
-//MODELS
-var DataSerie = require(__dirname + '/config/models/data.js');
-var PredictSerie = require(__dirname + '/config/models/predict.js');
-var User = require(__dirname + '/config/models/user.js');
-var Group = require(__dirname + '/config/models/group.js');
 
 //FAVICON
 app.use(favicon(__dirname + configObj.favicon));

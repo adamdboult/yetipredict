@@ -1,0 +1,39 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Measure space
+
+block subSubContent
+	h3
+		b 
+	p In a metric space, the structure was defining a value for each two elements of the set.
+	p In a measure space, the structure defines a value of subsets of the set.
+	h3
+		b Terminology
+	p A measure space includes the set \(X\), subsets of the set, \(\Sigma \), and a function \(\mu \) which maps from \(\Sigma \) to \(\mathbb{R}\).
+	h3
+		b Sigma algebra
+	p Requirement for \(\Sigma \).
+	h3
+		p Axioms
+	p
+		b Measures are non-negative
+	p $$\forall E \in \Sigma : \mu (E)\ge 0$$
+	p
+		b The measure for the null set is \(0\).
+	p $$\mu (\null )=0$$
+	p
+		b Disjoint sets are additive
+	p $$\mu (\lor_{k=1}^{\infty} E_k)=\sum \mu (E_k)$$
+	p Where all elements \(E_k\) are disjoint. That is, they have no elements in common.
+	h3
+		b Examples
+	p
+		b Counting measure
+	p $$\mu (E)$$
+	p This provides the number of elements in \(E\).
+	p
+		b Probability measure
+	p This is discussed in more detail in Statistics.
+	

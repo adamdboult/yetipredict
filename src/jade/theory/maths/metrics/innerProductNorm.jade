@@ -1,0 +1,21 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Inner products as norms
+block subSubContent
+	h3
+		b Introduction
+	p A common inner product is the dot product.
+	p This is defined as:
+	p $$<x,y>=x^Ty$$
+	h3
+		b Inner products as norms
+	p Given a vector, we can calculate a scalar by performing:
+	p $$<x,x>$$
+	p We can use this to define a norm:
+	p $$||x||=\sqrt{<x,x>}$$
+	p For the dot product inner product, this results in the Euclidian norm.
+	p As a result all inner product spaces are normed vector spaces, but not all normed vector spaces are inner product spaces.
+
+
