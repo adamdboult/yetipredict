@@ -1,0 +1,34 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Z-test for variable significance
+block subSubContent
+	h3
+		b The standard score
+
+	p We may want to see how different a mean statistic is from a specific value.
+
+	p The standard score allows us to measure this, by taking this distance and standardising by the standard deviation.
+
+	p \(z=\frac{\bar x-x_0}{\sigma }\)
+
+	p This requires us to know the standard deviation, which is in general not known.
+
+ 
+
+	p If the sample size is large, we know this converges to the normal distribution through the central limit theorem.
+
+ 
+
+	h3
+		b The Z-test
+
+	p We can see how likely our statistic was to be produced if it was drawn from a normal distribution with mean \(x_0\) and standard deviation \(x_0\).
+
+ 
+
+	h3
+		b P-values
+
+	p This is the chance of the statistic being produced by chance.
+

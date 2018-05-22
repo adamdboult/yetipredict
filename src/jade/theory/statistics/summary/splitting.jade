@@ -1,0 +1,12 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Splitting data into classes
+block subSubContent
+	h3
+		b Introduction
+	p We have \(X\), and we want to split this into \(m\) different matrices.
+	p We can do this by creating an index for each group, \(v\), where it is \(1\) if in the group and \(0\) otherwise.
+	p We then select \(X[v]\).
+	p Alternatively we can do \(v^TX\), however we must then trim the extra variables.
+

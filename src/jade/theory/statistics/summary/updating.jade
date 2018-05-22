@@ -1,0 +1,22 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Updating the mean, variance and covariance
+block subSubContent
+	h3
+		b Mean
+	p \(\bar x_{n+1} = \frac{n\bar x_n+x_{n+1}}{n+1}\)
+	h3
+		b Variance
+	p If it is centred:
+	p \(\sigma_n^2=\frac{1}{n}X_n^TX_n\)
+	p So:
+	p \(\sigma_{n+1}^2=\frac{n\sigma_n^2 +x_{n+1}^tx_{n+1}}{n+1}\)
+
+	h3
+		b Covariance
+	p If it is centred:
+	p \(\sigma_{XY}^n=\frac{1}{n}X_n^TY_n\)
+	p So:
+	p \(\sigma_{XY}^{n+1}=\frac{n\sigma^n_{XY}+x_{n+1}^ty_{n+1}}{n+1}\)
+
