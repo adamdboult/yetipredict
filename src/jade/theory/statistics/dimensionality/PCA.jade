@@ -4,57 +4,24 @@ block subSubTitle
 		b Principal component analysis
 block subSubContent
 	h3
-		b Robust PCA
+		b Introduction
+	p Principal component analysis takes a dataset \(X\) with \(m\) variables and returns a principal component matrix \(A\) with size \(m\times k\).
+	p Each new dimension is a linear function of the existing data. \(Z=XA\).
 
+	p Each dimension in uncorrelated, and ordered, in order of descending explanation of variability.
+	p The problem of principal component analysis is to find these weightings \(A\).
 	h3
 		b Classical PCA
-
-	p Can reduce 2 series to one:
-	p eg feature of cm and inches highly correlated (may be measurement error)
-	p can do line through data, use position on line as new feature
-	p eg have two series, do OLS to get new line, then map old data points to this line
-	p Not actually ols: not just y-yhat, is distance from line, and goes through origin
-
+	p We take the first \(k\) eigenvectors of the covariance matrix, ordered by eigenvalue.
 	h3
-		b Covariance matrix
-	p In section on preliminary data analysis
-	p For calculates the covariance between all variables in the model.
-	p \(\Sigma_{ij}=\cov(x_i,x_j)\)
-	p \(\Sigma_{ij}=E[(X_i-\mu_i)(X_j-\mu_j)] \)
-	p \(\Sigma_{ij}=E[X_iX_j]-\mu_imu_j\)
-	p We can write this as a matrix:
-	p \(\Sigma=E[(X –E[X])(X –E[X])^T]\)
-
-	p useful if too much disk space, memory usage. not needed otherwise
-
-	p scale features first: 0-1
-
-
-	p reduce data from n dimensions to k dimensions
-
-	p create plane with fewer dimensions. move features to this
-
-	p covariance matrix:
-	p sum (1/m)*x.x'
-
-	p can do function on this, svd, to get vectors
-
-	p svd gives U, S, V. u is used for transformation. S is diagonal. gives variances
-	p can do first k over all to get variance
-
-	p eigenvectors of this result are useful
-
-	p we can take the first k columns, to reduce the data to k columns
-
-	p times these vectors by x to get new info
-
-	p Recovering from compressed data:
-
-	p Xapprox = Ureduce Z. Data is still on plane, but plane is in higher dimension
-
-	p how to choose k?
-	p so 99% of variance is retained
-	p [1/m sum (x-xapprox)^2] / [1/m sum x^2]
-
-	p test data needs to undergo same normalisation, compression
-
+		b Getting the eigenvectors using SVD
+	p We can decompose \(X=U\Sigma A^T\).
+	p We can take the eigenvectors from \(A\).
+	h3
+		b Choosing the number of dimension
+	p We can choose \(k\) such that a certain percentage of the variance is retained.
+	h3
+		b Robust PCA
+	p Robust PCA can be used to deal with corrupted data, such as corrupted image data.
+	p Rather than data \(X\) we have \(M=L_0+S_0\) where \(L_0\) is what we want to recover (and is low rank), and \(S_0\) is noise (and sparce).	
+	p In video footage, \(L_0\) can correspond to the background, while \(S_0\) corresponds to movement.

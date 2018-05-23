@@ -1,0 +1,13 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b ReLU
+block subSubContent
+	h3
+		b Introduction
+	p ReLU, the Rectified Linear Unit, is defined as:
+	p \(a(z)=\max (0,z)\)
+	p Its differential is therefore \(1\) for values of \(z\) above \(0\), and \(0\) for values of \(z\) below \(0\).
+	p The differential is undefined at \(z=0\), however this is unlikely to occur in practice.
+	p The ReLU activation function induces sparcity.
+

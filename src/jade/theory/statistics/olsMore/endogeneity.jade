@@ -1,0 +1,10 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Endogeneity
+block subSubContent
+	h3
+		b Introduction
+	p If an variable is correlated with the error term then the OLS estimator will be biased.
+
+	p If there is another variable which is related to the dependent variable only through its correlation with the dependent variable we are interested in, we can regress on this instead.

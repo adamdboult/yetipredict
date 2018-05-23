@@ -32,3 +32,10 @@ block subSubContent
 		b Epochs
 	p This refers to the number of times the whole dataset has been run.
 	p 
+	h3
+		b Checking
+	p We can use a slower alternative to back propagation to ensure that the algorithm is working correctly.
+	p Gradient checking is used to manually work out the gradient of the cost function.
+	p We can do this by taking a value of theta, adding a small value, \(\epsilon \), to and from it to get \(\theta +\) and \(\theta -\).
+	p We can then calculate the gradient for \(\theta_i\) by calculating:
+	p \(\frac{J(\theta +)-J(\theta -)}{2\epsilon }\)
