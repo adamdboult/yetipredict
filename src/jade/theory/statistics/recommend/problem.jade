@@ -1,0 +1,12 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b The recommendation problem
+block subSubContent
+	h3
+		b Introduction
+	p We have a collection of users and a collection of products. We want to recommend products to customers.
+
+	p once a customer "consumes" something, we get feedback. however for vast majority of items, not consumed. goal: predict feedback score beforehand to make good recommendations
+
+	p we have a matrix of how much each customer "likes" things. however this is v sparce

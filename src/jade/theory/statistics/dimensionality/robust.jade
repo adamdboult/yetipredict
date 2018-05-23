@@ -1,0 +1,10 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Robust principal component analysis
+block subSubContent
+	h3
+		b Robust PCA
+	p Robust PCA can be used to deal with corrupted data, such as corrupted image data.
+	p Rather than data \(X\) we have \(M=L_0+S_0\) where \(L_0\) is what we want to recover (and is low rank), and \(S_0\) is noise (and sparce).	
+	p In video footage, \(L_0\) can correspond to the background, while \(S_0\) corresponds to movement.

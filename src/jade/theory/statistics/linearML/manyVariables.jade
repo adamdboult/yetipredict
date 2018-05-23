@@ -1,0 +1,28 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Too many dependence variables
+block subSubContent
+	h3
+		b Introduction
+	p If there are more independent variables than samples then OLS will not work. There will be an infinite number of perfect fits.
+	p For example if we regression genetic information on height with \(1000\) people, there will be too little data to fit using OLS.
+	p This is due to colinearity.
+	h3
+		b Optimal sparce regression
+	p Optimal is \lambda = \sigma 2\sqrt {{2\log (pn)}{n}}
+
+	p Relies on knowing \sigma, which we may not.
+
+	p Instead we can use root LASSO
+
+	p minimise the squareroot of the sum of squares loss (over n) , and use \lambda = \sqrt{2\log (pn)/n}\)
+
+	p Doesn't have \sigma
+
+	p Lasso biased, estimators 0 for many
+
+	h3
+		b Post-LASSO
+
+	p We can use LASSO for model selection, then use OLS on only those estimators

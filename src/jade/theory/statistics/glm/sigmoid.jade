@@ -1,15 +1,18 @@
 extends ./subSubTemplate.jade
 block subSubTitle
 	h1
-		b Sigmoid
+		b Logistic function (AKA sigmoid, logit)
 block subSubContent
 	h3
-		b Sigmoid
-	p The sigmoid activation function is:
+		b The function
 	p \(\sigma (z)=\frac{1}{1+e^{-z}}\)
-	p The differential of this function is:
+	p The range of this activation is between \(0\) and \(1\).
+
+	h3
+		b The derivative
 	p \(\sigma '(z)=\frac{e^{-z}}{(1+e^{-z})^2}\)
 	p \(\sigma '(z)=\sigma (z)\frac{1+e^{-z}-1}{1+e^{-z}}\)
 	p \(\sigma '(z)=\sigma (z)[1-\sigma (z)]\)
-	p The range of this activation is between \(0\) and \(1\).
-
+	h3
+		b Notes
+	p 

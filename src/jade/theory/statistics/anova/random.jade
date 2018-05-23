@@ -1,0 +1,14 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Random effects
+block subSubContent
+	h3
+		b Introduction
+	p For fixed effects, we had the requirement that group membership be uncorrelated with the error term, but that it could be correlated with other independent variables.
+	p For random effects models, group membership cannot be correlated with other variables.
+	p We have:
+	p \(y_{ij}=\alpha + X_{ij}\theta +\epsilon_{ij}+U_{ij}\)
+	p We now model \(U_{ij}=\bar U_{j}+\rho_j\).
+	p \(y_{ij}=\alpha + X_{ij}\theta +\epsilon_{ij}+\bar U_{j}+\rho_j\)
+	p This randomness of the effect implies, for example, that if we ran the survey again we would expect a different effect.

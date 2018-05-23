@@ -1,0 +1,18 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Collaborative filtering
+block subSubContent
+	h3
+		b Introduction
+	p We look at the actions of customers. We then recommend things based on customers who are similar.
+
+	p Doesn't need stated preferences, or metadata on content.
+
+	p Needs data on customers (behavours, etc)
+
+	p 2 steps:
+	ul
+		li Look for similar users
+		li Use ratings from those users to make predictions for missing items
+

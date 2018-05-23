@@ -1,23 +1,19 @@
 extends ./subSubTemplate.jade
 block subSubTitle
 	h1
-		b Perceptron
+		b Perceptron (step function)
 block subSubContent
 	h3
-		b Training
-	h3
-		b How to train
-	h3
-		b When does it converge
-	p Perceptron data needs to be linearly separable to train.
-
-	h3
-		b When is the solution optimal
-	p Even if linearly separable, doesn't necessarily get the best outcome?
-	h3
-		b Step function
-	p These is the activation function used in the perceptron.
+		b The function
 	p If the sum is above \(0\), \(a(z)=1\). Otherwise, \(a(z)=0\).
-	p This function is not smooth, and never has a differential other than \(0\).
-	p Not smooth. Differential is \(0\) at all points.
+	h3
+		b The derivative
+	p This has a differential of \(0\) at all point except \(0\), where it is undefined.
+	h3
+		b Notes
+	p This function is not smooth.
+
+	p These is the activation function used in the perceptron.
+	p Perceptron data needs to be linearly separable to train.
+	p Even if linearly separable, doesn't necessarily get the best outcome?
 
