@@ -1,0 +1,19 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Pooling layers
+block subSubContent
+	h3
+		b Introduction
+	p The input is a matrix. We place a number of windows on the input matrix. The max of each window is an input to the next layer.
+
+	p means fewer parameters, easier to compute, less chance of overfitting
+
+	p parameters: height, width of window, stride (amount shifts by each window)
+
+	p we can also add padding to the edge of the image so we don't lose data.
+
+	p same padding (use 0), valid padding (no padding)
+
+	p Pooling layer compresses, takes 2x2. Max pooling returns highest activiation
+

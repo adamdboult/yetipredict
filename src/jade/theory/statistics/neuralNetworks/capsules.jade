@@ -1,0 +1,49 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Capsules
+block subSubContent
+	h3
+		b Primary capsule layers
+	p outputs of convolutions are scalars. however we can also create vectors, if we associate some convolutions with each other
+
+	p eg if we have 6 convolutions, the output of these can be used to create a 6 dimensional vector for each window.
+
+	h3
+		b Normalisation in primary capsule layers (vector squishing)
+	p we can normalise the length of these vectors to between \(0\) and \(1\).
+
+	p the output of this repesents the chance of finding the feature they are looking for, and the orientation
+
+	p If the vector length is low, feature not found. if high, feature found.
+
+	p we have orientation from vector, and position from window
+
+	h3
+		b Routing capsule layers
+
+	p We now have a layer of position and orientation of basic shapes (triangles, rectangles etc)
+
+	p We want to know which more complex thing they are part of.
+
+	p So the output of this step is again a matrix with position and orientation, but of more complex features
+
+	p To determine the activation from each basic shape to the next feature we use routing-by-agreement.
+
+	p This takes each basic shape and works out what it would look like if the complex feature was present.
+
+	p If a complex feature has two basic shapes, they will both have the same predicted complex shape. Otherwise the relationship is spurious and they will not
+
+	p i they agree we have a high weighy
+
+	p This process is complex and computationally expensive.
+
+	p However we don't need pooling layers now
+	h3
+		b caps net
+	p : does nromal conv first, then primary, then secondary
+
+	h3
+		b caps: reconstruction
+	p we have vector space of feature position and orietnation. we can recreate output
+
