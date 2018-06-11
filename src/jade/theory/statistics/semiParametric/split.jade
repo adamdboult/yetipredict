@@ -1,0 +1,20 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Split sampling
+block subSubContent
+	h3
+		b Directly estiming \(g(\mathbf z_i)\)
+	p \(y_i=\mathbf x_i\theta +g(\mathbf z_i) +\epsilon_i\)
+
+	p We split the data up.
+
+	p We can estimate \(g(z_i)\) using each cut. Then use this estimate for the form of \(g(z_i)\) for other cuts.
+	p We can then do OLS on these:
+	p \(y_i-g(\mathbf z_i) =\mathbf x_i\theta +\epsilon_i\)
+	p However regularisation means that our parameters for \(g(z_i)\) are biased, and our model has a slow rate of convergence.
+
+	p Our estimator is:
+	p \(\hat \theta_0 =\frac{Cov (x, y-g(z))}{Var (x)}\)
+	p \(\hat \theta_0 =\frac{\sum_i \mathbf x_i (y_i -\hat g_0(\mathbf x_i))}{\sum_i \mathbf x_i^2}\)
+

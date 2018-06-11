@@ -4,15 +4,25 @@ block subSubTitle
 		b Generative and discriminative models
 block subSubContent
 	h3
-		b Generative models
-	p In generative models we learn:
-	p \(P(X, y)\)
-	p Through Bayes rule we can also specify a generative model with both:
-	p \(P(y)\)
-	p \(P(X|y)\)
-	p Similarly, if we have a generative model and also \(P(X)\), we can calculate \(P(X|y)\) using Bayes rule.
+		b Recap
+	p For parametric models without dependent variables we have a form:
+	p \(P(y| \theta )\)
+	p And we have various ways of estimating \(\theta \).
+	p We can write this as a likelihood function:
+	p \(L(\theta ;y )=P(y|\theta)\)
 	h3
 		b Discriminative models
 	p In discriminative models we learn:
-	p \(P(y|X)\)
+	p \(P(y|X, \theta )\)
+	p Which we can write as a likelihood function:
+	p \(L(\theta ;y, X )=P(y| X, \theta)\)
+	h3
+		b Generative models
+	p In generative models we learn:
+	p \(P(y, X| \theta )\)
+	p Which we can write as a likelihood function:
+	p \(L(\theta ;y, X )=P(y, X|\theta)\)
+	p We can use the generative model to calculate dependent probabilities.
+	p \(P(y| X, \theta )=\frac{P(y, X| \theta )P(\theta )}{P(X, \theta )}\)
+	p \(P(y| X, \theta )=\frac{P(y, X| \theta )}{P(X| \theta )}\)
 

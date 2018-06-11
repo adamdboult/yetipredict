@@ -1,0 +1,15 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Interest
+block subSubContent
+	h3
+		b Interest
+	p An alternative measure for finding rules is to use interest.
+	p \(Interest(A\rightarrow B)=\frac{P(A\land B)}{P(A)P(B)}\)
+	p \(Interest(A\rightarrow B)=\frac{supp(A\land B)}{P(supp(A))P(supp(B))}\)
+	p If this is \(1\), then they are independent.
+	p If this is greater than \(1\), they are positively dependent.
+	p If this is less than \(1\), they are negatively dependent.
+
+

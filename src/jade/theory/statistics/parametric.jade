@@ -1,43 +1,41 @@
 extends ./parametric/subSubTemplate.jade
 block subSubContent
 	h3
-		b Regression
+		b Introduction
 	p
-		a(href="./parametric/regression") Regression
-	p
-		a(href="./parametric/regressionBayes") Bayesian regression
-	p
-		a(href="./parametric/R2") R^2
+		a(href="./parametric/generativeDiscriminative") Generative and discriminative models
 	h3
-		b Predictions
+		b Bayesian parameter estimation
 	p
-		a(href="./parametric/prediction") Predictions (inc residuals and SSE)
+		a(href="./parametric/regressionBayes") Bayesian parameter estimation for generative models
 	h3
 		b Classification
 	p
 		a(href="./parametric/classification") Classification
 	p
-		a(href="./parametric/confusion") Confusion matrix
-	p
 		a(href="./parametric/classificationBayes") Bayesian classifier
+	p
+		a(href="./parametric/confusion") Confusion matrix
 	h3
-		b Discriminative models
+		b Point parameter estimation
 	p
-		a(href="./parametric/generativeDiscriminative") Generative and discriminative models
+		a(href="./parametric/MLE") Maximum Likelihood Estimation (MLE) for generative and discriminative models
 	p
-		a(href="./parametric/predictionsParameters") Predictions and parameters
-	p
-		a(href="./parametric/onlineOffline") Online and offline learning
+		a(href="./parametric/MAP") Maximum A-Priori estimation (MAP) for generative models
 	h3
-		b Point estimates
+		b Point predictions in discriminative models
 	p
-		a(href="./parametric/MLE") Maximum Likelihood Estimation (MLE) for dependent variable
+		a(href="./parametric/prediction") Predictions and residuals
 	p
-		a(href="./parametric/MAP") Maximum A-Priori estimation (MAP) for dependent variables
+		a(href="./parametric/R2") Coefficient of determination (\(R^2\))
 	h3
-		b Bayesian inference
+		b Loss functions for point predictions
 	p
 		a(href="./parametric/MMSE") Minimum Mean Square Error (MMSE)
+	p
+		a(href="./parametric/classificationLoss") Binary classification loss functions
+	h3
+		b Other (sort)
 	p
 		a(href="./parametric/inference") Bayesian inference
 

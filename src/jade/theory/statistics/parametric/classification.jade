@@ -16,82 +16,9 @@ block subSubContent
 
 	p The vector represents  \(P(Y=k|X=x)\)
 	h3
-		b Classification risk
-
-	p We can measure the risk of a classifier. This is the chance of misclassification.
-
-	p \(R(C)=P(C(X)\ne Y)\)
-
-	h3
-		b Hinge loss
-	p 
-	h3
-		b F1 score
-	p F_1 score: 2PR/(P+R)
-	p may not just care about accuracy, eg breast cancer screening
-	p high accurancy can result from v basic model (ie all died on titanic)
-	h3
 		b Receiver Operating Characteristic (ROC) Area Under Curve (AUC)
-	p 
-	p email spam, fraud, tumor can be positive or negative. these are binary classifications
-
-	p data can be tumor size and malignant or not. simple answer could be all above size x are malignant
-	p ols may not work. eg large outliers can change where you put cutt off (eg tumor size, all above 1 are maligant, but ols may pass through 0.5 at 3)
-
-	p ols doesn't give class outputs, and gives outputs above 1, below 0
-
-	p logistic regression can be used instead, outcomes are betweeon 0 and 1.
-
-	p logistic function is
-
-	p g(z) = 1/[1+e^(-z)], which is between 0 and 1. Can allocated when larger/less than 0.5
-
-	p we use (thetaT x) = 1/(1+e^(-thetaT x))
-	p queestion is how to choose theta?
-	p interpret g(z) as probability that it true
-
-	p shape of logistic function is such that at 0 y =0.5, so if thetaT x =0, h(x) = 0.5
-
-	p so if accept all above 0.5, if thetaT x is >0, true. else false
-
-	p hypothesis could look like
-
-	p -3 + x1 +x2 >=0 =>y=1
-	p theta here is [-3,1,1]
-
-	p can add extra parametrs for x^2 etc for more complex boundries
-
-	p Choosing theta::
-	p non continuity is an issue, many local optimum due to non-convex state of loss fucntion wrt theta
-	p is there an alternative for convex function? so will have minimum?
-
-	p use cost function:
-	p cost[h(x,theta),y]=
-	p -log(h(x)) if y=1
-	p -log(1-h(x)) if y=0
-
-	p or, for calculation:
-	p cost = -ylog(h(x)) - (1-y)log(1-h(x))
-
-	p convex, unlike sum of squares. allows for increased costs for more wrong, and no cost fo correct
-	p can be derived using maximum likelihood
-
-	p broadly, cost functions are separate to actual estimation specifications, and are designed to tackle speicifc issues.
-
-	p can then do gradient descent on the sum 1/m [-y...]
-
-	p if take derivative, update equation for theta j is the same.
-	p difference is h(x) is not theta T x, and is now 1/1+e^-thetaTx
-
-	p alternatives to gradient descent include:
-	p + conjugate gradient
-	p + BFGS
-	p + L-BFGS
-
-	p these reqire no alpha, often faster. can pick own alpha
-
-	p can make functions which return loss value and gradient vectors
-	p gradient depends on derivative of loss function
-
+	h3
+		b Multiclass
 	p Multiclass classification
 	p what if can be email for work, friends, family, hobby?
+

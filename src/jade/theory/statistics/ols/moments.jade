@@ -1,7 +1,7 @@
 extends ./subSubTemplate.jade
 block subSubTitle
 	h1
-		b Moments of OLS estimators
+		b Expectation of OLS estimators
 block subSubContent
 	h3
 		b Expectation of OLS estimators
@@ -26,21 +26,17 @@ block subSubContent
 	p \(E[\hat{\theta }]=\theta\)
 	p So this is an unbiased estimator, so long as the condition holds.
 
-	h3
-		b Variance of parameters
 
-	p We have: \(\hat{\theta }=(X^TX)^{-1}X^Ty\)
-	p Let’s look at the variance.
-	p \(\hat{\theta }-\theta=(X^TX)^{-1}X^Ty -\theta\)
-	p \(\hat{\theta }-\theta=(X^TX)^{-1}X^Ty -\theta\)
-	p \(\hat{\theta }-\theta=(X^TX)^{-1}X^T(X\theta +\epsilon) -\theta\)
-
-	p \(Var[\hat{\theta }=E[(\hat{\theta }-\theta)(\hat{theta} -\theta)^T]]\)
-
-	p \(Var[\hat{\theta }=E[(\hat{\theta }-\theta)(\hat{theta} -\theta)^T]]\)
 	h3
-		b T distribution
-	p For large samples approximates a normal distribution
-	h3
-		b Robust standard errors
-	p 
+		b Expectation 2
+
+	p \(E[\hat \theta ]=E[\theta +(X^TX)^{-1}X^T\epsilon]\)
+
+	p \(E[\hat \theta ]=\theta +E[(X^TX)^{-1}X^T\epsilon]\)
+
+	p If uncorrelated, we know \(E[\epsilon]\), so:
+
+	p \(E[\hat \theta ]=\theta\)
+
+ 
+

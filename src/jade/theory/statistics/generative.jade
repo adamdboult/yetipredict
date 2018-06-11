@@ -1,35 +1,33 @@
 extends ./generative/subSubTemplate.jade
 block subSubContent
 	h3
-		b Creating parametric models
+		b Introduction
 	p
-		a(href="./generative/models") Models
+		a(href="./generative/models") Parametric models
+	h3
+		b Likelihood functions
+	p
+		a(href="./generative/likelihood") Likelihood functions
+	p
+		a(href="./generative/score") Scores
+	p
+		a(href="./generative/fisher") Fisher information
+	p
+		a(href="./generative/cramerRao") Cramér-Rao lower bound
+	p
+		a(href="./generative/orthogonal") Orthogonality
 	h3
 		b Calculating estimators
 	p
 		a(href="./generative/gradientDescent") Gradient descent
-	p
-		a(href="./generative/fisher") Fisher information
-	p
-		a(href="./generative/CramerRao") Cramér-Rao lower bound
 	h3
-		b Choosing the form of a model
+		b Method of Moments
 	p
-		a(href="./generative/size") Sample sizes
+		a(href="./generative/MoM") Method Of Moments (MOM)
 	p
-		a(href="./generative/overfitting") Overfitting
-	p
-		a(href="./generative/AIC") AIC, AICc, Bayes factor, BIC
-	p
-		a(href="./generative/testSets") Test sets
-	p
-		a(href="./generative/validationSets") Validation sets
-	p
-		a(href="./generative/KLD") Kullback-Leibler divergence
+		a(href="./generative/GMM") Generalised Method of Moments (GMM)
 	h3
 		b Maximum Likelihood Estimation
-	p
-		a(href="./generative/likelihood") Likelihood functions
 	p
 		a(href="./generative/MLE") Maximum Likelihood Estimation (MLE)
 	p
@@ -44,7 +42,6 @@ block subSubContent
 		a(href="./generative/MAP") Maximum A-Priori estimation (MAP)
 	p
 		a(href="./generative/gaussianMAP") MAP of the Gaussian distribution
-
 	h3
 		b Mixture models
 	p

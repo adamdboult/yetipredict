@@ -1,0 +1,89 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Double/Debiased Machine Learning
+block subSubContent
+	h3
+		b Neyman orthogonality
+	p We have our semi-parametric model:
+	p \(y_i=f(\mathbf x_i, \theta) +g(\mathbf z_i) +\epsilon_i\)
+	p Consider the non-parametric part to instead by a high-dimensional parameter.	
+	p \(y_i=f(\mathbf x_i, \theta ) +g(\mathbf z_i, \rho ) +\epsilon_i\)
+	h3
+		b Orthogonality
+	p We can get rid of the bias if the two estimates are orthogonal. That is, if the x for the parameter we want to estimate is orthongal to the other estimate, there is no bias.
+
+ 
+	p errors now depend on multiplication of two biases. cancel out
+
+	p We have moment conditions:
+
+	p \(E[f(\theta_0, \rho_0)]=0\)
+
+	p We care about theta, not ro
+
+	p We define two derivative:
+
+	p \(D_r[\rho-\rho_0]=\delta_r\{E[f(\theta_0, \rho_0+r(\rho-\rho_0))]\}\)
+
+	p \(D_0[\rho-\rho_0]=\delta_\rho \{E[f(\theta_0, \rho_0)(\rho-\rho_0)]\}\)
+
+	p Our moment conditions are:
+
+	p \(D_r[\rho-\rho_0]=0\}\)
+
+	p So how do we get specific moment conditions?
+
+	p Consider normal MLE conditions:
+
+	p \(E[\delta_\theta \ln f(\theta_0, \rho_0)]=0\)
+
+	p \(E[\delta_\rho    \ln f(\theta_0, \rho_0)]=0\)
+
+	p These are not orthogonality scores.
+
+	p We convert these:
+
+	p \(\phi (\theta, \rho)=\delta_\theta \ln f(\theta, \rho)-\mu \delta_\rho \ln f(\theta, \rho)\)
+
+ 
+
+	p \(\mu \) is the orthogonalisation parameter matrix.
+
+	p It solves:
+
+	p \(I_{\theta \rho}-\mu I_{\theta \theta }=0\)
+
+	p Where \(I\) is the Fisher information matrix.
+
+	p The solution is:
+
+	p \(\mu_0=I_{\theta \rho}I_{\rho \rho }^2\)
+
+
+	h3
+		b Introduction
+	p 
+	p We have partial linear model:
+
+	p \(y=D\theta +g(X) + \epsilon\)
+
+	p \(D=m(X)+\mu\)
+
+	p \(E[\epsilon |X,D]=0\)
+
+	p \(E[\mu |X]=0\)
+
+	p \(D\) is policy variable. It is not random. It depends on controls.
+
+	p \(\theta \) is treatment effect. \(X\) are controls.
+
+
+
+	p This is similar to an IV process
+
+ 
+
+	p How can we orthogonalise data?? PCA??
+
+ 

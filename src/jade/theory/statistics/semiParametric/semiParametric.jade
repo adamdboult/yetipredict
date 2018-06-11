@@ -1,0 +1,15 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Semi-parametric models
+block subSubContent
+	h3
+		b Semi-parametric models
+	p With parametric and non-parametric regression we have:
+
+	p \(y_i=f(\mathbf x_i)+\epsilon_i\)
+	p Where \(f(\mathbf x_i)\) is parametric or non-parametric.
+	p A semi-parametric model has parametric and non-parametric components:
+	p \(y_i=f(\mathbf x_i, \theta) +g(\mathbf z_i) +\epsilon_i\)
+	p Where \(f(\mathbf x_i, \theta )\) is parametric and \(g(\mathbf z_i)\) is non-parametric.
+

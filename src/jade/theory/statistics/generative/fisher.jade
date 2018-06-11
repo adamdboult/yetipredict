@@ -4,7 +4,14 @@ block subSubTitle
 		b Fisher information
 block subSubContent
 	h3
-		 Introduction
+		b Introduction
 	p The Fisher information is the variance:
 	p \(E[(\frac{\delta }{\delta \theta }\log f(X, \theta ))^2 |\theta ]\)
 	p \(E[\frac{\delta^2 }{\delta \theta^2 }\log f(X, \theta ) |\theta ]\)
+	p Same as expectation of score squared, because centred around \(0\).
+	h3
+		b Fisher information matrix	
+
+	p We have \(k\) parameters.
+
+	p \(I(\theta )_{ij}=E[(\frac{\delta }{\delta \theta_i}\log f(X, \theta ))(\frac{\delta }{\delta \theta_j }\log f(X, \theta ))|\theta ]\)

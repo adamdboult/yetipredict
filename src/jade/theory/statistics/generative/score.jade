@@ -1,0 +1,17 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Score
+block subSubContent
+	h3
+		b Introduction
+	p Consider:
+	p \(\frac{\delta }{\delta \theta }\log f(X, \theta ) \)
+	p This is the differential of the log probability. 
+	h3
+		b Expection of the score
+	p We can show that the expected value of this is \(0\).
+	p \(E[\frac{\delta }{\delta \theta }\log f(X, \theta ) |\theta ]=0\)
+	h3
+		b Variance of the score
+	p 
