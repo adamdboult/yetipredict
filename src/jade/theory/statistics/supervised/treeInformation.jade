@@ -1,10 +1,10 @@
 extends ./subSubTemplate.jade
 block subSubTitle
 	h1
-		b Decision trees
+		b Training decision trees with information gain
 block subSubContent
 	h3
-		b 
+		b Introduction
 	p start with all outcomes in same node. then do greedy search: which feature best splits
 	p then iterate this
 	p for each have node purity, all examples go to a sub branch
@@ -12,12 +12,7 @@ block subSubContent
 	p entropy = -\sum_i^n p_i\log_2 p_i
 	p gain in entropy = original entropy - weighted by size entropy of each branch
 
-	p can prune trees by cutting off at some point, or pruning after completing full tree
-	p can remove subtee if performance isn't affected on validation set for example
 
-
-	p unbalanced dataset: more of one class than others
-	p can reduce sample of majorit, or synthetically generate minority
 	h3
 		b Information gain
 	p Information gain ratio

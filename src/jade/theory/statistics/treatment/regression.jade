@@ -1,0 +1,13 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Regression
+block subSubContent
+	h3
+		b Introduction
+	p We can simply regress outcomes on variables, including treatment.
+	p This assumes treatment effects are constant.
+	p This also assumes that outcomes \(y_{1i}\) and \(y_{0i}\) are independent of \(D_i\), conditional on \(X\).
+	p If we are missing variables in \(X\) then we will have biased estimates.
+	p This also assumes the effects of \(X\) are linear.
+	p We assume: \(E[y_{0i}|\mathbf x_{i}, D_i]=\mathbf x_i \theta\)

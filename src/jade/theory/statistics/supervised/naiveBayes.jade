@@ -1,24 +1,20 @@
 extends ./subSubTemplate.jade
 block subSubTitle
 	h1
-		b Naive Bayes classifier
+		b The Naive Bayes classifier
 block subSubContent
 	h3
-		b Bayes theorem
-	p Consider Bayes' theorem
-	p \(P(y|x_1,x_2,...,x_n)=\frac{P(x_1,x_2,...,x_n|y)P(y)}{P(x_1,x_2,...,x_n)}\)
-	p Here, \(y\) is the label, and \(x_1,x_2,...,x_n\) is the evidence. We want to know the probability of each label given evidence.
-	p The denominator, \(P(x_1,x_2,...,x_n)\), is the same for all, so we only need to identify:
-	p \(P(y|x_1,x_2,...,x_n)\propto P(x_1,x_2,...,x_n|y)P(y)\)
-	p We can easily calculate \(P(y)\), by looking at the frequency across the sample.
-	h3
-		b The assumption of Naive Bayes
-	p We assume each \(x\) is independent. Therefore:
-	p \(P(x_1,x_2,...,x_n|y)=P(x_1|y)P(x_2|y)...P(x_n|y)\)
-	h3
 		b Calculating the Naive Bayes estimator
+	p With the Naive Bayes assumption we have:
+	p \(P(y|x_1,x_2,...,x_n)\propto P(x_1|y)P(x_2|y)...P(x_n|y)P(y)\)
+	p We now choose \(y\) which maximises this.
 	p This is easier to calculate, as there is less of a sample restriction.
 	p This is used when evidence is also in classes, as the chance of any individual outcome on a continuous probability is \(0\).
+	h3
+		b Estimating \(P(y)\)
+	p We can easily calculate \(P(y)\), by looking at the frequency across the sample.
+	h3
+		b Estimating \(P(x_1|y)\)
 	p Normally, \(P(x_1|y)=\frac{n_c}{n_y}\), where:
 	ul
 		li \(n_c\) is the number of instances where the evidence is \(c\) and the label is \(y\).
@@ -30,6 +26,4 @@ block subSubContent
 	ul
 		li \(p\) is the prior probability. If this is unknown, use \(\frac{1}{k}\), where \(k\) is the number of classes.
 		li \(m\) is a parameter called the equivilant sample size.
-	h3
-		b Naive Bayes and text classification
-	p Naive Bayes can be used to classify text documents. The \(x\) variables can be appearances of each word, and \(y\) can be the document classification.
+

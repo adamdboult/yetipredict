@@ -1,0 +1,29 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b The Generalised Least Squares estimator
+block subSubContent
+	h3
+		b Introduction
+	p \(\mathbf {y}=\mathbf {X}\theta+\boldsymbol {\epsilon }\)
+
+	p We assume:
+	ul
+		li \(E[\epsilon |\boldsymbol X]=0\)
+		li \(\Cov [\epsilon |\boldsymbol X]=\boldsymbol \Omega \)
+
+	p GLS estimator is:
+	p \(\hat \theta = \argmin_b (y-Xb)^T\Omega^{-1}(y-Xb)\)
+
+	p This is the vector that minimises the Mahalanobis distance.
+
+	p This is equivalent to doing OLS on a linearly transformed version of the data.
+
+	p Question: How to get \(\Omega \)?
+	h3
+		b OLS
+	p OLS: Assume it is \(\sigma^2I\).
+
+	h3
+		b Weighted least squares: 
+	p Feasible generalised least squares: Make a consistent estimate for the model. Use this to build \(\Omega \).

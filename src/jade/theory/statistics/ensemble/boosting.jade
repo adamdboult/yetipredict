@@ -1,7 +1,7 @@
 extends ./subSubTemplate.jade
 block subSubTitle
 	h1
-		b Boosting
+		b Adaboost
 block subSubContent
 	h3
 		b Introduction
@@ -16,8 +16,4 @@ block subSubContent
 		li Choosing the weak learner that most reduces the error of the combined learners, and give it a weighting which most reduces the error of the combined learners.
 		li Creating a new weighting for the dataset, where ones poorly predicted (by the combination of learners) are given high weights.
 		li Repeating the process a fixed number of times.
-	h3
-		b Gradient boosting
-	p Gradient boosting does not iterative change the weights for the learners. Instead, it trains on different errors.
-	p While AdaBoost trains to reduce the absolute error for each weak classifier, gradient boosting trains on the difference between the actual classiffication and the current classification.
-	p 
+
