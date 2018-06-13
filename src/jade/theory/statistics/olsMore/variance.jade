@@ -1,0 +1,19 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Variance of the IV estimator
+block subSubContent
+	h3
+		b Recap
+
+	p In OLS we had:
+	p \(\hat {\theta_{OLS} = (X^TX)^{-1}X^Ty\)
+	p \(Var [\hat \theta_{OLS}]=(X^TX)^{-1}X^T\Omega X(X^TX)^{-1}\)
+	h3
+		b Variance of the IV estimator
+	p With IV we have
+	p \(\hat {\theta_{IV} = (Z^TX)^{-1}Z^Ty\)
+	p \(Var [\hat \theta_{IV}]=(Z^TX)^{-1}Z^T\Omega Z(Z^TX)^{-1}\)
+
+	p We can use weighted least squares for \(\Omega \).
+	p 
