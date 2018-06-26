@@ -1,0 +1,16 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Hard and soft classifiers
+block subSubContent
+	h3
+		b Introduction
+	p A hard classifier can return a sparce vector with \(1\) in the relevant classification.
+	p A soft classifier returns probabilities for each entry in the vector.
+
+	p The vector represents  \(P(Y=k|X=x)\)
+
+	h3
+		b Transforming soft classifiers into hard classifiers
+	p We can use a cutoff.
+	p If there are more than two classes we can choose the one with the highest score.

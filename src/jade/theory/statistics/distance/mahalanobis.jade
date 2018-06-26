@@ -1,0 +1,18 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Mahalanobis distance
+block subSubContent
+	h3
+		b Introduction
+	p We have a point. How far away is this from the mean.
+
+	p For a single dimension: number of standard deviations.
+
+	p What about multidimensional data?
+
+	p Could do sd for all distances, but correlations between variables. If two variables are highly correlated, it's not really twice as far.
+
+	p We use this:
+
+	p \(D_M(\mathbf x\)=\sqrt {(\mathbf x-\mathbf \mu )^TS^{-1}(\mathbf x-\mathbf \mu )}\)

@@ -1,0 +1,33 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Consistency and efficiency of estimators
+block subSubContent
+	h3
+		b Consistency
+	p A statistic \(\hat \theta \) is a consistent estimator for \(\theta \) if its error tends to \(0\).
+	p That is:
+	p \(\hat \theta\rightarrow^p \theta \)
+	p We can show that an estimator is consistent if we can write:
+	p \(\hat \theta -\theta \) as a function of \(n\), causing it to tend to \(0\).
+
+
+	h3
+		b Efficiency
+	p Efficiency measures the speed at which a consistent estimator tends towards the true value.
+The speed of this convergence is the efficiency. could be fairly efficient plus biased too	p Measured as:
+	p \(e(\hat \theta )=\frac{\frac{1}{I(\theta )}}{Var (\hat \theta )}\)
+	p If an estimator as an efficiency of \(1\) and is unbiased, it is efficient.
+	h3
+		b Relative efficiency
+	p We can measure the relative efficiency of two consistent estimators:
+	p The relative efficiency is the variance of the first estimator, divided by the variance of the second.
+
+	h3
+		b Root-n estimators
+	p An estimator is root-n consistent if it is consistent and its variance is:
+	p \(O(\frac{1}{n})\)
+	h3
+		b \(n^\delta \)-convergent
+	p A consistent estimator is \(n^\delta \)-consistent if its variance is:
+	p \(O(\frac{1}{n^{2 \delta }})\)

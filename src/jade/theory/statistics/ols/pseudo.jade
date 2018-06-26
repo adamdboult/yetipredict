@@ -1,0 +1,18 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b The Moore-Penrose pseudoinverse
+block subSubContent
+
+	h3
+		b Moore-Penrose pseudoinverse
+	p For a matrix \(X\), the pseudoinverse is \((X^*X)^{-1}X^*\).
+	p For real matrices, this is: \((X^TX)^{-1}X^T\)
+	p The pseudoinverse can be written as \(X^+\)
+	p Therefore \(\theta \) is the pseudoinverse of the inputs, multiplied by the outputs. Or:
+	p \(\theta = X^+y\)
+	p The pseudoinverse satisfies:
+	p \(XX^+X=X\)
+	p \(X^+XX^+=X^+\)
+
+

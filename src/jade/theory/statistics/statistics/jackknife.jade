@@ -1,0 +1,24 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b The jackknife
+block subSubContent
+	h3
+		b Introduction
+
+
+	p We have a statistic:
+
+	p \(S=S(x_1, x_2,...,x_n\)
+
+	p We have a version of this without reading \(x_i\):
+
+	p \(S_i=S_i(x_1,x_2,...x_{i-1},x_{i+1},...,x_n)\)
+
+	p We define:
+
+	p \(S_.=\frac{1}{n}\sum_iS_i\)
+
+	p We want to know the variance.
+
+	p \(Var S=\frac{n-1}{n}\sum_i(S_i-S_.)^2\)

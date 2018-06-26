@@ -51,3 +51,55 @@ block subSubContent
 
 	p slowly decreasing learning rate can get better solutions
 	p alpha = const1/(i + cost2)
+
+	h3
+		b Introduction
+	p There are \(3\) main algorithms for gradient descent:
+	ul
+		li Batch gradient descent
+		li Stochastic gradient descent
+		li Mini-batch gradient descent
+	h3
+		b Batch gradient descent
+	p Do gradient descent on all samples
+	p The standard gradient descent algorithm above is also known as batch gradient descent. There are other implementations.
+
+	h3
+		b Stochastic gradient descent
+	p Do gradient descent on one (?!) sample only
+
+	p not guaranteed for each step to go towards minimum, but each step much faster
+	h3
+		b Mini batch gradient descent
+	p use b samples on each iteration, b is parameter, between stochastic and batch
+	p b=2-100 for example
+
+
+
+
+	h3
+		b Epochs
+	p This refers to the number of times the whole dataset has been run.
+	p 
+	h3
+		b Checking
+	p We can use a slower alternative to back propagation to ensure that the algorithm is working correctly.
+	p Gradient checking is used to manually work out the gradient of the cost function.
+	p We can do this by taking a value of theta, adding a small value, \(\epsilon \), to and from it to get \(\theta +\) and \(\theta -\).
+	p We can then calculate the gradient for \(\theta_i\) by calculating:
+	p \(\frac{J(\theta +)-J(\theta -)}{2\epsilon }\)
+
+	h3
+		b Limitations of normal equation
+	p The normal equation may not always be appropriate. Solving it can be computationally very expensive, especially if there are a large number of features.
+	p At around \(10000\) features, gradient descent can become faster than the normal equation.
+
+	p normal needs no alpha, iterations, is exact
+
+
+	p Derivative term for least squares:
+	p $$\frac{\delta }{\delta \theta _0}J(\theta _0,\theta _1)=\frac{1}{m}\sum\lim_{i=1}^m (h_{\theta} (x^{(i)})-y^{(i)})$$
+	p $$\frac{\delta }{\delta \theta _1}J(\theta _0,\theta _1)=\frac{1}{m}\sum\lim_{i=1}^m (h_{\theta} (x^{(i)})-y^{(i)})x^{(i)}$$
+	p This is batch gradient descent. Each step of descent uses all training examples
+
+

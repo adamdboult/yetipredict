@@ -5,8 +5,18 @@ block subSubTitle
 block subSubContent
 	h3
 		b Likelihood function
-	p \(L(\theta ; X)=p(X|\theta )\)
+	p \(L(\theta ; X)=P(X|\theta )\)
 	p \(P(X|\theta )\)
 	p We want to estimate parameters. One way of looking into this is to look at the likelihood function:
 	p If this has high peaks then it provides information that \(\theta \) is located in this region.
+
+	h3
+		b Independence
+	p If the events are independent, that is the chance of a flip doesn’t depend on any other outcomes, then:
+	p $$P(A_1 \land B_2 \land C_3 \land D_4…|\theta )= P(A_1|\theta ).P(B_2|\theta ).P(C_3|\theta ).P(D_4|\theta )…$$
+	h3
+		b Identically distributed
+	p If the events are identically distributed, the chance of flipping a head doesn’t change across flips (for example the heads side doesn’t get heavier over time) then:
+	p $$P(A_1|\theta ).P(B_2|\theta ).P(C_3|\theta ).P(D_4|\theta )…= P(A|\theta ).P(B|\theta ).P(C|\theta ).P(D|\theta )…$$
+	p These two conditions mean the distribution is independent and identically distributed (iid).
 

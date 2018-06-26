@@ -1,0 +1,10 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Variational Autoencoders (VAE)
+block subSubContent
+	h3
+		b Introduction
+	p like AE, but force middle vector to have unit gaussian by adding new loss function
+
+	p now we can generate new images by sampling for latent normal of unit 1
