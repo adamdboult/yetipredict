@@ -42,14 +42,12 @@ block subSubContent
 
 	p \(Var [\hat \theta ]=\sigma^2_\epsilon (X^TX)^{-1}\)
 	h3
-		b Variance with weighted least squares
-	p If IID:
-	p \(\Omega = I\sigma^2_{\epsilon }\)
-	p \(Var [\hat \theta ]=(X^TX)^{-1}X^TI\sigma^2_{\epsilon } X(X^TX)^{-1}\)
-
-	p \(Var [\hat \theta ]=\sigma^2_\epsilon (X^TX)^{-1}\)
+		b Robust standard errors for heteroskedasticity
+	p \(\Omega_{ij}=\delta_{ij}\epsilon_i\epsilon_j\)
 
 	h3
-		b Robust standard errors
-
-
+		b Autocorrelation-consistent standard errors
+	h3
+		b Other adjustments
+	p With other assumptions, we can create other models for \(\Omega \).
+	p Ones regarding clustering, where the errors for subsets are correlated, are addressed as random effects in General Linear Models.
