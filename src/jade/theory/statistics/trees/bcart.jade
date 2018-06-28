@@ -1,0 +1,24 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Bayesian CART
+block subSubContent
+	h3
+		b Our prior
+	p Call the collective parameters of the tree \(\Theta =(T, k, r)\) and \(\theta \).
+	p Collectively our prior is defined by \(P(\Theta )\) and \(P(\theta )\)
+	h3
+		b Bayes rule
+	p We want to know the posterior given our data \(X\).
+	p \(P(\Theta | X)=\frac{P(X|\Theta )P(\Theta )}{P(X)}\)
+	p \(P(\Theta | X)\propto P(X|\Theta )P(\Theta )\)
+	h3
+		b Expanded posterior
+	p We know explore \(P(X|\Theta )\)
+	p \(P(X|\Theta )=\int P(X| \theta , \Theta)P(\theta)d\theta \)
+	p This means our posterior is:
+	p \(P(\Theta | X)\propto P(\Theta )\int P(X| \theta , \Theta)P(\theta)d\theta \)
+
+	h3
+		b Estimation
+	p This can be estimated with MCMC.

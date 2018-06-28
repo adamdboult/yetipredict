@@ -1,0 +1,25 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Priors of trees
+block subSubContent
+	h3
+		b Priors for simple trees
+	p We can define a tree as a set of nodes: \(T\).
+	p For each node we define a splitting variable \(k\) and a splitting threshold \(r\).
+	p Our prior is \(P(T, k, r)\).
+	p We split this up to:
+	p \(P(T, k, r)=P(T)P(k, r|T)\)
+	p \(P(T, k, r)=P(T)P(k|T)P(r|T, k)\)
+	p So we want to estimate:
+	ul
+		li \(P(T)\) - The number of nodes.
+		li \(P(k|T)\) - Which variables we split by, given the tree size.
+		li \(P(r|T, k)\) - The cutoff, given the tree size and the variables we are splitting by.
+	h3
+		b Priors for mixed trees
+	p If at the leaf we have a parametric model, our prior is instead:
+	p \(P(T, k, r, \theta )=P(T)P(k|T)P(r|T, k)P(\theta | T, k, r)\)
+	p We then need to additionally estimate \(P(\theta | T, k, r)\).
+
+

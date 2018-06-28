@@ -1,0 +1,15 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Power law
+block subSubContent
+	h3
+		b Definition
+	p \(P(X)=\frac{\alpha -1}{a}(\frac{x}{a})^{-\alpha }\)
+	p Where \(a\) is the lower bound.
+	p \(P(X)=0\) for \(X<a\).
+	h3
+		b Moments of the power law
+	p \(E[X^m]=\frac{\alpha - 1}{\alpha -1 -m }a\)
+	p If \(m\ge \alpha -1 \) then this is not well defined.
+	p Higher order moments, such that the variance, cannot be identified.
