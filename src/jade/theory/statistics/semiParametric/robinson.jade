@@ -4,7 +4,7 @@ block subSubTitle
 		b The Robinson estimator
 block subSubContent
 	h3
-		b Robinson's estimator
+		b Partialling out
 	p \(y_i=\mathbf x_i\theta +g(\mathbf z_i) +\epsilon_i\)
 
 	p Consider:
@@ -15,44 +15,24 @@ block subSubContent
 
 	p \(E(y_i|\mathbf z_i)=E(\mathbf x_i|\mathbf z_i)\theta+g(\mathbf z_i)\)
 
- 
-
 	p We can now remove the parametric part:
 
 	p \(y_i-E(y_i|\mathbf z_i)=\mathbf x_i\theta +g(\mathbf z_i) + \epsilon_i - E(\mathbf x_i|\mathbf z_i)\theta -g(\mathbf z_i)\)
 
 	p \(y_i-E(y_i|\mathbf z_i)=(\mathbf x_i- E(\mathbf x_i|\mathbf z_i))\theta +\epsilon_i\)
+	p We define:
+	ul
+		li \(\bar y_i = y_i-E(y_i|\mathbf z_i)\)
+		li \(\bar x_i = \mathbf x_i- E(\mathbf x_i|\mathbf z_i)\)
 
-	p So we can use OLS if we have:
+	p \(\bar y_i =\bar x_i \theta +\epsilon_i\)
+	h3
+		b Estimating \(\bar y_i\) and \(\bar x_i\)
+
+	p So we can use OLS if we can estimate.
 
 	ul
 		li \(E(y_i|\mathbf z_i)\)
 		li \(E(\mathbf x_i|\mathbf z_i)\)
-
-	p We estimate \(E(y_i|\mathbf z_i)\) and \(E(\mathbf x_i|\mathbf z_i)\) using kernel estimates.
-
-	p \(\hat y_i=\frac{\frac{1}{n}\sum_j y_jK_h(\mathbf z_j-\mathbf z_i)}{\hat f(\mathbf z_i)}\)
-
-	p \(\hat {\mathbf x_i}=\frac{\frac{1}{n}\sum_j \mathbf x_jK_h(\mathbf z_j-\mathbf z_i)}{\hat f(\mathbf z_i)}\)
-
-	p Where \(f(\mathbf z_i)\) is a kernel density estimate for \(\mathbf z_i\).
-
-	p \(\hat f(\mathbf z_i)=\frac{1}{n}\sum_jK_h(\mathbf z_j-\mathbf z_i)\)
-
-	p Our OLS estimate for \(\theta \) is now:
-
-	p \(\hat \theta =\frac{\sum_i (X_i-\hat X_i)(y_i-\hat y_i)}{\sum_i(x_i-\hat X_i)^2}\)
-
-	p Robinson then uses a trimming parameter, as the denominator can be affected by small values.
-	h3
-		b Moments of the Robinson estimator
-	p If IID then
-
-	p \(Var (\hat \theta) =\frac{\sigma^2_\epsilon }{\sum_i(x_i-\hat X_i)^2}\)
-
-	p Otherwise, can use GLM
-
-	p What are the properties of the estimator?
-
-	p \(E[\hat \theta ]=E[\frac{\sum_i (X_i-\hat X_i)(y_i-\hat y_i)}{\sum_i(x_i-\hat X_i)^2}]\)
+	p We can do this with non-parametric methods.
 

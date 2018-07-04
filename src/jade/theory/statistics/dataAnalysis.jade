@@ -1,19 +1,29 @@
 extends ./dataAnalysis/subSubTemplate.jade
 block subSubContent
 	h3
-		b Joining data sets
+		b Cleaning numerical data
 	p
 		a(href="./dataAnalysis/dataFormat") Precleaning data formats (float32 for nums)
+	h3
+		b Cleaning categorial data
+	p
+		a(href="./dataAnalysis/join") One Hot Encoding
+	h3
+		b Cleaning text data
+	p
+		a(href="./dataAnalysis/ngram") Bag-of-words
+	p
+		a(href="./dataAnalysis/ngram") N-grams
+	p
+		a(href="./dataAnalysis/hashing") Feature hashing
+	h3
+		b Joining data sets
 	p
 		a(href="./dataAnalysis/variableNames") Consistent variable naming
 	p
 		a(href="./dataAnalysis/concatenate") Concatenating data
 	p
 		a(href="./dataAnalysis/join") Joining data
-	h3
-		b Cleaning categorial data
-	p
-		a(href="./dataAnalysis/join") One Hot Encoding
 	h3
 		b Dropping variables
 	p
@@ -28,24 +38,4 @@ block subSubContent
 		b Dealing with inaccurate data
 	p
 		a(href="./dataAnalysis/outliers") Outliers	
-	h3
-		b Cleaning text data
-	p
-		a(href="./dataAnalysis/ngram") Bag-of-words
-	p
-		a(href="./dataAnalysis/ngram") N-grams
-	p
-		a(href="./dataAnalysis/hashing") Feature hashing
-	h3
-		b Cleaning image data
-	p
-		a(href="./dataAnalysis/image") Storing image data
-	p
-		a(href="./dataAnalysis/image") Generating new image data with noise and rotations
-	h3
-		b Cleaning audio data
-	h3
-		b Cleaning numerical data
-	p
-		a(href="./dataAnalysis/scaling") Feature scaling
 

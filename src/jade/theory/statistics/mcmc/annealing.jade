@@ -1,0 +1,15 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Simulated annealing
+block subSubContent
+	h3
+		b Introduction
+	p We can use a version of Metropolis-Hastings to find the global maximum of a function \(f(x)\).
+	p We start with an arbitrary point \(x_0\).
+	p We move randomly from this to identiy a candidate point \(x_c\).
+	p We accept this with probability depending on the the relationship between \(x_0\) and \(x_c\).
+	p This process will converge on the global maximum.
+	h3
+		b Hyperparameter
+	p There is a hyperparameter for selection. At the extreme this becomes a greedy function.

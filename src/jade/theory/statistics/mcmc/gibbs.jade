@@ -1,0 +1,11 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Gibb's sampling
+block subSubContent
+	h3
+		b Introduction
+	p As with Metropolis-Hastings, we want to generate samples for \(P(X)\) and use this to approximate its form.
+	p We do this by using the conditional distribution. If \(X\) is a vector then we also have:
+	p \(P(x_j|x_0,...,x_{j-1},x_{j+1},...,x_n)\)
+	p We use our knowledge of this distribution.
