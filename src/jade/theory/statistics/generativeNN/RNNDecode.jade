@@ -1,0 +1,15 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Recurrent Neural Network (RNN) decoders
+block subSubContent
+	h3
+		b Introduction
+	p We take the encoded vector and pass this through to the decoder. This spits out decoded output.
+
+	p As we output a word, the word (and previous words) are sent as inputs to the following RNN cells.
+
+	h3
+		b Encoding the outputs
+
+	p As we create outputs, we can pass this as an encoded vector in the target language.
