@@ -1,0 +1,51 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Momentum gradient descent
+
+block subSubContent
+	h3
+		b Batch gradient descent
+	p := used to denote an update of variable. Used in programming, eg x=x+1.
+	p $$\theta _j := \alpha \frac{\delta }{\delta \theta _j}J(\theta _0,\theta _1)$$
+	p \(\alpha \) sets rate of descent.
+
+
+
+	p theta 0 := theta 0 - alpha/m sum(h0(x) - y)
+	p theta j := theta j - alpha/m sum(h0(x) - y)xj
+
+	p can check if j theta increasing, means bad methodology, lower alpha
+
+
+	p get run for x iterations,evaluate j(theta)
+
+	p Can use matrices to do each step
+
+
+	p can check convergence by checking cost over last 1000 or so, rather than all
+
+	p smaller learning rate can get to better solution, as can circle drain for small samples
+
+	p slowly decreasing learning rate can get better solutions
+	p alpha = const1/(i + cost2)
+	p Do gradient descent on all samples
+	p The standard gradient descent algorithm above is also known as batch gradient descent. There are other implementations.
+	h3
+		b Mini-batch gradient descent
+	p use b samples on each iteration, b is parameter, between stochastic and batch
+	p b=2-100 for example
+	h3
+		b Stochastic gradient descent
+	p Do gradient descent on one (?!) sample only
+
+	p not guaranteed for each step to go towards minimum, but each step much faster
+	h3
+		b Stochastic gradient descent with momentum
+	p The gradient we use is not just determined by the single sample, it is a moving average of past samples.
+	h3
+		b Epochs
+	p This refers to the number of times the whole dataset has been run.
+
+

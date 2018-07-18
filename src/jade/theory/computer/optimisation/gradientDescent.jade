@@ -1,0 +1,23 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Gradient descent
+
+block subSubContent
+	h3
+		b What is gradient descent?
+	p Rather than solve a normal equation, gradient descent takes the loss function, and takes the derivative of the loss function with respect to each parameter.
+	p Small adjustments are then made to the parameters, in the direction of the steepest derivative, resulting in better parameters.
+
+	p As derivative term gets smaller, convergance happens. The largest changes to the parametres occurs early on in the algorithm.
+
+
+	p can stop if not lowering by much
+
+	h3
+		b Local minima
+	p Gradient descent is not guaratneed to arrive at a global minimum. For some loss functions, there will be multiple local minima, and gradient descent can end up in the wrong one.
+	p Linear regression does not have this issue.
+	p As a result, when we create functions with loss functions, convextity is very important. If the loss space is convex, then we will not get stuck in a local minima.
+

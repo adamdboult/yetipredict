@@ -1,0 +1,18 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Algorithmic efficiency
+block subSubContent
+	h3
+		b Efficiency
+
+	p An algorithm takes memory and time to run. Analysing these characteristics of algorithms can enable effective choice of algorithms.
+	p Complexity is described using big-O notation. So an algorithm with parameters \(\theta \) would have a time efficiency of \(O(f(\theta )\) where \(f(\theta )\) is a function of \(\theta \).
+	p Generally we expect \(f(\theta )\) to be weakly increasing for all \(\theta \). As we add additional inputs, these would not decrease the time or space requirements of the algorithm.
+	p An algorithm which did not change complexity with inputs would have a constant as the largest term. So we would write \(O(c)\).
+	p An algorithm which increase linearly with inputs could be written \(O(\theta )\).
+	p An algorithm which increased exponentially could be written \(O(e^\theta )\).
+	p Complexity can differ between worst-case scenarios, best-case scenarios and average case scenarios.
+	p We can describe logical systems by completeness (all true statements are theorems) and soundness (all theorems are true). We have similar definitions for algorithms.
+	p An algorithm which returns outputs for all possible inputs is complete. An algorithm which never returns an incorrect output is optimal.
+
