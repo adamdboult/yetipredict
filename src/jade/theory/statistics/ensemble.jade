@@ -1,25 +1,23 @@
 extends ./ensemble/subSubTemplate.jade
 block subSubContent
 	h3
-		b Combining classifiers
+		b Combining learners
 	p
 		a(href="./ensemble/voting") Majority voting
 	p
-		a(href="./ensemble/stackedAggregation") Stacking
+		a(href="./ensemble/regression") Averaging regression predictions
+	p
+		a(href="./ensemble/stackedAggregation") Stacking and SuperLearner
 	h3
-		b Combining regressors
-	h3
-		b Boosting
+		b Generating learners with boosting
 	p
 		a(href="./ensemble/lBoost") \(L_2\) boosting
 	p
 		a(href="./ensemble/boosting") Adaboost
 	p
 		a(href="./ensemble/gradientBoosting") Gradient boosting
-	p
-		a(href="./ensemble/xgboost") Extreme gradient boosting
 	h3
-		b Bagging
+		b Generating learners with Bootstrapped AGGregation (bagging)
 	p
 		a(href="./ensemble/bagging") Bagging
 	h3
@@ -38,4 +36,10 @@ block subSubContent
 		a(href="./ensemble/regressionForests") Causal forests
 	p
 		a(href="./ensemble/regressionForests") Bayesian causal forests
+	h3
+		b Bootstrapping moments of ensemble statistics
+	p
+		a(href="./ensemble/bootstrapMoments") Bootstrapping mean and variance
+	p
+		a(href="./ensemble/bootstrapConfidence") Bootstrapping confidence intervals
 

@@ -1,0 +1,14 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Multinomial distribution
+block subSubContent
+	h3
+		b Binomial recap
+	p The mass function for the binomial case is:
+	p \(f(x)=\dfrac{n!}{x!(n-x)!}p^k(1-p)^{n-k}\)
+	h3
+		b The multinomial distribution
+	p This generalises the binomial distribution where there are more than \(2\) outcomes.
+	p \(f(x_1,...,x_n)=\dfrac{n!}{\prod_i x_i!}\prod_i p_i^{x_i}\)
+

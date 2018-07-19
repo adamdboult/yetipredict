@@ -1,0 +1,14 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Averaging regression predictions
+block subSubContent
+	h3
+		b Introduction
+	p If we have multiple predictions, we can take an average of these, possibly weighted.
+
+	p We have \(m\) regressors \(g_j(\mathbf x_i)\).
+
+	p Our output is:
+
+	p \(h(\mathbf x_i)=\sum_j w_jg_j(\mathbf x_i)\)

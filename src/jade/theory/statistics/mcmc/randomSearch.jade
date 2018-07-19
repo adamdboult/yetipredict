@@ -1,0 +1,16 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Random search
+block subSubContent
+	h3
+		b Introduction
+	p We start with a random set of parameters, \(x\).
+
+	p We then loop through the following:
+
+	ul
+		li We define a search space local to our current selection.
+		li We randomly select a point from this space.
+		li We compare the new point to our current point. If the new point is better we move to that.
+

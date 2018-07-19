@@ -1,0 +1,22 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b First-order conditions
+block subSubContent
+	h3
+		b Introduction
+	p We have a utility function:
+	p \(U=f(\mathbf x)\)
+	p And the constraint:
+	p \(\sum_i (x_i-c_i)p_i\le 0\)
+	p This gives us the constrained optimisation problem:
+	p \(L=f(\mathbf x)-\lambda \sum_i (x_i-c_i)p_i\)
+	h3
+		b First-order conditions
+	p The first-order conditions are:
+	p \(L_{x_i}=\frac{\delta }{\delta x_i}f(\mathbf x)-\lambda p_i=0\)
+	p Or:
+	p \(\lambda = \frac{MU(x_i)}{p_i}\)
+	p This means for any pair we have:
+	p \(\frac{MU(x_i)}{p_i}=\frac{MU(x_j)}{p_j}\)
+	p 

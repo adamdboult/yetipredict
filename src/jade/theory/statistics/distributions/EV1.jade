@@ -1,0 +1,16 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Type-I - Gumbel distribution
+block subSubContent
+	h3
+		b Definition
+	p The probability function is:
+	p \(f(x)=\dfrac{1}{\beta }e^{-(\frac{x-\mu}{\beta }+e^{-\frac{x-\mu }{\beta }})}\)
+	p We can use:
+	p \(z=\dfrac{x-\mu }{\beta }\)
+	p To get:
+	p \(f(x)=\dfrac{1}{\beta }e^{-(z+e^{-z})}\)
+	h3
+		b Link to the logistic function
+	p The difference between two draws from a Gumbel distribution is drawn from the logistic function.
