@@ -1,0 +1,19 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Absolute risk aversion
+block subSubContent
+	h3
+		b Introduction
+	p Given a utility function we can calculate the risk aversion.
+	p \(A(x)=-\dfrac{u''(x)}{u'(x)}\)
+	h3
+		b Constant Absolute Risk Aversion (CARA)
+	p \(A(x)=c\)
+	p \(u(x)=1-e^{\alpha x}\)
+	h3
+		b Hyperbolic Absolute Risk Aversion (HARA)
+	p \(A(x)=\dfrac{1}{ax+b}\)
+	h3
+		b Increasing and Decreasing Absolute Risk Aversion (IARA and DARA)
+	p Risk aversion increase or decreases in \(x\).

@@ -2,10 +2,8 @@ extends ./markov/subSubTemplate.jade
 block subSubContent
 	h3
 		b Markov chains
-	h3
-		b Visible markov models
 	p
-		a(href="./markov/estimation") Estimating the transition matrix (by counting?)
+		a(href="./markov/estimation") Estimating the Markov chain stochastic matrix
 	h3
 		b Hidden Markov Models (HMMs)
 	p
@@ -16,4 +14,14 @@ block subSubContent
 		a(href="./markov/forward") Estimating HMMs with the forward algorithm
 	p
 		a(href="./markov/forwardBackward") Estimating HMMs with the forward-backward algorithm
+	p
+		a(href="./markov/baumWelch") Baum-Welch algorithm
+	h3
+		b Kalman filters
+	p
+		a(href="./markov/kalman") Kalman filters
+	h3
+		b Dynamic Bayesian Network
+	p
+		a(href="./markov/DBN") Dynamic Bayesian Network
 

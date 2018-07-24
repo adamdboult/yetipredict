@@ -1,32 +1,31 @@
 extends ./subSubTemplate.jade
 block subSubTitle
 	h1
-		b Linear models with groups
+		b The cross-sectional model
 block subSubContent
 	h3
 		b Hierarchical data
 	p Our standard linear model is:
 	p \(y_i=\alpha + X_i\theta +\epsilon_i\)
-	p If \(y_i\) is a vector we can have:
-	p \(y_{ij}=\alpha_j + X_{ij}\theta_j +\epsilon_{ij}\)
-
+	p If we had two sets of data we could view these as:
+	p \(y_{i,0}=\alpha_0 + X_{i,0}\theta_0 +\epsilon_{i,0}\)
+	p \(y_{i,1}=\alpha_1 + X_{i,1}\theta_1 +\epsilon_{i,1}\)
+	p Here, the data data from \(1\) does not affect the parameters in \(2\).
 	h3
-		b Fixed parameters
-	p Our model has independent parameters. We may want to fix slopes, intercepts, or both.
-	p If we fix the slopes and intercepts we go from:
-	p \(y_{ij}=\alpha_j + X_{ij}\theta_j +\epsilon_{ij}\)
-	p To:
-	p \(y_{ij}=\alpha + X_{ij}\theta +\epsilon_{ij}\)
+		b Pooled data
+	p If we think the data generating process is similar between models, then by restricting the freedom of parameters between models we can get more data for each estimate.
+	p For example if we think that all parameters are the same between the models we can estimate:
+	p \(y_{i,0}=\alpha + X_{i,0}\theta +\epsilon_{i,0}\)
+	p \(y_{i,1}=\alpha + X_{i,1}\theta +\epsilon_{i,1}\)
+	p Or:
+	p \(y_{ij}=\alpha + X_{ij}\theta + \epsilon_{ij}\)
 	h3
-		b Within and between transformations
-	p We can group the data in two ways, one gets between differences and the other within differences.
-	p In the above example, we could find the effects of schools, or of departments.
-	p \(y_{ij}=\alpha + X_{ij}\theta +\epsilon_{ij}\)
+		b Fixed slopes
+	p Intercepts may be different between the groups. In this case we can instead use the model:
+	p \(y_{ij}=\alpha + X_{ij}\theta + \xi_j + \epsilon_{ij}\)
 
-	p \((y_{ij}-\bar y_{j})=(\alpha -\bar \alpha )+(X_{ij}-\bar X_{j})\theta  +(\epsilon_{ij}-\bar \epsilon_{j})\)
-	p \((y_{ij}-\bar y_{j})=(X_{ij}-\bar X_{j})\theta  +(\epsilon_{ij}-\bar \epsilon_{j})\)
-	p Or alternatively:
-	p \((y_{ij}-\bar y_{i})=(X_{ij}-\bar X_{i})\theta  +(\epsilon_{ij}-\bar \epsilon_{i})\)
-	p Regardless of the form we choose, we can write this as:	
-	p \(\ddot y_{ij}=\ddot X_{ij}\theta +\ddot \epsilon_{ij}\)
-
+	p There are different ways of estimating this model:
+	ul
+		li Pooled OLS
+		li Fixed effects
+		li Random effects

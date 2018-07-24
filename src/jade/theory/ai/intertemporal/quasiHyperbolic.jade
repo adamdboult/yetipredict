@@ -1,0 +1,15 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Quasi-hyperbolic discounting
+block subSubContent
+	h3
+		b Introduction
+	p We have:
+	p \(U_T=\sum_[t=T]^{\infty }d_tU(x_t)\)
+	h3
+		b Quasi-hyperbolic discounting
+	p \(d_0=1\)
+	p \(d_t=\beta \delta^t\)
+	p \(U_T=U(x_0)+\sum_[t=T+1]^{\infty }\beta \delta ^tU(x_t)\)
+	p \(\delta \) is the discount rate.
