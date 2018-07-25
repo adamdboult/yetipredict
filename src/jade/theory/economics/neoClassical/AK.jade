@@ -1,0 +1,38 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b The AK model
+block subSubContent
+	h3
+		b Recap of growth models
+	p As with the Harrod-Domar model we have output as a function of capital:
+	p \(Y=f(K)\)
+	p Capital dynamics:
+	p \(\dot K=I-\delta K\)
+	p \(I=S=sY\)
+	p This gives us:
+	p \(\dot K = sY-\delta K\)
+	h3
+		b Recap of the Harrod-Domar and Solow-Swan models
+	p In the Solow-Swan model the production function was:
+	p \(Y=K^\alpha (AL)^{1-\alpha }\)
+	p In the Harrod-Domar model the production function was:
+	p \(Y=cK\)
+	p In the Solow-Swan model we also added population and technology growth
+	h3
+		b The AK model
+	p In the AK model the production function is:
+	p \(Y=AK\)
+	p We keep population growth from the Solow-Swan model.
+	h3
+		b Per-capita income
+	p \(\dot K = sAK-\delta K\)
+	p \(\dot K = (sA-\delta )K\)
+
+	p \(k=\dfrac{K}{L}\)
+	p \(\dot k =\dfrac{\dot K}{L}-\dot L\dfrac{K}{L^2}\)
+	p \(\dot k =\dfrac{(sA-\delta )K}{L}-\dot L\dfrac{K}{L^2}\)
+	p \(\dot k =(sA-\delta )k-k\dfrac{\dot L\}{L}\)
+	p \(\dot k =(sA-\delta -n)k\)
+	p \(\dfrac{\dot k}{k} =sA-\delta -n\)
+
