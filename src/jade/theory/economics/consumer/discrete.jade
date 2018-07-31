@@ -4,18 +4,23 @@ block subSubTitle
 		b Modelling homogeneous preferences with multinomial logit
 block subSubContent
 	h3
-		b Homogeneous model
+		b Recap
+	p Our model is:
+	p \(U_{ij}=\Theta z_{ij} + \epsilon_{ij}\)
+	p \(U_{ij}=\alpha_i x_j -\beta_i p_{ij} + \theta_j d_i +\epsilon_{ij}\)
 
-	p All consumers face the same prices and products.
-
-	p There may be discounts.
 
 	h3
-		b Errors
-	p We assume the parameters are the same
+		b Homogeneous model
+	p We model all customers as having the same preferences.
+	p \(U_{ij}=\alpha x_j -\beta p_{ij} + \theta_j d_i +\epsilon_{ij}\)
+
+
+	h3
+		b The multinomial logit assumption
 	p If errors are IID and extreme we get:
 
-	p \(s_j=\dfrac{e^{\Theta z_j}}{\sum_k e^{\Theta z_k }}\)
+	p \(P_{ij}=\dfrac{e^{\Theta z_j}}{\sum_k e^{\Theta z_k }}\)
 	h3
 		b The outside option
 
@@ -25,23 +30,19 @@ block subSubContent
 
 	p This gives us the following shares:
 
-	p \(s_j=\dfrac{e^{\Theta z_j}}{e^0+\sum_{k=1} e^{\Theta z_k }}\)
+	p \(P_{ij}=\dfrac{e^{\Theta z_j}}{e^0+\sum_{k=1} e^{\Theta z_k }}\)
 
-	p \(s_j=\dfrac{e^{\Theta z_j}}{1+\sum_{k=1} e^{\Theta z_k }}\)
-	h3
-		b Estimating the multinomial logit model
-	p We have market shares, prices and product characteristics.
-
+	p \(P_{ij}=\dfrac{e^{\Theta z_j}}{1+\sum_{k=1} e^{\Theta z_k }}\)
 	h3
 		b Own-price elasticity of demand
 
-	p \(s_j=\dfrac{e^{\Theta z_j}}{1+\sum_{k=1}} e^{\Theta z_k }\)
+	p \(P_{ij}=\dfrac{e^{\Theta z_j}}{1+\sum_{k=1}} e^{\Theta z_k }\)
 
-	p \(s_j=\dfrac{e^{\alpha x_j -\beta p_j + \theta_j d_i}}{1+\sum_{k=1} e^{ \alpha x_k -\beta p_k +\theta_k d_i}}\)
+	p \(P_{ij}=\dfrac{e^{\alpha x_j -\beta p_j + \theta_j d_i}}{1+\sum_{k=1} e^{ \alpha x_k -\beta p_k +\theta_k d_i}}\)
 
-	p \(\dfrac{\delta s_j }{\delta p_j}\dfrac{p_j}{s_j}=-\beta p_j(1-s_j)\)
+	p \(\dfrac{\delta P_{ij} }{\delta p_j}\dfrac{p_j}{P_{ij}}=-\beta p_j(1-P_{ij})\)
 
-	p \(\dfrac{\delta s_j }{\delta p_k}\dfrac{p_j}{s_j}=\beta p_ks_j\)
+	p \(\dfrac{\delta P_{ij} }{\delta p_k}\dfrac{p_j}{P_{ij}}=\beta p_kP_{ij}\)
 
 	p This means that the lower the price, the lower the own price elasticity of demand.
 
@@ -54,3 +55,6 @@ block subSubContent
 	h3
 		b Cross-price elasticity of demand
 	p 
+	h3
+		b Getting aggregate market shares
+	p \(s_j = \dfrac{1}{n}\sum_i P_{ij}\)

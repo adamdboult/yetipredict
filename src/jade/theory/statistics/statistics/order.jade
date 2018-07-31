@@ -1,0 +1,59 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Order statistics
+block subSubContent
+	h3
+		b Defining order statistics
+	p The \(k\)th order statistic is the \(k\)th smallest value in a sample.
+
+	p \(x_{(1)}\) is the smallest value in a sample, the minimum.
+
+	p \(x_{(n)}\) is the largest value in a sample, the maximum.
+	h3
+		b Probability distributions of order statistics
+
+	p The probability distribution of order statistics depends on the underlying probability distribution.
+
+	h3
+		b Probability distribution of sample maximum
+
+	p If we have:
+
+	p \(Y=\max \mathbf X\)
+
+	p The probability distribution is:
+
+	p \(P(Y\le y)=P(X_1\le y, X_2\le y,...,X_n\le y)\)
+
+	p If these are iid we have:
+
+	p \(P(Y\le y)=\prod_i P(X_i\le y)\)
+
+	p \(F_y(y)=F_X(y)^n\)
+
+	p The density function is:
+
+	p \(f_y(y)=nF_X(y)^{n-1}f_x(y)\)
+
+	h3
+		b Probability distribution of the sample minimum
+
+	p If we have:
+
+	p \(Y=\min \mathbf X\)
+
+	p The probability distribution is:
+
+	p \(P(Y\le y)=P(X_1\ge y, X_2\ge y,...,X_n\ge y)\)
+
+	p If these are iid we have:
+
+	p \(P(Y\le y)=\prod_i P(X_i\ge y)\)
+
+	p \(F_y(y)=[1-F_X(y)]^n\)
+
+	p The density function is:
+
+	p \(f_y(y)=-n[1-F_X(y)]^{n-1}f_x(y)\)
+
