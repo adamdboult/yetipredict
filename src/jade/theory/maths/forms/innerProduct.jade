@@ -1,0 +1,62 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Inner product space
+
+block subSubContent
+	h3
+		b Bilinear forms
+	p A bilinear form is a linear function which maps two vectors from the same vector space onto the underlying field.
+	h3
+		b Inner products
+	p An inner product is a 
+	p \( \langle v, w \rangle \)
+
+
+	h3
+		b Other
+	p The inner product between two vectors is shown as:
+	p \(< x,y>\)
+	p There are many different types of inner product.
+	h3
+		b Feature 1: Conjugate symmetry:
+	p \(< x,y>=\bar{< y,x>}\)
+	h3
+		b Feature 2: Linearity in the first argument
+	p Linearity in the first argument:
+	p \(< ax,y>=a< x,y>\)
+	p \(< x+y,z>=< x,>+< y+z>\)
+	p Note that linearity in the second argument is not implied.
+	p \(< x,ay+bz>=\bar{< ay+bz,x>}\)
+	p \(< x,ay>=\bar{a< y,x>+b< z,x>}\)
+	h3
+		b Feature 3: Positive definite
+	p \(< x,x>\ge 0\)
+	p \(< x,x>= 0\leftrightarrow x=0\)
+
+	h3
+		b Introduction
+	p A common inner product is the dot product.
+	p This is defined as:
+	p \(< x,y>=x^Ty\)
+	h3
+		b Inner products as norms
+	p Given a vector, we can calculate a scalar by performing:
+	p \(< x,x>\)
+	p We can use this to define a norm:
+	p \(||x||=\sqrt{< x,x>}\)
+	p For the dot product inner product, this results in the Euclidian norm.
+	p As a result all inner product spaces are normed vector spaces, but not all normed vector spaces are inner product spaces.
+
+	h3
+		b Norms
+	p An inner product
+	p \( \langle v, v \rangle \)
+	p This, however, is not a linear form, as if we multiplied each vector by \(2\), the inner product grows by \(2^2=4\).
+	p We can take the square root of this.
+	p \(|v|= \sqrt{\langle v, v \rangle }\)
+	p This is still not a linear form, as this would require:
+	p \(|v|+|w|= \sqrt{\langle v+w, v+w \rangle }\)
+	p \(|v|+|-v|= \sqrt{\langle 0, 0 \rangle }\)
+

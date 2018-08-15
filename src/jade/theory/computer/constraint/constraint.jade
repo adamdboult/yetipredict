@@ -1,0 +1,54 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Constraint Satisfaction Problem
+block subSubContent
+	h3
+		b Introduction
+	p A CSP problem is one where we don't care about the path, we just want to identify the goal state.
+	p For example, solving a sudoku
+	h3
+		b Defining a CSP
+	p A CSP has:
+	ul
+		li Variables \(X_i\).
+		li Domain for each variable \(D_i\).
+		li Constraints \(C_j\).
+
+	p in a CSP there are a range of variables each with a domain. There are on top constraints on combinations of values.
+	p A solution does not violate any constraint.
+
+	p to solve, start with no allocations of variables. successor function assigns a value to an unassigned variable. goal test
+
+	p use heuristic minimum remaining value MRV: choose variable with fewest remaining legal values
+	p least constraining value: choose item in domain which constrains the least other moves
+
+	p forward checking. keep track of remaining legal moves for each variable. terminate if none left
+	p after each move, update legal moves for each
+
+	p implement all this with recursive backtrack function, which returns a solution or failure. This is a depth first search
+	h3
+		b Arc-consistency
+	p X-Y is arc consistent if all of domain of X is consistnet with some value of Y.
+	p 
+	h3
+		b Node-consistency
+	p X is node consistent if all of domain satisfies all unary constraint.
+	h3
+		b Path-consistency
+	p Arc consistency for additional variables.
+	h3
+		b Constraint propagation
+	p Constraint propagation can be used to prevent bad choices
+	p we can check for:
+	ul
+		li node-consistency
+		li arc-consistency
+		li path-consistency
+	h3
+		b AC-3
+	p AC-3 algorihm makes a CSP arc-consistent
+	p take all arcs,
+
+	p it may be possible to break the problem down into sub problems, making the problems much easier to solve.
+	p Can do this before/after other algorithm.

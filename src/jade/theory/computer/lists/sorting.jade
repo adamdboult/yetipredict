@@ -1,0 +1,20 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Sorting algorithms
+block subSubContent
+	h3
+		b Introduction
+	p There can be a total ordering on elements in a list.
+
+	p We want to return a list such that
+	ul
+		li Only the ordering is changed
+		li \(\forall nm [list[n]>list[m] \leftrightarrow n>m]\)
+		li Efficient in time and memory
+	p Popular algorithms are:
+	ul
+		li Merge sort
+		li Quick sort
+		li Heap sort 
+

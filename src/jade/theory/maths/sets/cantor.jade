@@ -1,0 +1,28 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Cantors theorem
+
+block subSubContent
+	h3
+		b Introduction
+	p The cardinality of the powerset is strictly greater than the cardinality of the underlying set.
+
+	p That is, \(|P(s)|<|s|\).
+
+	p This applies to finite sets and infinite sets. In particular, this means that the powerset of the natural numbers is bigger than the natural numbers.
+
+	h3
+		b proof
+	p If one set is at least as big as another, then then is a surjection from that set to the other.
+	p That is, if we can prove that there is no surjection from a set to its powerset, then we have proved the theorem.
+	p We consider \(f(s)\). If there is a surjection, then for every subset of \(s\) there should be a mapping from \(s\) to that subset.
+
+	p We take set \(s\) and have the powerset of this, \(P(s)\).
+
+	p Consider the set:
+
+	p \(A=\{x\in s|x\nin f(x)\}\)
+
+	p That is, the set of all elements of \(s\) which do not map to the surjection.

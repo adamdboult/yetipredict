@@ -1,0 +1,30 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Hashing
+block subSubContent
+	h3
+		b Introduction
+	p Want following properties for a hash function
+
+	p Deterministic, so the same hash is always created.
+
+	p Quick to compute hash
+
+	p Cannot generate input from hash, except for brute forcing inputs
+
+	p Small changes to document should cause large charges to hash, such that the two hashes appear uncorrelated
+
+	p Can't find multiple documents with the same hash, practically.
+
+	p Can be used to verify files, check passwords.
+
+	p So possible vulernabilities are:
+
+	p given hash, find message (Pre-image resistence)
+
+	p given input, find another input with the same hash (second pre-image resistance)
+
+	p Collission resistance (find two inputs with same hash)
+
+	p We want to prevent accidental changes to file, and deliberate changes to file. Vulerabilites are more importnat for latter.
