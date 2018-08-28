@@ -1,15 +1,35 @@
 extends ./reinforcement/subSubTemplate.jade
 block subSubContent
 	h3
-		b POMDP
+		b Partially Observable Markov Decision Processes (POMDPs)
+	p
+		a(href="./reinforcement/POMDP") Unobserved states
 	p
 		a(href="./reinforcement/POMDP") Partially Observable Markov Decision Processes (POMDP)
 	p
 		a(href="./reinforcement/MDP") Using POMDP for large state space MDP
 	h3
-		b Reinforcement learning without intermediate rewards
+		b Reinforcement learning
+	p
+		a(href="./reinforcement/qLearning") Unknown transition matrices and payoff functunctions
+	p
+		a(href="./reinforcement/qLearning") Q-functions
+	p
+		a(href="./reinforcement/qLearning") Q-tables
+	p
+		a(href="./reinforcement/qLearning") \(\epsilon \) greedy
 	p
 		a(href="./reinforcement/qLearning") Q-learning
+	p
+		a(href="./reinforcement/qLearning") Q-learning with Monte-Carlo Tree Search
+	h3
+		b Using neural networks for reinforcement learning
+	p
+		a(href="./reinforcement/NNObservation") Processing visual observations using neural networks
+	p
+		a(href="./reinforcement/replay") Experience replay and catastrophic interference
+	p
+		a(href="./reinforcement/replay") Training with supervised learning (eg human chess games)
 	h3
 		b Temporal difference learning
 	p

@@ -2,31 +2,12 @@ extends ./subSubTemplate.jade
 
 block subSubTitle
 	h1
-		b Kernels
+		b The dot product
 
 block subSubContent
 	h3
-		 b Introduction 
-	p Problem: we have two vectors. We want functions which map these to a single number
-	p With a matrix and a vector we can produce a scalar.
-
-	p \(v^TMv\)
-
-	p The matrix \(M\) is positive definite if for all non-zero vectors the scalar is positive.
-
-	p We can write this as:
-
-	p \(\sum_{i=1}^n\sum_{j=1}^n c_ic_jv_iv_j>0\)
-
-	p We can write this as
-
-	p \(\sum_{i=1}^n\sum_{j=1}^n c_ic_j K(v_i,v_j)>0\)
-
-	p Where:
-
-	p \(K(v_i,v_j)=v_iv_j\)
-
-	p A kernel is any alternative to multiplication where the inequality still holds.
-	h3
-		b Linear kernel
+		b Introduction 
+	p \(v^TMu=f\)
+	p If the operator is \(I\) then we have the dot product.
+	p \(v^Tu\)
 

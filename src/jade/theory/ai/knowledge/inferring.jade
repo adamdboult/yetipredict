@@ -1,0 +1,14 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Inferring facts
+block subSubContent
+	h3
+		b Introduction
+	p Now we add another fact:
+	ul
+		li London \(\rightarrow^{is a city in the country }\) UK
+
+	p We can use these to define a new predicate: "was born in the country" and generate the fact:
+	ul
+		li Joe Blogs \(\rightarrow^{was born in the country }\) UK
