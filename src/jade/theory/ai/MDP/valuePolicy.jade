@@ -1,0 +1,13 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b The value function of a policy
+block subSubContent
+	h3
+		b Other
+	p \(P(s_{t+1}|H)=P(s_{t+1}|s_t=s, a_t=a)=P_{s,a}\)
+	p \(E[r_t|H]=E[r_t|s_t=s, a_t=a]=R_{s,a}\)
+
+	h3
+		b Optimal policies
+	p Expected return is greater or identical to any other policy.

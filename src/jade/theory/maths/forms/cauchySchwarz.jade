@@ -15,12 +15,12 @@ block subSubContent
 	p We know the length of any vector is non-negative.
 	p \(0\le \langle u-\lambda v, u-\lambda v\rangle\)
 	p \(0\le \langle u, u\rangle+ \langle u, -\lambda v\rangle+\langle -\lambda v, u\rangle+ \langle -\lambda v, -\lambda v\rangle\)
-	p \(0\le ||u||^2-\bar{\lambda }\langle u, v\rangle-\lambda { \langle v, u\rangle }+ \lambda \bar{\lambda }||v||^2\)
+	p \(0\le \langle u, u\rangle-\bar{\lambda }\langle u, v\rangle-\lambda { \langle v, u\rangle }+ \lambda \bar{\lambda }\langle v, v\rangle\)
 	h3
 		b Proof: \(\lambda \)
 	p We now look for a value of \(\lambda \) to simplify this equation.
-	p \(\lambda = \frac{\langle u,v \rangle}{||v||^2}\)
-	p \(0\le ||u||^2-\dfrac{\langle v,u \rangle\langle u, v\rangle}{||v||^2}-\dfrac{\langle u,v \rangle  \langle v, u\rangle }{||v||^2}+ \dfrac{\langle u,v \rangle}{||v||^2}\dfrac{\langle v,u \rangle}{||v||^2}||v||^2\)
-	p \(0\le ||u||^2-\dfrac{|\langle u,v \rangle|^2}{||v||^2}\)
-	p \(|\langle u,v \rangle|^2\ge ||u||^2||v||^2\)
+	p \(\lambda = \dfrac{\langle u,v \rangle}{\langle v, v\rangle}\)
+	p \(0\le \langle u, u\rangle-\dfrac{\langle v,u \rangle\langle u, v\rangle}{\langle v, v\rangle}-\dfrac{\langle u,v \rangle  \langle v, u\rangle }{\langle v, v\rangle}+ \dfrac{\langle u,v \rangle}{\langle v, v\rangle}\dfrac{\langle v,u \rangle}{\langle v, v\rangle}\langle v, v\rangle\)
+	p \(0\le \langle u, u\rangle-\dfrac{|\langle u,v \rangle|^2}{\langle v, v\rangle}\)
+	p \(|\langle u,v \rangle|^2\ge \langle u, u\rangle\langle v, v\rangle\)
 

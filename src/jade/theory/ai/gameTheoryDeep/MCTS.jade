@@ -5,4 +5,13 @@ block subSubTitle
 block subSubContent
 	h3
 		b Introduction
-	p 
+	p In search tree, each node has wins/total.
+	p So start with just root in 0/0.
+	p Algo:
+	p + Start at root
+	p + Take n choices to arrive at node which has not been explored (or until w/l state)
+	p + play randomly from there
+	p + Back prob up (eg if win, then 1/1 for path back to root, or 0/1 if loss)
+
+	p Wins/simulation count
+	p So deterministic when choosing paths, up until play randomly.

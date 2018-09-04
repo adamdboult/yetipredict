@@ -1,19 +1,8 @@
 extends ./subSubTemplate.jade
 block subSubTitle
 	h1
-		b Actions and policies
+		b Policies
 block subSubContent
-	h3
-		b Actions
-	p In a MDP the agent can choose an action in each state. The action affects the transition matrix.
-	p This means that the rewards depends on the actions taken. We now have:
-	ul
-		li \(S\) - the state space
-		li \(s_1\) - the initial state
-		li \(A\) - the action space
-		li \(P\) - the transition model
-		li \(R\) - the reward distribution
-
 	h3
 		b Policies
 	p The decision maker needs to decide which action to take. For a MDP we assume that the agent knows:
@@ -23,8 +12,4 @@ block subSubContent
 		li The payoffs
 	p If the current state is not known, we have a Partially Observable Markov Decision Process.
 	p If the transition matrix or payoffs are not known we have a reinforcement learning problem.
-	h3
-		b Other
-	p \(P(s_{t+1}|H)=P(s_{t+1}|s_t=s, a_t=a)=P_{s,a}\)
-	p \(E[r_t|H]=E[r_t|s_t=s, a_t=a]=R_{s,a}\)
 
