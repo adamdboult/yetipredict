@@ -1,8 +1,18 @@
 extends ./subSubTemplate.jade
 block subSubTitle
 	h1
-		b Hashing
+		b Hash functions
 block subSubContent
+	h3
+		b Hash functions
+	p + Hash functions (take input and return fixed length output) (h=hash(m))	
+	h3
+		b Data integrity checks
+	p + Needs to be very different for small changes. so typo has different hash for example. corrput data needs to be noticed.
+
+	h3
+		b Checksums
+	p (if two files are the same then hashes the same)
 	h3
 		b Introduction
 	p Want following properties for a hash function
