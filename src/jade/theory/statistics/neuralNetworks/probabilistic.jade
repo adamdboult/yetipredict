@@ -1,0 +1,22 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Probabilistic neural networks
+block subSubContent
+	h3
+		b Introduction
+	h3
+		b Input layer
+	p The input is the feature vector.
+	h3
+		b Pattern layer
+	p The first layer has a node for each variable in the training set.
+	p In each node, the value is the distance from the input to the comparator.
+	p This can be calculated using Gaussian distribution, or another method.
+	h3
+		b Summation layer
+	p One neuron for each category.
+	p We map from the pattern layer to the summation layer according to the actual label of each training item.
+	p Ie, if a sample is red, it will be fed only to the red neuron.
+	p The values are summed.
+	p Largest value is selected.

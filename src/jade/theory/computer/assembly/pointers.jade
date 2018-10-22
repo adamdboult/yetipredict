@@ -1,0 +1,19 @@
+extends ./subSubTemplate.jade
+block subSubTitle
+	h1
+		b Pointers
+block subSubContent
+	h3
+		b Introduction
+	p so in first case we have x = 2 and y = 2, and then we want to change both to three
+	p in first example, initiate both and store 2 in memory twice. update both
+	p in second example we can have x and y have the same value of a pointer, pointing to a third memory location. we can the update this memory location to change both to 3
+
+	p two variable can be the same by value, but additionally by pointer.
+
+	p eg x=2 and y=2. x==y, but if they have the same pointer, they are the same thing. changing one changes the other
+
+	p we can update x and y will automatically update
+
+	p when we say x=2, y=x we are either making y mutable or immutable. mutable means same pointer. language specific rules apply
+

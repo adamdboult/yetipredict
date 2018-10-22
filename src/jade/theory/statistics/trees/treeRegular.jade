@@ -5,11 +5,15 @@ block subSubTitle
 block subSubContent
 	h3
 		b Introduction
-	p Generally we would split the data up. Grow the tree with one set and then prune with the other.
-	p When pruning, for each pair of leaves we test to see if they should be merged.
+	p Training a decision tree until there is only one entry from the training set will result in overfitting.
+	p We can use pruning to regularise trees.
+	h3
+		b Pruning
 	h3
 		b Growing and pruning
+	p Generally we would split the data up. Grow the tree with one set and then prune with the other.
 	p We can split our data up and iterate between growing and pruning.
+	p When pruning, for each pair of leaves we test to see if they should be merged.
 	p If our two sets are \(A\) and \(B\) we can do:
 	ul
 		li \(A\): Grow
@@ -17,3 +21,4 @@ block subSubContent
 		li \(B\): Grow
 		li \(A\): Prune
 	p And repeat this process.
+
