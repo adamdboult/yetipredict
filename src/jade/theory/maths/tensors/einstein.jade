@@ -1,0 +1,40 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Einstein summation convention
+block subSubContent
+	h3
+		b Introduction
+	p A vector can be written as a sum of its components.
+	p \(v=\sum_i e_i v^i\)
+	p The Einstein summation convention is to remove the \(\sum_i \) symbols where they are implicit.
+	p For example we would instead write the vector as:
+	p \(v=e_iv^i\)
+	h3
+		b Adding vectors
+	p \(v+w=(\sum_i e_i v^i)+(\sum_i f_iw^i)\)
+	p \(v+w=\sum_i (e_iv^i+f_iw^i)\)
+	p \(v+w=e_iv^i+f_iw^i\)
+	p If the bases are the same then:
+	p \(v+w=e_i (v^i+w^i)\)
+	h3
+		b Scalar multiplication
+	p \(cv=c\sum_ie_iv^i\)
+	p \(cv=\sum_i ce_iv^i\)
+	p \(cv=ce_iv^i\)
+	h3
+		b Matrix multiplication
+	p \(AB_{ik}=\sum_jA_{ij}B_{jk}\)
+	p \(AB_{ik}=A_{ij}B_{jk}\)
+	h3
+		b Inner products
+	p \(\langle v, w\rangle =\langle \sum_i e_iv^i, \sum_j f_jw^j\rangle \)
+	p \(\langle v, w\rangle =\sum_iv^i\langle  e_i, \sum_j f_iw^j\rangle \)
+	p \(\langle v, w\rangle =\sum_i \sum_jv^i\overline {w^j}\langle e_i, f_j\rangle\)
+	p If the two bases are the same then:
+	p \(\langle v, w\rangle =\sum_i \sum_jv^i\overline {w^j}\langle e_i, e_j\rangle\)
+	p We can define the metric as:
+	p \(g_{ij}:=\langle e_i,e_j\rangle \)
+	p \(\langle v, w\rangle =v^i\overline {w^j}g_{ij}\)
+

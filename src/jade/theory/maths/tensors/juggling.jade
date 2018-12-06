@@ -1,0 +1,43 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Raising and lowering indices
+
+block subSubContent
+	h3
+		b Recap
+	p We showed that the inner product between two vectors with the same basis can be written as:
+	p \(\langle v, w\rangle =\langle \sum_i e_iv^i, \sum_j f_jw^j\rangle \)
+	p \(\langle v, w\rangle =v^i\overline {w^j}\langle e_i, e_j\rangle\)
+	p Defining the metric as:
+	p \(g_{ij}:=\langle e_i,e_j\rangle \)
+	p \(\langle v, w\rangle =v^i\overline {w^j}g_{ij}\)
+
+	h3
+		b Metric inverse
+	p We can use this to define the inverse of the metric.
+	p \(g^{ij}:=(g_{ij})^{-1}\)
+	p We can use this to raise and lower vectors.
+	p \(v_i:=v^jg_{ij}\)
+	h3
+		b Raising and lowering indices of tensors
+	p If we have tensor:
+	p \(T_{ij}\)
+	p We can define:
+	p \(T_i^k=T_{ij}g^{jk}\)
+	p \(T^{il}=T_{ij}g^{jk}g^{kl}\)
+	h3
+		b Tensor contraction
+	p If we have:
+
+	p \(T_{ij}x^j\)
+
+	p We can contract it to:
+
+	p \(T_{ij}x^j=v_i\)
+
+	p Similarly we can have:
+
+	p \(T^{ij}x_j=v^i\)
+

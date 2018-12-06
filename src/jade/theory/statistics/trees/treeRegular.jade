@@ -10,6 +10,15 @@ block subSubContent
 	h3
 		b Pruning
 	h3
+		b Reduced error pruning
+	p From bottom, replace each node with a leaf of the most popular class. Accept if no reduction in accuracy.
+	h3
+		b Cost complexity pruning
+	p Take full tree \(T_0\)
+	p Iteratively find a subtree to replace with a leaf. Cost function is accuracy and number of leaves.
+	p Remove this generating \(T_{i+1}\)
+	p When we have just the root, choose a single tree using CV.
+	h3
 		b Growing and pruning
 	p Generally we would split the data up. Grow the tree with one set and then prune with the other.
 	p We can split our data up and iterate between growing and pruning.
@@ -21,4 +30,7 @@ block subSubContent
 		li \(B\): Grow
 		li \(A\): Prune
 	p And repeat this process.
+	h3
+		b Partial regression trees
+	p Once we have built a tree, we keep a single leaf and disard the rest.
 
