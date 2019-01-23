@@ -1,0 +1,16 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Gödel numbering
+
+block subSubContent
+	h3
+		b Introduction
+	p Gödel numbering assigns a unique number to each formula.
+	p To contruct this we first assign a natural number to each symbol.
+	p This gives us a sequence:
+	p \(\{x_1, x_2, x_3,...,x_n\}\)
+	p We can assign a unique number to this by using the first \(n\) prime numbers.
+	p \(2^{x_1}3^{x_2}5^{x_3}...\)
+	p This number can then be prime factored to recover the sequence, and therefore the formula.
