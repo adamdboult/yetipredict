@@ -1,21 +1,9 @@
 extends ./metric/subSubTemplate.jade
 block subSubContent
 	h3
-		b Norms
-	p
-		a(href="./metric/norm") Norms
-	p
-		a(href="./metric/angles") Angles
-	h3
-		b Other norms
-	p
-		a(href="./metric/Lp") \(L_p\) norms (\(p\)-norms)
-	h3
-		b Metrics
+		b Linear metrics
 	p
 		a(href="./metric/metricSpace") Metrics
-	p
-		a(href="./metric/length") Length of a curve
 	p
 		a(href="./metric/topology") Inducing a topology
 	p
@@ -26,4 +14,14 @@ block subSubContent
 		a(href="./metric/affine") The affine group
 	p
 		a(href="./metric/euclidian") The Euclidan group
+	h3
+		b Non-linear norms
+	p
+		a(href="./metric/Lp") \(L_p\) norms (\(p\)-norms)
+	h3
+		b To linear forms
+	p
+		a(href="./metric/norm") Norms
+	p
+		a(href="./metric/angles") Angles
 

@@ -1,0 +1,30 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Pauli matrices
+block subSubContent
+	h3
+		b Introduction
+	p Pauli matrices are \(2\times 2\) matrices which are unitary and hermitian.
+	p That is, \(P^*=P^{-1}\).
+	p And \(P^*=P\).
+	h3
+		b The Pauli matrices
+	p The matrices are:
+	p \(\sigma_1 =\begin{bmatrix} 0&1  \\ 1&0  \end{bmatrix}\)
+	p \(\sigma_2 =\begin{bmatrix} 0&-i \\ i&0  \end{bmatrix}\)
+	p \(\sigma_3 =\begin{bmatrix} 1&0  \\ 0&-1 \end{bmatrix}\)
+	p The identity matrix is often considered alongside these as:
+	p \(\sigma_0 =\begin{bmatrix} 1&0  \\ 0&1  \end{bmatrix}\)
+	h3
+		b Pauli matrices are their own inverse
+	p \(\sigma_i^2 =\sigma_i\sigma_i\)
+	p \(\sigma_i^2 =\sigma_i\sigma_i^*\)
+	p \(\sigma_i^2 =\sigma_i\sigma_i^{-1}\)
+	p \(\sigma_i^2 =I\)
+	h3
+		b Determinants and trace of Pauli matrices
+	p \(\det \sigma_i =-1\)
+	p \(Tr (\sigma_i) =0\)
+	p As the sum of eigenvalues is the trace, and the product is the determinant, the eigenvalues are \(1\) and \(-1\).
