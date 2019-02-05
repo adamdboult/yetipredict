@@ -1,0 +1,30 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b The exterior (wedge) product
+block subSubContent
+	h3
+		b Introduction
+	p The exterior product of two vectors is:
+	p \(u\land v\)
+	h3
+		b The exterior product is anticommutative
+	p This is anticommutative (alternating).
+	p \(u\land v=-v\land u\)
+	p This implies that:
+	p \(u\land u=0\)
+	h3
+		b The exterior product is distributive
+	p \((a+b)\land (c+d)=(a\land c)+(a\land d)+(b\land c)+(b\land d)\)
+	h3
+		b Expanding the exterior product of two vectors
+	p Consider \(2\)-dimenional vector space with the following vectors:
+	p \(u=ae_1+be_2\)
+	p \(v=ce_1+de_2\)
+	p The exterior product is:
+	p \(u\land v=(ae_1+be_2)\land (ce_1+de_2)\)
+	p \(u\land v=(ae_1\land ce_1)+(ae_1\land de_2)+(be_2\land ce_1)+(be_2\land de_2)\)
+	p \(u\land v=ac(e_1\land e_1)+ad(e_1\land e_2)+bc(e_2\land e_1)+bd(e_2\land e_2)\)
+	p \(u\land v=ad(e_1\land e_2)-bc(e_1\land e_2)\)
+	p \(u\land v=(ad-bc)(e_1\land e_2)\)
