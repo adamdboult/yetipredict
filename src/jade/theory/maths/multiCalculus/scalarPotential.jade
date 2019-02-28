@@ -1,0 +1,21 @@
+extends ./subSubTemplate.jade
+
+block subSubTitle
+	h1
+		b Scalar potential
+
+block subSubContent
+	h3
+		b Introduction
+	p Given a vector field \(\mathbf F\) we may be able to identify a scalar field \(P\) such that:
+	p \(\mathbf F=-\nabla P\)
+	h3
+		b Non-uniqueness of scalar potentials
+	p Scalar potentials are not unique.
+	p If \(P\) is a scalar potential of \(\mathbf F\), then so is \(P+c\), where \(c\) is a constant.
+	h3
+		b Conservative vector fields
+	p Not all vector fields have scalar potentials. Those that do are conservative.
+	p For example if a vector field is the gradient of a scalar height function, then the height is a scalar potential.
+	p If a vector field is the rotation of water, there will not be a scalar potential.
+
