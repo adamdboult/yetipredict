@@ -62,7 +62,8 @@ module.exports=function(app,passport,logger,mailgun,MailComposer){
     
     // STATIC
     app.get('/', function(req, res) {
-	res.redirect('/predict');
+	//res.redirect('/predict');
+	res.render('home');
     });
 
     app.get('/news', function(req,res){
