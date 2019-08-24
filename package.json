@@ -11,6 +11,8 @@
 	"jshint": "~2.9.0",
 	"gulp-jshint": "~2.0.1",
 	"gulp-concat": "~2.6.0",
+	"gulp-clean": "*",
+	"del": "*",
 	"gulp-strip-debug": "~1.1.0",
 	"gulp-uglify": "~1.5.3",
 	"gulp-autoprefixer": "~3.1.0",
