@@ -48,7 +48,7 @@ var app = express();
 app.use(forceDomain({
     hostname: configObj.siteName,
     //  port: 443,
-    protocol: 'https'
+    protocol: 'http'
 }));
 
 /*
