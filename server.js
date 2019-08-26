@@ -1,6 +1,6 @@
 "use strict";
 /*jshint node:true */
-console.log("a")
+
 //WINSTON
 var logger = require(__dirname + '/config/winston');
 
@@ -28,7 +28,6 @@ var express  = require('express'),
 var configObj = JSON.parse(fs.readFileSync(__dirname + '/private/config.json' , 'utf8'));
 var mailgunObj = JSON.parse(fs.readFileSync(__dirname + '/private/mailgun.json' , 'utf8'));
 
-console.log("hi")
 
 ////Mailgun
 var api_key = mailgunObj.api_key;
@@ -36,7 +35,6 @@ var domain = mailgunObj.domain;
 var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 var MailComposer = require('mailcomposer').MailComposer;
 
-console.log("hia")
 
 //CONNECT TO MONGODB
 //mongoose.connect('mongodb://localhost/' + configObj.databaseName, function(err) {
@@ -44,7 +42,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/' + configObj.databaseName, function
     if (err) logger.debug("ERR" + err);
 });
 
-console.log("hib")
 
 //START EXPRESS
 var app = express();
@@ -54,7 +51,6 @@ app.use(forceDomain({
     protocol: 'https'
 }));
 
-console.log("hicd")
 /*
 //forward http to https
 function requireHTTPS(req, res, next) {
@@ -67,7 +63,6 @@ function requireHTTPS(req, res, next) {
 
 app.use(requireHTTPS);
 */
-console.log("hie")
 
 //MAIL GUN
 var data = {
@@ -76,7 +71,7 @@ var data = {
     subject: 'Hello',
     text: 'Testing some Mailgun awesomness! Written by Adam.'
 };
-console.log("hif")
+
 //mailgun.messages().send(data, function (error, body) {
 //  console.log(body);
 //});
@@ -91,22 +86,20 @@ app.use(cookieSession({
     name: 'session',
     keys: ["rdgnhudsrkhauwung5464grtd"]
 }));
-console.log("hig")
+
 //app.use(session({secret: "rdgnhudsrkhauwung5464grtd"}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
 require(__dirname + '/config/passport')(passport);
-console.log("hih")
+
 
 //MODELS
 var DataSerie = require(__dirname + '/config/models/data.js');
 var PredictSerie = require(__dirname + '/config/models/predict.js');
 var User = require(__dirname + '/config/models/user.js');
 var Group = require(__dirname + '/config/models/group.js');
-
-console.log("hi1")
 
 //FILTER OBJECT
 var filterArray = {};
@@ -130,7 +123,7 @@ var filterInit=function() {
 	logger.debug("Filt: " + filterArray);	
     });
 };
-console.log("hi2")
+
 //DATA IMPORT
 var JSONloc = __dirname + '/data/json/0.json';
 var jsonImport = fs.readFileSync(JSONloc, 'utf8').toString().split('\n');
@@ -139,7 +132,7 @@ var db = mongoose.connection;
 db.collection('jsonalls').drop();
 var jsonObj;
 var addToMongoCallback = function(jsonObj) {
-    console.log("hiA")
+
     db.collection('jsonalls').save(jsonObj, function() {
 	j = j + 1;
 	if (j === jsonImport.length) {
@@ -148,7 +141,7 @@ var addToMongoCallback = function(jsonObj) {
 	}
     });
 };
-console.log("hi3")
+
 for (i = 0; i < jsonImport.length; i++) {	
     if (jsonImport[i] === "") {
 	logger.debug("bad: " + i);
