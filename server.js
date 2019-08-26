@@ -19,7 +19,7 @@ var express  = require('express'),
     http = require('http'),
     cookieSession = require('cookie-session'),
     //https = require('https'),
-    forceDomain = require("forcedomain"),
+    //forceDomain = require("forcedomain"),
     favicon = require('serve-favicon'),
     sm = require("sitemap"),
     spawn = require('child_process').spawn;
@@ -45,12 +45,13 @@ mongoose.connect('mongodb://127.0.0.1:27017/' + configObj.databaseName, function
 
 //START EXPRESS
 var app = express();
+/*
 app.use(forceDomain({
     hostname: configObj.siteName,
     //  port: 443,
     //protocol: 'http'
 }));
-
+*/
 /*
 //forward http to https
 function requireHTTPS(req, res, next) {
