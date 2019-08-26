@@ -18,7 +18,7 @@ var express  = require('express'),
     fs=require('fs'),
     http = require('http'),
     cookieSession = require('cookie-session'),
-    https = require('https'),
+    //https = require('https'),
     forceDomain = require("forcedomain"),
     favicon = require('serve-favicon'),
     sm = require("sitemap"),
@@ -55,6 +55,7 @@ app.use(forceDomain({
 }));
 
 console.log("hicd")
+/*
 //forward http to https
 function requireHTTPS(req, res, next) {
     if (!req.secure) {
@@ -65,7 +66,7 @@ function requireHTTPS(req, res, next) {
 }
 
 app.use(requireHTTPS);
-
+*/
 console.log("hie")
 
 //MAIL GUN
@@ -343,6 +344,7 @@ var HTTPport = process.env.PORT || HTTPportnum;
 //app.listen(HTTPport);
 
 //HTTPS setup
+/*
 var HTTPSportnum = configObj.ports.https;
 var privateKey = fs.readFileSync(configObj.keys.privateKey);
 var certificate = fs.readFileSync(configObj.keys.certificate);
@@ -353,13 +355,15 @@ var options = {key: privateKey,
 	      };
 
 var httpsPort = process.env.PORT || HTTPSportnum;
-
+*/
 // LISTEN
 var httpServer=http.createServer(app);
 httpServer.listen(HTTPport);
 
 logger.debug("App listening on port " + HTTPport);
-
+/*
 var httpsServer=https.createServer(options,app);
 httpsServer.listen(httpsPort);
 logger.debug("HTTPS on port "+httpsPort);
+*/
+
