@@ -256,7 +256,7 @@ gulp.task('models', ['clean'],function() {
 
 
 gulp.task('csvProcess',['clean'], shell.task([
-    'python csv-manipulation.py'
+    './csv-manipulation.py'
 ]));
 
 gulp.task('nonScript',['styles','jade','imagemin','fonts','csvProcess','mathjax','datepicker','fallbackjs','models'],function(){
