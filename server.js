@@ -48,7 +48,7 @@ var app = express();
 app.use(forceDomain({
     hostname: configObj.siteName,
     //  port: 443,
-    protocol: 'http'
+    //protocol: 'http'
 }));
 
 /*
@@ -335,7 +335,12 @@ app.use(function(req, res, next){
 //HTTP
 var HTTPportnum=configObj.ports.http;
 var HTTPport = process.env.PORT || HTTPportnum;
-app.listen(HTTPport);
+
+var httpServer=http.createServer(app);
+httpServer.listen(HTTPport);
+
+logger.debug("App listening on port " + HTTPport);
+
 
 //HTTPS setup
 /*
@@ -351,10 +356,6 @@ var options = {key: privateKey,
 var httpsPort = process.env.PORT || HTTPSportnum;
 */
 // LISTEN
-var httpServer=http.createServer(app);
-httpServer.listen(HTTPport);
-
-logger.debug("App listening on port " + HTTPport);
 /*
 var httpsServer=https.createServer(options,app);
 httpsServer.listen(httpsPort);
