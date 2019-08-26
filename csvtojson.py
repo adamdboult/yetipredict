@@ -1,22 +1,23 @@
+#!/usr/bin/env python3
 import csv
 import os
 import json
 import shutil
-print 'start'
+print ('start')
 csvfile=open('data/csv/corrected.csv','r')
-filename='data/json/0.json'
+filename= 'data/json/0.json'
 dir = os.path.dirname(filename)
 if os.path.exists(dir):
 	shutil.rmtree(dir)
 os.makedirs(dir)
-print 'made directory'
+print ('made directory')
 jsonfile=open(filename,'w+')
 jsonStr="*json*"
 jsonSep="."
 jsonStrLen=len(jsonStr)
 reader=csv.DictReader(csvfile)
 rownum=0
-print 'start read'
+print ('start read')
 for row in reader:
 	newRow={}
 	if(rownum==0):

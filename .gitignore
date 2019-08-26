@@ -8,6 +8,5 @@ MongoDBDump/
 *~
 *.pyc
 *__pycache__/
-rawData/
 artillery_*
 
