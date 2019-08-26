@@ -178,7 +178,7 @@ app.use(favicon(__dirname + configObj.favicon));
 
 // SITE MAP
 var sitemap;
-
+/*
 var refreshSitemap = function(){
     Group.find({"open": true,"lName": {$ne: "personal"}}, "lName open", function(err, idwa){
 	var sitemapGroupArray = [];
@@ -248,6 +248,7 @@ var refreshSitemap = function(){
     });
 };
 refreshSitemap();
+*/
 //backup mongo
 
 var backupDatabases=function(){
@@ -334,7 +335,7 @@ app.use(function(req, res, next){
 //HTTP
 var HTTPportnum=configObj.ports.http;
 var HTTPport = process.env.PORT || HTTPportnum;
-//app.listen(HTTPport);
+app.listen(HTTPport);
 
 //HTTPS setup
 /*
