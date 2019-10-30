@@ -4,7 +4,7 @@
 	"passport-local": "~1.0.0",
 	
 	"winston": "~2.2.0",
-	"mongoose": "~4.5.0",
+	"mongoose": "~5.7.7",
 	"bcrypt-nodejs": "~0.0.3",
 
 	"gulp": "~3.9.1",
