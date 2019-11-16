@@ -4,7 +4,7 @@ Documentation=https://www.yetipredict.com
 After=network.target
 
 [Service]
-Type=notify
+Type=simple
 User=ubuntu
 ExecStart=/usr/bin/node /home/ubuntu/yetipredict/server.js
 Restart=always

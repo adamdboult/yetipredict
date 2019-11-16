@@ -5,14 +5,17 @@ html(xmlns:ng="http://angularjs.org" ng-app="myApp" id="ng-app" lang="en")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 		meta(name="viewport" content="width=device-width, initial-scale=1")
 		meta(name="description" content="YetiPredict allows you to make and track predictions.")
+
 		title YetiPredict
+
 		link(href="/css/styles.css", rel='stylesheet')
 		script(src="/js/jquery.min.js")
 		script(src="/js/coreHeader.js")
 		script(src="/js/datepicker/bootstrap-datepicker.js")
 		script(type="text/x-mathjax-config" MathJax.Hub.Config({tex2jax: {}}))
-		//script(type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
 		script(type="text/javascript" src="/js/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML")
+
+
 	body#ng-app(ng-controller="mainController")
 		nav.navbar.navbar-inverse(role="navigation")
 			.container
@@ -39,6 +42,10 @@ html(xmlns:ng="http://angularjs.org" ng-app="myApp" id="ng-app" lang="en")
 						//li
 						//	a(href="https://github.com/adamdboult/yetipredict.git") Github
 					ul.nav.navbar-nav.navbar-right
+						li.nav-item
+							a.nav-link(href="https://www.bou.lt") Adam Boult
+						li.nav-item
+							a.nav-link(href="https://www.artificialeconomist.com") Artificial Economist
 						li
 							a(href="/about/") About
 

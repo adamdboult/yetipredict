@@ -186,3 +186,4 @@ with open(folder + csvFileName,'r', encoding=encoding) as csvfile:
 	b.close()
 
 exec(open('csvtojson.py').read())
+
