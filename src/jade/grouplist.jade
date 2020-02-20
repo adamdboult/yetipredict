@@ -24,9 +24,9 @@ block predictContent
 			br
 			a(href="/group/"+kw.name)
 				if (kw.personal===true)
-					span.glyphicon.glyphicon-lock
+					i.fa.fa-lock
 				else if (kw.open===true)
-					span.glyphicon.glyphicon-cloud
+					i.fa.fa-cloud
 				else
-					span.glyphicon.glyphicon-link
+					i.fa.fa-user-friends
 				span=kw.name

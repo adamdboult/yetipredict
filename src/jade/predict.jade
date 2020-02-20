@@ -11,9 +11,9 @@ block predictContent
 		select(onchange="window.location.href=this.value")
 			if (sortURL==="sort=score")
 				option(value="/predict?"+completeURL+"&sort=date") New
-				option(value="/predict?"+completeURL+"&sort=score" selected="selected") Popular
+				option(value="/predict?"+completeURL+"&sort=score", selected="selected") Popular
 			else
-				option(value="/predict?"+completeURL+"&sort=date" selected="selected") New
+				option(value="/predict?"+completeURL+"&sort=date", selected="selected") New
 				option(value="/predict?"+completeURL+"&sort=score") Popular
 	p Show	
 		select(onchange="window.location.href=this.value")

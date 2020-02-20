@@ -24,7 +24,7 @@ block predictContent
 	script(src="/js/prediction.js")
 	#main
 		#canvasHold
-	.container-fluid
+	.container-fluid(ng-app="myApp", ng-controller="mainController")
 		h2
 			a(href="/group/"+groupLower)=group
 		.row-fluid
@@ -48,7 +48,7 @@ block predictContent
 		form
 			div.form-horizontal
 				label.control-label Select an answer 
-				select(ng-model="selectedAnswer" ng-options="answer for answer in answers" ng-change="preDraw()")
+				select(ng-model="selectedAnswer", ng-options="answer for answer in answers", ng-change="preDraw()")
 			h2(ng-show="outcome==''") Chance of {{selectedAnswer}} being correct: {{headLineShowing}}
 			h2(ng-hide="outcome==''") Closed: {{selectedAnswer}} is {{outcome}}
 		br
@@ -58,18 +58,17 @@ block predictContent
 			p #[strong Date]: {{key.date}}
 		if (group==='Personal')
 			span #[strong Visibility]: 
-			span.glyphicon.glyphicon-lock
+			i.fa.fa-lock
 			span Predictions you make here can only be seen by you!
 		else if (open===true)
 			span #[strong Visibility]: 
-			span.glyphicon.glyphicon-cloud
+			i.fa.fa-cloud
 			span Public
 		else
 			span #[strong Visibility]: 
-			span.glyphicon.glyphicon-link
+			i.fa.fa-user-friends
 			span Private
-
-		#d3Master(ng-show="showGraph")
+		br
 		div(ng-hide="showGraph")
 			p No predictions made yet, be the first!
 		//#d3Master
@@ -78,17 +77,22 @@ block predictContent
 				//form.form-horizontal(ng-submit="update(localPrediction)" ng-controller="mainController")
 				form.form-horizontal(ng-submit="update(localPrediction)")
 					label.control-label.col-sm-4 How likely is this, between 0 and 1?
-					input(type="number" step="any" name="value" min="0" max="1" ng-model="localPrediction.val")
-					input(type="submit" id="submit" value="Submit")
+					input(type="number", step="any", name="value", min="0", max="1", ng-model="localPrediction.val")
+					input(type="submit", id="submit", value="Submit")
 					//input(type="submit" ng-click="update(localPrediction)" value="Submit")
 					span(ng-show="valueError") Error
 		else
 			a(href="/signup") Sign up to make predictions.
 			br
-		button.btn.btn-primary.btn-xs(ng-show="showRel" ng-click="toggleMean()")
-			| Toggle Mean
-		button.btn.btn-primary.btn-xs(ng-show="showRel" ng-click="toggleOthers()")
-			| Toggle Others
+		#d3Master(ng-show="showGraph")
+		if (user)
+			button.btn.btn-primary.btn-xs(ng-show="showRel", ng-click="toggleMean()")
+				| Toggle Mean
+			button.btn.btn-primary.btn-xs(ng-show="showRel", ng-click="toggleOthers()")
+				| Toggle Others
+		else
+			button.btn.btn-primary.btn-xs(ng-show="showRel", ng-click="toggleMean()")
+				| Toggle Mean
 		br
 		a(href="/group/"+groupLower+"/"+prediction+"/about") Prediction settings
 		br
@@ -100,7 +104,7 @@ block predictContent
 			form
 				div.form-group
 					label Comment
-					textarea.form-control(rows="3" ng-model="commentInput")
+					textarea.form-control(rows="3", ng-model="commentInput")
 				button.btn.btn-warning.btn-xs(ng-click="sendComment()") Submit comment
 			p {{feedback}}
 		h4 Comments

@@ -1,21 +1,23 @@
 extends templates/predictHeader.jade
 
 block predictContent
-	script(src="/js/newgroup.js")
-	.container.predict
-		.col-sm-6.mygrid-wrapper-div.col-sm-offset-3
-			.page-header.text-center
-				h1
-					span New group
-			p {{feedback}}
-			form
-				div.form-group
-					label What is the name of the new group?
-					input.form-control(type="text" name="group" ng-model="group")
-				div.form-group
-					label How would you describe the purpose of the group?
-					textarea.form-control(rows="3" ng-model="verbose")
-				div.form-group
-					label Open groups allow anyone to view and make predictions. What sort of group is this?
-					select.form-control(type="text" name="open" ng-model="open" ng-options="opts.bin as opts.label for opts in openOpts")
-				button.btn.btn-warning.btn-lg(ng-click="submit()") Create a new group
+	div(ng-app="myApp")
+		script(src="/js/newgroup.js")
+		.container.predict(ng-app="myApp", ng-controller="mainController")
+			.col-sm-6.mygrid-wrapper-div.col-sm-offset-3
+				.page-header.text-center
+					h1
+						span New group
+				p {{feedback}}
+				form
+					div.form-group
+						label What is the name of the new group?
+						input.form-control(type="text", name="group", ng-model="group")
+					div.form-group
+						label How would you describe the purpose of the group?
+						textarea.form-control(rows="3", ng-model="verbose")
+					div.form-group
+						label Open groups allow anyone to view and make predictions. What sort of group is this?
+						select.form-control(type="text", name="open", ng-model="open", ng-options="opts.bin as opts.label for opts in openOpts")
+					button.btn.btn-warning.btn-lg(ng-click="submit()") Create a new group
+

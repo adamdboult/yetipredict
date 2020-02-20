@@ -2,7 +2,7 @@ extends templates/predictHeader.jade
 
 block predictContent
 	script(src="/js/users.js")
-	.container.predict
+	.container.predict(ng-app="myApp", ng-controller="mainController")
 		h1 User list
 		div(ng-repeat="user in userList")
 			a(ng-href="/users/{{user}}") {{user}}

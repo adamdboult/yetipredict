@@ -97,12 +97,13 @@ require(__dirname + '/config/passport')(passport);
 
 
 //MODELS
-var DataSerie = require(__dirname + '/config/models/data.js');
+//var DataSerie = require(__dirname + '/config/models/data.js');
 var PredictSerie = require(__dirname + '/config/models/predict.js');
 var User = require(__dirname + '/config/models/user.js');
 var Group = require(__dirname + '/config/models/group.js');
 
 //FILTER OBJECT
+/*
 var filterArray = {};
 var filterMatchIdentity = "Any";
 var filterInit=function() {
@@ -173,7 +174,7 @@ var favInit = function() {
 	logger.debug("Favs: " + favObj);
     });
 };
-
+*/
 //FAVICON
 app.use(favicon(__dirname + configObj.favicon));
 
@@ -252,12 +253,12 @@ refreshSitemap();
 */
 //backup mongo
 
-var backupDatabases=function(){
-    var args= [
+var backupDatabases = function(){
+    var args = [
 	'--db',
 	configObj.databaseName,
 	'--out',
-	'MongoDBDump/'+new Date()
+	'MongoDBDump/' + new Date()
 	//'--collection',
 	//'test'
     ];
@@ -267,8 +268,8 @@ var backupDatabases=function(){
 
 backupDatabases();
 
-var robotSend="";
-var robotSendArray=[
+var robotSend = "";
+var robotSendArray = [
     "User-agent: *",
     "Sitemap: /sitemap.xml"
 ];
@@ -276,7 +277,7 @@ var robotSendArrayEntry;
 for (robotSendArrayEntry in robotSendArray){
     robotSend+="\n"+robotSendArray[robotSendArrayEntry];
 }
-
+console.log("here?");
 app.get('/robots.txt', function(req,res){
     res.type('text/plain');
     //    res.send("User-agent: *\nSitemap: /sitemap.xml");
@@ -299,7 +300,7 @@ app.set('view engine', 'jade');
 
 require(__dirname+'/config/routes/routes')(app, passport, logger, mailgun, MailComposer);
 require(__dirname+'/private/admin')(app, passport, logger);
-require(__dirname+'/config/routes/data')(app, passport, logger);
+//require(__dirname+'/config/routes/data')(app, passport, logger);
 require(__dirname+'/config/routes/predict')(app, passport, logger);
 require(__dirname+'/config/routes/user')(app, passport, logger);
 
@@ -362,4 +363,4 @@ var httpsServer=https.createServer(options,app);
 httpsServer.listen(httpsPort);
 logger.debug("HTTPS on port "+httpsPort);
 */
-
+console.log("here? done?");

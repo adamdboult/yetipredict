@@ -8,7 +8,7 @@ var regexObject={
     username:/^[a-z0-9_-]{3,15}$/
 };
 
-module.exports=function(app,passport,logger){
+module.exports=function(app, passport, logger){
     'use strict';
 
     var PredictSerie=require(__dirname+'/../models/predict');
@@ -713,7 +713,7 @@ module.exports=function(app,passport,logger){
 	renderHeader.message="";
 	renderHeader.group="";
 	//var doc;
-	predictionsOrGroup(req,res,renderHeader,'predict');
+	predictionsOrGroup(req, res, renderHeader, 'predict');
     });
 
     app.get('/group/:group', function(req, res) {

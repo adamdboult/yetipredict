@@ -9,24 +9,39 @@ block content
 	//		 width: 1000px;
 	//	}
 	.container.fill
+		br
 		span.DocList
 			span
 				a(href="/grouplist")
-					span.glyphicon.glyphicon-plus
-					span More groups
+					//span.glyphicon.glyphicon-plus
+					button.btn.btn-info(type="button")
+						i.fa.fa-plus
+						span  Create group
 			span
 				a(href="/predict")
-					span.glyphicon.glyphicon-globe
-					span All predictions 
+					//span.glyphicon.glyphicon-globe
+					button.btn.btn-primary(type="button")
+						span All predictions 
 			each kw, i in ara.array
 				if (i<70)
 					span
 						a(href="/group/"+kw.lName)
 							if (kw.personal===true)
-								span.glyphicon.glyphicon-lock
+								//span.glyphicon.glyphicon-lock
+								button.btn.btn-success(type="button")
+									i.fa.fa-lock
+									span=" "+kw.name+" "
 							else if (kw.open===true)
-								span.glyphicon.glyphicon-cloud
+								//span.glyphicon.glyphicon-cloud
+								button.btn.btn-danger(type="button")
+									i.fa.fa-cloud
+									span=" "+kw.name+" "
 							else
-								span.glyphicon.glyphicon-link
-							span=kw.name+" "
+								//span.glyphicon.glyphicon-link
+								button.btn.btn-warning(type="button")
+									i.fa.fa-user-friends
+									span=" "+kw.name+" "
+							//span=kw.name+" "
+		br
+		br
 		block predictContent

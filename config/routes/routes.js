@@ -19,6 +19,7 @@ var postTitle;
 var postDate;
 var postNoType;
 var postFull;
+/*
 fs.readdir(__dirname+'/../../src/jade/blog', function(err, files){
     files.forEach(function(f){
 	postTitle=f.substring(8,f.length-5);
@@ -54,18 +55,18 @@ fs.readdir(__dirname+'/../../src/jade/models', function(err, files){
 	});
     });
 });
-
-module.exports=function(app,passport,logger,mailgun,MailComposer){
+*/
+module.exports=function(app, passport, logger, mailgun, MailComposer){
     'use strict';
     //var DataSerie=require(__dirname+'/../models/data.js');
     //var rootObject={root:__dirname+'/../../public'};
     
     // STATIC
     app.get('/', function(req, res) {
-	//res.redirect('/predict');
-	res.render('home');
+	res.redirect('/predict');
+	//res.render('home');
     });
-
+/*
     app.get('/news', function(req,res){
 	res.render('blog',{posts:blogArray});
     });
@@ -85,14 +86,15 @@ module.exports=function(app,passport,logger,mailgun,MailComposer){
     });
 
    app.get('/data', function(req, res) {
-	res.render('data',{user:req.user});
+	res.render('data', {user:req.user});
     });
-
+*/
     app.get('/about', function(req,res){
-	res.render('about',{user:req.user});
+	res.render('about', {user:req.user});
     });
 
     // DYNAMIC
+/*
     app.get('/theory/:area', function(req,res){
 	res.render('theory/'+req.params.area, {}, function(err, html) {
 	    if(err) {
@@ -142,5 +144,6 @@ module.exports=function(app,passport,logger,mailgun,MailComposer){
 	    }
 	});
     });
+*/
 };
 

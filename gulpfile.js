@@ -1,6 +1,9 @@
 "use strict";
 /*jshint node:true */
 
+//////////////////
+/* DEPENDENCIES */
+//////////////////
 // include gulp
 var gulp = require('gulp'); 
 
@@ -19,29 +22,27 @@ var fs=require('fs');
 var shell=require('gulp-shell');
 var Q = require('q');
 
-/*gulp.task('css', function () {
-    return gulp.src('css/*.css')
-        .pipe(gulp.dest('build/css'));
-});
-*/
+/////////////////
+/* DIRECTORIES */
+/////////////////
 var bowerDir = __dirname+'/bower_components';
 
 var jsConcatFilesHeader = [
     __dirname+'/src/scripts/analytics.js',
-    bowerDir+'/bootstrap/dist/js/bootstrap.js',
+    //bowerDir+'/bootstrap/dist/js/bootstrap.js',
     //bowerDir+'/Bootflat/bootflat/icheck.min.js',
     //bowerDir+'/Bootflat/bootflat/jquery.fs.selecter.min.js',
     //bowerDir+'/Bootflat/bootflat/jquery.fs.stepper.min.js',
     //bowerDir+'/browser-update/browser-update.min.js',
     bowerDir+'/d3/d3.min.js',
-    bowerDir+'/angular/angular.min.js',
     //bowerDir+'/flat-ui/dist/js/flat-ui.min.js'
-    bowerDir+'/bootstrap-material-design/dist/js/material.min.js',
-    bowerDir+'/bootstrap-material-design/dist/js/ripples.min.js',
-    bowerDir+'/bootstrap-material-design/dist/js/material.min.js'
+    //bowerDir+'/bootstrap-material-design/dist/js/material.min.js',
+    //bowerDir+'/bootstrap-material-design/dist/js/ripples.min.js',
+    //bowerDir+'/bootstrap-material-design/dist/js/material.min.js'
+    //bowerDir+'/angular/angular.min.js'
 ];
 
-var jsConcatFilesData = [__dirname+'/src/scripts/core.js'];
+var jsConcatFilesData = [__dirname+'/src/scripts/coreData.js'];
 var jsConcatFilesPrediction = [__dirname+'/src/scripts/prediction.js'];
 var jsConcatFilesGroupAbout = [__dirname+'/src/scripts/groupabout.js'];
 var jsConcatFilesNewGroup = [__dirname+'/src/scripts/newgroup.js'];
@@ -58,7 +59,7 @@ var jshintFiles = [
     __dirname+'/config/routes/data.js',
     __dirname+'/config/routes/routes.js',
     __dirname+'/config/routes/user.js',
-    __dirname+'/src/scripts/core.js',
+    __dirname+'/src/scripts/coreData.js',
     __dirname+'/src/scripts/group.js',
     __dirname+'/src/scripts/groupabout.js',
     __dirname+'/src/scripts/newgroup.js',
@@ -68,33 +69,32 @@ var jshintFiles = [
     __dirname+'/src/scripts/invite.js'
 ];
 var stylesFiles = [
-    bowerDir+'/bootstrap/dist/css/bootstrap.css',
+    //bowerDir+'/bootstrap/dist/css/bootstrap.css',
     //bowerDir+'/Bootflat/bootflat/css/bootflat.min.css',
     //bowerDir+'/bootstrap-theme-bootswatch-flatly/css/bootstrap.min.css',
     //bowerDir+'/bootstrap-material-design/dist/css/roboto.min.css',
-    bowerDir+'/bootstrap-material-design/dist/css/material.min.css',
+    //bowerDir+'/bootstrap-material-design/dist/css/material.min.css',
     //bowerDir+'/bootstrap-material-design/dist/css/ripples.min.css',
     //bowerDir+'/flat-ui/dist/css/flat-ui.min.css',
     __dirname+'/src/styles/core.scss'
 ];
-var fontFiles = [
-    bowerDir+'/bootstrap/dist/fonts/**/*',
-    //bowerDir+'/flat-ui/dist/fonts/**/*'
-    bowerDir+'/bootstrap-material-design/dist/fonts/**/*'
-];
 
-var modelJSFiles = [
-    __dirname+'/src/scripts/models/**/*'
-];
+//var fontFiles = [
+//    bowerDir+'/bootstrap/dist/fonts/**/*',
+//    //bowerDir+'/flat-ui/dist/fonts/**/*'
+//    bowerDir+'/bootstrap-material-design/dist/fonts/**/*'
+//];
 
-var jsFallBack=[bowerDir+'/jquery/dist/jquery.min.js'];
-var mathjaxprefix=bowerDir+'/MathJax';
-var mathjaxFolder=[mathjaxprefix+'/MathJax.js',
-		   mathjaxprefix+'/config/**/*',
-		   mathjaxprefix+'/fonts/HTML-CSS/TeX/woff/**/*',
-		   mathjaxprefix+'/jax/**/*',
-		   mathjaxprefix+'/extensions/**/*'
-		  ];
+
+
+//var jsFallBack=[bowerDir+'/jquery/dist/jquery.min.js'];
+//var mathjaxprefix=bowerDir+'/MathJax';
+//var mathjaxFolder=[mathjaxprefix+'/MathJax.js',
+//		   mathjaxprefix+'/config/**/*',
+//		   mathjaxprefix+'/fonts/HTML-CSS/TeX/woff/**/*',
+//		   mathjaxprefix+'/jax/**/*',
+//		   mathjaxprefix+'/extensions/**/*'
+//		  ];
 //var mathjaxFolder=[mathjaxprefix+'/MathJax.js',
 //		   mathjaxprefix+'/config/**/*',
 //		   mathjaxprefix+'/images/**/*',
@@ -117,30 +117,37 @@ gulp.task('clean', function() {
     return deferred.promise;
 });
 
-gulp.task('fallbackjs',['clean'],function() {
-    gulp.src(jsFallBack)
-	.pipe(gulp.dest(__dirname+'/public/js/'));
-});
+//gulp.task('fallbackjs',['clean'],function() {
+//    gulp.src(jsFallBack)
+//	.pipe(gulp.dest(__dirname+'/public/js/'));
+//});
 
-gulp.task('mathjax',['clean'],function() {
-    gulp.src(mathjaxFolder,{base:mathjaxprefix})
-	.pipe(gulp.dest(__dirname+'/public/js/MathJax/'));
-});
+//gulp.task('mathjax',['clean'],function() {
+//    gulp.src(mathjaxFolder,{base:mathjaxprefix})
+//	.pipe(gulp.dest(__dirname+'/public/js/MathJax/'));
+//});
 
 gulp.task('datepicker',['clean'],function() {
     gulp.src(datepickerFolder,{base:bowerDir+'/bootstrap-datepicker/js'})
 	.pipe(gulp.dest(__dirname+'/public/js/datepicker/'));
 });
 
+/*gulp.task('css', function () {
+    return gulp.src('css/*.css')
+        .pipe(gulp.dest('build/css'));
+});
+*/
+
+
 // JS hint task
-gulp.task('jshint', ['clean'],function() {
+gulp.task('jshint', ['clean'], function() {
     gulp.src(jshintFiles)
 	.pipe(jshint())
 	.pipe(jshint.reporter('default'));
 });
 
 // JS concat, strip debugging and minify
-gulp.task('scripts', ['clean'],function() {
+gulp.task('scripts', ['clean'], function() {
     gulp.src(jsConcatFilesHeader)
 	.pipe(concat('coreHeader.js'))
 	.pipe(stripDebug())
@@ -183,7 +190,7 @@ gulp.task('scripts', ['clean'],function() {
 	.pipe(gulp.dest(__dirname+'/public/js/'));
 });
 
-gulp.task('scripts-debug', ['clean'],function() {
+gulp.task('scripts-debug', ['clean'], function() {
     gulp.src(jsConcatFilesHeader)
 	.pipe(concat('coreHeader.js'))
 	.pipe(gulp.dest(__dirname+'/public/js/'));
@@ -211,12 +218,13 @@ gulp.task('scripts-debug', ['clean'],function() {
 });
 
 // CSS concat, auto-prefix and minify
-gulp.task('fonts', ['clean'],function() {
+/*
+gulp.task('fonts', ['clean'], function() {
     gulp.src(fontFiles)
 	.pipe(gulp.dest(__dirname+'/public/fonts/'));
 });
-
-gulp.task('styles', ['clean'],function() {
+*/
+gulp.task('styles', ['clean'], function() {
     gulp.src(stylesFiles)
 	.pipe(concat('styles.scss'))
         .pipe(sass())
@@ -226,7 +234,7 @@ gulp.task('styles', ['clean'],function() {
 	.pipe(gulp.dest(__dirname+'/public/css/'));
 });
 // minify new images
-gulp.task('imagemin', ['clean'],function() {
+gulp.task('imagemin', ['clean'], function() {
     var imgSrc = __dirname+'/src/img/compiled/*',
 	imgDst = __dirname+'/public/img';
     
@@ -235,7 +243,7 @@ gulp.task('imagemin', ['clean'],function() {
 });
 
 // jade
-gulp.task('jade', ['clean'],function() {
+gulp.task('jade', ['clean'], function() {
     var YOUR_LOCALS = {};
     //	gulp.src([__dirname+'/src/jade/*.jade'])
     //	.pipe(jade({
@@ -245,25 +253,20 @@ gulp.task('jade', ['clean'],function() {
 });
 
 // jade
-gulp.task('models', ['clean'],function() {
-    var	modelsDst = __dirname+'/public/js/models';
-    console.log("doing models!!!!!!");
-    
-    gulp.src(modelJSFiles)
-	.pipe(gulp.dest(modelsDst));
-
-});
 
 
 gulp.task('csvProcess',['clean'], shell.task([
     './csv-manipulation.py'
 ]));
 
-gulp.task('nonScript',['styles','jade','imagemin','fonts','csvProcess','mathjax','datepicker','fallbackjs','models'],function(){
+gulp.task('nonScript', ['styles', 'jade', 'imagemin', 'csvProcess', 'datepicker'], function(){
+});
+//gulp.task('nonScript',['styles','jade','imagemin','fonts','csvProcess','mathjax','datepicker','fallbackjs'], function(){
+//});
+
+gulp.task('debug', ['nonScript', 'scripts-debug', 'jshint'], function(){
 });
 
-gulp.task('debug', ['nonScript','scripts-debug','jshint'],function(){
+gulp.task('default', ['nonScript', 'scripts'], function(){
 });
 
-gulp.task('default', ['nonScript','scripts'],function(){
-});

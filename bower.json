@@ -5,7 +5,7 @@
     "Adam Boult <adamdboult@gmail.com>"
   ],
   "license": "MIT",
-  "homepage": "www.econyeti.com",
+  "homepage": "www.yetipredict.com",
   "private": true,
   "dependencies": {
     "jquery": "~2.1.1",

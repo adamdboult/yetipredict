@@ -5,7 +5,7 @@
 
 var myApp = angular.module('myApp', []);
 
-myApp.controller('mainController',['$rootScope','$scope', '$http','$window', function($rootScope,$scope, $http,$window){
+myApp.controller('mainController', ['$rootScope', '$scope', '$http','$window', function($rootScope, $scope, $http, $window){
     "use strict";
 
     $scope.groupList=[];
@@ -19,17 +19,18 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
     };
     $scope.getGroups();
 
-    $scope.openOpts=[{'bin':0,'label':'closed'},
-		 {'bin':1,'label':'open'}
+    $scope.openOpts=[{'bin':0, 'label':'closed'},
+		 {'bin':1, 'label':'open'}
 		];
-    $scope.open=1;
-    $scope.submit=function(){
-	var toSubmit={};
-	toSubmit.group=$scope.group;
-	toSubmit.open=$scope.open;
-	toSubmit.verbose=$scope.verbose;
+    $scope.open = 1;
+    $scope.testVariableDeleteMe = "Hello world";
+    $scope.submit = function(){
+	var toSubmit = {};
+	toSubmit.group = $scope.group;
+	toSubmit.open = $scope.open;
+	toSubmit.verbose = $scope.verbose;
 	if ($scope.verbose){
-	    toSubmit.verbose=$scope.verbose;
+	    toSubmit.verbose = $scope.verbose;
 	}
 	else {
 	    toSubmit.verbose=null;

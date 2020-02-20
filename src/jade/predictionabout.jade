@@ -19,7 +19,7 @@ block predictContent
 	//	var verboseAbout=!{JSON.stringify(verboseAbout)};
 	//script.
 	//	var verboseUpdateAbout=!{JSON.stringify(verboseUpdateAbout)};
-	.container.predict
+	.container.predict(ng-app="myApp", ng-controller="mainController")
 		.col-sm-6.mygrid-wrapper-div.col-sm-offset-3
 			h1 
 				a(href="/group/"+group+"/"+prediction)=predictionProper+"?"
@@ -29,11 +29,11 @@ block predictContent
 			p {{feedback}}
 			p #[strong Group]: 
 				if (group==='Personal')
-					span.glyphicon.glyphicon-lock
+					i.fa.fa-lock
 				else if (open===true)
-					span.glyphicon.glyphicon-cloud
+					i.fa.fa-cloud
 				else
-					span.glyphicon.glyphicon-link
+					i.fa.fa-user-friends
 				a(href="/group/"+group)=groupProper
 			p #[strong Author]: 
 				a(ng-href="/users/{{graphMeta.author}}") {{graphMeta.author}}
@@ -56,7 +56,7 @@ block predictContent
 				form
 					div.form-group
 						label Update
-						textarea.form-control(rows="3" ng-model="commentInput")
+						textarea.form-control(rows="3", ng-model="commentInput")
 					button.btn.btn-warning.btn-xs(ng-click="sendUpdate()" ng-confirm-click="Are you sure you want to add this update to the description?") Submit update
 				p {{feedback}}
 			div(ng-repeat="user in users")

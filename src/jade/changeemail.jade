@@ -6,16 +6,16 @@ block predictContent
 			h1
 				span.fa Chage email
 			p=message
-			form(action="/changeemail" method="post")
+			form(action="/changeemail", method="post")
 				div.form-group
 					label Enter your password
-					input.form-control(type="password" name="password")
+					input.form-control(type="password", name="password")
 				div.form-group
 					label New email address
-					input.form-control(type="text" name="newemail")
+					input.form-control(type="text", name="newemail")
 				div.form-group
 					label Confirm new email address
-					input.form-control(type="text" name="newemail2")
+					input.form-control(type="text", name="newemail2")
 				button.btn.btn-warning.btn-lg(type="submit") Change email
 			hr
 			p
