@@ -254,12 +254,12 @@ gulp.task('jade', ['clean'], function() {
 
 // jade
 
-
+/*
 gulp.task('csvProcess',['clean'], shell.task([
     './csv-manipulation.py'
 ]));
-
-gulp.task('nonScript', ['styles', 'jade', 'imagemin', 'csvProcess', 'datepicker'], function(){
+*/
+gulp.task('nonScript', ['styles', 'jade', 'imagemin'], function(){
 });
 //gulp.task('nonScript',['styles','jade','imagemin','fonts','csvProcess','mathjax','datepicker','fallbackjs'], function(){
 //});
