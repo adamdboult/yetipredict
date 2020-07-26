@@ -1,0 +1,13 @@
+{
+    "data":{
+	"folder": "Raw data/IMF/",
+	"name": "WEOApr2019all.xls"
+    },
+    "ports":{
+	"http": 3000
+    },
+    "databaseName": "imf",
+    "siteName": "www.yetipredict.com",
+    "favicon": "/public/img/yetiPredict.ico"
+}
+
