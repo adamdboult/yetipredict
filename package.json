@@ -39,7 +39,7 @@
 	"type": "git",
 	"url": "git://git@bitbucket.org/adamdboult/econyeti.git"
     },
-    "description": "Econyeti explores public data",
+    "description": "Yetipredict explores public data",
     "scripts": {
 	"gulp_debug": "gulp debug",
 	"bower_install": "bower install",

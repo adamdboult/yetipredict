@@ -1,0 +1,42 @@
+version: "3"
+services:
+  yetipredict_nodejs:
+    container_name: yetipredict_nodejs
+    build:
+        context: ./
+        dockerfile: ./docker/web/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      - yetipredict_mongo
+  yetipredict_mongo:
+    container_name: yetipredict_mongo
+    image: webhippie/mongodb
+    command: mongod --port 27018 --bind_ip 0.0.0.0
+    restart: unless-stopped
+    volumes:
+      - /data/db/yetipredict_mongo:/data/db
+    ports:
+      - '27018:27018'
+#  mongo:
+#    container_name: mongo
+#    image: mongo
+#    command: mongod --port 27018
+#    restart: unless-stopped
+#    volumes:
+#      - ./mongo:/data/db
+#    ports:
+#      - '27018:27018'
+#  mongo:
+#    container_name: mongo
+#    build:
+#        context: ./
+#        dockerfile: ./docker/db/Dockerfile
+#    command: mongod --port 27018 --bind_ip_all
+#    restart: unless-stopped
+#    volumes:
+#      - ./mongo2:/data/db
+#    ports:
+#      - '27018:27018'
+

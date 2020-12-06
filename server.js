@@ -38,7 +38,8 @@ var MailComposer = require('mailcomposer').MailComposer;
 
 //CONNECT TO MONGODB
 //mongoose.connect('mongodb://localhost/' + configObj.databaseName, function(err) {
-mongoose.connect('mongodb://127.0.0.1:27017/' + configObj.databaseName, function(err) {
+//mongoose.connect('mongodb://127.0.0.1:27017/' + configObj.databaseName, function(err) {
+mongoose.connect('mongodb://yetipredict_mongo:27018/' + configObj.databaseName, function(err) {
     if (err) logger.debug("ERR" + err);
 });
 
