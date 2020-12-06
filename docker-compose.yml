@@ -13,12 +13,12 @@ services:
   yetipredict_mongo:
     container_name: yetipredict_mongo
     image: webhippie/mongodb
-    command: mongod --port 27018 --bind_ip 0.0.0.0
+    command: mongod --port 27023 --bind_ip 0.0.0.0
     restart: unless-stopped
     volumes:
       - /data/db/yetipredict_mongo:/data/db
     ports:
-      - '27018:27018'
+      - '27023:27023'
 #  mongo:
 #    container_name: mongo
 #    image: mongo
