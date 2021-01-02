@@ -18,7 +18,7 @@ services:
     volumes:
       - /data/db/yetipredict_mongo:/data/db
     ports:
-      - '27123:27023'
+      - '27123:27123'
 #  mongo:
 #    container_name: mongo
 #    image: mongo
