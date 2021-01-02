@@ -254,6 +254,7 @@ refreshSitemap();
 */
 //backup mongo
 
+/*
 var backupDatabases = function(){
     var args = [
 	'--db',
@@ -268,7 +269,7 @@ var backupDatabases = function(){
 };
 
 backupDatabases();
-
+*/
 var robotSend = "";
 var robotSendArray = [
     "User-agent: *",
