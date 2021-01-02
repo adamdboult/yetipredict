@@ -3,7 +3,7 @@ FROM node:8
 #FROM ubuntu:18.04
 
 # Set the working directory.
-WORKDIR /usr/src/nodeHomePage
+WORKDIR /usr/src/yetipredict
 
 # Update/upgrade
 RUN apt-get update
