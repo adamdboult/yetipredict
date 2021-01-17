@@ -1,11 +1,12 @@
-extends templates/predictHeader.jade
+extends templates/predictHeader.pug
 
 block content
 	//script(src="https://www.google.com/recaptcha/api.js")
 	.container.predict
 		.col-sm-6.mygrid-wrapper-div.col-sm-offset-3
+			p 
 			h3 Signup
-			p=message
+			p=error_msg
 			form(action="/signup", method="post")
 				div.form-group
 					label Username

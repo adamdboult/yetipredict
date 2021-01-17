@@ -8,7 +8,7 @@ var regexObject={
     username:/^[a-z0-9_-]{3,15}$/
 };
 
-module.exports=function(app, passport, logger){
+module.exports=function(app, passport){
     'use strict';
 
     var PredictSerie=require(__dirname+'/../models/predict');
@@ -181,10 +181,10 @@ module.exports=function(app, passport, logger){
 	    if (valCheckObject.len>0){
 		console.log("going here this time");
 		if (!candidate){
-		    logger.debug("aelpha");
+		    console.log("aelpha");
 		}
 		else if (candidate.length>valCheckObject.len){
-		    logger.debug("fail bravo");
+		    console.log("fail bravo");
 		    accepted=false;
 		}
 	    }
@@ -203,7 +203,7 @@ module.exports=function(app, passport, logger){
 			//re=/^[a-zA-Z0-9]+$/;
 			re=regexObject.alphanum;
 			if (re.test(candidate)===false){
-			    logger.debug("Uh oh. "+candidate+" failed on alphanum.");
+			    console.error("Uh oh. "+candidate+" failed on alphanum.");
 			    accepted=false;
 			}
 		    }
@@ -211,7 +211,7 @@ module.exports=function(app, passport, logger){
 			//re=/^[a-zA-Z0-9£\$€%;\.\+#@\? -]+$/;
 			re=regexObject.special;
 			if (re.test(candidate)===false){
-			    logger.debug("Uh oh. "+candidate+" failed on special.");
+			    console.error("Uh oh. "+candidate+" failed on special.");
 			    accepted=false;
 			}
 		    }
@@ -219,7 +219,7 @@ module.exports=function(app, passport, logger){
 			//re=/^\d*\.?\d*$/;
 			re=regexObject.num;
 			if (re.test(candidate)===false){
-			    logger.debug("Uh oh. "+candidate+" failed on num.");
+			    console.error("Uh oh. "+candidate+" failed on num.");
 			    accepted=false;
 			}
 		    }
@@ -228,7 +228,7 @@ module.exports=function(app, passport, logger){
 		    else if (valCheckObject.chars==="username"){
 			re=regexObject.username;
 			if (re.test(candidate)===false){
-			    logger.debug("Uh oh. "+candidate+" failed on num.");
+			    console.error("Uh oh. "+candidate+" failed on num.");
 			    accepted=false;
 			}
 		    }
@@ -661,7 +661,6 @@ module.exports=function(app, passport, logger){
 		send=2;
 	    }
 	    if (send===1){
-		logger.debug("DAT"+sortBy);
 		console.log("DAT"+sortBy);
 		var sortObj = {"complete":1,"start":-1};
 		if (sortBy ==="score"){
@@ -669,7 +668,7 @@ module.exports=function(app, passport, logger){
 		}
 		console.log(sortBy==="score");
 		console.log(sortBy==="date");
-		PredictSerie.count(predictionFind,function(err1,edw1) {
+		PredictSerie.countDocuments(predictionFind,function(err1,edw1) {
 		    PredictSerie.find(predictionFind)
 			.sort(sortObj)
 		    	//.sort("-"+sortBy)
@@ -730,22 +729,6 @@ module.exports=function(app, passport, logger){
 	renderHeader.message="";
 	renderHeader.group="";
 	renderJade(req,res,'grouplist',renderHeader);
-    });
-
-    app.get('/login', isLoggedOut, function(req, res) {
-	var renderHeader={};
-	renderHeader.group="";
-	renderHeader.message=req.flash('loginMessage');
-	renderJade(req,res,'login',renderHeader);
-
-    });
-
-    app.get('/signup', isLoggedOut, function(req, res) {
-	var renderHeader={};
-	renderHeader.group="";
-	renderHeader.message=req.flash('signupMessage');
-	renderJade(req,res,'signup',renderHeader);
-
     });
 
     function Comparator(a,b){
@@ -837,27 +820,27 @@ module.exports=function(app, passport, logger){
 											{$addToSet: {"groups":findObject.group,"predictions":findObject.group+"&"+findObject.ldesc,"groupsProper":groupProper,"predictionsProper":findObject.group+"&"+result.desc}},
 											{safe: true, upsert: true},
 											function(err0, result0) {
-											    logger.debug("sending 0");
+											    console.log("sending 0");
 											    res.json({});
-											    logger.debug("sent 0");
+											    console.log("sent 0");
 											}
 										       );
 							      }
 							     );
 			    }
 			    else {
-				logger.debug("sending 1");
+				console.log("sending 1");
 				res.json({});
 			    }
 			}
 			else {
-			    logger.debug("sending 2");
+			    console.log("sending 2");
 			    res.json({});
 			}
 		    });
 		}
 		else {
-		    logger.debug("sending 3");
+		    console.log("sending 3");
 		    res.json({message:"Invalid number" });
 		}
 	    });
@@ -1135,7 +1118,7 @@ module.exports=function(app, passport, logger){
 	    res.redirect('/signup');
 	}
 	else {
-	    logger.debug("start");
+	    console.log("start");
 	    var metaArray=[
 		"verbose",
 		"group",
@@ -1157,9 +1140,9 @@ module.exports=function(app, passport, logger){
 		    var verbose=reqObject.verbose;
 		    var lName=makeLower(group);
 		    var createdDate=new Date();
-		    logger.debug("now");
+		    console.log("now");
 		    if (group&&groupList.indexOf(lName)===-1){
-			logger.debug("and");
+			console.log("and");
 			var groupObj={};
 			groupObj.name=group;
 			groupObj.score=0;
@@ -1172,11 +1155,11 @@ module.exports=function(app, passport, logger){
 			var groupReceive = new GroupSerie(groupObj);
 			groupReceive.save(function (err, groupReceive) {
 			    if (err) {
-				logger.debug("bad");
+				console.log("bad");
 				res.send({message:"went wrong"});
 			    }
 			    else {
-				logger.debug("good");
+				console.log("good");
 				res.send({success:true,groupLower:groupObj.lName});
 				var userFind={};
 				userFind['local.username']=makeLower(req.user.local.username);
@@ -1199,7 +1182,7 @@ module.exports=function(app, passport, logger){
     });
 
     app.get('/predictData/:id', function(req,res) {
-	logger.debug("incoming predictionr request");
+	console.log("incoming predictionr request");
 	var metaArray=[
 	    "prediction",
 	    "group"
@@ -1227,7 +1210,7 @@ module.exports=function(app, passport, logger){
 			    res.send(err);
 			}
 			else {
-			    logger.debug("sending: "+JSON.stringify(idw));
+			    console.log("sending: "+JSON.stringify(idw));
 			    res.json(idw);
 			}
 		    });
@@ -1277,7 +1260,7 @@ module.exports=function(app, passport, logger){
     });
 
     app.get('/getvote/:id', function(req,res) {
-	logger.debug("getting vote");
+	console.log("getting vote");
 	if (req.user){
 	    var metaArray=[
 		"prediction",
@@ -1296,7 +1279,7 @@ module.exports=function(app, passport, logger){
 		    findObject.lauthor=makeLower(req.user.local.username);	    
 		}
 		PredictSerie.findOne(findObject,function(err, idw) {
-		    logger.debug("found vote: "+JSON.stringify(idw));
+		    console.log("found vote: "+JSON.stringify(idw));
 		    if (err||!idw){
 			res.json({outcome:0});
 		    }
@@ -1862,7 +1845,7 @@ module.exports=function(app, passport, logger){
 		"prediction"
 	    ];
 	    var reqObject=stripIncomingObject(req.params.id,metaArray);
-	    logger.debug("voting with: "+JSON.stringify(reqObject));
+	    console.log("voting with: "+JSON.stringify(reqObject));
 	    if (!reqObject){
 		res.json({});
 	    }
@@ -2013,7 +1996,7 @@ module.exports=function(app, passport, logger){
 	    "user"
 	];
 	var reqObject=stripIncomingObject(req.params.id,metaArray);
-	logger.debug("stripped to: "+JSON.stringify(reqObject));
+	console.log("stripped to: "+JSON.stringify(reqObject));
 	if (!reqObject){
 	    res.json({});
 	}
@@ -2037,20 +2020,20 @@ module.exports=function(app, passport, logger){
 
     app.get('/newpredict/:id', function(req, res) {
 	var test;
-	test=stripIncomingString(req.params.id);
-	if (req.isAuthenticated()===false){
+	test = stripIncomingString(req.params.id);
+	if (req.isAuthenticated() === false){
 	    res.redirect('/signup');
 	}
 	else {
-	    var message="";
-	    isMember(req,test,function(tf, groupProper){
+	    var message = "";
+	    isMember(req, test, function(tf, groupProper){
 		if (tf){
 		    var message;
-		    var group=test;
-		    var renderHeader={};
-		    renderHeader.group=test;
-		    renderHeader.message="";
-		    renderJade(req,res,'newpredict',renderHeader);
+		    var group = test;
+		    var renderHeader = {};
+		    renderHeader.group = test;
+		    renderHeader.message = "";
+		    renderJade(req, res, 'newpredict', renderHeader);
 		}
 		else {
 		    res.redirect('/predict');
@@ -2145,7 +2128,7 @@ module.exports=function(app, passport, logger){
 	var renderHeader={};
 	renderHeader.message="";
 	renderHeader.group="";
-	console.log("got here"+isLoggedIn);
+	//console.log("got here"+isLoggedIn);
 	renderJade(req,res,'profile',renderHeader);
     });
 

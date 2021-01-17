@@ -1,5 +1,6 @@
 var mongoose=require('mongoose');
-var bcrypt=require('bcrypt-nodejs');
+//var bcrypt=require('bcrypt-nodejs');
+var bcrypt=require('bcrypt');
 
 var outcomeSchema=new mongoose.Schema({
     answer: String,
