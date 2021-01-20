@@ -61,7 +61,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	toSendObject.prediction=$scope.useGraphTitle;
 	var toSendString=encodeURIComponent(JSON.stringify(toSendObject));
 	$http.get('/sendComment/'+toSendString)
-	    .success(function(inc){
+	    .then(function(reponse){
+	        var inc = response.data;
 		if (inc.success){
 		    $scope.commentInput="";
 		    var reqPredictionObject={};
@@ -69,7 +70,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 		    reqPredictionObject.group=$scope.currentGroup;
 		    var reqPredictionString=encodeURIComponent(JSON.stringify(reqPredictionObject));
 		    $http.get('/commentData/'+reqPredictionString)
-			.success(function(inc){
+			.then(function(response){
+			    var inc = response.data;
 			    for (i=0;i<inc.length;i++){
 				inc[i].date=new Date(inc[i].date).toDateString();
 			    }
@@ -90,13 +92,15 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	toSendObject.prediction=$scope.useGraphTitle;
 	var toSendString=encodeURIComponent(JSON.stringify(toSendObject));
 	$http.get('/deleteComment/'+toSendString)
-	    .success(function(inc){
+	    .then(function(response){
+	        var inc = response.data;
 		var reqPredictionObject={};
 		reqPredictionObject.prediction=$scope.useGraphTitle;
 		reqPredictionObject.group=$scope.currentGroup;
 		var reqPredictionString=encodeURIComponent(JSON.stringify(reqPredictionObject));
 		$http.get('/commentData/'+reqPredictionString)
-		    .success(function(inc){
+		    .then(function(response){
+		        var inc = response.data;
 			for (i=0;i<inc.length;i++){
 			    inc[i].date=new Date(inc[i].date).toDateString();
 			}
@@ -113,7 +117,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	var toSendString=encodeURIComponent(JSON.stringify(toSendObject));
 	console.log("upvoting..."+toSendString);
 	$http.get('/vote/'+toSendString)
-	    .success(function(inc){
+	    .then(function(response){
+	        var inc = response.data;
 		console.log("upvote "+JSON.stringify(inc));
 		if($scope.downvoteToggle===1){
 		    $scope.score=$scope.score+2;
@@ -134,7 +139,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	var toSendString=encodeURIComponent(JSON.stringify(toSendObject));
 	console.log("no voting..."+toSendString);
 	$http.get('/vote/'+toSendString)
-	    .success(function(inc){
+	    .then(function(response){
+	        var inc = response.data;
 		console.log("novote "+JSON.stringify(inc));
 		if ($scope.upvoteToggle===1){
 		    $scope.score=$scope.score-1;
@@ -155,7 +161,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	var toSendString=encodeURIComponent(JSON.stringify(toSendObject));
 	console.log("down voting..."+toSendString);
 	$http.get('/vote/'+toSendString)
-	    .success(function(inc){
+	    .then(function(response){
+	        var inc = response.data;
 		console.log("downvote: "+JSON.stringify(inc));
 		if ($scope.upvoteToggle===1){
 		    $scope.score=$scope.score-2;
@@ -172,7 +179,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	var toSend={group:localData,prediction:predictionAbout,answer:declareAnswer,outcome:declareOutcome};
 	var toSendString=encodeURIComponent(JSON.stringify(toSend));
 	$http.get('/declareAnswer/'+toSendString)
-	    .success(function(inc){
+	    .then(function(response){
+	        var inc = response.data;
 		location.reload();
 	    });
 
@@ -184,7 +192,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	toDeleteObject.group=$scope.currentGroup;
 	var toDelete=encodeURIComponent(JSON.stringify(toDeleteObject));
 	$http.get('/deleteGraph/'+toDelete)
-	    .success(function(inc){
+	    .then(function(response){
+	        var inc = response.data;
 		$window.location.href='/predict';
 	    });
     };
@@ -203,7 +212,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	    $scope.master.group=$scope.currentGroup;
 	    $scope.master.answer=$scope.selectedAnswer;
 	    $http.get('/sub/'+encodeURIComponent(JSON.stringify($scope.master)))
-		.success(function(inc){
+		.then(function(response){
+		    var inc = response.data;
 		    console.log("update successful");
 		    var toSend=$scope.useGraphTitle;
 		    $scope.upvoteToggle=1;
@@ -258,7 +268,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	reqPredictionObject.group=$scope.currentGroup;
 	var reqPredictionString=encodeURIComponent(JSON.stringify(reqPredictionObject));
 	$http.get('/predictData/'+reqPredictionString)
-	    .success(function(inc){
+	    .then(function(response){
+	        var inc = response.data;
 		console.log("got data successfully"+JSON.stringify(inc.data));
 		$scope.score=inc.score;
 		$scope.predNameForLink=inc.ldesc;
@@ -322,7 +333,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
     $scope.getVote=function(string){
 	console.log("vote getting");
 	$http.get('/getVote/'+string)
-	    .success(function(inc){
+	    .then(function(response){
+	        var inc = response.data;
 		console.log("got vote: "+JSON.stringify(inc));
 		if (inc.outcome===1){
 		    $scope.upvoteToggle=1;
@@ -620,7 +632,7 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 		    .attr("d", line)
 		    .attr("fill", "none")
 		    .attr("stroke", $scope.d3colours[nameCount])
-		    .attr("stroke-width", 1.5)//;
+		    .attr("stroke-width", 1.5);//;
 		    //.style(lineFitStyle);
 		    //.style("stroke",$scope.d3colours[nameCount]);
 		textX=new Date(data[data.length-1][1]);
