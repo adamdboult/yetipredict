@@ -55,7 +55,7 @@ gulp.task('packages', function(cb) {
       .pipe(gulp.dest(__dirname+'/public/packages/angular-route/'));
     
     // D3
-    gulp.src(__dirname+'/node_modules/d3/**/*')
+    gulp.src(__dirname+'/node_modules/d3/dist/**/*')
       .pipe(gulp.dest(__dirname+'/public/packages/d3/'));
     
     // Bootstrap

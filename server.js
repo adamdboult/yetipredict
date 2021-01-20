@@ -96,7 +96,8 @@ app.use(express.urlencoded({extended : false}));
 app.use(session({
     secret: "rdgnhudsrkhauwung5464grtd",
     resave : true,
-    saveUninitialized : true
+    saveUninitialized : true,
+    cookie: { sameSite: 'strict' }
 }));
 app.use(passport.initialize());
 app.use(passport.session());

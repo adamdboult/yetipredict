@@ -364,10 +364,10 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	width=w-margin.left-margin.right,
 	height=h-margin.top-margin.bottom;
 
-	var parseDate = d3.time.format("%d-%b-%y").parse;
+	var parseDate = d3.timeFormat("%d-%b-%y").parse;
 
-	var x=d3.time.scale().range([0,width]);
-	var y=d3.scale.linear().range([height, 0]);
+	var x=d3.scaleTime().range([0,width]);
+	var y=d3.scaleLinear().range([height, 0]);
 	var name;
 	var allX=[];
 	var allY=[];
@@ -440,18 +440,20 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	var xDomain=[dateMin,dateMax];
 	var yDomain=[0,1];
 
-	var xScale = d3.time.scale()
+	var xScale = d3.scaleTime()
 	    .domain(xDomain)
 	    .range([margin.left, w-margin.right]);
-	var yScale = d3.scale.linear()
+	var yScale = d3.scaleLinear()
 	    .domain(yDomain)
 	    .range([h-margin.bottom, margin.top]);
 
-	var xAxis=d3.svg.axis().scale(xScale)
-	    .orient("bottom").ticks(5);
+	var xAxis=d3.axisBottom(xScale)
+	    //.orient("bottom")
+	    .ticks(5);
 
-	var yAxis=d3.svg.axis().scale(yScale)
-	    .orient("left").ticks(5);
+	var yAxis=d3.axisLeft(yScale)
+	    //.orient("left")
+	    .ticks(5);
 
 	var mousexVal=function(d) {
 	    return xScale(new Date(d[1]));
@@ -460,7 +462,7 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	    return yScale(d[0]);
 	};
 
-	var line = d3.svg.line()
+	var line = d3.line()
 	    .x(function(d) {return xScale(new Date(d[1]));})
 	    .y(function(d) {return yScale(d[0]);});
 
@@ -479,16 +481,14 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 
 	// grid
 	function make_x_axis() {        
-	    return d3.svg.axis()
-		.scale(xScale)
-		.orient("bottom")
+	    return d3.axisBottom(xScale)
+		//.orient("bottom")
 		.ticks(5);
 	}
 
 	function make_y_axis() {        
-	    return d3.svg.axis()
-		.scale(yScale)
-		.orient("left")
+	    return d3.axisLeft(yScale)
+		//.orient("left")
 		.ticks(5);
 	}
 
@@ -609,23 +609,30 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 		    }
 		}
 		data.sort(dataSortCallback);
-		lineFitStyle={"fill": "none","stroke": "black","stroke-width": "2px"};
-		legendStyle={"font": "12px sans-serif"};
+		//lineFitStyle={"fill": "none","stroke": "black","stroke-width": "2px"};
+		//lineFitStyle={"fill": "none", "stroke-width": "2px"};
+		//console.log(lineFitStyle);
+		console.log($scope.d3colours[nameCount]);
+		//legendStyle={"font": "12px sans-serif"};
 		svg.append("path")
 		    .datum(data)
 		    .attr("class", "line")
 		    .attr("d", line)
-		    .style(lineFitStyle)
-		    .style("stroke",$scope.d3colours[nameCount]);
+		    .attr("fill", "none")
+		    .attr("stroke", $scope.d3colours[nameCount])
+		    .attr("stroke-width", 1.5)//;
+		    //.style(lineFitStyle);
+		    //.style("stroke",$scope.d3colours[nameCount]);
 		textX=new Date(data[data.length-1][1]);
 		textY=data[data.length-1][0];
 		svg.append("text")
 		    .attr("class", "x label")
 		    .attr("x", xScale(textX))
 		    .attr("y", yScale(textY))
-		    .style("fill",$scope.d3colours[nameCount])
-	            .style(legendStyle)
+		    .attr("font", "12px sans-serif")
 		    .text(name);
+		    //.style("fill",$scope.d3colours[nameCount])
+	            //.style(legendStyle);
 		svg.selectAll("circle"+name)
 		    .data(data)
 		    .enter()
@@ -672,13 +679,17 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 		}
 	    }
 	    data.sort(dataSortCallback);
-	    lineFitStyle={"fill": "none","stroke": "black","stroke-width": "4px"};
-	    legendStyle={"font": "12px sans-serif","font-weight":"bold"};
+	    //lineFitStyle={"fill": "none","stroke": "black","stroke-width": "4px"};
+	    //lineFitStyle={"fill": "none", "stroke-width": "2px"};
+	    //legendStyle={"font": "12px sans-serif","font-weight":"bold"};
 	    svg.append("path")
 		.datum(data)
 		.attr("class", "line")
 		.attr("d", line)
-		.style(lineFitStyle);
+		.attr("fill", "none")
+		.attr("stroke", "black")
+		.attr("stroke-width", "3");
+		//.style(lineFitStyle);
 	    textX=new Date(data[data.length-1][1]);
 	    textY=data[data.length-1][0];
 	    svg.selectAll("circle"+name)
