@@ -12,8 +12,8 @@ services:
       - yetipredict_mongo
   yetipredict_mongo:
     container_name: yetipredict_mongo
-    image: webhippie/mongodb
-    #image: unguiculus/mongodb-install
+    #image: webhippie/mongodb
+    image: unguiculus/mongodb-install
     command: mongod --port 27123 --bind_ip 0.0.0.0
     restart: unless-stopped
     volumes:
