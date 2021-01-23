@@ -2,7 +2,7 @@
 #FROM mongo:3.6
 # Above doesn't work on RPi, so default to Ubuntu.
 #FROM ubuntu:20.04
-FROM 10-slim
+FROM debian:10-slim
 
 # Update/upgrade
 RUN apt-get update && apt-get -y upgrade
