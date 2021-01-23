@@ -82,7 +82,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
     }
     console.log("members: "+members);
     $http.get('/getUserName')
-        .success(function(name){
+        .then(function(response){
+            var name = response.data;
 	    $scope.userName=name.username;
 	});
 
@@ -91,7 +92,7 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	var toSendString=encodeURIComponent(JSON.stringify(toSend));
 	console.log("sending: "+JSON.stringify(toSend));
 	$http.get('/declareAnswer/'+toSendString)
-	    .success(function(inc){
+	    .then(function(response){
 		location.reload();
 	    });
     };
@@ -104,7 +105,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	var toSendString=encodeURIComponent(JSON.stringify(toSendObject));
 	console.log("sending: "+toSendString);
 	$http.get('/sendUpdate/'+toSendString)
-	    .success(function(inc){
+	    .then(function(response){
+	        var inc = response.data;
 		if (inc.success){
 		    location.reload();
 		}
@@ -122,7 +124,7 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	toDeleteObject.group=$scope.currentGroup;
 	var toDelete=encodeURIComponent(JSON.stringify(toDeleteObject));
 	$http.get('/deleteGraph/'+toDelete)
-	    .success(function(inc){
+	    .then(function(response){
 		$window.location.href='/predict';
 	    });
     };
@@ -133,7 +135,7 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	toRemoveObject.group=$scope.currentGroup;
 	var toRemove = JSON.stringify(toRemoveObject);
 	$http.get('/removeMember/'+toRemove)
-	    .success(function(){
+	    .then(function(response){
 		location.reload();
 	    });
     };
@@ -141,7 +143,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
     $scope.updateMembers=function(){
 	var toSend={group:$scope.currentGroup,name:$scope.memberToAdd};
 	$http.get('/updateMembers/'+encodeURIComponent(JSON.stringify(toSend)))
-	    .success(function(inc){
+	    .then(function(response){
+	        var inc = response.data;
 		if (inc.success){
 		    location.reload();
 		}
@@ -160,7 +163,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	reqPredictionObject.group=$scope.currentGroup;
 	var reqPredictionString=encodeURIComponent(JSON.stringify(reqPredictionObject));
 	$http.get('/predictData/'+reqPredictionString)
-	    .success(function(inc){
+	    .then(function(response){
+	        var inc = response.data;
 		$scope.users=inc.users;
 		$scope.predNameForLink=inc.ldesc;
 		$scope.outcomes={};

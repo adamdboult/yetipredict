@@ -10,7 +10,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
     $scope.userList=[];
     $scope.getUsers=function(){
 	$http.get('/getUserList')
-	    .success(function(inc){
+	    .then(function(response){
+	        var inc = response.data;
 		$scope.userList=inc.users;
 	    });
     };
@@ -20,7 +21,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	toSend.user=user;
 	var toSubmitString=encodeURIComponent(JSON.stringify(toSend));
 	$http.get('/deleteUser/'+toSubmitString)
-	    .success(function(inc){
+	    .then(function(response){
+	        var inc = response.data;
 		location.reload();
 	    });
     };

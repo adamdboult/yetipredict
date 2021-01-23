@@ -26,7 +26,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
     $scope.updateMembers=function(){
 	var toSend={group:group,user:$scope.memberToAdd};
 	$http.get('/updateMembers/'+encodeURIComponent(JSON.stringify(toSend)))
-	    .success(function(inc){
+	    .then(function(inc){
+	        var inc = response.data;
 		if (inc.success){
 		    console.log("reload");
 		    location.reload();
@@ -44,7 +45,7 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	toRemoveObject.group=group;
 	var toRemove = JSON.stringify(toRemoveObject);
 	$http.get('/removeMember/'+toRemove)
-	    .success(function(){
+	    .then(function(response){
 		location.reload();
 	    });
     };
@@ -55,7 +56,8 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	toDeleteObject.group=group;
 	var toDelete=encodeURIComponent(JSON.stringify(toDeleteObject));
 	$http.get('/deleteGroup/'+toDelete)
-	    .success(function(inc){
+	    .then(function(response){
+	        var inc = response.data;
 		$window.location.href='/predict';
 		console.log("resonse is: "+JSON.stringify(inc));
 	    });

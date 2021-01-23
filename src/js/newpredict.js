@@ -50,20 +50,18 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	//$http.post('/newpredict',toSubmitString)
 	console.log("toSubmitString: "+toSubmitString);
 	$http.get('/newpredictsend/'+toSubmitString)
-	    .success(function(response){
-		$scope.feedback=response.message;
-		if (response.success){
+	    .then(function(response){
+	        var inc = response.data;
+		$scope.feedback=inc.message;
+		if (inc.success){
 		    //console.log('/group/'+makeLower($scope.currentGroup)+"/"+makeLower(toSubmit.desc));
-		    window.location.replace('/group/'+response.groupLower+"/"+response.predictionLower);
+		    window.location.replace('/group/'+inc.groupLower+"/"+inc.predictionLower);
 		}
 		else {
-		    $scope.feedback=response.message;
+		    $scope.feedback=inc.message;
 		}
 		console.log("done");
 //		window.location.href = 'predict';
-	    })
-	    .error(function(){
-		console.log("fail");
 	    });
     };
 }]);

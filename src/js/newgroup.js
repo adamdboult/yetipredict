@@ -11,7 +11,8 @@ myApp.controller('mainController', ['$rootScope', '$scope', '$http','$window', f
     $scope.groupList=[];
     $scope.getGroups=function(){
 	$http.get('groupList')
-	    .success(function(inc){
+	    .then(function(response){
+	        var inc = response.data;
 		$scope.groupList=inc;
 		//$scope.group=$scope.groupList[0];
 		console.log("groups: "+$scope.groupList);
@@ -38,19 +39,17 @@ myApp.controller('mainController', ['$rootScope', '$scope', '$http','$window', f
 	//$http.post('/newgroup',toSubmit)
 	var toSubmitString=encodeURIComponent(JSON.stringify(toSubmit));
 	$http.get('/newgroupsend/'+toSubmitString)
-	    .success(function(response){
-		$scope.feedback=response.message;
-		if (response.success){
-		    window.location.replace('/group/'+response.groupLower);
+	    .then(function(response){
+	        var inc = response.data;
+		$scope.feedback=inc.message;
+		if (inc.success){
+		    window.location.replace('/group/'+inc.groupLower);
 		    //window.location.replace('/predict');
 		}
 		else {
-		    $scope.feedback=response.message;
+		    $scope.feedback=inc.message;
 		}
 		console.log("done");
-	    })
-	    .error(function(){
-		console.log("fail");
 	    });
     };
 

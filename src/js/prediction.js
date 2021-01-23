@@ -520,7 +520,9 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 	xGridAppend.selectAll('.grid path')
 	    .style(gridPathStyle);
 	xGridAppend.selectAll('.grid .tick')
-	    .style(gridTickStyle);
+	    .attr("stroke", "0")
+	    .attr("opacity", "1");
+	    //.style(gridTickStyle);
 
 	var yGridAppend = svg.append("g")         
 	    .attr("class", "grid")
