@@ -1,25 +1,25 @@
 version: "3"
 services:
   yetipredict_nodejs:
-    container_name: yetipredict_nodejs
+    container_name: yetipredict-nodejs
     build:
         context: ./
         dockerfile: ./docker/web/Dockerfile
     restart: unless-stopped
     ports:
-      - "3829:3829"
+      - "3829:80"
     depends_on:
-      - yetipredict_mongo
+      - yetipredict-mongo
   yetipredict_mongo:
-    container_name: yetipredict_mongo
+    container_name: yetipredict-mongo
     image: webhippie/mongodb:latest
     #image: unguiculus/mongodb-install:0.8
-    command: mongod --port 27123 --bind_ip 0.0.0.0
+    command: mongod --port 27017 --bind_ip 0.0.0.0
     restart: unless-stopped
     volumes:
       - /data/db/yetipredict_mongo:/data/db
-    ports:
-      - '27123:27123'
+    expose:
+      - '27017'
 #  yetipredict_mongo:
 #    container_name: yetipredict_mongo
 #    image: mongo
