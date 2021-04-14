@@ -61,9 +61,19 @@ var data = {
 ///////////
 var database_name = "yetipredict";
 
+/*
 mongoose.connect('mongodb://' + mongo_domain + ':' + mongo_port + '/' + database_name, { useNewUrlParser: true, useUnifiedTopology: true}, function(err) {
     if (err) console.error("ERR" + err);
 });
+*/
+console.log("hi");
+console.log(mongo_domain);
+console.log(mongo_port);
+console.log("hib");
+mongoose.connect('mongodb://' + mongo_domain + ':' + mongo_port + '/' + database_name, { useNewUrlParser: true, useUnifiedTopology: true});
+//mongoose.connect('mongodb://' + mongo_domain + ':' + mongo_port + '/' + database_name, { useNewUrlParser: true, useUnifiedTopology: false});
+
+
 
 /*
 if (console.log(process.argv[2]) === "docker") {
@@ -77,10 +87,13 @@ else {
     });
 }
 */
+
 // Model
 var PredictSerie = require(__dirname + '/config/models/predict.js');
 var User         = require(__dirname + '/config/models/user.js');
 var Group        = require(__dirname + '/config/models/group.js');
+
+
 
 // Create the admin account
 require(__dirname+'/private/admin')(app, passport);

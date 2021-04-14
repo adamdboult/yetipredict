@@ -6,4 +6,4 @@ WORKDIR /Projects/yetipredict/
 
 COPY . .
 RUN npm install && npx gulp
-CMD [ "node", "server.js", "80", "yetipredict_mongo", "27017" ]
+CMD [ "node", "server.js", "80", "yetipredict-mongo", "27017" ]

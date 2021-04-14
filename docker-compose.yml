@@ -1,6 +1,6 @@
 version: "3"
 services:
-  yetipredict_nodejs:
+  yetipredict-nodejs:
     container_name: yetipredict-nodejs
     build:
         context: ./
@@ -10,7 +10,7 @@ services:
       - "3829:80"
     depends_on:
       - yetipredict-mongo
-  yetipredict_mongo:
+  yetipredict-mongo:
     container_name: yetipredict-mongo
     image: webhippie/mongodb:latest
     #image: unguiculus/mongodb-install:0.8
