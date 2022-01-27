@@ -41,7 +41,7 @@ var mailgunObj = JSON.parse(fs.readFileSync(__dirname + '/private/mailgun.json',
 
 var api_key = mailgunObj.api_key;
 var domain = mailgunObj.domain;
-var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+//var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 var MailComposer = require('mailcomposer').MailComposer;
 
 //MAIL GUN
