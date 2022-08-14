@@ -12,32 +12,11 @@ services:
       - yetipredict-mongo
   yetipredict-mongo:
     container_name: yetipredict-mongo
-    image: webhippie/mongodb:latest
-    #image: unguiculus/mongodb-install:0.8
+    image: webhippie/mongodb:4
     command: mongod --port 27017 --bind_ip 0.0.0.0
     restart: unless-stopped
     volumes:
       - /data/db/yetipredict_mongo:/data/db
     expose:
       - '27017'
-#  yetipredict_mongo:
-#    container_name: yetipredict_mongo
-#    image: mongo
-#  command: mongod --port 27123 --bind_ip 0.0.0.0
-#    restart: unless-stopped
-#    volumes:
-#      - /data/db/yetipredict_mongo:/data/db
-#    ports:
-#      - '27123:27123'
-#  yetipredict_mongo:
-#    container_name: yetipredict_mongo
-#    build:
-#        context: ./
-#        dockerfile: ./docker/db/Dockerfile
-#    command: mongod --port 27123 --bind_ip 0.0.0.0
-#    restart: unless-stopped
-#    volumes:
-#      - /data/db/yetipredict_mongo:/data/db
-#    ports:
-#      - '27123:27123'
-#
+
