@@ -9,9 +9,9 @@ myApp.directive('ngConfirmClick', [
     function(){
 	return {
 	    link: function(scope,element,attr){
-		var msg=attr.ngConfirmClick || "Are you sure?";
-		var clickAction=attr.confirmedClick;
-		element.bind('click',function(event){
+		var msg = attr.ngConfirmClick || "Are you sure?";
+		var clickAction = attr.confirmedClick;
+		element.bind('click', function(event){
 		    if(window.confirm(msg)){
 			scope.$eval(clickAction);
 		    }
@@ -20,11 +20,11 @@ myApp.directive('ngConfirmClick', [
 	};
     }]);
 
-myApp.controller('mainController',['$rootScope','$scope', '$http','$window', function($rootScope,$scope, $http,$window){
+myApp.controller('mainController', ['$rootScope', '$scope', '$http', '$window', function($rootScope, $scope, $http, $window){
     "use strict";
-    $scope.master={};
-    $scope.currentGroup=localData;
-    $scope.currentArray=localArra;
+    $scope.master = {};
+    $scope.currentGroup = localData;
+    $scope.currentArray = localArra;
     $scope.members=members;
     //$scope.verbose=verbose;
     //$scope.verboseUpdate=verboseUpdate;
@@ -32,43 +32,43 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
     //if (typeof answers !== "undefined"){
 //	$scope.aboutAnswers=answers;
     //}
-    $scope.aboutAnswers=[];
+    $scope.aboutAnswers = [];
 
-    $scope.declareYesToggle=[];
-    $scope.declareNoToggle=[];
-    $scope.declareOpenToggle=[];
+    $scope.declareYesToggle = [];
+    $scope.declareNoToggle = [];
+    $scope.declareOpenToggle = [];
     
     if (typeof outcomes !=="undefined"){
 	console.log("outcomes: "+JSON.stringify(outcomes));
-	var outcomestemp={};
+	var outcomestemp = {};
 	var i,j;
-	for (i =0;i<outcomes.length;i++){
+	for (i =0; i < outcomes.length; i++){
 
-	    if (outcomes[i].outcome===1){
-		outcomestemp[outcomes[i].answer]="True!";
+	    if (outcomes[i].outcome === 1){
+		outcomestemp[outcomes[i].answer] = "True!";
 	    }
-	    else if (outcomes[i].outcome===0){
-		outcomestemp[outcomes[i].answer]="False!";
+	    else if (outcomes[i].outcome === 0){
+		outcomestemp[outcomes[i].answer] = "False!";
 	    }
 	    else {
-		outcomestemp[outcomes[i].answer]="";
+		outcomestemp[outcomes[i].answer] = "";
 	    }
 	}
-	console.log("temp"+JSON.stringify(outcomestemp));
-	console.log("ANSWERS"+JSON.stringify(answers));
-	for (i=0;i<answers.length;i++){
-	    $scope.declareYesToggle[i]=0;
-	    $scope.declareNoToggle[i]=0;
-	    $scope.declareOpenToggle[i]=1;
-	    $scope.aboutAnswers[i]={};
-	    $scope.aboutAnswers[i].value="Open";
-	    $scope.aboutAnswers[i].name=answers[i];
-	    for (j=0;j<outcomes.length;j++){
-		if (outcomes[j].answer===answers[i]){
-		    if (outcomes[j].outcome===1){
-			$scope.aboutAnswers[i].value="True";
-			$scope.declareOpenToggle[i]=0;
-			$scope.declareYesToggle[i]=1;
+	console.log("temp" + JSON.stringify(outcomestemp));
+	console.log("ANSWERS" + JSON.stringify(answers));
+	for (i=0; i < answers.length; i++){
+	    $scope.declareYesToggle[i] = 0;
+	    $scope.declareNoToggle[i] = 0;
+	    $scope.declareOpenToggle[i] = 1;
+	    $scope.aboutAnswers[i] = {};
+	    $scope.aboutAnswers[i].value = "Open";
+	    $scope.aboutAnswers[i].name = answers[i];
+	    for (j = 0; j < outcomes.length; j++){
+		if (outcomes[j].answer === answers[i]){
+		    if (outcomes[j].outcome === 1){
+			$scope.aboutAnswers[i].value = "True";
+			$scope.declareOpenToggle[i] = 0;
+			$scope.declareYesToggle[i] = 1;
 		    }
 		    else if (outcomes[j].outcome===0){
 			$scope.aboutAnswers[i].value="False";

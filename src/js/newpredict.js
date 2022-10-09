@@ -10,16 +10,7 @@ myApp.controller('mainController',['$rootScope','$scope', '$http','$window', fun
 
     console.log("hi: "+localData);
     $scope.currentGroup=localData;
-  //  $scope.groupList=[];
-    //$scope.getGroups=function(){
-//	$http.get('groupList')
-//	    .success(function(inc){
-//		$scope.groupList=inc;
-//		$scope.group=$scope.groupList[0];
-//		console.log("groups: "+$scope.groupList);
-//	    });
-  //  };
- //   $scope.getGroups();
+
 
     $scope.submit=function(){
 	var toSubmit={};
