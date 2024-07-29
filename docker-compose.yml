@@ -1,4 +1,3 @@
-version: "3"
 services:
   yetipredict-nodejs:
     container_name: yetipredict-nodejs

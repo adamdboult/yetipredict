@@ -34,5 +34,5 @@ scripts:
       
 styles:
 	mkdir ./public/css/
-	#cp ./src/styles/**/*.css ./public/css/
-	sass ./src/styles/core.scss:./public/css/core.css
+	cp ./src/styles/**/*.css ./public/css/
+	#sass ./src/styles/core.scss:./public/css/core.css
