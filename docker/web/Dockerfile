@@ -1,6 +1,7 @@
 FROM node:16
 RUN apt-get update && apt-get -y install \
-  build-essential                        #\
+  build-essential
+#RUN apt-get -y install \
 #  python3                                \
 #  apache2                                \
 #  git                                    \
@@ -10,5 +11,5 @@ RUN apt-get update && apt-get -y install \
 WORKDIR /Projects/yetipredict/
 
 COPY . .
-RUN npm ci && make
+RUN npm install --package-lock-only && npm ci && make
 CMD [ "node", "server.js", "80", "yetipredict-mongo", "27017" ]
