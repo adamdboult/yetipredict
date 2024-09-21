@@ -11,5 +11,5 @@ RUN apt-get update && apt-get -y install \
 WORKDIR /Projects/yetipredict/
 
 COPY . .
-RUN npm install --package-lock-only && npm ci && make
+RUN npm ci && make
 CMD [ "node", "server.js", "80", "yetipredict-mongo", "27017" ]
