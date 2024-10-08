@@ -1,11 +1,6 @@
 FROM node:22
 RUN apt-get update && apt-get -y install \
   build-essential
-#RUN apt-get -y install \
-#  python3                                \
-#  apache2                                \
-#  git                                    \
-#  ruby-sass
 
 # Needed for the empty folder stuff to work
 WORKDIR /Projects/yetipredict/
