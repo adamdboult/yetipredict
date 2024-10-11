@@ -2,8 +2,8 @@ services:
   yetipredict-nodejs:
     container_name: yetipredict-nodejs
     build:
-        context: ./
-        dockerfile: ./docker/web/Dockerfile
+      context: ./
+      dockerfile: ./docker/web/Dockerfile
     restart: unless-stopped
     ports:
       - "3829:80"
@@ -17,5 +17,4 @@ services:
     volumes:
       - /data/db/yetipredict_mongo:/data/db
     expose:
-      - '27017'
-
+      - "27017"
