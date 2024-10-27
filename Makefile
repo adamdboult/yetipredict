@@ -4,19 +4,19 @@
 ##########
 
 .PHONY: all
-.PHONY: empty_dest
 .PHONY: favicon
 .PHONY: packages
 .PHONY: scripts
 .PHONY: styles
+.PHONY: clean
 
 ##########
 # JSHINT #
 ##########
-all: empty_dest favicon packages scripts styles
+all: clean favicon packages scripts styles
 
     
-empty_dest:
+clean:
 	rm -rf ./public/
 	mkdir ./public/
 
