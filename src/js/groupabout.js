@@ -1,8 +1,3 @@
-/*global jQuery:false */
-/*jshint browser:true */
-/*global angular:false */
-/*global $:false */
-
 var myApp = angular.module("myApp", []);
 
 myApp.directive("ngConfirmClick", [
@@ -27,7 +22,6 @@ myApp.controller("mainController", [
   "$http",
   "$window",
   function ($rootScope, $scope, $http, $window) {
-    "use strict";
     console.log("USING THE RIGHT ONE");
     $scope.updateMembers = function () {
       var toSend = { group: group, user: $scope.memberToAdd };

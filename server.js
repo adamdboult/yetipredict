@@ -1,11 +1,8 @@
-"use strict";
-/*jshint node:true */
-
 // Dependencies
 var flash = require("connect-flash");
 var express = require("express");
 var session = require("express-session");
-var fs = require("fs");
+//var fs = require("fs"); // was used for reading json for mailgun
 var http = require("http");
 var passport = require("passport");
 var mongoose = require("mongoose");
@@ -36,13 +33,14 @@ console.log("Mongo port is: " + mongo_port);
 /////////////
 /* Mailgun */
 /////////////
+/*
 var mailgunObj = JSON.parse(
   fs.readFileSync(__dirname + "/private/mailgun.json", "utf8"),
 );
 
 var api_key = mailgunObj.api_key;
 var domain = mailgunObj.domain;
-//var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
+var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 var MailComposer = require("mailcomposer").MailComposer;
 
 //MAIL GUN
@@ -56,7 +54,7 @@ var data = {
 //mailgun.messages().send(data, function (error, body) {
 //  console.log(body);
 //});
-
+*/
 ///////////
 /* Mongo */
 ///////////
@@ -91,9 +89,9 @@ else {
 */
 
 // Model
-var PredictSerie = require(__dirname + "/config/models/predict.js");
-var User = require(__dirname + "/config/models/user.js");
-var Group = require(__dirname + "/config/models/group.js");
+require(__dirname + "/config/models/predict.js");
+require(__dirname + "/config/models/user.js");
+require(__dirname + "/config/models/group.js");
 
 // Create the admin account
 require(__dirname + "/private/admin")(app, passport);
@@ -137,13 +135,13 @@ app.set("view engine", "pug");
 
 //require(__dirname+'/config/routes/routes')(app, passport, logger, mailgun, MailComposer);
 
-require(__dirname + "/config/routes/predict")(app, passport);
+require(__dirname + "/config/routes/predict")(app);
 require(__dirname + "/config/routes/user")(app, passport);
 
 // Since this is the last non-error-handling
 // middleware used, we assume 404, as nothing else
 // responded.
-app.use(function (req, res, next) {
+app.use(function (req, res) {
   res.status(404);
 
   // respond with html page

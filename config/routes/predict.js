@@ -2,20 +2,19 @@
 
 var regexObject = {
   alphanum: /^[a-zA-Z0-9]+$/,
-  special: /^[a-zA-Z0-9£\$€%;\.\+#@\? -]+$/,
+  //special: /^[a-zA-Z0-9£\$€%;\.\+#@\? \-]+$/,
+  special: /^[a-zA-Z0-9£$€%;.+#@? -]+$/, // "-" moved to the end of the set
   num: /^\d*\.?\d*$/,
   makeLower: /[^a-z0-9_-]+/g,
   username: /^[a-z0-9_-]{3,15}$/,
 };
 
-module.exports = function (app, passport) {
-  "use strict";
-
+module.exports = function (app) {
   var PredictSerie = require(__dirname + "/../models/predict");
   var GroupSerie = require(__dirname + "/../models/group");
   var User = require(__dirname + "/../models/user");
 
-  var rootObject = { root: __dirname + "/../../public" };
+  //var rootObject = { root: __dirname + "/../../public" };
 
   var validationCheck = {
     val: {
@@ -174,7 +173,6 @@ module.exports = function (app, passport) {
             },
           );
         });
-      } else {
       }
     });
   }
@@ -236,7 +234,7 @@ module.exports = function (app, passport) {
               console.error("Uh oh. " + candidate + " failed on num.");
               accepted = false;
             }
-          } else if (valCheckObject.chars === "date") {
+            //} else if (valCheckObject.chars === "date") {
           } else if (valCheckObject.chars === "username") {
             re = regexObject.username;
             if (re.test(candidate) === false) {
@@ -262,7 +260,7 @@ module.exports = function (app, passport) {
   }
 
   function renderJade(req, res, dest, renderHeader) {
-    var message = renderHeader.message;
+    //var message = renderHeader.message;
     var group = makeLower(renderHeader.group);
     var privacy,
       verbose,
@@ -321,7 +319,6 @@ module.exports = function (app, passport) {
               function (tf) {
                 if (tf) {
                   renderHeader.predictionAccess = true;
-                } else {
                 }
                 res.render(dest, renderHeader);
               },
@@ -499,11 +496,7 @@ module.exports = function (app, passport) {
         groupObj.open = true;
         groupObj.score = 0;
         groupReceive = new GroupSerie(groupObj);
-        groupReceive.save(function (err, predictReceive) {
-          if (err) {
-          } else {
-          }
-        });
+        groupReceive.save(function (err, predictReceive) {});
       }
     });
   }
@@ -620,14 +613,16 @@ module.exports = function (app, passport) {
       var send = 1;
       if (renderHeader.group === "") {
         groupFind = { group: { $in: groupArray } };
-        if (completeFind === -1) {
-        } else {
+        //if (completeFind === -1) {
+        //} else {
+        //  groupFind.complete = completeFind;
+        //}
+        if (completeFind !== -1) {
           groupFind.complete = completeFind;
         }
         if (req.user) {
           personalFind = { group: "personal", author: req.user.local.username };
-          if (completeFind === -1) {
-          } else {
+          if (completeFind !== -1) {
             personalFind.complete = completeFind;
           }
           predictionFind = { $or: [groupFind, personalFind] };
@@ -636,16 +631,14 @@ module.exports = function (app, passport) {
         }
       } else if (groupArray.indexOf(renderHeader.group) > -1) {
         predictionFind = { group: renderHeader.group };
-        if (completeFind === -1) {
-        } else {
+        if (completeFind !== -1) {
           predictionFind.complete = completeFind;
         }
       } else if (renderHeader.group === "personal") {
         if (req.user) {
           predictionFind = { group: renderHeader.group };
           predictionFind.author = req.user.local.username;
-          if (completeFind === -1) {
-          } else {
+          if (completeFind !== -1) {
             predictionFind.complete = completeFind;
           }
         } else {
@@ -675,8 +668,8 @@ module.exports = function (app, passport) {
               if (err) {
                 res.send(err);
               }
-              var pagesArray = [Math.ceil(edw1 / pagelen), 1];
-              var pages = Math.max.apply(Math, pagesArray);
+              //var pagesArray = [Math.ceil(edw1 / pagelen), 1];
+              //var pages = Math.max.apply(Math, pagesArray);
               renderHeader.thisPage = parseInt(pagenum);
               renderHeader.totalPages = Math.ceil(edw1 / pagelen);
               renderHeader.predictionsArray = idw;
@@ -787,7 +780,7 @@ module.exports = function (app, passport) {
                 }
               }
               var highLightObject = {};
-              var meanData = [];
+              //var meanData = [];
               var dataResponse = idwa.data;
               dataResponse.push(predictionStrip);
               for (j = 0; j < dataResponse.length; j++) {
@@ -900,7 +893,7 @@ module.exports = function (app, passport) {
     } else {
       var findObject = { lName: makeLower(reqObject.group) };
       var name = makeLower(reqObject.user);
-      var permission = false;
+      //var permission = false;
       isAdmin(req, reqObject.group, function (tf, groupProper) {
         if (tf) {
           GroupSerie.findOne(findObject, "members", function (err, idwa) {
@@ -964,7 +957,7 @@ module.exports = function (app, passport) {
       //	incoming=stripIncoming(req.params.id,keyArray);
       var findObject = { lName: makeLower(reqObject.group) };
       var newName = makeLower(reqObject.user);
-      var permission = false;
+      //var permission = false;
       isAdmin(req, findObject.lName, function (tf, groupProper) {
         if (tf) {
           GroupSerie.findOne(findObject, "members", function (err, idwa) {
@@ -993,7 +986,7 @@ module.exports = function (app, passport) {
                       { safe: true, upsert: true },
                       function (err, result) {
                         res.json({ success: true });
-                        var userFind = { local: { username: newName } };
+                        //var userFind = { local: { username: newName } };
                       },
                     );
                   } else {
@@ -1059,8 +1052,7 @@ module.exports = function (app, passport) {
           var open = true;
           var anon = false;
           dateMax.setFullYear(newYear);
-          if (end > dateMin && end < dateMax) {
-          } else {
+          if (end > dateMax) {
             end = dateMax;
           }
           if (desc && group && tf) {
@@ -1235,7 +1227,7 @@ module.exports = function (app, passport) {
       var findObject = { ldesc: makeLower(reqObject.prediction) };
       findObject.group = makeLower(reqObject.group);
       var nameCheck;
-      var adminCheck;
+      //var adminCheck;
       if (req.user) {
         nameCheck = req.user.local.username;
         adminCheck = req.user.local.admin;
@@ -1272,7 +1264,7 @@ module.exports = function (app, passport) {
       var adminCheck;
       if (req.user) {
         nameCheck = req.user.local.username;
-        adminCheck = req.user.local.admin;
+        //adminCheck = req.user.local.admin;
       }
       if (findObject.group === "personal") {
         findObject.author = nameCheck;
@@ -1340,7 +1332,7 @@ module.exports = function (app, passport) {
       var adminCheck;
       if (req.user) {
         nameCheck = req.user.local.username;
-        adminCheck = req.user.local.admin;
+        //adminCheck = req.user.local.admin;
       }
       if (makeLower(group) === "personal") {
         findObject.author = nameCheck;
@@ -1690,7 +1682,7 @@ module.exports = function (app, passport) {
       res.json({ message: "Comment not valid" });
     } else {
       var group = makeLower(reqObject.group);
-      var comment = reqObject.comment;
+      //var comment = reqObject.comment;
       var prediction = makeLower(reqObject.prediction);
       if (req.isAuthenticated() === false) {
         res.redirect("/signup");
@@ -1803,7 +1795,7 @@ module.exports = function (app, passport) {
       res.json({ message: "Data not valid" });
     } else {
       var group = makeLower(reqObject.group);
-      var comment = reqObject.comment;
+      //var comment = reqObject.comment;
       var prediction = reqObject.prediction;
       if (req.isAuthenticated() === false) {
         res.redirect("/signup");
@@ -1937,16 +1929,6 @@ module.exports = function (app, passport) {
                         for (i = 0; i < doc.outcomes.length; i++) {
                           scoreToUse = scoreToUse + doc.outcomes[i].score;
                         }
-                        //scoreToUse=scoreToUse+scoreObject[doc.local.username];
-
-                        /*var newUpdate={
-									     "answer":reqObject.answer.name,
-									     "prediction":findObject.ldesc,
-									     "group":findObject.group,
-									     "outcome":outcomeToPush,
-									     "date": new Date(),
-									     "score": scoreObject[doc.local.username]
-									 };*/
                         doc.score = scoreToUse;
                         //doc.outcomes.push(newUpdate);
                         doc.save(function (err, saveres) {});
@@ -1955,7 +1937,6 @@ module.exports = function (app, passport) {
                 );
               });
             });
-          } else {
           }
         },
       );
@@ -2025,7 +2006,12 @@ module.exports = function (app, passport) {
         if (tf && test !== "admin") {
           var findObject = {};
           findObject["local.username"] = test;
-          User.findOne(findObject).remove(function (err, idw) {
+          User.findOne(findObject).remove(function (err, removedDoc) {
+            if (err) {
+              return res.status(500).json({ success: 0, error: err });
+            }
+            // Now you can log or do something with the removedDoc
+            console.log("Removed document:", removedDoc);
             res.json({ success: 1 });
           });
         } else {
@@ -2036,18 +2022,18 @@ module.exports = function (app, passport) {
   });
 
   app.get("/newpredict/:id", function (req, res) {
-    var test;
-    test = stripIncomingString(req.params.id);
+    var group;
+    group = stripIncomingString(req.params.id);
     if (req.isAuthenticated() === false) {
       res.redirect("/signup");
     } else {
-      var message = "";
-      isMember(req, test, function (tf, groupProper) {
+      //var message = "";
+      isMember(req, group, function (tf, groupProper) {
         if (tf) {
-          var message;
-          var group = test;
+          //var message;
+          //var group = group;
           var renderHeader = {};
-          renderHeader.group = test;
+          renderHeader.group = group;
           renderHeader.message = "";
           renderJade(req, res, "newpredict", renderHeader);
         } else {
@@ -2075,7 +2061,7 @@ module.exports = function (app, passport) {
           renderHeader.group = "";
           var i;
           var groupAccess = {};
-          var groupName;
+          //var groupName;
           var groupsFind = {};
           var myGroups = [];
           if (req.user) {
@@ -2181,7 +2167,7 @@ module.exports = function (app, passport) {
             if (!idwa2) {
               res.render("404", { url: req.url });
             } else {
-              var message;
+              //var message;
               var renderHeader = {};
               renderHeader.group = idwa.name;
               renderHeader.groupLower = makeLower(idwa.name);
@@ -2200,14 +2186,14 @@ module.exports = function (app, passport) {
 
   //this is groupabout rather than group/about (like predictions), as otherwise you couldn't have a prediction called about
   app.get("/groupabout/:group", function (req, res) {
-    var test;
-    test = stripIncomingString(req.params.group);
-    isMember(req, test, function (tf, groupProper) {
+    var group;
+    group = stripIncomingString(req.params.group);
+    isMember(req, group, function (tf, groupProper) {
       if (tf) {
-        var message;
-        var group = test;
+        //var message;
+        //var group = group;
         var renderHeader = {};
-        renderHeader.group = test;
+        renderHeader.group = group;
         renderHeader.message = "";
         renderJade(req, res, "groupabout", renderHeader);
       } else {
@@ -2217,19 +2203,19 @@ module.exports = function (app, passport) {
   });
 
   app.get("/nopermission/:group", function (req, res) {
-    var test;
-    test = stripIncomingString(req.params.group);
-    if (test === "personal") {
+    var group;
+    group = stripIncomingString(req.params.group);
+    if (group === "personal") {
       res.redirect("/signup");
     } else {
-      isMember(req, test, function (tf, groupProper) {
+      isMember(req, group, function (tf, groupProper) {
         if (tf) {
-          res.redirect("/group/" + test);
+          res.redirect("/group/" + group);
         } else {
-          var message;
-          var group = test;
+          //var message;
+          //var group = group;
           var renderHeader = {};
-          renderHeader.group = test;
+          renderHeader.group = group;
           renderHeader.message = "";
           renderJade(req, res, "nopermission", renderHeader);
         }
@@ -2250,6 +2236,7 @@ function isLoggedIn(req, res, next) {
   res.redirect("/signup");
   console.log("d");
 }
+/*
 function isLoggedOut(req, res, next) {
   // if user is authenticated in the session, redirect to profile
   if (req.isAuthenticated()) {
@@ -2258,7 +2245,7 @@ function isLoggedOut(req, res, next) {
   // if they aren't carry on
   return next();
 }
-
+*/
 function makeLower(raw) {
   var response;
   response = raw.toLowerCase().replace(regexObject.makeLower, "");

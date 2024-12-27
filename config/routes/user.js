@@ -2,7 +2,6 @@
 //var bcrypt = require('bcrypt');
 var User = require(__dirname + "/../models/user");
 module.exports = function (app, passport) {
-  "use strict";
   /*
     app.get('/login', isLoggedOut, function(req, res) {
 	res.render('login',{message:req.flash('loginMessage')});
@@ -129,7 +128,8 @@ module.exports = function (app, passport) {
           req.flash("error_msg", "That email is already taken.");
           //res.render('signup');
           res.redirect("/signup");
-        } else if (req.param("password") !== req.param("password2")) {
+          //} else if (req.param("password") !== req.param("password2")) {
+        } else if (password !== password2) {
           //console.log("part 3");
           req.flash("error_msg", "Passwords do not match.");
           //res.render('signup');
@@ -144,7 +144,8 @@ module.exports = function (app, passport) {
           req.flash("error_msg", "Please use a valid username.");
           //res.render('signup');
           res.redirect("/signup");
-        } else if (validateEmail(req.param("email").toLowerCase()) === false) {
+          //} else if (validateEmail(req.param("email").toLowerCase()) === false) {
+        } else if (validateEmail(email.toLowerCase()) === false) {
           //console.log("part 6");
           req.flash("error_msg", "Please use a valid email address.");
           //res.render('signup');
@@ -158,7 +159,8 @@ module.exports = function (app, passport) {
           newUser.local.username = username.toLowerCase();
           //newUser.local.groups=['a','b']; WFT is this?
           newUser.local.admin = false;
-          newUser.local.email = req.param("email").toLowerCase();
+          //newUser.local.email = req.param("email").toLowerCase();
+          newUser.local.email = email.toLowerCase();
           newUser.groups = ["personal"];
           newUser.groupsProper = ["Personal"];
           newUser.groupScores = [];
@@ -217,9 +219,15 @@ function isLoggedOut(req, res, next) {
   return next();
 }
 
+/*
 function validateEmail(email) {
   var re =
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+*/
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
 

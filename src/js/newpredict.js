@@ -1,8 +1,3 @@
-/*global jQuery:false */
-/*jshint browser:true */
-/*global angular:false */
-/*global $:false */
-
 var myApp = angular.module("myApp", []);
 
 myApp.controller("mainController", [
@@ -11,8 +6,6 @@ myApp.controller("mainController", [
   "$http",
   "$window",
   function ($rootScope, $scope, $http, $window) {
-    "use strict";
-
     console.log("hi: " + localData);
     $scope.currentGroup = localData;
 
