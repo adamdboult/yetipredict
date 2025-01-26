@@ -69,10 +69,23 @@ console.log("hi");
 console.log(mongo_domain);
 console.log(mongo_port);
 console.log("hib");
-mongoose.connect(
-  "mongodb://" + mongo_domain + ":" + mongo_port + "/" + database_name,
-  { useNewUrlParser: true, useUnifiedTopology: true },
-);
+
+//mongoose.connect(
+//  "mongodb://" + mongo_domain + ":" + mongo_port + "/" + database_name,
+//  { useNewUrlParser: true, useUnifiedTopology: true },
+//);
+mongoose
+  .connect(`mongodb://${mongo_domain}:${mongo_port}/${database_name}`, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Connected to MongoDB!");
+  })
+  .catch((err) => {
+    console.error("Database connection error:", err);
+  });
+
 //mongoose.connect('mongodb://' + mongo_domain + ':' + mongo_port + '/' + database_name, { useNewUrlParser: true, useUnifiedTopology: false});
 
 /*
