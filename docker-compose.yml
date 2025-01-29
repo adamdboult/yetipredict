@@ -11,7 +11,7 @@ services:
       - yetipredict-mongo
   yetipredict-mongo:
     container_name: yetipredict-mongo
-    image: webhippie/mongodb:4
+    image: mongo:4
     command: mongod --port 27017 --bind_ip 0.0.0.0
     restart: unless-stopped
     volumes:
