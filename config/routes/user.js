@@ -109,73 +109,54 @@ module.exports = function (app, passport) {
     //console.log(username);
 
     //User.findOne({ $or:[{'local.email' : req.param('email').toLowerCase()},{'local.username':username.toLowerCase()}] }, function(err, user) {
-    User.findOne(
-      {
-        $or: [
-          { "local.email": email.toLowerCase() },
-          { "local.username": username.toLowerCase() },
-        ],
-      },
-      function (err, user) {
-        // if there are any errors, return the error
-        if (err) {
-          //console.log("part 1");
-          res.render(err);
-        }
-        // check to see if theres already a user with that email
-        else if (user) {
-          //console.log("part 2");
-          req.flash("error_msg", "That email is already taken.");
-          //res.render('signup');
-          res.redirect("/signup");
-          //} else if (req.param("password") !== req.param("password2")) {
-        } else if (password !== password2) {
-          //console.log("part 3");
-          req.flash("error_msg", "Passwords do not match.");
-          //res.render('signup');
-          res.redirect("/signup");
-        } else if (validatePassword(password) === false) {
-          //console.log("part 4");
-          req.flash("error_msg", "Please use a valid password.");
-          //res.render('signup');
-          res.redirect("/signup");
-        } else if (validateUsername(username.toLowerCase()) === false) {
-          //console.log("part 5");
-          req.flash("error_msg", "Please use a valid username.");
-          //res.render('signup');
-          res.redirect("/signup");
-          //} else if (validateEmail(req.param("email").toLowerCase()) === false) {
-        } else if (validateEmail(email.toLowerCase()) === false) {
-          //console.log("part 6");
-          req.flash("error_msg", "Please use a valid email address.");
-          //res.render('signup');
-          res.redirect("/signup");
-        } else {
-          //console.log("part 1");
-          // if there is no user with that email
-          // create the user
-          var newUser = new User();
-          // set the user's local credentials
-          newUser.local.username = username.toLowerCase();
-          //newUser.local.groups=['a','b']; WFT is this?
-          newUser.local.admin = false;
-          //newUser.local.email = req.param("email").toLowerCase();
-          newUser.local.email = email.toLowerCase();
-          newUser.groups = ["personal"];
-          newUser.groupsProper = ["Personal"];
-          newUser.groupScores = [];
-          newUser.score = 0;
-          newUser.local.password = newUser.generateHash(password); // use the generateHash function in our user model
-          // save the user
-          newUser.save(function (err) {
-            if (err) throw err;
-            req.flash("success_msg", "You have now registered!");
-            res.redirect("/login");
-            //res.render(null, newUser);
-          });
-        }
-      },
-    );
+User.findOne({
+  $or: [
+    { "local.email": email.toLowerCase() },
+    { "local.username": username.toLowerCase() },
+  ],
+})
+.exec()
+.then(function (user) {
+  // remove the err check here, since errors go to .catch()
+  if (user) {
+    req.flash("error_msg", "That email is already taken.");
+    return res.redirect("/signup");
+  } else if (password !== password2) {
+    req.flash("error_msg", "Passwords do not match.");
+    return res.redirect("/signup");
+  } else if (validatePassword(password) === false) {
+    req.flash("error_msg", "Please use a valid password.");
+    return res.redirect("/signup");
+  } else if (validateUsername(username.toLowerCase()) === false) {
+    req.flash("error_msg", "Please use a valid username.");
+    return res.redirect("/signup");
+  } else if (validateEmail(email.toLowerCase()) === false) {
+    req.flash("error_msg", "Please use a valid email address.");
+    return res.redirect("/signup");
+  } else {
+    var newUser = new User();
+    newUser.local.username = username.toLowerCase();
+    newUser.local.admin = false;
+    newUser.local.email = email.toLowerCase();
+    newUser.groups = ["personal"];
+    newUser.groupsProper = ["Personal"];
+    newUser.groupScores = [];
+    newUser.score = 0;
+    newUser.local.password = newUser.generateHash(password); // generate hash
+    return newUser.save();
+  }
+})
+.then(function () {
+  req.flash("success_msg", "You have now registered!");
+  res.redirect("/login");
+})
+.catch(function (err) {
+  res.render(err);
+});
+    
+    
+    
+    
   });
 
   //////////////////
