@@ -266,86 +266,85 @@ module.exports = function (app) {
       verbose,
       admins = [],
       members = [];
-      
-      
-      
-      
-GroupSerie.findOne({ lName: group }, "name open verbose admins members")
-  .exec()
-  .then((idwa) => {
-    console.log(1);
-    let privacy, verbose, admins, members;
-    if (idwa) {
-      privacy = idwa.open;
-      verbose = idwa.verbose;
-      admins = idwa.admins;
-      members = idwa.members;
-      renderHeader.groupProper = idwa.name;
-    } else {
-      privacy = false;
-      verbose = "";
-      admins = [];
-      members = [];
-    }
-    console.log(2);
-    renderHeader.myAdmins = [];
-    renderHeader.myMembers = [];
-    if (req.user) {
-      renderHeader.myAdmins = req.user.admins;
-      renderHeader.myMembers = req.user.members;
-    }
-    console.log(3);
-    // Wrap getGroupsPrivate in a promise
-    return new Promise((resolve, reject) => {
-      getGroupsPrivate(req, function (groupList) {
-        resolve({ groupList, privacy, verbose, admins, members });
-      });
-    });
-  })
-  .then(({ groupList, privacy, verbose, admins, members }) => {
-    console.log(4);
-    renderHeader.ara = { array: groupList };
-    renderHeader.open = privacy;
-    renderHeader.verbose = verbose;
-    renderHeader.admins = admins;
-    renderHeader.members = members;
-    if (req.user) {
-      renderHeader.user = req.user;
-      renderHeader.adminAccess = false;
-      if (admins.indexOf(makeLower(req.user.local.username)) > -1) {
-        renderHeader.adminAccess = true;
-      }
-      if (req.user.local.admin) {
-        renderHeader.adminAccess = true;
-      }
-    }
-    renderHeader.predictionAccess = false;
-    console.log(5);
-    if (renderHeader.prediction) {
-      console.log(6);
-      // Wrap predictionPermission in a promise
-      return new Promise((resolve, reject) => {
-        predictionPermission(req, group, renderHeader.prediction, function (tf) {
-          if (tf) {
-            renderHeader.predictionAccess = true;
-          }
-          resolve();
+
+    GroupSerie.findOne({ lName: group }, "name open verbose admins members")
+      .exec()
+      .then((idwa) => {
+        console.log(1);
+        let privacy, verbose, admins, members;
+        if (idwa) {
+          privacy = idwa.open;
+          verbose = idwa.verbose;
+          admins = idwa.admins;
+          members = idwa.members;
+          renderHeader.groupProper = idwa.name;
+        } else {
+          privacy = false;
+          verbose = "";
+          admins = [];
+          members = [];
+        }
+        console.log(2);
+        renderHeader.myAdmins = [];
+        renderHeader.myMembers = [];
+        if (req.user) {
+          renderHeader.myAdmins = req.user.admins;
+          renderHeader.myMembers = req.user.members;
+        }
+        console.log(3);
+        // Wrap getGroupsPrivate in a promise
+        return new Promise((resolve, reject) => {
+          getGroupsPrivate(req, function (groupList) {
+            resolve({ groupList, privacy, verbose, admins, members });
+          });
         });
+      })
+      .then(({ groupList, privacy, verbose, admins, members }) => {
+        console.log(4);
+        renderHeader.ara = { array: groupList };
+        renderHeader.open = privacy;
+        renderHeader.verbose = verbose;
+        renderHeader.admins = admins;
+        renderHeader.members = members;
+        if (req.user) {
+          renderHeader.user = req.user;
+          renderHeader.adminAccess = false;
+          if (admins.indexOf(makeLower(req.user.local.username)) > -1) {
+            renderHeader.adminAccess = true;
+          }
+          if (req.user.local.admin) {
+            renderHeader.adminAccess = true;
+          }
+        }
+        renderHeader.predictionAccess = false;
+        console.log(5);
+        if (renderHeader.prediction) {
+          console.log(6);
+          // Wrap predictionPermission in a promise
+          return new Promise((resolve, reject) => {
+            predictionPermission(
+              req,
+              group,
+              renderHeader.prediction,
+              function (tf) {
+                if (tf) {
+                  renderHeader.predictionAccess = true;
+                }
+                resolve();
+              },
+            );
+          });
+        } else {
+          return Promise.resolve();
+        }
+      })
+      .then(() => {
+        res.render(dest, renderHeader);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.render("404", { url: req.url });
       });
-    } else {
-      return Promise.resolve();
-    }
-  })
-  .then(() => {
-    res.render(dest, renderHeader);
-  })
-  .catch((err) => {
-    console.error(err);
-    res.render("404", { url: req.url });
-  });
-    
-    
-    
   }
 
   function getGroupsRaw(fn) {
@@ -364,52 +363,47 @@ GroupSerie.findOne({ lName: group }, "name open verbose admins members")
         return 0;
       }
     }
-    
-    
-GroupSerie.find({}, "score name lName open members")
-  .exec()
-  .then((idwa) => {
-    idwa.sort(compare);
-    fn(idwa);
-  })
-  .catch((err) => {
-    console.error(err);
-    // Optionally handle the error, e.g.:
-    // fn([]); or res.status(500).json({ error: err });
-  });
-    
-    
+
+    GroupSerie.find({}, "score name lName open members")
+      .exec()
+      .then((idwa) => {
+        idwa.sort(compare);
+        fn(idwa);
+      })
+      .catch((err) => {
+        console.error(err);
+        // Optionally handle the error, e.g.:
+        // fn([]); or res.status(500).json({ error: err });
+      });
   }
 
   function isMember(req, group, cb) {
     var findObject = { lName: makeLower(group) };
-GroupSerie.findOne(findObject, "members open name")
-  .exec()
-  .then((idwa) => {
-    if (idwa) {
-      if (idwa.open) {
-        cb(true, idwa.name);
-      } else if (req.user) {
-        if (idwa.members.indexOf(req.user.local.username) > -1) {
-          cb(true, idwa.name);
-        } else if (req.user.local.admin) {
-          cb(true, idwa.name);
+    GroupSerie.findOne(findObject, "members open name")
+      .exec()
+      .then((idwa) => {
+        if (idwa) {
+          if (idwa.open) {
+            cb(true, idwa.name);
+          } else if (req.user) {
+            if (idwa.members.indexOf(req.user.local.username) > -1) {
+              cb(true, idwa.name);
+            } else if (req.user.local.admin) {
+              cb(true, idwa.name);
+            } else {
+              cb(false, idwa.name);
+            }
+          } else {
+            cb(false, idwa.name);
+          }
         } else {
-          cb(false, idwa.name);
+          cb(false, "");
         }
-      } else {
-        cb(false, idwa.name);
-      }
-    } else {
-      cb(false, "");
-    }
-  })
-  .catch((err) => {
-    // Handle errors as appropriate; here we simply return a failure
-    cb(false, "");
-  });
-    
-    
+      })
+      .catch((err) => {
+        // Handle errors as appropriate; here we simply return a failure
+        cb(false, "");
+      });
   }
 
   function isAdmin(req, group, cb) {
@@ -417,22 +411,19 @@ GroupSerie.findOne(findObject, "members open name")
       cb(true);
     } else {
       var findObject = { lName: makeLower(group) };
-      
-      
-GroupSerie.findOne(findObject, "admins name")
-  .exec()
-  .then((idwa) => {
-    if (idwa.admins.indexOf(req.user.local.username) > -1) {
-      cb(true, idwa.name);
-    } else {
-      cb(false, idwa.name);
-    }
-  })
-  .catch((err) => {
-    cb(false, "");
-  });
 
-
+      GroupSerie.findOne(findObject, "admins name")
+        .exec()
+        .then((idwa) => {
+          if (idwa.admins.indexOf(req.user.local.username) > -1) {
+            cb(true, idwa.name);
+          } else {
+            cb(false, idwa.name);
+          }
+        })
+        .catch((err) => {
+          cb(false, "");
+        });
     }
   }
 
@@ -454,37 +445,36 @@ GroupSerie.findOne(findObject, "admins name")
       } else {
         var usePrediction = makeLower(prediction);
         var findObject = { lName: useGroup };
-        
-        
-GroupSerie.findOne(findObject, "admins")
-  .exec()
-  .then((groupResult) => {
-    if (groupResult.admins.indexOf(req.user.local.username) > -1) {
-      cb(true);
-      // Return a resolved promise so that the next .then() knows not to proceed
-      return Promise.resolve(null);
-    } else {
-      // Proceed with the nested query
-      return PredictSerie.findOne({ ldesc: usePrediction, group: useGroup }, "lauthor").exec();
-    }
-  })
-  .then((predictResult) => {
-    // If we already handled the response (returned null), do nothing.
-    if (predictResult === null) return;
 
-    if (predictResult.lauthor === req.user.local.username) {
-      cb(true);
-    } else {
-      cb(false);
-    }
-  })
-  .catch((err) => {
-    // On any error, simply call cb(false)
-    cb(false);
-  });
-        
-        
-        
+        GroupSerie.findOne(findObject, "admins")
+          .exec()
+          .then((groupResult) => {
+            if (groupResult.admins.indexOf(req.user.local.username) > -1) {
+              cb(true);
+              // Return a resolved promise so that the next .then() knows not to proceed
+              return Promise.resolve(null);
+            } else {
+              // Proceed with the nested query
+              return PredictSerie.findOne(
+                { ldesc: usePrediction, group: useGroup },
+                "lauthor",
+              ).exec();
+            }
+          })
+          .then((predictResult) => {
+            // If we already handled the response (returned null), do nothing.
+            if (predictResult === null) return;
+
+            if (predictResult.lauthor === req.user.local.username) {
+              cb(true);
+            } else {
+              cb(false);
+            }
+          })
+          .catch((err) => {
+            // On any error, simply call cb(false)
+            cb(false);
+          });
       }
     } else {
       cb(false);
@@ -551,50 +541,40 @@ GroupSerie.findOne(findObject, "admins")
   }
 
   function groupsInit() {
-  
-  
-GroupSerie.findOne({ lName: "personal" }, "lName")
-  .exec()
-  .then((idwa) => {
-    if (!idwa) {
-      const groupObj = {
-        name: "Personal",
-        lName: "personal",
-        open: true,
-        score: 0,
-      };
-      const groupReceive = new GroupSerie(groupObj);
-      return groupReceive.save();
-    }
-  })
-  .catch((err) => {
-    console.error(err);
-  });
-    
-    
-    
-    
+    GroupSerie.findOne({ lName: "personal" }, "lName")
+      .exec()
+      .then((idwa) => {
+        if (!idwa) {
+          const groupObj = {
+            name: "Personal",
+            lName: "personal",
+            open: true,
+            score: 0,
+          };
+          const groupReceive = new GroupSerie(groupObj);
+          return groupReceive.save();
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
   groupsInit();
 
   function getUsers(fn) {
-  
-  
-User.find({}, "local")
-  .exec()
-  .then((idwa) => {
-    var userList = [];
-    for (var x in idwa) {
-      userList.push(idwa[x].local.username);
-    }
-    fn(userList);
-  })
-  .catch((err) => {
-    console.error(err);
-    // Optionally handle error, e.g., call fn([]) or similar.
-  });
-    
-    
+    User.find({}, "local")
+      .exec()
+      .then((idwa) => {
+        var userList = [];
+        for (var x in idwa) {
+          userList.push(idwa[x].local.username);
+        }
+        fn(userList);
+      })
+      .catch((err) => {
+        console.error(err);
+        // Optionally handle error, e.g., call fn([]) or similar.
+      });
   }
 
   app.get("/newgroup", function (req, res) {
@@ -739,49 +719,45 @@ User.find({}, "local")
         }
         console.log(sortBy === "score");
         console.log(sortBy === "date");
-        
-        
-        
-PredictSerie.countDocuments(predictionFind)
-  .exec()
-  .then((edw1) => {
-    return PredictSerie.find(predictionFind)
-      .sort(sortObj)
-      .skip(pagenum * pagelen)
-      .limit(pagelen)
-      .select("desc score ldesc group groupProper open start complete outcomes headline")
-      .exec()
-      .then((idw) => ({ edw1, idw }));
-  })
-  .then(({ edw1, idw }) => {
-    renderHeader.thisPage = parseInt(pagenum);
-    renderHeader.totalPages = Math.ceil(edw1 / pagelen);
-    renderHeader.predictionsArray = idw;
-    renderHeader.sortURL = "sort=" + sortBy;
-    renderHeader.completeURL = "complete=" + completeFindURL;
-    renderHeader.nextPage =
-      "?page=" +
-      (parseInt(pagenum) + 1) +
-      "&sort=" +
-      sortBy +
-      "&complete=" +
-      completeFindURL;
-    renderHeader.previousPage =
-      "?page=" +
-      parseInt(pagenum - 1) +
-      "&sort=" +
-      sortBy +
-      "&complete=" +
-      completeFindURL;
-    renderJade(req, res, template, renderHeader);
-  })
-  .catch((err) => {
-    res.send(err);
-  });
-        
-        
-        
-        
+
+        PredictSerie.countDocuments(predictionFind)
+          .exec()
+          .then((edw1) => {
+            return PredictSerie.find(predictionFind)
+              .sort(sortObj)
+              .skip(pagenum * pagelen)
+              .limit(pagelen)
+              .select(
+                "desc score ldesc group groupProper open start complete outcomes headline",
+              )
+              .exec()
+              .then((idw) => ({ edw1, idw }));
+          })
+          .then(({ edw1, idw }) => {
+            renderHeader.thisPage = parseInt(pagenum);
+            renderHeader.totalPages = Math.ceil(edw1 / pagelen);
+            renderHeader.predictionsArray = idw;
+            renderHeader.sortURL = "sort=" + sortBy;
+            renderHeader.completeURL = "complete=" + completeFindURL;
+            renderHeader.nextPage =
+              "?page=" +
+              (parseInt(pagenum) + 1) +
+              "&sort=" +
+              sortBy +
+              "&complete=" +
+              completeFindURL;
+            renderHeader.previousPage =
+              "?page=" +
+              parseInt(pagenum - 1) +
+              "&sort=" +
+              sortBy +
+              "&complete=" +
+              completeFindURL;
+            renderJade(req, res, template, renderHeader);
+          })
+          .catch((err) => {
+            res.send(err);
+          });
       } else {
         if (send === 0) {
           res.redirect("/signup");
@@ -855,116 +831,117 @@ PredictSerie.countDocuments(predictionFind)
           reqObject.group &&
           tf
         ) {
-        
-        
-        
-PredictSerie.findOne(findObject).exec()
-  .then((idwa) => {
-    if (!idwa) {
-      console.log("sending 2");
-      res.json({});
-      // Return a resolved promise to short‐circuit the rest of the chain.
-      return Promise.resolve(null);
-    }
+          PredictSerie.findOne(findObject)
+            .exec()
+            .then((idwa) => {
+              if (!idwa) {
+                console.log("sending 2");
+                res.json({});
+                // Return a resolved promise to short‐circuit the rest of the chain.
+                return Promise.resolve(null);
+              }
 
-    // Determine if this prediction is allowed.
-    let allowed = true;
-    for (let i = 0; i < idwa.outcomes.length; i++) {
-      if (idwa.outcomes[i].answer === predictionStrip.answer && idwa.outcomes[i] > -1) {
-        allowed = false;
-        break;
-      }
-    }
+              // Determine if this prediction is allowed.
+              let allowed = true;
+              for (let i = 0; i < idwa.outcomes.length; i++) {
+                if (
+                  idwa.outcomes[i].answer === predictionStrip.answer &&
+                  idwa.outcomes[i] > -1
+                ) {
+                  allowed = false;
+                  break;
+                }
+              }
 
-    // Build the highLightObject and update headline value.
-    const highLightObject = {};
-    const dataResponse = idwa.data;
-    dataResponse.push(predictionStrip);
-    for (let j = 0; j < dataResponse.length; j++) {
-      if (dataResponse[j].answer === predictionStrip.answer) {
-        if (highLightObject[dataResponse[j].name]) {
-          if (new Date(dataResponse[j].date) > new Date(highLightObject[dataResponse[j].name][1])) {
-            highLightObject[dataResponse[j].name] = [dataResponse[j].val, new Date(dataResponse[j].date)];
-          }
-        } else {
-          highLightObject[dataResponse[j].name] = [dataResponse[j].val, new Date(dataResponse[j].date)];
-        }
-      }
-    }
-    let meanTotal = 0;
-    let meanCount = 0;
-    for (let useName in highLightObject) {
-      meanCount++;
-      meanTotal += highLightObject[useName][0];
-    }
-    const mean = meanTotal / meanCount;
-    const headlineUpdate = idwa.headline;
-    const position = idwa.answers.indexOf(predictionStrip.answer);
-    headlineUpdate[position] = mean;
+              // Build the highLightObject and update headline value.
+              const highLightObject = {};
+              const dataResponse = idwa.data;
+              dataResponse.push(predictionStrip);
+              for (let j = 0; j < dataResponse.length; j++) {
+                if (dataResponse[j].answer === predictionStrip.answer) {
+                  if (highLightObject[dataResponse[j].name]) {
+                    if (
+                      new Date(dataResponse[j].date) >
+                      new Date(highLightObject[dataResponse[j].name][1])
+                    ) {
+                      highLightObject[dataResponse[j].name] = [
+                        dataResponse[j].val,
+                        new Date(dataResponse[j].date),
+                      ];
+                    }
+                  } else {
+                    highLightObject[dataResponse[j].name] = [
+                      dataResponse[j].val,
+                      new Date(dataResponse[j].date),
+                    ];
+                  }
+                }
+              }
+              let meanTotal = 0;
+              let meanCount = 0;
+              for (let useName in highLightObject) {
+                meanCount++;
+                meanTotal += highLightObject[useName][0];
+              }
+              const mean = meanTotal / meanCount;
+              const headlineUpdate = idwa.headline;
+              const position = idwa.answers.indexOf(predictionStrip.answer);
+              headlineUpdate[position] = mean;
 
-    if (!allowed) {
-      console.log("sending 1");
-      res.json({});
-      return Promise.resolve(null);
-    }
+              if (!allowed) {
+                console.log("sending 1");
+                res.json({});
+                return Promise.resolve(null);
+              }
 
-    // If allowed, update the PredictSerie document.
-    return PredictSerie.findOneAndUpdate(
-      findObject,
-      {
-        $push: { data: predictionStrip },
-        $set: { headline: headlineUpdate },
-        $addToSet: { users: reqObject.name },
-      },
-      { safe: true, upsert: true }
-    ).exec();
-  })
-  .then((result) => {
-    // If result is null then we already sent a response.
-    if (!result) return;
+              // If allowed, update the PredictSerie document.
+              return PredictSerie.findOneAndUpdate(
+                findObject,
+                {
+                  $push: { data: predictionStrip },
+                  $set: { headline: headlineUpdate },
+                  $addToSet: { users: reqObject.name },
+                },
+                { safe: true, upsert: true },
+              ).exec();
+            })
+            .then((result) => {
+              // If result is null then we already sent a response.
+              if (!result) return;
 
-    const voteRequestPartial = {
-      up: 1,
-      group: findObject.group,
-      prediction: findObject.ldesc,
-    };
-    req.params.id = JSON.stringify(voteRequestPartial);
-    voteFunction(req, findObject.group, findObject.ldesc, 1);
+              const voteRequestPartial = {
+                up: 1,
+                group: findObject.group,
+                prediction: findObject.ldesc,
+              };
+              req.params.id = JSON.stringify(voteRequestPartial);
+              voteFunction(req, findObject.group, findObject.ldesc, 1);
 
-    const userFind = { "local.username": reqObject.name };
-    return User.findOneAndUpdate(
-      userFind,
-      {
-        $addToSet: {
-          groups: findObject.group,
-          predictions: findObject.group + "&" + findObject.ldesc,
-          groupsProper: groupProper,
-          predictionsProper: findObject.group + "&" + result.desc,
-        },
-      },
-      { safe: true, upsert: true }
-    ).exec();
-  })
-  .then((result0) => {
-    if (result0) {
-      console.log("sending 0");
-      res.json({});
-      console.log("sent 0");
-    }
-  })
-  .catch((err) => {
-    console.error(err);
-    res.json({});
-  });
-          
-          
-          
-          
-          
-          
-          
-          
-          
+              const userFind = { "local.username": reqObject.name };
+              return User.findOneAndUpdate(
+                userFind,
+                {
+                  $addToSet: {
+                    groups: findObject.group,
+                    predictions: findObject.group + "&" + findObject.ldesc,
+                    groupsProper: groupProper,
+                    predictionsProper: findObject.group + "&" + result.desc,
+                  },
+                },
+                { safe: true, upsert: true },
+              ).exec();
+            })
+            .then((result0) => {
+              if (result0) {
+                console.log("sending 0");
+                res.json({});
+                console.log("sent 0");
+              }
+            })
+            .catch((err) => {
+              console.error(err);
+              res.json({});
+            });
         } else {
           console.log("sending 3");
           res.json({ message: "Invalid number" });
@@ -999,71 +976,62 @@ PredictSerie.findOne(findObject).exec()
       //var permission = false;
       isAdmin(req, reqObject.group, function (tf, groupProper) {
         if (tf) {
-        
-        
-        
-        
-GroupSerie.findOne(findObject, "members")
-  .exec()
-  .then((groupResult) => {
-    if (
-      groupResult.members.indexOf(name) > -1 &&
-      name !== "admin" &&
-      name !== req.user.local.username
-    ) {
-      const findUser = { "local.username": name };
-      return User.findOneAndUpdate(
-        findUser,
-        {
-          $pull: {
-            predictions: { $regex: findObject.lName + "&.*" },
-            predictionsAdmin: { $regex: findObject.lName + "&.*" },
-            groups: findObject.lName,
-            admins: findObject.lName,
-            predictionsProper: { $regex: findObject.lName + "&.*" },
-            predictionsAdminProper: { $regex: findObject.lName + "&.*" },
-            groupsProper: groupProper,
-            adminsProper: groupProper,
-          },
-        },
-        { safe: true, upsert: true }
-      ).exec();
-    } else {
-      res.json({ message: "already a member" });
-      // Return null to short-circuit the chain
-      return Promise.resolve(null);
-    }
-  })
-  .then((updatedUser) => {
-    // If a response has already been sent, stop processing.
-    if (res.headersSent) return Promise.resolve(null);
-    if (!updatedUser) {
-      res.json({ message: "no such member" });
-      return Promise.resolve(null);
-    }
-    return GroupSerie.findOneAndUpdate(
-      findObject,
-      { $pull: { members: name } },
-      { safe: true, upsert: true }
-    ).exec();
-  })
-  .then((result) => {
-    if (!res.headersSent && result) {
-      res.json({ success: true });
-    }
-  })
-  .catch((err) => {
-    if (!res.headersSent) {
-      res.json({ message: "Error" });
-    }
-  });
-          
-          
-          
-          
-          
-          
-          
+          GroupSerie.findOne(findObject, "members")
+            .exec()
+            .then((groupResult) => {
+              if (
+                groupResult.members.indexOf(name) > -1 &&
+                name !== "admin" &&
+                name !== req.user.local.username
+              ) {
+                const findUser = { "local.username": name };
+                return User.findOneAndUpdate(
+                  findUser,
+                  {
+                    $pull: {
+                      predictions: { $regex: findObject.lName + "&.*" },
+                      predictionsAdmin: { $regex: findObject.lName + "&.*" },
+                      groups: findObject.lName,
+                      admins: findObject.lName,
+                      predictionsProper: { $regex: findObject.lName + "&.*" },
+                      predictionsAdminProper: {
+                        $regex: findObject.lName + "&.*",
+                      },
+                      groupsProper: groupProper,
+                      adminsProper: groupProper,
+                    },
+                  },
+                  { safe: true, upsert: true },
+                ).exec();
+              } else {
+                res.json({ message: "already a member" });
+                // Return null to short-circuit the chain
+                return Promise.resolve(null);
+              }
+            })
+            .then((updatedUser) => {
+              // If a response has already been sent, stop processing.
+              if (res.headersSent) return Promise.resolve(null);
+              if (!updatedUser) {
+                res.json({ message: "no such member" });
+                return Promise.resolve(null);
+              }
+              return GroupSerie.findOneAndUpdate(
+                findObject,
+                { $pull: { members: name } },
+                { safe: true, upsert: true },
+              ).exec();
+            })
+            .then((result) => {
+              if (!res.headersSent && result) {
+                res.json({ success: true });
+              }
+            })
+            .catch((err) => {
+              if (!res.headersSent) {
+                res.json({ message: "Error" });
+              }
+            });
         }
       });
     }
@@ -1082,60 +1050,52 @@ GroupSerie.findOne(findObject, "members")
       //var permission = false;
       isAdmin(req, findObject.lName, function (tf, groupProper) {
         if (tf) {
-        
-        
-        
-        
-GroupSerie.findOne(findObject, "members")
-  .exec()
-  .then((groupResult) => {
-    if (groupResult.members.indexOf(newName) === -1 && newName !== "admin") {
-      const findUser = { "local.username": newName };
-      return User.findOneAndUpdate(
-        findUser,
-        {
-          $addToSet: {
-            groups: findObject.lName,
-            groupsProper: groupProper,
-          },
-        },
-        { safe: true, upsert: true }
-      )
-        .exec()
-        .then((userResult) => {
-          if (userResult) {
-            return GroupSerie.findOneAndUpdate(
-              findObject,
-              { $push: { members: newName } },
-              { safe: true, upsert: true }
-            ).exec();
-          } else {
-            res.json({ message: "no such member" });
-            // Return null to break out of the chain
-            return Promise.resolve(null);
-          }
-        });
-    } else {
-      res.json({ message: "already a member" });
-      return Promise.resolve(null);
-    }
-  })
-  .then((finalResult) => {
-    // Only send success if we got a result from the last update.
-    if (finalResult !== null) {
-      res.json({ success: true });
-    }
-  })
-  .catch((err) => {
-    res.json({ message: "Error" });
-  });
-          
-          
-          
-          
-          
-          
-          
+          GroupSerie.findOne(findObject, "members")
+            .exec()
+            .then((groupResult) => {
+              if (
+                groupResult.members.indexOf(newName) === -1 &&
+                newName !== "admin"
+              ) {
+                const findUser = { "local.username": newName };
+                return User.findOneAndUpdate(
+                  findUser,
+                  {
+                    $addToSet: {
+                      groups: findObject.lName,
+                      groupsProper: groupProper,
+                    },
+                  },
+                  { safe: true, upsert: true },
+                )
+                  .exec()
+                  .then((userResult) => {
+                    if (userResult) {
+                      return GroupSerie.findOneAndUpdate(
+                        findObject,
+                        { $push: { members: newName } },
+                        { safe: true, upsert: true },
+                      ).exec();
+                    } else {
+                      res.json({ message: "no such member" });
+                      // Return null to break out of the chain
+                      return Promise.resolve(null);
+                    }
+                  });
+              } else {
+                res.json({ message: "already a member" });
+                return Promise.resolve(null);
+              }
+            })
+            .then((finalResult) => {
+              // Only send success if we got a result from the last update.
+              if (finalResult !== null) {
+                res.json({ success: true });
+              }
+            })
+            .catch((err) => {
+              res.json({ message: "Error" });
+            });
         }
       });
     }
@@ -1229,61 +1189,58 @@ GroupSerie.findOne(findObject, "members")
             if (makeLower(prediction.group) === "personal") {
               findObject.author = req.user.local.username;
             }
-            
-            
-            
-            
-            
-PredictSerie.findOne(findObject).exec()
-  .then((idw) => {
-    if (idw) {
-      res.send({ message: "already exists" });
-      // Return null to short-circuit the chain.
-      return Promise.resolve(null);
-    } else {
-      const predictReceive = new PredictSerie(prediction);
-      return predictReceive.save();
-    }
-  })
-  .then((predictReceive) => {
-    if (!predictReceive) return;
-    const voteRequestPartial = {
-      up: 1,
-      group: prediction.group,
-      prediction: prediction.ldesc,
-    };
-    req.params.id = JSON.stringify(voteRequestPartial);
-    voteFunction(req, findObject.group, findObject.ldesc, 1);
-    res.send({
-      success: true,
-      predictionLower: prediction.ldesc,
-      groupLower: prediction.group,
-    });
-    const userFind = { "local.username": makeLower(req.user.local.username) };
-    return User.findOneAndUpdate(
-      userFind,
-      {
-        $addToSet: {
-          groups: prediction.group,
-          predictions: prediction.group + "&" + prediction.ldesc,
-          predictionsAdmin: prediction.group + "&" + prediction.ldesc,
-          groupsProper: groupProper,
-          predictionsProper: prediction.group + "&" + prediction.desc,
-          predictionsAdminProper: prediction.group + "&" + prediction.desc,
-        },
-      },
-      { safe: true, upsert: true }
-    ).exec();
-  })
-  .catch((err) => {
-    // This catch handles errors from either the findOne or save operations.
-    res.send({ message: "oops" });
-  });
-            
-            
-            
-            
-            
+
+            PredictSerie.findOne(findObject)
+              .exec()
+              .then((idw) => {
+                if (idw) {
+                  res.send({ message: "already exists" });
+                  // Return null to short-circuit the chain.
+                  return Promise.resolve(null);
+                } else {
+                  const predictReceive = new PredictSerie(prediction);
+                  return predictReceive.save();
+                }
+              })
+              .then((predictReceive) => {
+                if (!predictReceive) return;
+                const voteRequestPartial = {
+                  up: 1,
+                  group: prediction.group,
+                  prediction: prediction.ldesc,
+                };
+                req.params.id = JSON.stringify(voteRequestPartial);
+                voteFunction(req, findObject.group, findObject.ldesc, 1);
+                res.send({
+                  success: true,
+                  predictionLower: prediction.ldesc,
+                  groupLower: prediction.group,
+                });
+                const userFind = {
+                  "local.username": makeLower(req.user.local.username),
+                };
+                return User.findOneAndUpdate(
+                  userFind,
+                  {
+                    $addToSet: {
+                      groups: prediction.group,
+                      predictions: prediction.group + "&" + prediction.ldesc,
+                      predictionsAdmin:
+                        prediction.group + "&" + prediction.ldesc,
+                      groupsProper: groupProper,
+                      predictionsProper:
+                        prediction.group + "&" + prediction.desc,
+                      predictionsAdminProper:
+                        prediction.group + "&" + prediction.desc,
+                    },
+                  },
+                  { safe: true, upsert: true },
+                ).exec();
+              })
+              .catch((err) => {
+                // This catch handles errors from either the findOne or save operations.
+                res.send({ message: "oops" });
+              });
           } else {
             res.send({ message: "incomplete" });
           }
@@ -1379,21 +1336,15 @@ PredictSerie.findOne(findObject).exec()
       }
       isMember(req, findObject.group, function (tf, groupProper) {
         if (tf) {
-        
-        
-        
-PredictSerie.findOne(findObject)
-  .exec()
-  .then((idw) => {
-    console.log("sending: " + JSON.stringify(idw));
-    res.json(idw);
-  })
-  .catch((err) => {
-    res.send(err);
-  });
-          
-          
-          
+          PredictSerie.findOne(findObject)
+            .exec()
+            .then((idw) => {
+              console.log("sending: " + JSON.stringify(idw));
+              res.json(idw);
+            })
+            .catch((err) => {
+              res.send(err);
+            });
         } else {
           res.json({});
         }
@@ -1420,21 +1371,14 @@ PredictSerie.findOne(findObject)
       }
       isMember(req, findObject.group, function (tf, groupProper) {
         if (tf) {
-        
-        
-
-        
-PredictSerie.findOne(findObject)
-  .exec()
-  .then((idw) => {
-    res.json(idw.comment);
-  })
-  .catch((err) => {
-    res.send(err);
-  });
-          
-          
-          
+          PredictSerie.findOne(findObject)
+            .exec()
+            .then((idw) => {
+              res.json(idw.comment);
+            })
+            .catch((err) => {
+              res.send(err);
+            });
         } else {
           res.json({});
         }
@@ -1457,26 +1401,20 @@ PredictSerie.findOne(findObject)
         if (findObject.group === "personal") {
           findObject.lauthor = makeLower(req.user.local.username);
         }
-        
-        
-        
-PredictSerie.findOne(findObject)
-  .exec()
-  .then((idw) => {
-    console.log("found vote: " + JSON.stringify(idw));
-    if (!idw) {
-      return res.json({ outcome: 0 });
-    }
-    const vote = idw.vote[0].outcome;
-    return res.json({ outcome: vote });
-  })
-  .catch((err) => {
-    res.send(err);
-  });
-        
-        
-        
-        
+
+        PredictSerie.findOne(findObject)
+          .exec()
+          .then((idw) => {
+            console.log("found vote: " + JSON.stringify(idw));
+            if (!idw) {
+              return res.json({ outcome: 0 });
+            }
+            const vote = idw.vote[0].outcome;
+            return res.json({ outcome: vote });
+          })
+          .catch((err) => {
+            res.send(err);
+          });
       }
     } else {
       res.json({ outcome: 0 });
@@ -1505,239 +1443,234 @@ PredictSerie.findOne(findObject)
       }
       predictionPermission(req, group, prediction, function (tf) {
         if (tf) {
-        
-        
-        
-PredictSerie.findOne(findObject)
-  .exec()
-  .then((foundPrediction) => {
-    // Extract outcomes and build an array of declared answers
-    const outcomes = foundPrediction.outcomes;
-    const answersAvailable = [];
-    for (let i = 0; i < outcomes.length; i++) {
-      answersAvailable.push(outcomes[i].answer);
-    }
-    const answerMatch = answersAvailable.indexOf(answerDeclared);
-    let outcomebase = -1;
-    if (answerMatch > -1) {
-      outcomebase = foundPrediction.outcomes[answerMatch].outcome;
-      foundPrediction.outcomes.splice(answerMatch, 1);
-    }
-    // Create the new/replacement outcome
-    const newOutcome = {
-      answer: answerDeclared,
-      decider: nameCheck,
-      decideDate: new Date(),
-      decideVerbose: "",
-      outcome:
-        reqObject.outcome === 1
-          ? 1
-          : reqObject.outcome === 0
-          ? 0
-          : -1,
-    };
+          PredictSerie.findOne(findObject)
+            .exec()
+            .then((foundPrediction) => {
+              // Extract outcomes and build an array of declared answers
+              const outcomes = foundPrediction.outcomes;
+              const answersAvailable = [];
+              for (let i = 0; i < outcomes.length; i++) {
+                answersAvailable.push(outcomes[i].answer);
+              }
+              const answerMatch = answersAvailable.indexOf(answerDeclared);
+              let outcomebase = -1;
+              if (answerMatch > -1) {
+                outcomebase = foundPrediction.outcomes[answerMatch].outcome;
+                foundPrediction.outcomes.splice(answerMatch, 1);
+              }
+              // Create the new/replacement outcome
+              const newOutcome = {
+                answer: answerDeclared,
+                decider: nameCheck,
+                decideDate: new Date(),
+                decideVerbose: "",
+                outcome:
+                  reqObject.outcome === 1
+                    ? 1
+                    : reqObject.outcome === 0
+                      ? 0
+                      : -1,
+              };
 
-    // If no change in outcome, respond immediately
-    if (outcomebase === newOutcome.outcome) {
-      res.json({});
-      return Promise.resolve(null);
-    } else {
-      foundPrediction.outcomes.push(newOutcome);
-      let complete = true;
-      for (let i = 0; i < outcomes.length; i++) {
-        if (outcomes[i].outcome === -1) {
-          complete = false;
-        }
-      }
-      if (foundPrediction.answers.length !== outcomes.length) {
-        complete = false;
-      }
-      foundPrediction.complete = complete;
-      return foundPrediction.save();
-    }
-  })
-  .then((savedPrediction) => {
-    // If no update was needed, savedPrediction will be null
-    if (!savedPrediction) return Promise.resolve(null);
+              // If no change in outcome, respond immediately
+              if (outcomebase === newOutcome.outcome) {
+                res.json({});
+                return Promise.resolve(null);
+              } else {
+                foundPrediction.outcomes.push(newOutcome);
+                let complete = true;
+                for (let i = 0; i < outcomes.length; i++) {
+                  if (outcomes[i].outcome === -1) {
+                    complete = false;
+                  }
+                }
+                if (foundPrediction.answers.length !== outcomes.length) {
+                  complete = false;
+                }
+                foundPrediction.complete = complete;
+                return foundPrediction.save();
+              }
+            })
+            .then((savedPrediction) => {
+              // If no update was needed, savedPrediction will be null
+              if (!savedPrediction) return Promise.resolve(null);
 
-    // Determine affected users based on the new answer
-    const affectedUsers = [];
-    for (let i = 0; i < savedPrediction.data.length; i++) {
-      if (
-        affectedUsers.indexOf(savedPrediction.data[i].name) === -1 &&
-        savedPrediction.data[i].answer === answerDeclared
-      ) {
-        affectedUsers.push(savedPrediction.data[i].name);
-      }
-    }
+              // Determine affected users based on the new answer
+              const affectedUsers = [];
+              for (let i = 0; i < savedPrediction.data.length; i++) {
+                if (
+                  affectedUsers.indexOf(savedPrediction.data[i].name) === -1 &&
+                  savedPrediction.data[i].answer === answerDeclared
+                ) {
+                  affectedUsers.push(savedPrediction.data[i].name);
+                }
+              }
 
-    // Build predictionData, allForMean, etc.
-    const useData = savedPrediction.data;
-    const predictionData = {};
-    let allForMean = [];
-    for (let entry = 0; entry < useData.length; entry++) {
-      const xCandidate = new Date(useData[entry].date);
-      const yCandidate = useData[entry].val;
-      const nameCandidate = useData[entry].name;
-      if (useData[entry].answer === answerDeclared) {
-        const toAdd = [yCandidate, xCandidate];
-        const toAddName = [yCandidate, xCandidate, nameCandidate];
-        if (predictionData[nameCandidate]) {
-          predictionData[nameCandidate].push(toAdd);
-        } else {
-          predictionData[nameCandidate] = [toAdd];
-        }
-        allForMean.push(toAddName);
-      }
-    }
-    allForMean = allForMean.sort(Comparator);
-    const startDate = allForMean[0][1];
-    for (let entry in predictionData) {
-      predictionData[entry].sort(Comparator);
-    }
-    const finishDate = new Date();
-    const scoreObject = {};
-    let meanScore;
-    let rejectedCandidate;
-    let nextDate, differenceDate;
-    for (let userName in predictionData) {
-      const meanInputObject = {};
-      const meanData = [];
-      for (let entry = 0; entry < allForMean.length; entry++) {
-        if (allForMean[entry][2] !== userName) {
-          meanInputObject[allForMean[entry][2]] = allForMean[entry][0];
-          const useDate = new Date(allForMean[entry][1]);
-          let meanTotal = 0;
-          let meanCount = 0;
-          for (let useName in meanInputObject) {
-            meanCount++;
-            meanTotal += meanInputObject[useName];
-          }
-          const mean = meanTotal / meanCount;
-          if (allForMean[entry][1] > predictionData[userName][0][1]) {
-            meanData.push([mean, useDate, meanTotal, meanCount]);
-          } else {
-            rejectedCandidate = [mean, useDate, meanTotal, meanCount];
-          }
-        }
-      }
-      let firstPoint;
-      if (meanData[0]) {
-        if (meanData[0][1] > predictionData[userName][0][1]) {
-          firstPoint = [0.5, predictionData[userName][0][1], 0.5, 1];
-        } else {
-          firstPoint = rejectedCandidate;
-          firstPoint[1] = predictionData[userName][0][1];
-        }
-      } else {
-        if (allForMean[0][1] < predictionData[userName][0][1]) {
-          firstPoint = rejectedCandidate;
-          firstPoint[1] = predictionData[userName][0][1];
-        } else {
-          firstPoint = [0.5, predictionData[userName][0][1], 0.5, 1];
-        }
-      }
-      meanData.unshift(firstPoint);
-      let totalWeight = 0;
-      for (let i = 0; i < predictionData[userName].length; i++) {
-        if (i < predictionData[userName].length - 1) {
-          nextDate = predictionData[userName][i + 1][1];
-        } else {
-          nextDate = finishDate;
-        }
-        differenceDate = nextDate - predictionData[userName][i][1];
-        totalWeight += differenceDate * predictionData[userName][i][0];
-      }
-      const userScore =
-        totalWeight / (finishDate - predictionData[userName][0][1]);
-      let totalMeanWeight = 0;
-      for (let i = 0; i < meanData.length; i++) {
-        if (i < meanData.length - 1) {
-          nextDate = meanData[i + 1][1];
-        } else {
-          nextDate = finishDate;
-        }
-        differenceDate = nextDate - meanData[i][1];
-        totalMeanWeight += differenceDate * meanData[i][0];
-      }
-      meanScore = totalMeanWeight / (finishDate - meanData[0][1]);
-      scoreObject[userName] =
-        (((userScore - meanScore) *
-          (finishDate - predictionData[userName][0][1])) /
-          (finishDate - startDate)) *
-        100;
-      if (newOutcome.outcome === 0) {
-        scoreObject[userName] *= -1;
-      }
-    }
-    // Pass along affectedUsers and scoreObject for the next stage.
-    return { affectedUsers, scoreObject, newOutcome };
-  })
-  .then((result) => {
-    if (!result) return Promise.resolve(null);
-    const { affectedUsers, scoreObject, newOutcome } = result;
-    const userFind = { "local.username": { $in: affectedUsers } };
-    const outcomeToPush =
-      newOutcome.outcome === 1 ? true : newOutcome.outcome === 0 ? false : undefined;
-    const updateObject = {
-      $pull: {
-        outcomes: {
-          answer: answerDeclared,
-          group: findObject.group,
-        },
-      },
-    };
-    // Update users to remove previous outcomes
-    return User.update(userFind, updateObject, { multi: true })
-      .exec()
-      .then(() => ({ userFind, outcomeToPush, scoreObject }));
-  })
-  .then((result) => {
-    if (!result) return Promise.resolve(null);
-    const { userFind, outcomeToPush, scoreObject } = result;
-    // Use a stream to update each affected user document
-    return new Promise((resolve, reject) => {
-      const stream = User.find(userFind, "score outcomes local", { multi: true }).stream();
-      stream.on("data", (doc) => {
-        let scoreToUse = 0;
-        for (let i = 0; i < doc.outcomes.length; i++) {
-          scoreToUse += doc.outcomes[i].score;
-        }
-        scoreToUse += scoreObject[doc.local.username];
-        const newUpdate = {
-          answer: answerDeclared,
-          prediction: findObject.ldesc,
-          group: findObject.group,
-          outcome: outcomeToPush,
-          date: new Date(),
-          score: scoreObject[doc.local.username],
-        };
-        doc.score = scoreToUse;
-        doc.outcomes.push(newUpdate);
-        // Save each user document; errors here are logged but not propagated.
-        doc.save().catch((err) => console.error(err));
-      });
-      stream.on("end", resolve);
-      stream.on("error", reject);
-    });
-  })
-  .then(() => {
-    res.json({});
-  })
-  .catch((err) => {
-    console.error(err);
-    res.json({ error: "An error occurred" });
-  });
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+              // Build predictionData, allForMean, etc.
+              const useData = savedPrediction.data;
+              const predictionData = {};
+              let allForMean = [];
+              for (let entry = 0; entry < useData.length; entry++) {
+                const xCandidate = new Date(useData[entry].date);
+                const yCandidate = useData[entry].val;
+                const nameCandidate = useData[entry].name;
+                if (useData[entry].answer === answerDeclared) {
+                  const toAdd = [yCandidate, xCandidate];
+                  const toAddName = [yCandidate, xCandidate, nameCandidate];
+                  if (predictionData[nameCandidate]) {
+                    predictionData[nameCandidate].push(toAdd);
+                  } else {
+                    predictionData[nameCandidate] = [toAdd];
+                  }
+                  allForMean.push(toAddName);
+                }
+              }
+              allForMean = allForMean.sort(Comparator);
+              const startDate = allForMean[0][1];
+              for (let entry in predictionData) {
+                predictionData[entry].sort(Comparator);
+              }
+              const finishDate = new Date();
+              const scoreObject = {};
+              let meanScore;
+              let rejectedCandidate;
+              let nextDate, differenceDate;
+              for (let userName in predictionData) {
+                const meanInputObject = {};
+                const meanData = [];
+                for (let entry = 0; entry < allForMean.length; entry++) {
+                  if (allForMean[entry][2] !== userName) {
+                    meanInputObject[allForMean[entry][2]] =
+                      allForMean[entry][0];
+                    const useDate = new Date(allForMean[entry][1]);
+                    let meanTotal = 0;
+                    let meanCount = 0;
+                    for (let useName in meanInputObject) {
+                      meanCount++;
+                      meanTotal += meanInputObject[useName];
+                    }
+                    const mean = meanTotal / meanCount;
+                    if (allForMean[entry][1] > predictionData[userName][0][1]) {
+                      meanData.push([mean, useDate, meanTotal, meanCount]);
+                    } else {
+                      rejectedCandidate = [mean, useDate, meanTotal, meanCount];
+                    }
+                  }
+                }
+                let firstPoint;
+                if (meanData[0]) {
+                  if (meanData[0][1] > predictionData[userName][0][1]) {
+                    firstPoint = [0.5, predictionData[userName][0][1], 0.5, 1];
+                  } else {
+                    firstPoint = rejectedCandidate;
+                    firstPoint[1] = predictionData[userName][0][1];
+                  }
+                } else {
+                  if (allForMean[0][1] < predictionData[userName][0][1]) {
+                    firstPoint = rejectedCandidate;
+                    firstPoint[1] = predictionData[userName][0][1];
+                  } else {
+                    firstPoint = [0.5, predictionData[userName][0][1], 0.5, 1];
+                  }
+                }
+                meanData.unshift(firstPoint);
+                let totalWeight = 0;
+                for (let i = 0; i < predictionData[userName].length; i++) {
+                  if (i < predictionData[userName].length - 1) {
+                    nextDate = predictionData[userName][i + 1][1];
+                  } else {
+                    nextDate = finishDate;
+                  }
+                  differenceDate = nextDate - predictionData[userName][i][1];
+                  totalWeight +=
+                    differenceDate * predictionData[userName][i][0];
+                }
+                const userScore =
+                  totalWeight / (finishDate - predictionData[userName][0][1]);
+                let totalMeanWeight = 0;
+                for (let i = 0; i < meanData.length; i++) {
+                  if (i < meanData.length - 1) {
+                    nextDate = meanData[i + 1][1];
+                  } else {
+                    nextDate = finishDate;
+                  }
+                  differenceDate = nextDate - meanData[i][1];
+                  totalMeanWeight += differenceDate * meanData[i][0];
+                }
+                meanScore = totalMeanWeight / (finishDate - meanData[0][1]);
+                scoreObject[userName] =
+                  (((userScore - meanScore) *
+                    (finishDate - predictionData[userName][0][1])) /
+                    (finishDate - startDate)) *
+                  100;
+                if (newOutcome.outcome === 0) {
+                  scoreObject[userName] *= -1;
+                }
+              }
+              // Pass along affectedUsers and scoreObject for the next stage.
+              return { affectedUsers, scoreObject, newOutcome };
+            })
+            .then((result) => {
+              if (!result) return Promise.resolve(null);
+              const { affectedUsers, scoreObject, newOutcome } = result;
+              const userFind = { "local.username": { $in: affectedUsers } };
+              const outcomeToPush =
+                newOutcome.outcome === 1
+                  ? true
+                  : newOutcome.outcome === 0
+                    ? false
+                    : undefined;
+              const updateObject = {
+                $pull: {
+                  outcomes: {
+                    answer: answerDeclared,
+                    group: findObject.group,
+                  },
+                },
+              };
+              // Update users to remove previous outcomes
+              return User.update(userFind, updateObject, { multi: true })
+                .exec()
+                .then(() => ({ userFind, outcomeToPush, scoreObject }));
+            })
+            .then((result) => {
+              if (!result) return Promise.resolve(null);
+              const { userFind, outcomeToPush, scoreObject } = result;
+              // Use a stream to update each affected user document
+              return new Promise((resolve, reject) => {
+                const stream = User.find(userFind, "score outcomes local", {
+                  multi: true,
+                }).stream();
+                stream.on("data", (doc) => {
+                  let scoreToUse = 0;
+                  for (let i = 0; i < doc.outcomes.length; i++) {
+                    scoreToUse += doc.outcomes[i].score;
+                  }
+                  scoreToUse += scoreObject[doc.local.username];
+                  const newUpdate = {
+                    answer: answerDeclared,
+                    prediction: findObject.ldesc,
+                    group: findObject.group,
+                    outcome: outcomeToPush,
+                    date: new Date(),
+                    score: scoreObject[doc.local.username],
+                  };
+                  doc.score = scoreToUse;
+                  doc.outcomes.push(newUpdate);
+                  // Save each user document; errors here are logged but not propagated.
+                  doc.save().catch((err) => console.error(err));
+                });
+                stream.on("end", resolve);
+                stream.on("error", reject);
+              });
+            })
+            .then(() => {
+              res.json({});
+            })
+            .catch((err) => {
+              console.error(err);
+              res.json({ error: "An error occurred" });
+            });
         } else {
           res.json({});
         }
@@ -1759,90 +1692,85 @@ PredictSerie.findOne(findObject)
         if (tf) {
           var findObject = {};
           findObject.group = group;
-          
-          
-          
-          
-PredictSerie.find(findObject)
-  .exec()
-  .then((idwa0) => {
-    // Build a unique list of affected users from all matching PredictSerie documents
-    let affectedUsers = [];
-    for (let i = 0; i < idwa0.length; i++) {
-      for (let j = 0; j < idwa0[i].users.length; j++) {
-        const candidate = idwa0[i].users[j];
-        if (affectedUsers.indexOf(candidate) === -1) {
-          affectedUsers.push(candidate);
-        }
-      }
-    }
-    // Return the affected users for the next chain
-    return affectedUsers;
-  })
-  .then((affectedUsers) => {
-    // Remove all PredictSerie documents matching findObject
-    return PredictSerie.find(findObject)
-      .remove()
-      .exec()
-      .then(() => affectedUsers);
-  })
-  .then((affectedUsers) => {
-    // Remove the corresponding GroupSerie document
-    const groupFindObject = { lName: group };
-    return GroupSerie.findOne(groupFindObject)
-      .remove()
-      .exec()
-      .then(() => affectedUsers);
-  })
-  .then((affectedUsers) => {
-    // Send the response immediately after removals
-    res.json({ success: true });
-    // Then update users: remove pulled properties from each affected user
-    const userFind = { "local.username": { $in: affectedUsers } };
-    const updateObject = {
-      $pull: {
-        predictions: { $regex: findObject.group + "&.*" },
-        predictionsAdmin: { $regex: findObject.group + "&.*" },
-        groups: findObject.group,
-        admins: findObject.group,
-        outcomes: { group: findObject.group },
-        predictionsProper: { $regex: findObject.group + "&.*" },
-        predictionsAdminProper: { $regex: findObject.group + "&.*" },
-        groupsProper: groupProper,
-        adminsProper: groupProper,
-      },
-    };
-    return User.update(userFind, updateObject, { multi: true }).exec()
-      .then(() => affectedUsers);
-  })
-  .then((affectedUsers) => {
-    // Now update each affected user by recalculating their score.
-    return new Promise((resolve, reject) => {
-      const userFind = { "local.username": { $in: affectedUsers } };
-      const stream = User.find(userFind, "score outcomes local", { multi: true }).stream();
-      stream.on("data", (doc) => {
-        let scoreToUse = 0;
-        for (let i = 0; i < doc.outcomes.length; i++) {
-          scoreToUse += doc.outcomes[i].score;
-        }
-        doc.score = scoreToUse;
-        // Save each document; log errors if any occur during save.
-        doc.save().catch((err) => console.error(err));
-      });
-      stream.on("end", resolve);
-      stream.on("error", reject);
-    });
-  })
-  .catch((err) => {
-    console.error(err);
-    // Optionally, handle errors by sending a response:
-    // res.status(500).json({ success: 0, error: err });
-  });
-          
-          
-          
-          
-          
+
+          PredictSerie.find(findObject)
+            .exec()
+            .then((idwa0) => {
+              // Build a unique list of affected users from all matching PredictSerie documents
+              let affectedUsers = [];
+              for (let i = 0; i < idwa0.length; i++) {
+                for (let j = 0; j < idwa0[i].users.length; j++) {
+                  const candidate = idwa0[i].users[j];
+                  if (affectedUsers.indexOf(candidate) === -1) {
+                    affectedUsers.push(candidate);
+                  }
+                }
+              }
+              // Return the affected users for the next chain
+              return affectedUsers;
+            })
+            .then((affectedUsers) => {
+              // Remove all PredictSerie documents matching findObject
+              return PredictSerie.find(findObject)
+                .remove()
+                .exec()
+                .then(() => affectedUsers);
+            })
+            .then((affectedUsers) => {
+              // Remove the corresponding GroupSerie document
+              const groupFindObject = { lName: group };
+              return GroupSerie.findOne(groupFindObject)
+                .remove()
+                .exec()
+                .then(() => affectedUsers);
+            })
+            .then((affectedUsers) => {
+              // Send the response immediately after removals
+              res.json({ success: true });
+              // Then update users: remove pulled properties from each affected user
+              const userFind = { "local.username": { $in: affectedUsers } };
+              const updateObject = {
+                $pull: {
+                  predictions: { $regex: findObject.group + "&.*" },
+                  predictionsAdmin: { $regex: findObject.group + "&.*" },
+                  groups: findObject.group,
+                  admins: findObject.group,
+                  outcomes: { group: findObject.group },
+                  predictionsProper: { $regex: findObject.group + "&.*" },
+                  predictionsAdminProper: { $regex: findObject.group + "&.*" },
+                  groupsProper: groupProper,
+                  adminsProper: groupProper,
+                },
+              };
+              return User.update(userFind, updateObject, { multi: true })
+                .exec()
+                .then(() => affectedUsers);
+            })
+            .then((affectedUsers) => {
+              // Now update each affected user by recalculating their score.
+              return new Promise((resolve, reject) => {
+                const userFind = { "local.username": { $in: affectedUsers } };
+                const stream = User.find(userFind, "score outcomes local", {
+                  multi: true,
+                }).stream();
+                stream.on("data", (doc) => {
+                  let scoreToUse = 0;
+                  for (let i = 0; i < doc.outcomes.length; i++) {
+                    scoreToUse += doc.outcomes[i].score;
+                  }
+                  doc.score = scoreToUse;
+                  // Save each document; log errors if any occur during save.
+                  doc.save().catch((err) => console.error(err));
+                });
+                stream.on("end", resolve);
+                stream.on("error", reject);
+              });
+            })
+            .catch((err) => {
+              console.error(err);
+              // Optionally, handle errors by sending a response:
+              // res.status(500).json({ success: 0, error: err });
+            });
         } else {
           res.json({ success: false });
         }
@@ -1870,34 +1798,30 @@ PredictSerie.find(findObject)
         }
         isMember(req, group, function (tf, groupProper) {
           if (tf) {
-          
-          
-          
-PredictSerie.findOne(findObject)
-  .exec()
-  .then((foundPrediction) => {
-    if (foundPrediction) {
-      const commentSend = {
-        name: req.user.local.username,
-        text: reqObject.comment,
-        date: new Date(),
-        score: 0,
-      };
-      return PredictSerie.findOneAndUpdate(
-        findObject,
-        { $push: { comment: commentSend } },
-        { safe: true, upsert: true }
-      ).exec()
-      .then(() => res.json({ success: true }));
-    } else {
-      res.json({});
-    }
-  })
-  .catch((err) => {
-    res.send(err);
-  });
-            
-            
+            PredictSerie.findOne(findObject)
+              .exec()
+              .then((foundPrediction) => {
+                if (foundPrediction) {
+                  const commentSend = {
+                    name: req.user.local.username,
+                    text: reqObject.comment,
+                    date: new Date(),
+                    score: 0,
+                  };
+                  return PredictSerie.findOneAndUpdate(
+                    findObject,
+                    { $push: { comment: commentSend } },
+                    { safe: true, upsert: true },
+                  )
+                    .exec()
+                    .then(() => res.json({ success: true }));
+                } else {
+                  res.json({});
+                }
+              })
+              .catch((err) => {
+                res.send(err);
+              });
           } else {
             res.json({});
           }
@@ -1948,29 +1872,25 @@ PredictSerie.findOne(findObject)
         }
         isAdmin(req, group, function (tf) {
           if (tf) {
-          
-          
-          
-PredictSerie.findOne(findObject)
-  .exec()
-  .then((foundPrediction) => {
-    if (foundPrediction) {
-      const commentSend = { _id: commentID };
-      return PredictSerie.findOneAndUpdate(
-        findObject,
-        { $pull: { comment: commentSend } },
-        { safe: true, upsert: true }
-      ).exec().then(() => res.json({}));
-    } else {
-      res.json({});
-    }
-  })
-  .catch((err) => {
-    res.send(err);
-  });
-            
-            
-            
+            PredictSerie.findOne(findObject)
+              .exec()
+              .then((foundPrediction) => {
+                if (foundPrediction) {
+                  const commentSend = { _id: commentID };
+                  return PredictSerie.findOneAndUpdate(
+                    findObject,
+                    { $pull: { comment: commentSend } },
+                    { safe: true, upsert: true },
+                  )
+                    .exec()
+                    .then(() => res.json({}));
+                } else {
+                  res.json({});
+                }
+              })
+              .catch((err) => {
+                res.send(err);
+              });
           } else {
             res.json({});
           }
@@ -1999,34 +1919,29 @@ PredictSerie.findOne(findObject)
         }
         predictionPermission(req, group, findObject.ldesc, function (tf) {
           if (tf) {
-          
-          
-PredictSerie.findOne(findObject)
-  .exec()
-  .then((foundPrediction) => {
-    if (foundPrediction) {
-      const updateSend = {
-        name: req.user.local.username,
-        text: reqObject.comment,
-        date: new Date(),
-      };
-      return PredictSerie.findOneAndUpdate(
-        findObject,
-        { $push: { verboseUpdate: updateSend } },
-        { safe: true, upsert: true }
-      )
-        .exec()
-        .then(() => res.json({ success: true }));
-    } else {
-      res.json({});
-    }
-  })
-  .catch((err) => {
-    res.send(err);
-  });
-            
-            
-            
+            PredictSerie.findOne(findObject)
+              .exec()
+              .then((foundPrediction) => {
+                if (foundPrediction) {
+                  const updateSend = {
+                    name: req.user.local.username,
+                    text: reqObject.comment,
+                    date: new Date(),
+                  };
+                  return PredictSerie.findOneAndUpdate(
+                    findObject,
+                    { $push: { verboseUpdate: updateSend } },
+                    { safe: true, upsert: true },
+                  )
+                    .exec()
+                    .then(() => res.json({ success: true }));
+                } else {
+                  res.json({});
+                }
+              })
+              .catch((err) => {
+                res.send(err);
+              });
           } else {
             res.json({});
           }
@@ -2089,55 +2004,64 @@ PredictSerie.findOne(findObject)
         findObject.ldesc,
         function (tf) {
           if (tf) {
-          
-          
-          
-let inc;
-PredictSerie.findOne(findObject)
-  .exec()
-  .then((foundPrediction) => {
-    inc = foundPrediction; // store for later use
-    return PredictSerie.findOne(findObject).remove().exec();
-  })
-  .then(() => {
-    // Send response immediately after removal
-    res.send({ a: 1 });
-    const userFind = { "local.username": { $in: inc.users } };
-    const updateObject = {
-      $pull: {
-        predictions: { $regex: findObject.group + "&" + findObject.ldesc },
-        predictionsAdmin: { $regex: findObject.group + "&" + findObject.ldesc },
-        predictionsProper: { $regex: findObject.group + "&" + inc.desc },
-        predictionsAdminProper: { $regex: findObject.group + "&" + inc.desc },
-        outcomes: { group: findObject.group, prediction: findObject.ldesc },
-      },
-    };
-    return User.update(userFind, updateObject, { multi: true }).exec();
-  })
-  .then(() => {
-    const userFind = { "local.username": { $in: inc.users } };
-    // Process each affected user via a stream
-    return new Promise((resolve, reject) => {
-      const stream = User.find(userFind, "score outcomes local", { multi: true }).stream();
-      stream.on("data", (doc) => {
-        let scoreToUse = 0;
-        for (let i = 0; i < doc.outcomes.length; i++) {
-          scoreToUse += doc.outcomes[i].score;
-        }
-        doc.score = scoreToUse;
-        // Save document; errors here are logged but don't stop the stream
-        doc.save().catch((err) => console.error(err));
-      });
-      stream.on("end", resolve);
-      stream.on("error", reject);
-    });
-  })
-  .catch((err) => {
-    res.send(err);
-  });
-            
-            
-            
+            let inc;
+            PredictSerie.findOne(findObject)
+              .exec()
+              .then((foundPrediction) => {
+                inc = foundPrediction; // store for later use
+                return PredictSerie.findOne(findObject).remove().exec();
+              })
+              .then(() => {
+                // Send response immediately after removal
+                res.send({ a: 1 });
+                const userFind = { "local.username": { $in: inc.users } };
+                const updateObject = {
+                  $pull: {
+                    predictions: {
+                      $regex: findObject.group + "&" + findObject.ldesc,
+                    },
+                    predictionsAdmin: {
+                      $regex: findObject.group + "&" + findObject.ldesc,
+                    },
+                    predictionsProper: {
+                      $regex: findObject.group + "&" + inc.desc,
+                    },
+                    predictionsAdminProper: {
+                      $regex: findObject.group + "&" + inc.desc,
+                    },
+                    outcomes: {
+                      group: findObject.group,
+                      prediction: findObject.ldesc,
+                    },
+                  },
+                };
+                return User.update(userFind, updateObject, {
+                  multi: true,
+                }).exec();
+              })
+              .then(() => {
+                const userFind = { "local.username": { $in: inc.users } };
+                // Process each affected user via a stream
+                return new Promise((resolve, reject) => {
+                  const stream = User.find(userFind, "score outcomes local", {
+                    multi: true,
+                  }).stream();
+                  stream.on("data", (doc) => {
+                    let scoreToUse = 0;
+                    for (let i = 0; i < doc.outcomes.length; i++) {
+                      scoreToUse += doc.outcomes[i].score;
+                    }
+                    doc.score = scoreToUse;
+                    // Save document; errors here are logged but don't stop the stream
+                    doc.save().catch((err) => console.error(err));
+                  });
+                  stream.on("end", resolve);
+                  stream.on("error", reject);
+                });
+              })
+              .catch((err) => {
+                res.send(err);
+              });
           }
         },
       );
@@ -2157,38 +2081,33 @@ PredictSerie.findOne(findObject)
         if (makeLower(group) === "personal") {
           findObject.author = req.user.local.username;
         }
-        
-        
-        
-PredictSerie.findOne(
-  findObject,
-  "desc ldesc complete verbose verboseUpdate answers outcomes groupProper"
-)
-  .exec()
-  .then((idwa) => {
-    if (!idwa) {
-      return res.render("404", { url: req.url });
-    }
-    const renderHeader = {
-      group: group, // assuming group is defined in an outer scope
-      groupProper: idwa.groupProper,
-      message: "",
-      prediction: idwa.ldesc,
-      answers: idwa.answers,
-      outcomes: idwa.outcomes,
-      predictionProper: idwa.desc,
-      verboseAbout: idwa.verbose,
-      complete: idwa.complete,
-      verboseUpdateAbout: idwa.verboseUpdate,
-    };
-    renderJade(req, res, "predictionabout", renderHeader);
-  })
-  .catch((err) => {
-    res.render("404", { url: req.url });
-  });
-        
-        
-        
+
+        PredictSerie.findOne(
+          findObject,
+          "desc ldesc complete verbose verboseUpdate answers outcomes groupProper",
+        )
+          .exec()
+          .then((idwa) => {
+            if (!idwa) {
+              return res.render("404", { url: req.url });
+            }
+            const renderHeader = {
+              group: group, // assuming group is defined in an outer scope
+              groupProper: idwa.groupProper,
+              message: "",
+              prediction: idwa.ldesc,
+              answers: idwa.answers,
+              outcomes: idwa.outcomes,
+              predictionProper: idwa.desc,
+              verboseAbout: idwa.verbose,
+              complete: idwa.complete,
+              verboseUpdateAbout: idwa.verboseUpdate,
+            };
+            renderJade(req, res, "predictionabout", renderHeader);
+          })
+          .catch((err) => {
+            res.render("404", { url: req.url });
+          });
       } else {
         res.redirect("/predict");
       }
@@ -2217,22 +2136,17 @@ PredictSerie.findOne(
         if (tf && test !== "admin") {
           var findObject = {};
           findObject["local.username"] = test;
-          
-          
-          
-User.findOne(findObject)
-  .remove()
-  .exec()
-  .then((removedDoc) => {
-    console.log("Removed document:", removedDoc);
-    res.json({ success: 1 });
-  })
-  .catch((err) => {
-    res.status(500).json({ success: 0, error: err });
-  });
-          
-          
-          
+
+          User.findOne(findObject)
+            .remove()
+            .exec()
+            .then((removedDoc) => {
+              console.log("Removed document:", removedDoc);
+              res.json({ success: 1 });
+            })
+            .catch((err) => {
+              res.status(500).json({ success: 0, error: err });
+            });
         } else {
           res.json({ message: "error" });
         }
@@ -2267,109 +2181,113 @@ User.findOne(findObject)
     var renderHeader = {};
     var findObject = {};
     findObject["local.username"] = makeLower(user);
-    
-    
-User.findOne(
-  findObject,
-  "groups groupsProper admins adminsProper predictions predictionsProper predictionsAdmin predictionsAdminProper score groupScores"
-)
-  .exec()
-  .then((idw) => {
-    if (!idw) {
-      return res.render("404", { url: req.url });
-    }
-    // Build the renderHeader object from the found user
-    renderHeader.userDescription = {};
-    renderHeader.userDescription.score = idw.score;
-    renderHeader.userDescription.name = makeLower(user);
-    renderHeader.message = "";
-    renderHeader.group = "";
 
-    let i;
-    let groupAccess = {};
-    let groupsFind = {};
-    let myGroups = req.user ? req.user.groups : [];
-    groupsFind.lName = { $in: idw.groups };
+    User.findOne(
+      findObject,
+      "groups groupsProper admins adminsProper predictions predictionsProper predictionsAdmin predictionsAdminProper score groupScores",
+    )
+      .exec()
+      .then((idw) => {
+        if (!idw) {
+          return res.render("404", { url: req.url });
+        }
+        // Build the renderHeader object from the found user
+        renderHeader.userDescription = {};
+        renderHeader.userDescription.score = idw.score;
+        renderHeader.userDescription.name = makeLower(user);
+        renderHeader.message = "";
+        renderHeader.group = "";
 
-    // Return the promise for the second query
-    return GroupSerie.find(groupsFind).exec().then((idwa) => {
-      // Determine group access for each group from the found GroupSerie documents
-      for (i = 0; i < idwa.length; i++) {
-        if (idwa[i].lName === "personal") {
-          groupAccess[idwa[i].lName] = false;
-        } else {
-          if (idwa[i].open === true) {
-            groupAccess[idwa[i].lName] = true;
-          } else if (myGroups.indexOf(idwa[i].lName) > -1) {
-            groupAccess[idwa[i].lName] = true;
-          }
-        }
-      }
+        let i;
+        let groupAccess = {};
+        let groupsFind = {};
+        let myGroups = req.user ? req.user.groups : [];
+        groupsFind.lName = { $in: idw.groups };
 
-      // Initialize arrays in the user description
-      renderHeader.userDescription.groups = [];
-      renderHeader.userDescription.admins = [];
-      renderHeader.userDescription.predictions = [];
-      renderHeader.userDescription.predictionsAdmin = [];
-      renderHeader.userDescription.groupsProper = [];
-      renderHeader.userDescription.adminsProper = [];
-      renderHeader.userDescription.predictionsProper = [];
-      renderHeader.userDescription.predictionsAdminProper = [];
+        // Return the promise for the second query
+        return GroupSerie.find(groupsFind)
+          .exec()
+          .then((idwa) => {
+            // Determine group access for each group from the found GroupSerie documents
+            for (i = 0; i < idwa.length; i++) {
+              if (idwa[i].lName === "personal") {
+                groupAccess[idwa[i].lName] = false;
+              } else {
+                if (idwa[i].open === true) {
+                  groupAccess[idwa[i].lName] = true;
+                } else if (myGroups.indexOf(idwa[i].lName) > -1) {
+                  groupAccess[idwa[i].lName] = true;
+                }
+              }
+            }
 
-      // Process groups arrays based on groupAccess
-      for (i = 0; i < idw.groups.length; i++) {
-        if (groupAccess[idw.groups[i]] === true) {
-          renderHeader.userDescription.groups.push(idw.groups[i]);
-          renderHeader.userDescription.groupsProper.push(idw.groupsProper[i]);
-        }
-      }
-      for (i = 0; i < idw.admins.length; i++) {
-        if (groupAccess[idw.admins[i]] === true) {
-          renderHeader.userDescription.admins.push(idw.admins[i]);
-          renderHeader.userDescription.adminsProper.push(idw.adminsProper[i]);
-        }
-      }
+            // Initialize arrays in the user description
+            renderHeader.userDescription.groups = [];
+            renderHeader.userDescription.admins = [];
+            renderHeader.userDescription.predictions = [];
+            renderHeader.userDescription.predictionsAdmin = [];
+            renderHeader.userDescription.groupsProper = [];
+            renderHeader.userDescription.adminsProper = [];
+            renderHeader.userDescription.predictionsProper = [];
+            renderHeader.userDescription.predictionsAdminProper = [];
 
-      // Process predictions arrays
-      let addReg, addProp;
-      for (i = 0; i < idw.predictions.length; i++) {
-        if (groupAccess[idw.predictions[i].split("&")[0]] === true) {
-          addReg =
-            idw.predictions[i].split("&")[0] +
-            "/" +
-            idw.predictions[i].split("&")[1];
-          addProp =
-            idw.predictionsProper[i].split("&")[0] +
-            "/" +
-            idw.predictionsProper[i].split("&")[1];
-          renderHeader.userDescription.predictions.push(addReg);
-          renderHeader.userDescription.predictionsProper.push(addProp);
-        }
-      }
-      for (i = 0; i < idw.predictionsAdmin.length; i++) {
-        if (groupAccess[idw.predictionsAdmin[i].split("&")[0]] === true) {
-          addReg =
-            idw.predictionsAdmin[i].split("&")[0] +
-            "/" +
-            idw.predictionsAdmin[i].split("&")[1];
-          addProp =
-            idw.predictionsAdminProper[i].split("&")[0] +
-            "/" +
-            idw.predictionsAdminProper[i].split("&")[1];
-          renderHeader.userDescription.predictionsAdmin.push(addReg);
-          renderHeader.userDescription.predictionsAdminProper.push(addProp);
-        }
-      }
-      // Finally, render the jade template with the built header
-      renderJade(req, res, "user", renderHeader);
-    });
-  })
-  .catch((err) => {
-    res.render("404", { url: req.url });
-  });
-    
-    
-    
+            // Process groups arrays based on groupAccess
+            for (i = 0; i < idw.groups.length; i++) {
+              if (groupAccess[idw.groups[i]] === true) {
+                renderHeader.userDescription.groups.push(idw.groups[i]);
+                renderHeader.userDescription.groupsProper.push(
+                  idw.groupsProper[i],
+                );
+              }
+            }
+            for (i = 0; i < idw.admins.length; i++) {
+              if (groupAccess[idw.admins[i]] === true) {
+                renderHeader.userDescription.admins.push(idw.admins[i]);
+                renderHeader.userDescription.adminsProper.push(
+                  idw.adminsProper[i],
+                );
+              }
+            }
+
+            // Process predictions arrays
+            let addReg, addProp;
+            for (i = 0; i < idw.predictions.length; i++) {
+              if (groupAccess[idw.predictions[i].split("&")[0]] === true) {
+                addReg =
+                  idw.predictions[i].split("&")[0] +
+                  "/" +
+                  idw.predictions[i].split("&")[1];
+                addProp =
+                  idw.predictionsProper[i].split("&")[0] +
+                  "/" +
+                  idw.predictionsProper[i].split("&")[1];
+                renderHeader.userDescription.predictions.push(addReg);
+                renderHeader.userDescription.predictionsProper.push(addProp);
+              }
+            }
+            for (i = 0; i < idw.predictionsAdmin.length; i++) {
+              if (groupAccess[idw.predictionsAdmin[i].split("&")[0]] === true) {
+                addReg =
+                  idw.predictionsAdmin[i].split("&")[0] +
+                  "/" +
+                  idw.predictionsAdmin[i].split("&")[1];
+                addProp =
+                  idw.predictionsAdminProper[i].split("&")[0] +
+                  "/" +
+                  idw.predictionsAdminProper[i].split("&")[1];
+                renderHeader.userDescription.predictionsAdmin.push(addReg);
+                renderHeader.userDescription.predictionsAdminProper.push(
+                  addProp,
+                );
+              }
+            }
+            // Finally, render the jade template with the built header
+            renderJade(req, res, "user", renderHeader);
+          });
+      })
+      .catch((err) => {
+        res.render("404", { url: req.url });
+      });
   });
 
   app.get("/profile", isLoggedIn, function (req, res) {
@@ -2390,43 +2308,32 @@ User.findOne(
     }
     isMember(req, group, function (tf, groupProper) {
       if (tf) {
-      
-      
-      
-      
-GroupSerie.findOne({ lName: group }).exec()
-  .then((idwa) => {
-    return PredictSerie.findOne(predictFindObject).exec()
-      .then((idwa2) => {
-        if (!idwa2) {
-          return res.render("404", { url: req.url });
-        }
-        const renderHeader = {
-          group: idwa.name,
-          groupLower: makeLower(idwa.name),
-          message: "",
-          prediction: prediction,
-          predictionProper: idwa2.desc,
-        };
-        renderJade(req, res, "prediction", renderHeader);
-      });
-  })
-  .catch((err) => {
-    res.render("404", { url: req.url });
-  });
-        
-        
-        
+        GroupSerie.findOne({ lName: group })
+          .exec()
+          .then((idwa) => {
+            return PredictSerie.findOne(predictFindObject)
+              .exec()
+              .then((idwa2) => {
+                if (!idwa2) {
+                  return res.render("404", { url: req.url });
+                }
+                const renderHeader = {
+                  group: idwa.name,
+                  groupLower: makeLower(idwa.name),
+                  message: "",
+                  prediction: prediction,
+                  predictionProper: idwa2.desc,
+                };
+                renderJade(req, res, "prediction", renderHeader);
+              });
+          })
+          .catch((err) => {
+            res.render("404", { url: req.url });
+          });
       } else {
         res.redirect("/predict");
       }
     });
-    
-    
-    
-    
-    
-    
   });
 
   //this is groupabout rather than group/about (like predictions), as otherwise you couldn't have a prediction called about
