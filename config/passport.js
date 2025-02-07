@@ -15,9 +15,10 @@ module.exports = function (passport) {
   });
   // used to deserialize the user
   passport.deserializeUser(function (id, done) {
-    User.findById(id, function (err, user) {
-      done(err, user);
-    });
+User.findById(id)
+  .exec()
+  .then((user) => done(null, user))
+  .catch((err) => done(err));
   });
   // =========================================================================
   // NEW ============================================================
@@ -30,32 +31,31 @@ module.exports = function (passport) {
       // find a user whose email is the same as the forms email
       // we are checking to see if the user trying to login already exists
       //console.log("name: "+username);
-      User.findOne(
-        { "local.username": username.toLowerCase() },
-        function (err, user) {
-          // if there are any errors, return the error before anything else
-          if (err) {
-            return done(err);
-          }
-          //console.log("one");
-          // if no user is found, return the message
-          if (!user) {
-            console.log("bb");
-            //return done(null, false, req.flash('error_msg', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
-            return done(null, false, { message: "No user found." }); // req.flash is the way to set flashdata using connect-flash
-          }
-          //console.log("ff");
-          // if the user is found but the password is wrong
-          if (!user.validPassword(password)) {
-            console.log("cc");
-            return done(null, false, { message: "Oops! Wrong password." }); // create the loginMessage and save it to session as flashdata
-            //return done(null, false, req.flash('error_msg', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
-          }
-          // all is well, return successful user
-          console.log("dd");
-          return done(null, user);
-        },
-      );
+      
+      
+      
+User.findOne({ "local.username": username.toLowerCase() })
+  .exec()
+  .then((user) => {
+    // if no user is found, return the message
+    if (!user) {
+      console.log("bb");
+      return done(null, false, { message: "No user found." });
+    }
+    // if the user is found but the password is wrong
+    if (!user.validPassword(password)) {
+      console.log("cc");
+      return done(null, false, { message: "Oops! Wrong password." });
+    }
+    // all is well, return successful user
+    console.log("dd");
+    return done(null, user);
+  })
+  .catch((err) => {
+    return done(err);
+  });
+      
+      
     }),
   );
 };

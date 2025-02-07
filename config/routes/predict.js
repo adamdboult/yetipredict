@@ -1283,31 +1283,37 @@ module.exports = function (app) {
             groupObj.verbose = verbose;
             groupObj.created = createdDate;
             var groupReceive = new GroupSerie(groupObj);
-            groupReceive.save(function (err, groupReceive) {
-              if (err) {
-                console.log("bad");
-                res.send({ message: "went wrong" });
-              } else {
-                console.log("good");
-                res.send({ success: true, groupLower: groupObj.lName });
-                var userFind = {};
-                userFind["local.username"] = makeLower(req.user.local.username);
+            
+groupReceive
+  .save()
+  .then((groupReceived) => {
+    console.log("good");
+    res.send({ success: true, groupLower: groupObj.lName });
+    const userFind = { "local.username": makeLower(req.user.local.username) };
 
-                User.findOneAndUpdate(
-                  userFind,
-                  {
-                    $addToSet: {
-                      admins: lName,
-                      groups: lName,
-                      adminsProper: groupReceive.name,
-                      groupsProper: groupReceive.name,
-                    },
-                  },
-                  { safe: true, upsert: true },
-                  function (err0, result0) {},
-                );
-              }
-            });
+    // You can also chain the update if needed, or simply fire and forget.
+    User.findOneAndUpdate(
+      userFind,
+      {
+        $addToSet: {
+          admins: lName,
+          groups: lName,
+          adminsProper: groupReceived.name,
+          groupsProper: groupReceived.name,
+        },
+      },
+      { safe: true, upsert: true }
+    ).exec().catch((err0) => {
+      // Optionally log update errors here
+      console.error("Error updating user:", err0);
+    });
+  })
+  .catch((err) => {
+    console.log("bad");
+    res.send({ message: "went wrong" });
+  });
+            
+            
           } else {
             res.json({ message: "already exists" });
           }
@@ -1779,28 +1785,37 @@ module.exports = function (app) {
   });
 
   app.get("/sendComment/:id", function (req, res) {
+    console.log("got comment here")
     var metaArray = ["comment", "group", "prediction"];
     var reqObject = stripIncomingObject(req.params.id, metaArray);
+    console.log("got comment here2")
     if (!reqObject) {
+        console.log("got comment here3")
       res.json({ message: "Comment not valid" });
     } else {
+    console.log("got comment here4")
       var group = makeLower(reqObject.group);
       //var comment = reqObject.comment;
       var prediction = makeLower(reqObject.prediction);
       if (req.isAuthenticated() === false) {
+    console.log("got comment here5")
         res.redirect("/signup");
       } else {
+    console.log("got comment here6")
         var findObject = {};
         findObject.group = group;
         findObject.ldesc = makeLower(prediction);
         if (makeLower(group) === "personal") {
           findObject.author = req.user.local.username;
         }
+    console.log("got comment here7")
         isMember(req, group, function (tf, groupProper) {
           if (tf) {
+    console.log("got comment here8")
             PredictSerie.findOne(findObject)
               .exec()
               .then((foundPrediction) => {
+    console.log("got comment here9")
                 if (foundPrediction) {
                   const commentSend = {
                     name: req.user.local.username,
