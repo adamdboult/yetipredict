@@ -15,10 +15,10 @@ module.exports = function (passport) {
   });
   // used to deserialize the user
   passport.deserializeUser(function (id, done) {
-User.findById(id)
-  .exec()
-  .then((user) => done(null, user))
-  .catch((err) => done(err));
+    User.findById(id)
+      .exec()
+      .then((user) => done(null, user))
+      .catch((err) => done(err));
   });
   // =========================================================================
   // NEW ============================================================
@@ -31,31 +31,27 @@ User.findById(id)
       // find a user whose email is the same as the forms email
       // we are checking to see if the user trying to login already exists
       //console.log("name: "+username);
-      
-      
-      
-User.findOne({ "local.username": username.toLowerCase() })
-  .exec()
-  .then((user) => {
-    // if no user is found, return the message
-    if (!user) {
-      console.log("bb");
-      return done(null, false, { message: "No user found." });
-    }
-    // if the user is found but the password is wrong
-    if (!user.validPassword(password)) {
-      console.log("cc");
-      return done(null, false, { message: "Oops! Wrong password." });
-    }
-    // all is well, return successful user
-    console.log("dd");
-    return done(null, user);
-  })
-  .catch((err) => {
-    return done(err);
-  });
-      
-      
+
+      User.findOne({ "local.username": username.toLowerCase() })
+        .exec()
+        .then((user) => {
+          // if no user is found, return the message
+          if (!user) {
+            console.log("bb");
+            return done(null, false, { message: "No user found." });
+          }
+          // if the user is found but the password is wrong
+          if (!user.validPassword(password)) {
+            console.log("cc");
+            return done(null, false, { message: "Oops! Wrong password." });
+          }
+          // all is well, return successful user
+          console.log("dd");
+          return done(null, user);
+        })
+        .catch((err) => {
+          return done(err);
+        });
     }),
   );
 };

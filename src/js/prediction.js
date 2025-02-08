@@ -502,16 +502,28 @@ myApp.controller("mainController", [
         "shape-rendering": "crispEdges",
         font: "12px sans-serif",
       };
-      objID = "#d3Master";
-      $(objID).empty();
-      $("#canvasHold").html(
+      objID = "d3Master";
+      //$(objID).empty();
+      document.getElementById(objID).innerHTML = "";
+      //$("#canvasHold").html(
+      //  '<canvas width="' +
+      //    w +
+      //    '" height="' +
+      //    h +
+      //    '" style="display:none"></canvas>',
+      //);
+      document.getElementById("canvasHold").innerHTML =
         '<canvas width="' +
-          w +
-          '" height="' +
-          h +
-          '" style="display:none"></canvas>',
-      );
-      svg = d3.select(objID).append("svg").attr("width", w).attr("height", h);
+        w +
+        '" height="' +
+        h +
+        '" style="display:none"></canvas>';
+
+      svg = d3
+        .select("#" + objID)
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
       svg
         .append("rect")
         .attr("width", w)
