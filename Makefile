@@ -7,11 +7,11 @@
 .PHONY: favicon
 .PHONY: packages
 .PHONY: scripts
-.PHONY: styles
+#.PHONY: styles
 .PHONY: clean
 
 
-all: clean favicon packages scripts styles
+all: clean favicon packages scripts
 
     
 clean:
