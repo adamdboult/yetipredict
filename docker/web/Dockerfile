@@ -1,6 +1,5 @@
 FROM node:22
 
-# Needed for the empty folder stuff to work
 WORKDIR /app
 
 COPY package.json package-lock.json ./
