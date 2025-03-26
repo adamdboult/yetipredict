@@ -131,7 +131,7 @@ function adminInit() {
         const adminUser = new User();
         adminUser.local.username = "admin";
         adminUser.local.admin = true;
-        adminUser.local.password = adminUser.generateHash("dingogodancer");
+        adminUser.local.password = adminUser.generateHash(adminPassword);
         adminUser.local.email = "";
         adminUser.groups = ["personal"];
         adminUser.groupsProper = ["Personal"];
