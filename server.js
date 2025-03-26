@@ -7,6 +7,8 @@ var http = require("http");
 var passport = require("passport");
 var mongoose = require("mongoose");
 
+require("dotenv").config();
+
 ////////////////////////////////////
 /* Process command line arguments */
 ////////////////////////////////////
@@ -107,7 +109,47 @@ require(__dirname + "/config/models/user.js");
 require(__dirname + "/config/models/group.js");
 
 // Create the admin account
-require(__dirname + "/private/admin")(app, passport);
+//require(__dirname + "/private/admin")(app, passport);
+
+var User = require(__dirname + "/../config/models/user");
+
+function adminInit() {
+  //User.findOne({'local.username':'admin'},function(err,idwa){
+  //User.findOne({'local.username':'admin'}).exec(function(err, idwa) {
+  User.findOne({ "local.username": "admin" })
+    .exec()
+    .then((idwa) => {
+      if (idwa) {
+        // User already exists
+      } else {
+        const adminPassword = process.env.ADMIN_PASSWORD;
+        if (!adminPassword) {
+          console.error("Admin password not set in environment variables.");
+          return;
+        }
+
+        const adminUser = new User();
+        adminUser.local.username = "admin";
+        adminUser.local.admin = true;
+        adminUser.local.password = adminUser.generateHash("dingogodancer");
+        adminUser.local.email = "";
+        adminUser.groups = ["personal"];
+        adminUser.groupsProper = ["Personal"];
+        adminUser.groupScores = [];
+        adminUser.score = 0;
+
+        return adminUser.save();
+      }
+    })
+    .then(() => {
+      // Optionally do something after saving
+    })
+    .catch((err) => {
+      // Handle any errors that occurred during the query or save
+      console.error(err);
+    });
+}
+adminInit();
 
 ////////////////////////
 /* Express and routes */
