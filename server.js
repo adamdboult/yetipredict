@@ -124,7 +124,9 @@ function adminInit() {
       } else {
         const adminPassword = process.env.ADMIN_PASSWORD;
         if (!adminPassword) {
-          console.error("Admin password not set in environment variables.");
+          console.error(
+            "Error: Admin password not set in environment variables.",
+          );
           return;
         }
 
@@ -159,9 +161,15 @@ var app = express();
 //AUTHENTICATION
 app.use(express.urlencoded({ extended: false }));
 
+const sessionSecret = process.env.SESSION_SECRET;
+if (!adminPassword) {
+  console.error("error: Session secret not set in environment variables.");
+  return;
+}
+
 app.use(
   session({
-    secret: "rdgnhudsrkhauwung5464grtd",
+    secret: sessionSecret,
     resave: true,
     saveUninitialized: true,
     cookie: { sameSite: "strict" },
