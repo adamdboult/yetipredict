@@ -4,7 +4,6 @@ services:
     build:
       context: ./
       dockerfile: ./docker/web/Dockerfile
-      network: host
     restart: unless-stopped
     ports:
       - "3829:80"
