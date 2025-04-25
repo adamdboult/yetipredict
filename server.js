@@ -111,7 +111,7 @@ require(__dirname + "/config/models/group.js");
 // Create the admin account
 //require(__dirname + "/private/admin")(app, passport);
 
-var User = require(__dirname + "/../config/models/user");
+var User = require(__dirname + "/config/models/user");
 
 function adminInit() {
   //User.findOne({'local.username':'admin'},function(err,idwa){
@@ -162,7 +162,7 @@ var app = express();
 app.use(express.urlencoded({ extended: false }));
 
 const sessionSecret = process.env.SESSION_SECRET;
-if (!adminPassword) {
+if (!sessionSecret) {
   console.error("error: Session secret not set in environment variables.");
   return;
 }
