@@ -1,0 +1,13 @@
+# pnpm v10 blocks dependency build scripts by default. bcrypt needs its install
+# script to compile/download bcrypt_lib.node, otherwise the Docker image builds
+# but Node fails at runtime with "Cannot find module ... bcrypt_lib.node".
+#
+# To allow all dependency build scripts, you could instead use:
+#   dangerouslyAllowAllBuilds: true
+#
+# That is closer to npm's behaviour, but it is less safe: any current or future
+# dependency, including transitive dependencies, could run install/postinstall
+# scripts during install. Prefer explicitly approving only the packages that
+# genuinely need native build steps.
+onlyBuiltDependencies:
+  - bcrypt
