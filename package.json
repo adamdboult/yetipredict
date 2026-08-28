@@ -11,15 +11,15 @@
     "express-session": "^1.19.0",
     "mailcomposer": "^4.0.2",
     "mathjax": "^3.2.2",
-    "mongoose": "^8.24.0",
+    "mongoose": "^8.24.4",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "pug": "^3.0.4"
   },
   "devDependencies": {
     "@eslint/compat": "^1.4.1",
-    "@eslint/js": "^9.39.4",
-    "eslint": "^9.39.4",
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
     "globals": "^16.5.0",
     "npm-check-updates": "^17.1.18"
   }
