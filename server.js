@@ -158,6 +158,9 @@ adminInit();
 ////////////////////////
 var app = express();
 
+// Trust Apache (one hop in front of us) to say whether the visitor used HTTPS
+app.set("trust proxy", 1);
+
 //AUTHENTICATION
 app.use(express.urlencoded({ extended: false }));
 
@@ -172,7 +175,7 @@ app.use(
     secret: sessionSecret,
     resave: true,
     saveUninitialized: true,
-    cookie: { sameSite: "strict" },
+    cookie: { sameSite: "strict", secure: true, httpOnly: true },
   }),
 );
 app.use(passport.initialize());
