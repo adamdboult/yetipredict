@@ -40,15 +40,23 @@ module.exports = function (passport) {
             console.log("bb");
             return done(null, false, { message: "No user found." });
           }
-          // if the user is found but the password is wrong
-          if (!user.validPassword(password)) {
-            console.log("cc");
-            return done(null, false, { message: "Oops! Wrong password." });
-          }
-          // all is well, return successful user
-          console.log("dd");
-          return done(null, user);
-        })
+          
+          
+          // check the password (validPassword returns a promise of true/false)
+          return user.validPassword(password).then((passwordOk) => {
+            // if the user is found but the password is wrong
+            if (!passwordOk) {
+              console.log("cc");
+              return done(null, false, { message: "Oops! Wrong password." });
+            }
+            // all is well, return successful user
+            console.log("dd");
+            return done(null, user);
+          });
+        })        
+        
+        
+        
         .catch((err) => {
           return done(err);
         });

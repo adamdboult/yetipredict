@@ -54,8 +54,10 @@ userSchema.methods.generateHash = function (password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(12), null);
 };
 
+// Returns a promise of true/false. Uses bcrypt's non-blocking version, so
+// checking a password doesn't pause the whole app for other visitors.
 userSchema.methods.validPassword = function (password) {
-  return bcrypt.compareSync(password, this.local.password);
+  return bcrypt.compare(password, this.local.password);
 };
 
 module.exports = mongoose.model("user", userSchema);
