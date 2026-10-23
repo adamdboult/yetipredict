@@ -192,7 +192,7 @@ function isLoggedOut(req, res, next) {
   // if user is authenticated in the session, redirect to profile
   if (req.isAuthenticated()) {
     //console.log("B6");
-    res.redirect("/profile");
+    return res.redirect("/profile");
   }
   // if they aren't carry on
   //console.log("B7");
