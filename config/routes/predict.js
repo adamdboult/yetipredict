@@ -188,7 +188,7 @@ module.exports = function (app) {
       valCheckObject;
     result = {};
     accepted = true;
-    parsedParams = JSON.parse(decodeURI(params));
+    parsedParams = JSON.parse(params); // Express has already decoded the URL
     for (entry in metaArray) {
       console.log("entry is: " + metaArray[entry]);
       keyUsed = metaArray[entry];
@@ -255,7 +255,7 @@ module.exports = function (app) {
 
   function stripIncomingString(params) {
     var result;
-    result = decodeURI(params);
+    result = params; // Express has already decoded the URL
     return result;
   }
 

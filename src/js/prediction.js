@@ -57,7 +57,7 @@ myApp.controller("mainController", [
       toSendObject.group = $scope.currentGroup;
       toSendObject.prediction = $scope.useGraphTitle;
       var toSendString = encodeURIComponent(JSON.stringify(toSendObject));
-      $http.get("/sendComment/" + toSendString).then(function (reponse) {
+      $http.get("/sendComment/" + toSendString).then(function (response) {
         var inc = response.data;
         if (inc.success) {
           $scope.commentInput = "";

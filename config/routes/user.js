@@ -1,6 +1,22 @@
 //var express=require('express');
 //var bcrypt = require('bcrypt');
 var User = require(__dirname + "/../models/user");
+var { rateLimit } = require("express-rate-limit");
+
+// Limit login and signup attempts per visitor IP address, to stop password guessing
+// and mass account creation. Needs app.set("trust proxy", 1) in server.js, otherwise
+// every visitor looks like 127.0.0.1 (Apache) and they'd all share one limit.
+var loginLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  limit: 10,
+  message: "Too many login attempts. Please wait 15 minutes and try again.",
+});
+var signupLimiter = rateLimit({
+  windowMs: 60 * 60 * 1000, // 1 hour
+  limit: 5,
+  message: "Too many sign-ups from your connection. Please try again later.",
+});
+
 module.exports = function (app, passport) {
   /*
     app.get('/login', isLoggedOut, function(req, res) {
@@ -86,7 +102,7 @@ module.exports = function (app, passport) {
         });
     });
    */
-  app.post("/login", (req, res, next) => {
+    app.post("/login", loginLimiter, (req, res, next) => {
     passport.authenticate("local", {
       successRedirect: "/predict",
       failureRedirect: "/login",
@@ -105,7 +121,7 @@ module.exports = function (app, passport) {
         failureFlash : true // allow flash messages
     }));
     */
-  app.post("/signup", (req, res) => {
+    app.post("/signup", signupLimiter, (req, res) => {
     //console.log("hi");
     const { username, email, password, password2 } = req.body;
     //console.log(req.body);

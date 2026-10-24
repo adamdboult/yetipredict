@@ -9,6 +9,7 @@
     "dotenv": "^16.6.1",
     "express": "^4.22.2",
     "express-session": "^1.19.0",
+    "express-rate-limit": "^8.7.1",
     "mailcomposer": "^4.0.2",
     "mathjax": "^3.2.2",
     "mongoose": "^8.24.4",

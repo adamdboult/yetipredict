@@ -16,6 +16,9 @@ services:
     command: mongod --port 27017 --bind_ip 0.0.0.0
     restart: unless-stopped
     volumes:
-      - /data/db/yetipredict_mongo:/data/db
+      - mongo_data:/data/db
     expose:
       - "27017"
+volumes:
+  mongo_data:
+    name: yetipredict_mongo_data
