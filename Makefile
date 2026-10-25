@@ -6,6 +6,9 @@
 .PHONY: scripts
 #.PHONY: styles
 .PHONY: clean
+.PHONY: lock
+.PHONY: lock_nodejs
+.PHONY: lock_python
 .PHONY: vendor
 .PHONY: vendor_nodejs
 .PHONY: vendor_python
@@ -20,20 +23,34 @@ PYTHON := $(VENV_DIR)/bin/python
 
 all: clean favicon packages scripts
 
+lock: lock_nodejs lock_python
+
+# Reads package.json
+# Writes pnpm-lock.yaml, and also raises the minimum versions in package.json (e.g. ^9.39.5 -> ^9.40.0)
+lock_nodejs:
+	npx --yes pnpm@10.33.0 update
+
+lock_python:
+	uv pip compile --upgrade --python-version 3.11 requirements-dev.in --universal --generate-hashes --output-file requirements-dev.txt
     
 vendor: vendor_nodejs vendor_python
-	
+
+# Downloads every package listed in pnpm-lock.yaml into vendor/pnpm-store/, so "make install" can install offline.
+# Reads pnpm-lock.yaml only: doesn't change it, and doesn't look at package.json.
+#   mkdir      - create vendor/npm/pnpm_tgz/ to hold the pnpm download
+#   npm pack   - download pnpm 10.33.0 itself as a .tgz file into vendor/npm/pnpm_tgz/
+#   npm install - unpack that .tgz into vendor/npm/pnpm_bin/, giving a local pnpm at vendor/npm/pnpm_bin/bin/pnpm
+#   pnpm config set store-dir - tell that pnpm to save downloaded packages in vendor/pnpm-store/
+#   pnpm fetch - read pnpm-lock.yaml and download every package it lists into vendor/pnpm-store/
 vendor_nodejs:
 	mkdir -p vendor/npm/pnpm_tgz
 	npm pack pnpm@10.33.0 --pack-destination vendor/npm/pnpm_tgz
 	npm install -g ./vendor/npm/pnpm_tgz/pnpm-10.33.0.tgz --prefix ./vendor/npm/pnpm_bin/
-	./vendor/npm/pnpm_bin/bin/pnpm install --lockfile-only
 	./vendor/npm/pnpm_bin/bin/pnpm config set store-dir vendor/pnpm-store
 	./vendor/npm/pnpm_bin/bin/pnpm fetch
 
 vendor_python:
 	uv venv --clear --python 3.11 --seed $(VENV_DIR)
-	uv pip compile requirements-dev.in --universal --generate-hashes --output-file requirements-dev.txt
 	$(PYTHON) -m pip download -r requirements-dev.txt -d vendor/dist_dev
 	$(PYTHON) -m pip download -d vendor/dist_dev pip setuptools wheel
 
