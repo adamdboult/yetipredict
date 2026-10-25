@@ -102,7 +102,7 @@ module.exports = function (app, passport) {
         });
     });
    */
-    app.post("/login", loginLimiter, (req, res, next) => {
+  app.post("/login", loginLimiter, (req, res, next) => {
     passport.authenticate("local", {
       successRedirect: "/predict",
       failureRedirect: "/login",
@@ -121,7 +121,7 @@ module.exports = function (app, passport) {
         failureFlash : true // allow flash messages
     }));
     */
-    app.post("/signup", signupLimiter, (req, res) => {
+  app.post("/signup", signupLimiter, (req, res) => {
     //console.log("hi");
     const { username, email, password, password2 } = req.body;
     //console.log(req.body);
